@@ -35,7 +35,7 @@ class Review extends Model
 {
     use SoftDeletes;
     protected $table='reviews';
-    protected $fillable = ['comment','teacher_rate','video_rate','pack_rate','user_id','tv_rate','course_rate'];
+    protected $fillable = ['comment','teacher_rate','pack_rate','user_id','course_rate'];
 
     /**
      * @return void

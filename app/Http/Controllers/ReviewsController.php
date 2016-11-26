@@ -72,13 +72,6 @@ class ReviewsController extends Controller
         if(Input::has('teacher')){
             $newr->teacher_rate=$input['teacher'];
         }
-        elseif (Input::has('video')){
-            $newr->video_rate=$input['video'];
-        }
-        elseif (Input::has('tv'))
-        {
-            $newr->tv_rate=$input['tv'];
-        }
         elseif (Input::has('course'))
         {
             $newr->course_rate=$input['course'];

@@ -13,9 +13,9 @@ class Review extends Seeder
     {
         $items = [
             ['comment' => 'teacher is really cool','teacher_rate'=>4.5,'user_id'=>1],
-            ['comment' => 'video is really bad','video_rate'=>1.5,'user_id'=>2],
             ['comment' => 'course is really cool','course_rate'=>2.5,'user_id'=>1],
             ['comment' => 'pack is really cool','pack_rate'=>3,'user_id'=>2],
+            ['comment' => 'pack is really cool','course_rate'=>3,'user_id'=>2]
         ];
         foreach ($items as $item) {
             $model = new \App\Review();

@@ -19,8 +19,6 @@ class CreateReviewsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             # Rate items
             $table->double('teacher_rate', 15, 2)->nullable();
-            $table->double('video_rate', 15, 2)->nullable();
-            $table->double('tv_rate', 15, 2)->nullable();
             $table->double('course_rate', 15, 2)->nullable();
             $table->double('pack_rate', 15, 2)->nullable();
 

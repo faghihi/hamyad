@@ -69,8 +69,8 @@ class CoursesController extends Controller
 //            print_r($course);
 //            echo "\n";
 //        }
-//        return $courses;
-        return view('courses.index')->with(['courses'=>$courses,'Tags'=>$tags,'Categories'=>$Categories]);
+        return $courses;
+//        return view('courses.index')->with(['courses'=>$courses,'Tags'=>$tags,'Categories'=>$Categories]);
     }
 
 
