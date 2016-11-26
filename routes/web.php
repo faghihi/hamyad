@@ -90,7 +90,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('categories', 'CategoryController');
-
+Route::resource('packs', 'PackController');
 #test Routes
 Route::get('testing/{name}','UsersOperation@test');
 Route::get('coursereview/{course}','CoursesController@ShowReviews');
