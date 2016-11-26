@@ -131,6 +131,8 @@ class User extends Authenticatable
             ->withPivot('rate')
             ->withTimestamps();
     }
+
+
     public function teachers_rate()
     {
         return $this->belongsToMany('App\Teacher', 'teacher_rates')

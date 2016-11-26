@@ -116,6 +116,7 @@ class UsersOperation extends Controller
 
     public function RetrieveMyPacks()
     {
-        
+        $user=\Auth::user();
+        return $user->pack_take;
     }
 }

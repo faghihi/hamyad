@@ -82,6 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('tags_mass_destroy', ['uses' => 'TagsController@massDestroy', 'as' => 'tags.mass_destroy']);
     Route::get('mycourses','UsersOperation@RetrieveMyCourses');
+    Route::get('mypacks','UsersOperation@RetrieveMyPacks');
 });
 
 Auth::routes();
@@ -95,7 +96,6 @@ Route::resource('courses', 'CoursesController');
 
 
 #test Routes
-Route::get('testing/{name}','UsersOperation@test');
 Route::get('coursereview/{course}','CoursesController@ShowReviews');
 #Email Verification Route
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
