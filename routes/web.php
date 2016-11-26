@@ -72,8 +72,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('admins_mass_destroy', ['uses' => 'AdminsController@massDestroy', 'as' => 'admins.mass_destroy']);
 
-    Route::resource('courses', 'CoursesController');
-
     Route::post('courses_mass_destroy', ['uses' => 'CoursesController@massDestroy', 'as' => 'courses.mass_destroy']);
 
     Route::resource('reviews', 'ReviewsController');
@@ -89,8 +87,13 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+#Main URL's
 Route::resource('categories', 'CategoryController');
 Route::resource('packs', 'PackController');
+Route::resource('courses', 'CoursesController');
+
+
 #test Routes
 Route::get('testing/{name}','UsersOperation@test');
 Route::get('coursereview/{course}','CoursesController@ShowReviews');

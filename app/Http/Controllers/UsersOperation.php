@@ -27,14 +27,56 @@ class UsersOperation extends Controller
         }
         $user=\Auth::user();
         if(!password_verify(Input::get('Password'),$user->password))
-            return redirect('/Profile?error?wrongpass');
+            return 0;
         $user->password=bcrypt(Input::get('NewPassword'));
-        $user->save();
+        if($user->save())
+            return 1;
+        else
+            return 0;
+    }
+
+    public function UploadPhoto()
+    {
+        if (Input::hasFile('image')) {
+            $file = array('image' => Input::file('image'));
+            $rules = array('image' => 'required|max:10000|mimes:jpeg,JPEG,PNG,png');
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                return 0;
+            }
+            if (Input::file('image')->isValid()) {
+                $destinationPath = 'uploads'; // upload path
+                $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
+                $fileName = rand(11111,99999).'.'.$extension; // renameing image
+                Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+                $user=\Auth::user();
+                $user->image=$destinationPath.'/'.$fileName;
+                $user->save();
+            }
+            else {
+                return 0;
+            }
+        }
+        else
+            return 0;
+    }
+
+    public function ChangeInfo()
+    {
+        $user = \Auth::user();
+        if (Input::has('Name')) {
+            $user->name = Input::get('Name');
+            if($user->save())
+                return 1;
+        }
+        else
+            return 0;
     }
 
 
     public function test($input ){
     }
+
 
     public function RetrieveMyCourses()
     {
