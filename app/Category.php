@@ -27,5 +27,10 @@ class Category extends Model
         return $this->belongsToMany('App\Tag', 'category_tag')
             ->withTimestamps();
     }
+
+    public function courses()
+    {
+        return $this->hasMany('App\Course');
+    }
     
 }

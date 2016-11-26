@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvidersSeeder::class);
         $this->call(Provider_coursesSeeder::class);
         $this->call(DiscountSeeder::class);
-
+        $this->call(Pack_courses_Seeder::class);
     }
 
 }

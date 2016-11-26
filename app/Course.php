@@ -138,4 +138,10 @@ class Course extends Model
         return $this->belongsToMany('App\Provider' ,'provider_courses')
             ->withTimestamps();
     }
+
+    public function packs()
+    {
+        return $this->belongsToMany('App\Pack' ,'pack_courses')
+            ->withTimestamps();
+    }
 }

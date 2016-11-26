@@ -2,44 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
-use App\User;
+use App\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
-class UsersOperation extends Controller
+class CategoryController extends Controller
 {
-    // Checking the duplicate of Email on registering
-//    public function CheckEmail($email)
-//    {
-//        $user=User::where('email',$email)->first();
-//        if(!is_null($user))
-//        {
-//            return 0;
-//        }
-//        return 1;
-//    }
-
-    public function ChangePass()
+    public function index()
     {
-        if(!Input::has('Password')|| !Input::has('NewPassword')){
-            return redirect('/Profile?error=noinfo');
+        $Categories=Category::all();
+        $counter=0;
+        foreach ($Categories as $item){
+            $counter=$item->tags;
         }
-        $user=\Auth::user();
-        if(!password_verify(Input::get('Password'),$user->password))
-            return redirect('/Profile?error?wrongpass');
-        $user->password=bcrypt(Input::get('NewPassword'));
-        $user->save();
+        return $Categories;
+
+//        return view('Category.index',compact('Categories'));
     }
 
-
-    public function test($input ){
-    }
-
-    public function RetrieveMyCourses()
+    public function show(Category $category)
     {
-        $user=\Auth::user();
-        $courses=$user->courses_take;
+        $courses=$category->courses;
         foreach ($courses as $course){
             $course['Teachers']="";
             $counter=0;
@@ -70,10 +52,5 @@ class UsersOperation extends Controller
 
         }
         return $courses;
-    }
-
-    public function RetrieveMyPacks()
-    {
-        
     }
 }

@@ -18,14 +18,11 @@ class CreatePacksTable extends Migration
             $table->increments('id');
 
             $table->string('title');
-            $table->integer('pack_id');
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->double('price_day', 15, 2)->default(0.0);
             $table->double('price_month', 15, 2)->default(0.0);
             $table->double('price_year', 15, 2)->default(0.0);
-
-            $table->integer('course_id')->nullable()->unsigned()->index();
             $table->timestamps();
 
             /*
@@ -40,12 +37,6 @@ class CreatePacksTable extends Migration
              */
             $table->softDeletes();
             $table->index(['deleted_at']);
-        });
-        Schema::table('packs', function($table) {
-            $table->foreign('course_id')
-                ->references('id')
-                ->on('courses')
-                ->onUpdate('cascade');
         });
     }
 

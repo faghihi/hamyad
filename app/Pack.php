@@ -25,7 +25,8 @@ class Pack extends Model
 
     public function courses()
     {
-        return $this->hasMany('App\Course');
+        return $this->belongsToMany('App\Course' ,'pack_courses')
+            ->withTimestamps();
     }
     public function takes()
     {

@@ -6,8 +6,10 @@ namespace App\Http\Controllers;
 
 
 
+use App\Course;
 use App\Review;
 
+use App\Section;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreReviewsRequest;
@@ -80,8 +82,22 @@ class ReviewsController extends Controller
         {
             $newr->pack_rate=$input['pack'];
         }
-        $newr->save();
-        return redirect()->route('reviews.index');
+
+        if($newr->save())
+        {
+            if(Input::has('Course')){
+                $course=Course::findorfail(Input::get('Course'));
+                $course->reviews()->attach($newr->id);
+            }
+            elseif(Input::has('Section')){
+                $section=Section::findorfail(Input::get('Section'));
+                $section->reviews()->attach($newr->id);
+            }
+
+            return 1;
+        }
+
+        return 0;
 
     }
 

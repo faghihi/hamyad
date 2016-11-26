@@ -11,6 +11,7 @@ use App\Course;
 use App\Section;
 
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreCoursesRequest;
@@ -321,6 +322,19 @@ class CoursesController extends Controller
             echo $item->name;
             echo "\n";
         }
+    }
+
+
+    public function ShowReviews(Course $course)
+    {
+         $reviews=$course->reviews;
+        foreach ($reviews as $review){
+            $user=User::findorfail($review->user_id);
+            $review['user_name']=$user->name;
+            $review['user_email']=$user->email;
+        }
+
+        return $review;
     }
 
     /**
