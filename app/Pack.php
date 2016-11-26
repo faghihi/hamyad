@@ -23,21 +23,10 @@ class Pack extends Model
         Course::observe(new \App\Observers\UserActionsObserver);
     }
 
-    /**
-     * Foreign key with Category table
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function courses()
     {
         return $this->hasMany('App\Course');
     }
-
-    /**
-     * Foreign key with TV table
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function takes()
     {
         return $this->belongsToMany('App\User', 'takepack')
