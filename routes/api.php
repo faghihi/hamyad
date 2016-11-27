@@ -1,6 +1,6 @@
 <?php
 # example for api request
-// http://localhost:8000/api/v1/admins/1?api_token=WJm07V6fxTZgCuazGDh7zzDh72jL8Lfa06eGkab2LovXTbuhvgCi3vDRMh6L
+// http://localhost:8000/api/v1/users/1?api_token=1IcdzigOJQbwMgMGFoq4pmYyXaYWCCuJOfLslVp02P0ihKKxBm4ZsqRmI2B3
 
 Route::group([
     'prefix' => '/v1',
