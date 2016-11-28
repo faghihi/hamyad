@@ -17,6 +17,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('pack', 'Admin\PackCrudController');
     CRUD::resource('provider', 'Admin\ProviderCrudController');
     CRUD::resource('review', 'Admin\ReviewCrudController');
+    CRUD::resource('role', 'Admin\RoleCrudController');
+    CRUD::resource('section', 'Admin\SectionCrudController');
 
 });
 
