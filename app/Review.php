@@ -7,7 +7,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Backpack\CRUD\CrudTrait;
 
 
 /**
@@ -33,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 
 {
+    use CrudTrait;
     use SoftDeletes;
     protected $table='reviews';
     protected $fillable = ['comment','teacher_rate','pack_rate','user_id','course_rate'];

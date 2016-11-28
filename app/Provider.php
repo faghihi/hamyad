@@ -4,13 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Backpack\CRUD\CrudTrait;
 
 class Provider extends Model
 {
+    use CrudTrait;
     use SoftDeletes;
     protected $table="providers";
 
-    protected $fillable=['name','descriptionx'];
+    protected $fillable=['name','description'];
 
     public function courses()
     {
