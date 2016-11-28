@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\CategoryCrudRequest as StoreRequest;
-use App\Http\Requests\CategoryCrudRequest as UpdateRequest;
+use App\Http\Requests\AdminsCrudRequest as StoreRequest;
+use App\Http\Requests\AdminsCrudRequest as UpdateRequest;
 
 class AdminsCrudController extends CrudController {
 
@@ -22,7 +22,6 @@ class AdminsCrudController extends CrudController {
         ]);
     }
 
-    # TODO IMPORTANT REQUEST *********
     public function store(StoreRequest $request)
     {
         return parent::storeCrud();
