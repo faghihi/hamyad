@@ -4,7 +4,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Backpack\CRUD\CrudTrait;
 use Hash;
 
 /**
@@ -19,6 +19,7 @@ use Hash;
  */
 class Admin extends Model
 {
+    use CrudTrait;
     use SoftDeletes;
     protected $table="admins";
     protected $fillable = ['name', 'email', 'password', 'remember_token', 'role_id'];

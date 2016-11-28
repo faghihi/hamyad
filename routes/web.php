@@ -22,6 +22,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('subscribe', 'Admin\SubscribeCrudController');
     CRUD::resource('tag', 'Admin\TagCrudController');
     CRUD::resource('teacher', 'Admin\TeacherCrudController');
+    CRUD::resource('user', 'Admin\UserCrudController');
+    CRUD::resource('useraction', 'Admin\UserActionsCrudController');
+    CRUD::resource('admins', 'Admin\AdminsCrudController');
 
 });
 

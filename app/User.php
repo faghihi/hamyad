@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Backpack\CRUD\CrudTrait;
 use Hash;
 
 /**
@@ -21,6 +21,7 @@ use Hash;
 
 class User extends Authenticatable
 {
+    use CrudTrait;
     use SoftDeletes;
 
 
