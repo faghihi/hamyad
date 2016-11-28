@@ -7,15 +7,11 @@ Route::get('/', function () {
 
 });
 
-
-// Admin Routes
-Route::group([
-    'prefix' => '/admin',
-    'namespace' => 'Admin',
-    'middleware' => 'auth:web'],
-    function () {
-//        Route::get('/admin', array('as' => 'admin', 'uses' => 'LoginController@index'));
-//        Route::get('/admin/register', array('as' => 'register', 'uses' => 'RegisterController@register'));
+// Admin Interface Routes
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
+{
+    // Backpack\CRUD: Define the resources for the entities you want to CRUD.
+    CRUD::resource('category', 'Admin\CategoryCrudController');
 
 });
 

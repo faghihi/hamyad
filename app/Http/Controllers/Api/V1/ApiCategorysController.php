@@ -18,6 +18,11 @@ class ApiCategorysController extends Controller
     /**
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
+    public function __construct()
+    {
+            $this->middleware('jwt.auth');
+    }
+
     public function index()
     {
         return Category::all();

@@ -41,5 +41,7 @@ class ApiTeachersController extends Controller
         $teacher->delete();
 
         return '';
+
+//        Teacher::destroy($id);
     }
 }
