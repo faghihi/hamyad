@@ -15,8 +15,8 @@ return [
     'project_name' => ' همیاد',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<b>همیاد</b>',
+    'logo_mini' => '<b>همیاد</b>',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Vesta Team',

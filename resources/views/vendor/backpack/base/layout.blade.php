@@ -92,7 +92,6 @@
               {{ !trans('backpack::base.powered_by') }} <a target="_blank" href="http://laravelbackpack.com">Laravel BackPack</a>
             </div>
         @endif
-        {{ trans('backpack::base.handcrafted_by') }} <a target="_blank" href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}</a>.
       </footer>
     </div>
     <!-- ./wrapper -->
