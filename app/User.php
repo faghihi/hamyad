@@ -3,7 +3,7 @@
 namespace App;
 //use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Hash;
@@ -138,6 +138,17 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Teacher', 'teacher_rates')
             ->withPivot('rate')
             ->withTimestamps();
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
 
