@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Backpack\CRUD\CrudTrait;
 class Teacher extends Model
 {
-
+    use CrudTrait;
     protected $table='teachers';
     protected $fillabel = ['name','resume_link','description',
         'phone','email','background','education',

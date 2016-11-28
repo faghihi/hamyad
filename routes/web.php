@@ -19,6 +19,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('review', 'Admin\ReviewCrudController');
     CRUD::resource('role', 'Admin\RoleCrudController');
     CRUD::resource('section', 'Admin\SectionCrudController');
+    CRUD::resource('subscribe', 'Admin\SubscribeCrudController');
+    CRUD::resource('tag', 'Admin\TagCrudController');
+    CRUD::resource('teacher', 'Admin\TeacherCrudController');
 
 });
 

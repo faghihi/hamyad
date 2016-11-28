@@ -8,17 +8,17 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\CategoryCrudRequest as StoreRequest;
 use App\Http\Requests\CategoryCrudRequest as UpdateRequest;
 
-class SectionCrudController extends CrudController {
+class TagCrudController extends CrudController {
 
     public function setup() {
-        $this->crud->setModel('App\Section');
-        $this->crud->setRoute("admin/section");
-        $this->crud->setEntityNameStrings('section', 'sections');
+        $this->crud->setModel('App\Tag');
+        $this->crud->setRoute("admin/tag");
+        $this->crud->setEntityNameStrings('tag', 'tags');
 
-        $this->crud->setColumns(['name','description','link','part','time','course_id','image']);
+        $this->crud->setColumns(['tag_name']);
         $this->crud->addField([
             'name' => 'name',
-            'label' => "Section name"
+            'label' => "Tag name"
         ]);
     }
 

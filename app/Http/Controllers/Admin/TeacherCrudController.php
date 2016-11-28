@@ -8,17 +8,18 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\CategoryCrudRequest as StoreRequest;
 use App\Http\Requests\CategoryCrudRequest as UpdateRequest;
 
-class SectionCrudController extends CrudController {
+class TeacherCrudController extends CrudController {
 
     public function setup() {
-        $this->crud->setModel('App\Section');
-        $this->crud->setRoute("admin/section");
-        $this->crud->setEntityNameStrings('section', 'sections');
+        $this->crud->setModel('App\Teacher');
+        $this->crud->setRoute("admin/teacher");
+        $this->crud->setEntityNameStrings('teacher', 'teachers');
 
-        $this->crud->setColumns(['name','description','link','part','time','course_id','image']);
+        $this->crud->setColumns(['name','resume_link', 'description',
+            'phone', 'email', 'background', 'education', 'work_ex', 'awards','image']);
         $this->crud->addField([
             'name' => 'name',
-            'label' => "Section name"
+            'label' => "Teacher name"
         ]);
     }
 
