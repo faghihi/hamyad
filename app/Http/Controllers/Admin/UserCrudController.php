@@ -9,6 +9,7 @@ use App\Http\Requests\UserCrudRequest as StoreRequest;
 use App\Http\Requests\UserCrudRequest as UpdateRequest;
 use App\Http\Requests\UserCrudRequest as CreateRequest;
 
+
 class UserCrudController extends CrudController {
 
     public function setup() {
@@ -33,4 +34,9 @@ class UserCrudController extends CrudController {
     {
         return parent::updateCrud();
     }
+
+//    public function create(CreateRequest $request)
+//    {
+//        return parent::create();
+//    }
 }
