@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
+    use CrudTrait;
     protected $table='categorys';
 
     protected $fillable = ['name', 'description','icon'];
-    use CrudTrait;
+
     /**
      * @return void
      */

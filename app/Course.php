@@ -2,8 +2,8 @@
 
 namespace App;
 
+use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use SoftDeletes;
+    use CrudTrait;
 
     protected $table='courses';
     protected $fillable = ['name', 'description', 'price','image'];

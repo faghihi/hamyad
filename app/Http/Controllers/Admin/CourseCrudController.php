@@ -8,15 +8,18 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\CategoryCrudRequest as StoreRequest;
 use App\Http\Requests\CategoryCrudRequest as UpdateRequest;
 
-class CategoryCrudController extends CrudController {
+class CourseCrudController extends CrudController {
 
     public function setup() {
-        $this->crud->setModel('App\Category');
-        $this->crud->setRoute("admin/category");
-        $this->crud->setEntityNameStrings('category', 'categories');
+        $this->crud->setModel('App\Course');
+        $this->crud->setRoute("admin/course");
+        $this->crud->setEntityNameStrings('course', 'courses');
 
-        $this->crud->setColumns(['name','description','icon']);
-//        $this->crud->addField(['name' => 'name', 'label' => "Category name"]);
+        $this->crud->setColumns(['name','description', 'price','image']);
+        $this->crud->addField([
+            'name' => 'name',
+            'label' => "Course name"
+        ]);
     }
 
     public function store(StoreRequest $request)
