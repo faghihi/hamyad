@@ -119,4 +119,29 @@ class UsersOperation extends Controller
         $user=\Auth::user();
         return $user->pack_take;
     }
+
+    public function RetrieveFave()
+    {
+        $fav=\Auth::user()->fav_sections;
+        foreach($fav as $item){
+            $course=$item->courses;
+            $count = 0;
+            foreach ($course->teachers as $teacher) {
+                $section['Teacher' . $count] = $teacher;
+                $count++;
+            }
+            $item['Teacher_count'] = $count;
+            $rate_count=0;
+            $rate_value=0;
+            foreach ($item->rates as $rate){
+                $rate_count++;
+                $rate_value +=$rate->pivot->rate;
+            }
+            $item['rates_value']=$rate_value;
+            $item['rates_count']=$rate_count;
+
+        }
+
+        return $fav;
+    }
 }

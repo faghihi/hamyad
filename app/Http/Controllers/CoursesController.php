@@ -275,6 +275,14 @@ class CoursesController extends Controller
             $count++;
         }
         $section['Teacher_count'] = $count;
+        $rate_count=0;
+        $rate_value=0;
+        foreach ($section->rates as $rate){
+            $rate_count++;
+            $rate_value +=$rate->pivot->rate;
+        }
+        $section['rates_value']=$rate_value;
+        $section['rates_count']=$rate_count;
 
         $allsections = array();
         $count = 0;

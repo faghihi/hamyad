@@ -32,6 +32,7 @@ class Section extends Model
     public function rates()
     {
         return $this->belongsToMany('App\User', 'section_rates')
+            ->withPivot('rate')
             ->withTimestamps();
     }
 
