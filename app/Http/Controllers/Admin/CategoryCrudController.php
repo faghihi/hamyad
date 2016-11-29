@@ -19,12 +19,24 @@ class CategoryCrudController extends CrudController {
         $this->crud->addField(['name' => 'name', 'label' => "Category name"]);
         $this->crud->addField(['name' => 'description', 'label' => "Description"]);
         $this->crud->addField(['name' => 'icon', 'label' => "Icon"]);
+
     }
 
     public function create()
     {
         return parent::create();
     }
+
+    public function destroy($id)
+    {
+        $this->crud->delete($id);
+    }
+
+    public function edit($id)
+    {
+        return parent::edit($id);
+    }
+
     public function store(StoreRequest $request)
     {
         return parent::storeCrud();

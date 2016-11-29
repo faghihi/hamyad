@@ -35,8 +35,4 @@ class UserCrudController extends CrudController {
         return parent::updateCrud();
     }
 
-//    public function create(CreateRequest $request)
-//    {
-//        return parent::create();
-//    }
 }
