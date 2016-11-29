@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Requests\CategoryCrudRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\CategoryCrudRequest as StoreRequest;
 use App\Http\Requests\CategoryCrudRequest as UpdateRequest;
 
@@ -16,25 +17,11 @@ class CategoryCrudController extends CrudController {
         $this->crud->setEntityNameStrings('category', 'categories');
 
         $this->crud->setColumns(['name','description','icon']);
+
         $this->crud->addField(['name' => 'name', 'label' => "Category name"]);
         $this->crud->addField(['name' => 'description', 'label' => "Description"]);
         $this->crud->addField(['name' => 'icon', 'label' => "Icon"]);
 
-    }
-
-    public function create()
-    {
-        return parent::create();
-    }
-
-    public function destroy($id)
-    {
-        $this->crud->delete($id);
-    }
-
-    public function edit($id)
-    {
-        return parent::edit($id);
     }
 
     public function store(StoreRequest $request)
