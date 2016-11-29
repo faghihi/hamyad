@@ -10,8 +10,8 @@ return [
 
     'registration_closed'  => 'ثبت نام بسته شده است.',
     'first_page_you_see'   => '',
-    'login_status'         => 'وضعیت ورود',
-    'logged_in'            => 'خوش آمدید!',
+    'login_status'         => 'خوش آمدید!',
+    'logged_in'            => 'شما به صفحه ی مدیریت وارد شده اید.',
     'toggle_navigation'    => 'تعویض ناوبری',
     'administration'       => 'مدیریت',
     'user'                 => 'کاربر',
