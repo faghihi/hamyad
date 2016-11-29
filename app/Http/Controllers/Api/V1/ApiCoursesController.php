@@ -32,7 +32,7 @@ class ApiCoursesController extends Controller
         # in create items
         return $this->courses_controller->index();
 
-        #return Course::all();
+//        return Course::all();
     }
 
     public function show(Course $course)

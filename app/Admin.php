@@ -2,7 +2,7 @@
 
 namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Hash;
@@ -73,11 +73,14 @@ class Admin extends Model
         return $this->belongsToMany('App\Course', 'course_owners')
             ->withTimestamps();
     }
-
     /**
-     * ManyToMany with TV Table
-     * Pivot table is tv_owners table
+     * Send the password reset notification.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @param  string  $token
+     * @return void
      */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }

@@ -109,3 +109,7 @@ Route::get('coursereview/{course}','CoursesController@ShowReviews');
 #Email Verification Route
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

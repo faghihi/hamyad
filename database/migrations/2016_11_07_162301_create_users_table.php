@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->integer('role_id')->unsigned()->nullable()->index();
             $table->boolean('activated')->default(false);
-            $table->string('api_token')->unique()->default(str_random(60));
+            $table->string('api_token')->nullable();
             $table->string('remember_token')->nullable();
 
             $table->timestamps();
