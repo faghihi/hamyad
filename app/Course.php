@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
     use CrudTrait;
 
     protected $table='courses';

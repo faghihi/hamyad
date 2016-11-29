@@ -10,7 +10,7 @@ use Backpack\CRUD\CrudTrait;
 class Pack extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
 
     protected $table='packs';
     protected $fillable = ['title' ,'price_day','price_month','price_year','image'];

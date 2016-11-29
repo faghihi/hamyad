@@ -16,7 +16,7 @@ use Backpack\CRUD\CrudTrait;
 class Role extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
     protected $table='roles';
     protected $fillable = ['title'];
 

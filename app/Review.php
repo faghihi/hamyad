@@ -34,7 +34,7 @@ class Review extends Model
 
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
     protected $table='reviews';
     protected $fillable = ['comment','teacher_rate','pack_rate','user_id','course_rate'];
 

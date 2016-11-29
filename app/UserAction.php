@@ -19,7 +19,7 @@ use Backpack\CRUD\CrudTrait;
 class UserAction extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
 
 
     protected $table='user_actions';

@@ -9,7 +9,7 @@ use Backpack\CRUD\CrudTrait;
 class Discount extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
     protected $table="discount";
 
     protected $fillable=['code','type','value','count'];

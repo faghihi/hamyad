@@ -9,7 +9,7 @@ use Backpack\CRUD\CrudTrait;
 class Provider extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
     protected $table="providers";
 
     protected $fillable=['name','description'];

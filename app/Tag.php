@@ -16,7 +16,7 @@ use Backpack\CRUD\CrudTrait;
 class Tag extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
 
     protected $table='tags';
     protected $fillable = ['tag_name'];

@@ -9,7 +9,7 @@ use Backpack\CRUD\CrudTrait;
 class Subscribe extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
 
     protected $table='subscribes';
     protected $fillable = ['email'];
