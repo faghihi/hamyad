@@ -12,7 +12,7 @@ class TeacherCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Teacher');
-        $this->crud->setRoute("admin/teachers");
+        $this->crud->setRoute("admin/Teachers");
         $this->crud->setEntityNameStrings('teacher', 'teachers');
 
         $this->crud->setColumns(['name','resume_link', 'description',

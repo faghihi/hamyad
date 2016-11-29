@@ -12,7 +12,7 @@ class SectionCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Section');
-        $this->crud->setRoute("admin/section");
+        $this->crud->setRoute("admin/Sections");
         $this->crud->setEntityNameStrings('section', 'sections');
 
         $this->crud->setColumns(['name','description','link','part','time','course_id','image']);

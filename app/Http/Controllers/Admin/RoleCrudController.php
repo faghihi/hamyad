@@ -12,7 +12,7 @@ class RoleCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Role');
-        $this->crud->setRoute("admin/role");
+        $this->crud->setRoute("admin/Roles");
         $this->crud->setEntityNameStrings('role', 'roles');
 
         $this->crud->setColumns(['title']);

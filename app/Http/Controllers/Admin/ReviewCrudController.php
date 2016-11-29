@@ -12,7 +12,7 @@ class ReviewCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Review');
-        $this->crud->setRoute("admin/review");
+        $this->crud->setRoute("admin/Reviews");
         $this->crud->setEntityNameStrings('review', 'reviews');
 
         $this->crud->setColumns(['comment','teacher_rate', 'pack_rate','user_id', 'course_rate']);

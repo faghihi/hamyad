@@ -11,20 +11,20 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 {
     // Backpack\CRUD: Define the resources for the entities you want to CRUD.
-    CRUD::resource('categories', 'Admin\CategoryCrudController');
-    CRUD::resource('courses', 'Admin\CourseCrudController');
-    CRUD::resource('discounts', 'Admin\DiscountCrudController');
-    CRUD::resource('packs', 'Admin\PackCrudController');
-    CRUD::resource('providers', 'Admin\ProviderCrudController');
-    CRUD::resource('reviews', 'Admin\ReviewCrudController');
-    CRUD::resource('roles', 'Admin\RoleCrudController');
-    CRUD::resource('sections', 'Admin\SectionCrudController');
-    CRUD::resource('subscribes', 'Admin\SubscribeCrudController');
-    CRUD::resource('tags', 'Admin\TagCrudController');
-    CRUD::resource('teachers', 'Admin\TeacherCrudController');
-    CRUD::resource('users', 'Admin\UserCrudController');
-    CRUD::resource('useractions', 'Admin\UserActionsCrudController');
-    CRUD::resource('admins', 'Admin\AdminsCrudController');
+    CRUD::resource('Categories', 'Admin\CategoryCrudController');
+    CRUD::resource('Courses', 'Admin\CourseCrudController');
+    CRUD::resource('Discounts', 'Admin\DiscountCrudController');
+    CRUD::resource('Packs', 'Admin\PackCrudController');
+    CRUD::resource('Providers', 'Admin\ProviderCrudController');
+    CRUD::resource('Reviews', 'Admin\ReviewCrudController');
+    CRUD::resource('Roles', 'Admin\RoleCrudController');
+    CRUD::resource('Sections', 'Admin\SectionCrudController');
+    CRUD::resource('Subscribes', 'Admin\SubscribeCrudController');
+    CRUD::resource('Tags', 'Admin\TagCrudController');
+    CRUD::resource('Teachers', 'Admin\TeacherCrudController');
+    CRUD::resource('Users', 'Admin\UserCrudController');
+    CRUD::resource('Useractions', 'Admin\UserActionsCrudController');
+    CRUD::resource('Admins', 'Admin\AdminsCrudController');
 
 });
 

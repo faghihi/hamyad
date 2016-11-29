@@ -12,7 +12,7 @@ class TagCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Tag');
-        $this->crud->setRoute("admin/tag");
+        $this->crud->setRoute("admin/Tags");
         $this->crud->setEntityNameStrings('tag', 'tags');
 
         $this->crud->setColumns(['tag_name']);

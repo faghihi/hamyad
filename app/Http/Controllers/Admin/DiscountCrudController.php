@@ -12,7 +12,7 @@ class DiscountCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Discount');
-        $this->crud->setRoute("admin/discount");
+        $this->crud->setRoute("admin/Discount");
         $this->crud->setEntityNameStrings('discount', 'discounts');
 
         $this->crud->setColumns(['code','type', 'value','count']);

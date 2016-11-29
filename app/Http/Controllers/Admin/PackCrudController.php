@@ -12,7 +12,7 @@ class PackCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Pack');
-        $this->crud->setRoute("admin/pack");
+        $this->crud->setRoute("admin/Packs");
         $this->crud->setEntityNameStrings('pack', 'packs');
 
         $this->crud->setColumns(['title','price_day', 'price_month','price_year','image']);

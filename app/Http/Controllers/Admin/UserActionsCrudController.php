@@ -12,7 +12,7 @@ class UserActionsCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\UserAction');
-        $this->crud->setRoute("admin/usersaction");
+        $this->crud->setRoute("admin/Usersactions");
         $this->crud->setEntityNameStrings('useraction', 'useractions');
 
         $this->crud->setColumns(['action','action_model', 'action_id', 'user_id']);

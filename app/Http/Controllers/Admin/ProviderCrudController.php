@@ -12,7 +12,7 @@ class ProviderCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Provider');
-        $this->crud->setRoute("admin/provider");
+        $this->crud->setRoute("admin/Providers");
         $this->crud->setEntityNameStrings('provider', 'providers');
 
         $this->crud->setColumns(['name','description']);

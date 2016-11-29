@@ -21,7 +21,7 @@ use Hash;
 class User extends Authenticatable
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
 
 
     protected $table='users';

@@ -14,7 +14,7 @@ class UserCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\User');
-        $this->crud->setRoute("admin/users");
+        $this->crud->setRoute("admin/Users");
         $this->crud->setEntityNameStrings('user', 'users');
 
         $this->crud->setColumns(['name','email', 'image', 'password', 'role_id']);

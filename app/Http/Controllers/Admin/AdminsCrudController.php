@@ -14,7 +14,7 @@ class AdminsCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Admin');
-        $this->crud->setRoute("admin/admins");
+        $this->crud->setRoute("admin/Admins");
         $this->crud->setEntityNameStrings('admin', 'admins');
 
         $this->crud->setColumns(['name','email', 'password', 'role_id']);

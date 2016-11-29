@@ -12,7 +12,7 @@ class CourseCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Course');
-        $this->crud->setRoute("admin/courses");
+        $this->crud->setRoute("admin/Courses");
         $this->crud->setEntityNameStrings('course', 'courses');
 
         $this->crud->setColumns(['name','description', 'price','image']);

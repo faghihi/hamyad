@@ -12,7 +12,7 @@ class SubscribeCrudController extends CrudController {
 
     public function setup() {
         $this->crud->setModel('App\Subscribe');
-        $this->crud->setRoute("admin/subscribe");
+        $this->crud->setRoute("admin/Subscribes");
         $this->crud->setEntityNameStrings('subscribe', 'subscribes');
 
         $this->crud->setColumns(['email']);
