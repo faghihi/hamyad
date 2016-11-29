@@ -373,7 +373,7 @@ jQuery(function() {
 			$('body').modalmanager('loading');
 
 			setTimeout(function(){
-				 $modalRegister.load('ajax-login-modal-register', '', function(){
+				 $modalRegister.load('/ajax-register', '', function(){
 					$modalRegister.modal();
 				});
 			}, 1000);
