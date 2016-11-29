@@ -15,8 +15,7 @@ Route::group([
 
     Route::resource('login', 'ApiLoginController');
     Route::resource('register', 'ApiRegisterController');
-    Route::resource('courses', 'ApiCoursesController');
-    # Route::resource('activerepo', 'ActivationRepository'); # TODO
+//    Route::resource('courses', 'ApiCoursesController');
     Route::resource('reviews', 'ApiReviewsController');
     Route::resource('roles', 'ApiRolesController');
     Route::resource('social', 'ApiSocialController');
@@ -30,3 +29,13 @@ Route::group([
     Route::resource('discounts', 'ApiDiscountsController');
     Route::resource('providers', 'ApiProvidersController');
 });
+
+Route::group([
+    'prefix' => '/v1',
+    'namespace' => 'Api\V1',
+    'middleware' => ['throttle:30,1'],
+    'as' => 'api.'],
+    # User cant request a url more than 30 times in 60 seconds.
+    function () {
+        Route::resource('courses', 'ApiCoursesController');
+    });
