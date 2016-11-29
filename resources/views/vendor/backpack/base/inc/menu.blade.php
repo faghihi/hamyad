@@ -4,14 +4,17 @@
         <!-- ========== Top menu items (ordered left) ========== -->
         <!-- =================================================== -->
 
-        <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
+
     @if (Auth::guest())
             <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/login') }}">{{ trans('backpack::base.login') }}</a></li>
             @if (config('backpack.base.registration_open'))
                 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'2/register') }}">{{ trans('backpack::base.register') }}</a></li>
             @endif
+
         @else
+
             <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/logout') }}"><i class="fa fa-btn fa-sign-out"></i> {{ trans('backpack::base.logout') }}</a></li>
+            <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>مدیریت فایل ها</span></a></li>
     @endif
         <!-- ========== End of top menu left items ========== -->
     </ul>

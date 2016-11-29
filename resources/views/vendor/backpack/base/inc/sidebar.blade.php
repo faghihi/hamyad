@@ -12,6 +12,7 @@
             <p>{{ Auth::user()->name }}</p>
             <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
           </div>
+
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" style="direction: rtl !important;">
