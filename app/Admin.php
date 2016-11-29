@@ -20,7 +20,7 @@ use Hash;
 class Admin extends Model
 {
     use CrudTrait;
-    use SoftDeletes;
+//    use SoftDeletes;
     protected $table="admins";
     protected $fillable = ['name', 'email', 'password', 'remember_token', 'role_id'];
 
