@@ -34,7 +34,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::model('user', User::class);
-        Route::model('category', Category::class);
+//        Route::model('category', Category::class);
         Route::model('course',Course::class);
         Route::model('pack', Pack::class);
         Route::model('video', Video::class);
