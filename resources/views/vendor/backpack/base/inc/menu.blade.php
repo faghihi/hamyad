@@ -4,8 +4,8 @@
         <!-- ========== Top menu items (ordered left) ========== -->
         <!-- =================================================== -->
 
-
-        @if (Auth::guest())
+        <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
+    @if (Auth::guest())
             <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/login') }}">{{ trans('backpack::base.login') }}</a></li>
             @if (config('backpack.base.registration_open'))
                 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'2/register') }}">{{ trans('backpack::base.register') }}</a></li>

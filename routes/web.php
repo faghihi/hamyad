@@ -28,6 +28,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 
 });
 
+Route::get('/admin/elfinder', function () {
+    return view('vendor/elfinder/elfinder');
+});
+
 
 // Authentication Routes...
 
