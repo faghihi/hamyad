@@ -92,8 +92,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('tags_mass_destroy', ['uses' => 'TagsController@massDestroy', 'as' => 'tags.mass_destroy']);
     Route::get('mycourses','UsersOperation@RetrieveMyCourses');
     Route::get('mypacks','UsersOperation@RetrieveMyPacks');
+    Route::get('myfave','UsersOperation@RetrieveFave');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
