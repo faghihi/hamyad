@@ -9,7 +9,7 @@ return [
     */
 
     'registration_closed'  => 'ثبت نام بسته شده است.',
-    'first_page_you_see'   => 'خانه',
+    'first_page_you_see'   => '',
     'login_status'         => 'وضعیت ورود',
     'logged_in'            => 'خوش آمدید!',
     'toggle_navigation'    => 'تعویض ناوبری',
