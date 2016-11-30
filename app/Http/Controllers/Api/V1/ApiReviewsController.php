@@ -27,14 +27,6 @@ class ApiReviewsController extends Controller
         $this->reviews_controller = $item;
     }
 
-    public function update(UpdateReviewsRequest $request, $id)
-    {
-        $review = Review::findOrFail($id);
-        $review->update($request->all());
-
-        return $review;
-    }
-
     public function store()
     {
         $response = ['result' => 0];
