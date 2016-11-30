@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\User;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -45,13 +46,19 @@ class UsersOperation extends Controller
                 return 0;
             }
             if (Input::file('image')->isValid()) {
-                $destinationPath = 'uploads'; // upload path
+                $destinationPath = 'uploads/'.\Auth::id(); // upload path
                 $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111,99999).'.'.$extension; // renameing image
                 Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
                 $user=\Auth::user();
                 $user->image=$destinationPath.'/'.$fileName;
-                $user->save();
+                try{
+                    $user->save();
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    return 0;
+                }
+                return 1;
             }
             else {
                 return 0;

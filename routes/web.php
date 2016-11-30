@@ -133,3 +133,7 @@ Route::get('/ajax-register', function (){
 });
 
 Route::resource('teachers','TeachersController');
+
+Route::get('test',function (){
+   return view('test.upload');
+});

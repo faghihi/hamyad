@@ -4,6 +4,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Requests\StoreSubscribesRequest;
 use App\Http\Requests\UpdateSubscribesRequest;
 use App\Subscribe;
+use Validator;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
