@@ -89,6 +89,7 @@ class UsersOperation extends Controller
     {
         $courses=$user->courses_take;
         foreach ($courses as $course){
+            $counter11=$course->provider;
             $course['Teachers']="";
             $counter=0;
             foreach ($course->teachers as $teacher){

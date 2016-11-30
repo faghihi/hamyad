@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers\Api\V1;
-use App\Http\Controllers\SocialController;
+use App\Http\Controllers\UsersOperation;
 use App\Http\Requests\StoreSubscribesRequest;
 use App\Http\Requests\UpdateSubscribesRequest;
 use App\Subscribe;
@@ -16,7 +16,7 @@ class ApiUsersOperationController extends Controller
 
     protected $usersOperation_controller ;
 
-    public function __construct(SocialController $item)
+    public function __construct(UsersOperation $item)
     {
         $this->usersOperation_controller = $item;
     }
