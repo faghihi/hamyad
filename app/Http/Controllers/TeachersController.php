@@ -33,7 +33,7 @@ class TeachersController extends Controller
     public function Search()
     {
         $input = Input::all();
-        if(isset($input['name'])){
+        if(!isset($input['name'])){
             return redirect('/');
         }
         $teachers=Teacher::where('name','like','%'.$input['name'].'%');

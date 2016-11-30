@@ -19,7 +19,7 @@ Route::group([
         Route::get('Subscribe', 'ApiSocialController@subscribe');
         Route::get('Contact', 'ApiSocialController@contact');
         Route::resource('categorys', 'ApiCategorysController');
-        Route::resource('teachers', 'ApiTeachersController');
+        Route::get('SearchTeacher', 'ApiTeachersController@search');
         Route::get('Index/', 'ApiIndexController@index');
         Route::resource('packs', 'ApiPacksController');
 });

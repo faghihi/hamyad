@@ -49,11 +49,14 @@ class ApiTeachersController extends Controller
 
     public function search()
     {
+        $response=['result'=>'0'];
         $input = Input::all();
-        if(isset($input['name'])){
-            return redirect('/');
+        if(!isset($input['name'])){
+            return $response;
         }
-        $teachers=Teacher::where('name','like','%'.$input['name'].'%');
+        $i=$input['name'];
+        $teachers=Teacher::where('name','like','%'.$i.'%')->get();
+//        $teachers=Teacher::all();
         foreach ($teachers as $teacher){
             $teacher['Course_count']=count($teacher->courses);
             $rate_count=0;
