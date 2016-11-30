@@ -20,7 +20,6 @@ class SectionsController extends Controller
             return 0;
         }
         return 1;
-
     }
 
     public function ShowSpecificSection(Section$section)
@@ -64,15 +63,15 @@ class SectionsController extends Controller
                 $allsections[$count]['enable'] = 0;
             $count++;
         }
-
-        #testng the result
-//        print_r($section);
         return $section;
     }
 
     public function show(Section $section)
     {
-        return $this->ShowSpecificSection($section);
+        if($this->CheckAccess(\Auth::user(),$section))
+            return $this->ShowSpecificSection($section);
+        else
+            echo "No Access";
     }
 
     public function ShowReviews(Section $section)
@@ -85,6 +84,11 @@ class SectionsController extends Controller
         }
 
         return $reviews;
+    }
+
+    public function CheckAccess(User $user,Section $section)
+    {
+       return  $hasTask = $user->courses_take()->where('id', $section->id)->exists();
     }
 
 }
