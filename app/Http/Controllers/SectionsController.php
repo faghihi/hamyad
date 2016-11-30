@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Section;
+use App\User;
 use Illuminate\Http\Request;
 
 class SectionsController extends Controller
@@ -72,6 +73,18 @@ class SectionsController extends Controller
     public function show(Section $section)
     {
         return $this->ShowSpecificSection($section);
+    }
+
+    public function ShowReviews(Section $section)
+    {
+        $reviews=$section->reviews;
+        foreach ($reviews as $review){
+            $user=User::findorfail($review->user_id);
+            $review['user_name']=$user->name;
+            $review['user_email']=$user->email;
+        }
+
+        return $reviews;
     }
 
 }

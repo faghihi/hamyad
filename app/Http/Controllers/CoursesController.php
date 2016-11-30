@@ -229,14 +229,19 @@ class CoursesController extends Controller
 
     public function ShowReviews(Course $course)
     {
-         $reviews=$course->reviews;
+        $reviews=$course->reviews;
         foreach ($reviews as $review){
             $user=User::findorfail($review->user_id);
             $review['user_name']=$user->name;
             $review['user_email']=$user->email;
         }
 
-        return $review;
+        return $reviews;
+    }
+
+    public function PassReviews(Course $course)
+    {
+        return $this->ShowReviews($course);
     }
 
     /**
