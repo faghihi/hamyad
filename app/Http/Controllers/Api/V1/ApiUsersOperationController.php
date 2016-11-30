@@ -85,4 +85,27 @@ class ApiUsersOperationController extends Controller
             return $response;
     }
 
+    public function ChangeInfo()
+    {
+        $response = ['result' => '0'];
+        $n = Input::get('api_token');
+
+        $user = User::where('api_token', $n)->first();
+        $user=User::find($user->id);
+
+        if (Input::has('Name')) {
+            $user->name = Input::get('Name');
+            try{
+                $user->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return $response;
+            }
+            $response['result']='1';
+            return $response;
+        }
+        else
+            return $response;
+    }
+
 }

@@ -59,4 +59,5 @@ Route::group([
 
         Route::get('UsersOperation/', 'ApiUsersOperationController@ChangePass');
         Route::post('UsersUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
+        Route::post('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
     });
