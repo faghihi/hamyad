@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function RetrieveCategories()
     {
         $Categories=Category::all();
         $counter=0;
@@ -15,7 +15,11 @@ class CategoryController extends Controller
             $counter=$item->tags;
         }
         return $Categories;
-
+    }
+    public function index()
+    {
+        $Categories=$this->RetrieveCategories();
+        return $Categories;
 //        return view('Category.index',compact('Categories'));
     }
 
