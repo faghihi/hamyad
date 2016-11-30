@@ -19,44 +19,7 @@ use Illuminate\Support\Facades\Input;
 
 
 class ReviewsController extends Controller
-
 {
-
-
-
-    /**
-
-     * Display a listing of Review.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function index()
-
-    {
-
-        $reviews = Review::all();
-
-
-
-        return view('reviews.index', compact('reviews'));
-
-    }
-    /**
-
-     * Store a newly created Review in storage.
-
-     *
-
-     * @param  \App\Http\Requests\StoreReviewsRequest  $request
-
-     * @return \Illuminate\Http\Response
-
-     */
-
     public function store()
 
     {
@@ -64,9 +27,7 @@ class ReviewsController extends Controller
         $newr=new Review();
         $newr->comment=$input['comment'];
         if(! \Auth::check()){
-            #TODO
-            # returning the message is not available
-            echo " it is not possible ";
+           return 0;
         }
         else{
             $newr->user_id=\Auth::id();
@@ -87,14 +48,26 @@ class ReviewsController extends Controller
         {
             if(Input::has('Course')){
                 $course=Course::findorfail(Input::get('Course'));
-                $course->reviews()->attach($newr->id);
+                try{
+                    $course->reviews()->attach($newr->id);
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    return 0;
+                }
+                return 1;
+
             }
             elseif(Input::has('Section')){
                 $section=Section::findorfail(Input::get('Section'));
-                $section->reviews()->attach($newr->id);
-            }
 
-            return 1;
+                try{
+                    $section->reviews()->attach($newr->id);
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    return 0;
+                }
+                return 1;
+            }
         }
 
         return 0;
@@ -102,110 +75,14 @@ class ReviewsController extends Controller
     }
 
 
-
-    /**
-
-     * Show the form for editing Review.
-
-     *
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function edit($id)
-
+    public function destroy(Review $review)
     {
-
-
-
-        $review = Review::findOrFail($id);
-
-        return view('reviews.edit', compact('review', ''));
-
-    }
-
-
-
-    /**
-
-     * Update Review in storage.
-
-     *
-
-     * @param  \App\Http\Requests\UpdateReviewsRequest  $request
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function update(UpdateReviewsRequest $request, $id)
-
-    {
-
-        $review = Review::findOrFail($id);
-
-        $review->update($request->all());
-
-
-
-        return redirect()->route('reviews.index');
-
-    }
-
-
-
-    /**
-
-     * Display Review.
-
-     *
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function show($id)
-
-    {
-
-        $review = Review::findOrFail($id);
-
-        return view('reviews.show', compact('review'));
-
-    }
-
-
-
-    /**
-
-     * Remove Review from storage.
-
-     *
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function destroy($id)
-
-    {
-
-        $review = Review::findOrFail($id);
-
-        $review->delete();
-
-
-
-        return redirect()->route('reviews.index');
+        $user=\Auth::user();
+        if($review->user_id==$user->id)
+            $review->delete();
+        else
+            return 0;
+        return 1;
 
     }
 
