@@ -60,4 +60,7 @@ Route::group([
         Route::get('UsersOperation', 'ApiUsersOperationController@ChangePass');
         Route::post('UsersUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
         Route::get('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
+        Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');
+        Route::get('MyCourse', 'ApiUsersOperationController@RetrieveCourses');
+        Route::get('MyFavorite', 'ApiUsersOperationController@RetrieveFavorite');
     });

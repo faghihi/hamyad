@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Input;
 class ApiUsersOperationController extends Controller
 {
 
-    protected $social_controller ;
+    protected $usersOperation_controller ;
 
     public function __construct(SocialController $item)
     {
-//        User::
-        $this->social_controller = $item;
+        $this->usersOperation_controller = $item;
     }
 
     public function ChangePass()
@@ -32,7 +31,10 @@ class ApiUsersOperationController extends Controller
 
         $n = Input::get('api_token');
         $user = User::where('api_token', $n)->first();
-        $user=User::find($user->id);
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
 
         if(!password_verify(Input::get('Password'),$user->password))
             return $response;
@@ -52,7 +54,10 @@ class ApiUsersOperationController extends Controller
         $n = Input::get('api_token');
 
         $user = User::where('api_token', $n)->first();
-        $user=User::find($user->id);
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
 
         if (Input::hasFile('image')) {
             $file = array('image' => Input::file('image'));
@@ -91,7 +96,10 @@ class ApiUsersOperationController extends Controller
         $n = Input::get('api_token');
 
         $user = User::where('api_token', $n)->first();
-        $user=User::find($user->id);
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
 
         if (Input::has('Name')) {
             $user->name = Input::get('Name');
@@ -106,6 +114,45 @@ class ApiUsersOperationController extends Controller
         }
         else
             return $response;
+    }
+
+    public function RetrieveCourses()
+    {
+        $response = ['result' => '0'];
+        $n = Input::get('api_token');
+
+        $user = User::where('api_token', $n)->first();
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
+        return $this->usersOperation_controller->RetriveCourseHelper($user);
+    }
+
+    public function RetrieveMyPack()
+    {
+        $response = ['result' => '0'];
+        $n = Input::get('api_token');
+
+        $user = User::where('api_token', $n)->first();
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
+        return $user->pack_take;
+    }
+
+    public function RetrieveFavorite()
+    {
+        $response = ['result' => '0'];
+        $n = Input::get('api_token');
+
+        $user = User::where('api_token', $n)->first();
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
+        return $this->usersOperation_controller->RetrieveFaveHelper($user);
     }
 
 }
