@@ -34,6 +34,6 @@ class ApiCategorysController extends Controller
      */
     public function show(Category $category)
     {
-        return $category;
+        return $this->categorys_controller->ShowSpecificCategories($category);
     }
 }
