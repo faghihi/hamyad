@@ -88,7 +88,7 @@ class SectionsController extends Controller
 
     public function CheckAccess(User $user,Section $section)
     {
-       return  $hasTask = $user->courses_take()->where('id', $section->id)->exists();
+       return  $hasTask = $user->courses_take()->where('courses.id', $section->id)->exists();
     }
 
 }
