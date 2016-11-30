@@ -52,12 +52,25 @@ class TeachersController extends Controller
 
     public function StoreRate(User $user,Teacher $teacher,$rate)
     {
-        try {
-            $teacher->rates()->attach($user->id,['rate'=>$rate]);
+        $hasTask = $teacher->rates()->where('users.id', $user->id)->exists();
+        if($hasTask){
+            try {
+                $teacher->rates()->updateExistingPivot($user->id,['rate'=>$rate]);
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
         }
-        catch ( \Illuminate\Database\QueryException $e){
-            return 0;
+        else{
+            try {
+                $teacher->rates()->attach($user->id,['rate'=>$rate]);
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
         }
-        return 1;
+
     }
 }
