@@ -106,16 +106,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "3.1.42",
+            "version": "3.1.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "0a2c7d623f05f8ba3f62a02447ff28a836c12dcb"
+                "reference": "77f2e1e78b38352040c1e1a6a3ac323e117b72b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/0a2c7d623f05f8ba3f62a02447ff28a836c12dcb",
-                "reference": "0a2c7d623f05f8ba3f62a02447ff28a836c12dcb",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/77f2e1e78b38352040c1e1a6a3ac323e117b72b2",
+                "reference": "77f2e1e78b38352040c1e1a6a3ac323e117b72b2",
                 "shasum": ""
             },
             "require": {
@@ -166,7 +166,7 @@
                 "read",
                 "update"
             ],
-            "time": "2016-11-13 06:21:32"
+            "time": "2016-11-29 13:51:48"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1271,16 +1271,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.24",
+            "version": "v5.3.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b603b7cf77ff083c2248f7baa23f3add34c3ff84"
+                "reference": "90791f6a9eceebb1731ff7191141083ebb127c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b603b7cf77ff083c2248f7baa23f3add34c3ff84",
-                "reference": "b603b7cf77ff083c2248f7baa23f3add34c3ff84",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/90791f6a9eceebb1731ff7191141083ebb127c31",
+                "reference": "90791f6a9eceebb1731ff7191141083ebb127c31",
                 "shasum": ""
             },
             "require": {
@@ -1395,7 +1395,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-11-21 14:14:16"
+            "time": "2016-11-29 14:42:22"
         },
         {
             "name": "laravelcollective/html",
@@ -2438,16 +2438,16 @@
         },
         {
             "name": "serverfireteam/rapyd-laravel",
-            "version": "1.5.19",
+            "version": "1.5.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/serverfireteam/rapyd-laravel.git",
-                "reference": "a7dd26cfb8f45211f6d5d320ec0b2e6d6a322a25"
+                "reference": "5475abfe9441069218f2d7b0504d11e69860f3ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/serverfireteam/rapyd-laravel/zipball/a7dd26cfb8f45211f6d5d320ec0b2e6d6a322a25",
-                "reference": "a7dd26cfb8f45211f6d5d320ec0b2e6d6a322a25",
+                "url": "https://api.github.com/repos/serverfireteam/rapyd-laravel/zipball/5475abfe9441069218f2d7b0504d11e69860f3ec",
+                "reference": "5475abfe9441069218f2d7b0504d11e69860f3ec",
                 "shasum": ""
             },
             "require": {
@@ -2488,7 +2488,7 @@
                 "form",
                 "laravel"
             ],
-            "time": "2016-11-26 09:37:13"
+            "time": "2016-11-29 09:02:51"
         },
         {
             "name": "studio-42/elfinder",
