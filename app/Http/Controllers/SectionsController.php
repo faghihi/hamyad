@@ -10,10 +10,15 @@ class SectionsController extends Controller
     public function Favourite(Section $section)
     {
         $user=\Auth::user();
-        if($user->fav_sections()->attach($section->id))
-            return 1;
-        else
+        try {
+            $user->fav_sections()->attach($section->id);
+        }
+
+        catch ( \Illuminate\Database\QueryException $e){
+
             return 0;
+        }
+        return 1;
 
     }
 
