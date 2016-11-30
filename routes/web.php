@@ -131,3 +131,5 @@ Route::get('/index', function (){
 Route::get('/ajax-register', function (){
     return view('ajax-login-modal-register');
 });
+
+Route::resource('teachers','TeachersController');
