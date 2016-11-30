@@ -2,19 +2,21 @@
 
 namespace App\Http\Middleware;
 
+use App\User;
 use Closure;
+use Illuminate\Support\Facades\Input;
 
 class ApiMid
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        $response=['result'=>'0','message'=>'authentication Needed'];
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+        if(!is_null($user))
+            return $next($request);
+        else
+            return $response;
+
     }
 }
