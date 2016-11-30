@@ -35,21 +35,20 @@ class SocialController extends Controller
 
         $validator = Validator::make($input, $rules);
         if (! $validator->fails()) {
-            if (isset($input['Name']) && isset($input['Email']) && isset($input['Message'])) {
-                $message = new Contact();
-                $message->name = $input['Name'];
-                $message->email = $input['Email'];
-                if (isset($input['Subject']))
-                    $message->subject = $input['Subject'];
-                $message->message = $input['Message'];
-                try{
-                    $message->save();
-                }
-                catch ( \Illuminate\Database\QueryException $e){
-                    return 0;
-                }
-                return 1;
+            $message = new Contact();
+            $message->name = $input['Name'];
+            $message->email = $input['Email'];
+            if (isset($input['Subject']))
+                $message->subject = $input['Subject'];
+
+            $message->message = $input['Message'];
+            try{
+                $message->save();
             }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
         }
         return 0;
     }
