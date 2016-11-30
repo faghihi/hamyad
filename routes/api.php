@@ -47,4 +47,9 @@ Route::group([
 
         Route::get('Reviews', 'ApiReviewsController@store');
         Route::get('DelReviews/{review}', 'ApiReviewsController@destroy');
+
+
+        Route::get('Sections/{section}', 'ApiSectionsController@show');
+        Route::get('Subscribe', 'ApiSocialController@subscribe');
+        Route::get('Contact', 'ApiSocialController@contact');
     });

@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateSubscribesRequest;
 use App\Subscribe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 #TODO
 class ApiSocialController extends Controller
@@ -18,17 +19,39 @@ class ApiSocialController extends Controller
         $this->social_controller = $item;
     }
 
-    public function index()
-    {
-        return Subscribe::all();
-    }
-    public function show($id)
-    {
-        return Subscribe::findOrFail($id);
-    }
-
     public function subscribe()
     {
-        return $this->social_controller->subscribe();
+//        Input::
+        $Email = Input::get('Email');
+        $sub=new Subscribe();
+        $sub->email=$Email;
+
+        $response = ['result' => '0'];
+        try {
+            $sub->save();
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+            return $response;
+        }
+
+        $response['result'] = 1;
+        return $response;
+
+    }
+
+    public function contact()
+    {
+        $contact = Input::all();
+        $response = ['result' => '0'];
+
+        if($this->social_controller->StoreContact($contact)){
+            $response['result'] = 1;
+            return $response;
+        }
+        else{
+            return $response;
+        }
+
+
     }
 }

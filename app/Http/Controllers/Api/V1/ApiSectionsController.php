@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SectionsController;
 
-# TODO
+
 use App\Http\Requests\StoreSectionsRequest;
 use App\Http\Requests\UpdateSectionsRequest;
 use Illuminate\Support\Facades\Input;
@@ -18,7 +18,7 @@ class ApiSectionsController extends Controller
 {
     protected $sections_controller ;
 
-    public function __construct(Section $item)
+    public function __construct(SectionsController $item)
     {
         $this->sections_controller = $item;
     }
@@ -27,7 +27,20 @@ class ApiSectionsController extends Controller
 
     public function show(Section $section)
     {
-        return $this->sections_controller->ShowSpecificSection($section);
+        $response = ['result' => '0'];
+
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+        if (is_null($user)){
+            return $response;
+        }
+
+        if ($this->sections_controller->CheckAccess($user, $section)){
+            return $this->sections_controller->ShowSpecificSection($section);
+        }
+        else {
+            return $response;
+        }
     }
 
     public function favorite(Section $favorite)

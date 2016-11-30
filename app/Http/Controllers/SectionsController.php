@@ -90,5 +90,4 @@ class SectionsController extends Controller
     {
        return  $hasTask = $user->courses_take()->where('courses.id', $section->id)->exists();
     }
-
 }
