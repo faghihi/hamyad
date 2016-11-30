@@ -3,45 +3,49 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Teacher;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTeachersRequest;
-use App\Http\Requests\UpdateTeachersRequest;
+use App\Http\Controllers\TeachersController;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Validation\Rules\In;
 
 class ApiTeachersController extends Controller
 {
+    protected $teachers_controller;
+
+    public function __construct(TeachersController $item)
+    {
+        $this->teachers_controller = $item;
+    }
+
     public function index()
     {
-        return Teacher::all();
+        return $this->teachers_controller->RetrieveData();
     }
 
     public function show(Teacher $teacher)
     {
-        return $teacher;
+        return $this->teachers_controller->ShowSpecific($teacher);
     }
 
-    public function update(UpdateTeachersRequest $request, $id)
+    public function rate(Teacher $teacher)
     {
-        $teacher = Teacher::findOrFail($id);
-        $teacher->update($request->all());
 
-        return $teacher;
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        $response = ['result' => '0'];
+        $rate = Input::get('rate');
+
+        if (!is_null($user) && $this->teachers_controller->StoreRate($user, $teacher, $rate)){
+
+            $response['result'] = 1;
+            return $response;
+        }
+        else {
+            return $response;
+        }
     }
 
-    public function store(StoreTeachersRequest $request)
-    {
-        $teacher = Teacher::create($request->all());
-
-        return $teacher;
-    }
-
-    public function destroy($id)
-    {
-        $teacher = Teacher::findOrFail($id);
-        $teacher->delete();
-
-        return '';
-
-//        Teacher::destroy($id);
-    }
 }

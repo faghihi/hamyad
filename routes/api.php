@@ -52,4 +52,11 @@ Route::group([
         Route::get('Sections/{section}', 'ApiSectionsController@show');
         Route::get('Subscribe', 'ApiSocialController@subscribe');
         Route::get('Contact', 'ApiSocialController@contact');
+
+        Route::get('Teachers', 'ApiTeachersController@index');
+        Route::get('Teachers/{teacher}', 'ApiTeachersController@show');
+        Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
+
+        Route::get('UsersOperation/', 'ApiUsersOperationController@ChangePass');
+//        Route::get('TeachersRate/{teacher}', 'ApiUsersOperationController@rate');
     });
