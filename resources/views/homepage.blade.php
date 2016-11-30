@@ -167,241 +167,27 @@
 					
 						<div class="GridLex-gap-20">   
 						
-							<div class="GridLex-grid-noGutter-equalHeight">  
-							
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-basket-loaded"></i>
-										</div>
-										<div class="content">
-											<h6>Business</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-screen-desktop"></i>
-										</div>
-										<div class="content">
-											<h6>Computer &amp; IT</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<img src="images/category/c_cinema_logo2-%20(1).png">
-										</div>
-										<div class="content">
-											<h6>Science</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-music-tone-alt"></i>
-										</div>
-										<div class="content">
-											<h6>Music</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<img src="images/category/cinema-logo_23-2147503279.jpg">
-										</div>
-										<div class="content">
-											<h6>Design</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-camera"></i>
-										</div>
-										<div class="content">
-											<h6>Photography</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-note"></i>
-										</div>
-										<div class="content">
-											<h6>Writing</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-cup"></i>
-										</div>
-										<div class="content">
-											<h6>Culinary</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-basket-loaded"></i>
-										</div>
-										<div class="content">
-											<h6>Business</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-screen-desktop"></i>
-										</div>
-										<div class="content">
-											<h6>Computer &amp; IT</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-chemistry"></i>
-										</div>
-										<div class="content">
-											<h6>Science</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-music-tone-alt"></i>
-										</div>
-										<div class="content">
-											<h6>Music</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-music-tone-alt"></i>
-										</div>
-										<div class="content">
-											<h6>Music</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-vector"></i>
-										</div>
-										<div class="content">
-											<h6>Design</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-camera"></i>
-										</div>
-										<div class="content">
-											<h6>Photography</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-note"></i>
-										</div>
-										<div class="content">
-											<h6>Writing</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-cup"></i>
-										</div>
-										<div class="content">
-											<h6>Culinary</h6>
-										</div>
-									</a>
-									
-								</div>
-								
-								<div class="GridLex-col-2_sm-3_xs-4_xss-6">
-								
-									<a href="#" class="category-item">
-										<div class="icon">
-											<i class="icon-basket-loaded"></i>
-										</div>
-										<div class="content">
-											<h6>Business</h6>
-										</div>
-									</a>
-									
-								</div>
+							<div class="GridLex-grid-noGutter-equalHeight">
+
+								@foreach($Data['category'] as $item)
+									<div class="GridLex-col-2_sm-3_xs-4_xss-6">
+
+										<a href="#" class="category-item">
+											<div class="icon">
+												@if(isset($item['icon']))
+													<?php $image=$item['icon'];?>
+												@else
+													<?php $image='images/category/computing.png';?>
+												@endif
+												<img src="{{$image}}">
+											</div>
+											<div class="content">
+												<h6>{{$item['name']}}</h6>
+											</div>
+										</a>
+
+									</div>
+								@endforeach
 								
 							</div>
 							

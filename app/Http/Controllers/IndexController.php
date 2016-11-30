@@ -84,8 +84,9 @@ class IndexController extends Controller
 
     }
     public function index(){
-        return $this->RetrieveData();
+        $Data=$this->RetrieveData();
 //        return $this->Teachers();
+        return view('homepage')->with('Data',$Data);
     }
 
 }

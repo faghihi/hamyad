@@ -1,11 +1,7 @@
 <?php
 
 
-Route::get('/', function () {
-
-    return view('welcome');
-
-});
+Route::get('/','IndexController@index');
 
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
