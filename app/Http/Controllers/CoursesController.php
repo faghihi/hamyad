@@ -29,6 +29,7 @@ class CoursesController extends Controller
     {
         $courses = Course::all();
         foreach ($courses as $course){
+            $counter11=$course->provider;
             $course['Teachers']="";
             $counter=0;
             foreach ($course->teachers as $teacher){
@@ -38,6 +39,9 @@ class CoursesController extends Controller
                     $course['Teachers']=$teacher->name;
                 $counter++;
             }
+            $course['Providers']="";
+            $counter1=0;
+
             $rate_count=0;
             $rate_value=0;
             foreach ($course->rates as $rate){

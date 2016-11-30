@@ -84,9 +84,9 @@ class UsersOperation extends Controller
         else
             return 0;
     }
-    public function RetrieveMyCourses()
+
+    public function RetriveCourseHelper(User $user)
     {
-        $user=\Auth::user();
         $courses=$user->courses_take;
         foreach ($courses as $course){
             $course['Teachers']="";
@@ -120,15 +120,21 @@ class UsersOperation extends Controller
         return $courses;
     }
 
+    public function RetrieveMyCourses()
+    {
+        $user=\Auth::user();
+        return $this->RetriveCourseHelper($user);
+    }
+
     public function RetrieveMyPacks()
     {
         $user=\Auth::user();
         return $user->pack_take;
     }
 
-    public function RetrieveFave()
+    public function RetrieveFaveHelper(User $user)
     {
-        $fav=\Auth::user()->fav_sections;
+        $fav=$user->fav_sections;
         foreach($fav as $item){
             $course=$item->courses;
             $count = 0;
@@ -149,5 +155,10 @@ class UsersOperation extends Controller
         }
 
         return $fav;
+    }
+    public function RetrieveFave()
+    {
+        $user=\Auth::user();
+        return $this->RetrieveFaveHelper($user);
     }
 }
