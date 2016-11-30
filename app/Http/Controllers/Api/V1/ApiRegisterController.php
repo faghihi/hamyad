@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\User;
+use Illuminate\Support\Facades\Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
@@ -12,29 +13,59 @@ use App\ActivationService;
 
 class ApiRegisterController extends Controller
 {
-
-    protected $register_controller;
-
-    public function __construct(RegisterController $item)
+    public function CheckEmail($email)
     {
-        $this->middleware('guest');
-        $this->register_controller = $item;
+        $user=User::where('email',$email)->first();
+        if(!is_null($user))
+        {
+            return 0;
+        }
+        return 1;
+    }
+    public function Register()
+    {
+        $response=['result'=>'0','message'=>''];
+        $input=Input::all();
+        if(!$this->CheckEmail($input['Email'])){
+            $response['message']='Repetetive Email';
+            return $response;
+        }
+        $rules = array(
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|min:6|confirmed',
+        );
+        $validator = Validator::make($input, $rules);
+        if($validator->fails()){
+            $response['message']='email or name or pass not sufficient';
+            return $response;
+        }
+        else{
+            if($this->StoreRegister($input)){
+                $response['message']='User Created';
+                return $response;
+            }
+            else{
+                $response['message']='unable to create user';
+                return $response;
+            }
+        }
     }
 
-
-    protected function validator(array $data)
+    public function StoreRegister($input)
     {
-        return $this->register_controller->validator($data); # TODO
-    }
-
-    public function register(Request $request)
-    {
-        return $this->register_controller->register($request);
-    }
-
-
-    protected function create(array $data)
-    {
-        return $this->register_controller->create($data);
+        $user=new User();
+        $key=['name','email','password'];
+        foreach ($key as $k){
+            $user->$k=$input[$k];
+            $user->activated=1;
+        }
+        try{
+            $user->save();
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+            return 0;
+        }
+        return 1;
     }
 }
