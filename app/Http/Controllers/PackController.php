@@ -7,17 +7,21 @@ use Illuminate\Http\Request;
 
 class PackController extends Controller
 {
-    public function index()
+    public function RetrieveAll()
     {
         $packs=Pack::all();
         foreach ($packs as $pack){
-            $counter=$pack->courses;
+            $pack->count_courses=count($pack->courses);
         }
 
         return $packs;
     }
+    public function index()
+    {
+        return $this->RetrieveAll();
+    }
 
-    public function show(Pack $pack)
+    public function ShowSpecificPack(Pack $pack)
     {
         $courses=$pack->courses;
         foreach ($courses as $course){
@@ -51,6 +55,10 @@ class PackController extends Controller
         }
         return $courses;
     }
+    public function show(Pack $pack)
+    {
+        $this->ShowSpecificPack($pack);
+    }
 
     public function Take(Pack $pack,$payment,$discount,$period)
     {
@@ -59,6 +67,13 @@ class PackController extends Controller
         $final_time= strtotime(date("Y-m-d H:i:s", strtotime($StartDate)) . " +$days day");
         $final_time = date("Y-m-d H:i:s",$final_time);
         $user=\Auth::user();
-        $user->pack_take()->attach($pack->id,['paid'=>$payment,'discount_used'=>$discount,'start'=>$StartDate,'end'=>$final_time]);
+        try {
+            $user->pack_take()->attach($pack->id,['paid'=>$payment,'discount_used'=>$discount,'start'=>$StartDate,'end'=>$final_time]);
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+
+            return 0;
+        }
+        return 1;
     }
 }
