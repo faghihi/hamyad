@@ -9,7 +9,7 @@ Route::group([
     'as' => 'api.'],
     # User cant request a url more than 30 times in 60 seconds.
     function () {
-
+ 
     # TODO API TOKEN
     # TODO Requests
 
