@@ -10,54 +10,35 @@ Route::group([
     # User cant request a url more than 30 times in 60 seconds.
     function () {
 
-    # TODO API TOKEN
-    # TODO Requests
-
-    Route::resource('login', 'ApiLoginController');
-    Route::resource('register', 'ApiRegisterController');
-//    Route::resource('courses', 'ApiCoursesController');
-    Route::resource('reviews', 'ApiReviewsController');
-    Route::resource('roles', 'ApiRolesController');
-    Route::resource('social', 'ApiSocialController');
-    Route::resource('tags', 'ApiTagsController');
-    Route::resource('useractions', 'ApiUserActionsController');
-    Route::resource('users', 'ApiUsersController');
-    Route::resource('categorys', 'ApiCategorysController');
-    Route::resource('sections', 'ApiSectionsController');
-    Route::resource('teachers', 'ApiTeachersController');
-    Route::resource('discounts', 'ApiDiscountsController');
-    Route::resource('providers', 'ApiProvidersController');
-    Route::get('favorite/{section}', 'ApiSectionsController@favorite');
+        Route::resource('login', 'ApiLoginController');
+        Route::get('NotAuth','ApiLoginController@Fail');
+        Route::resource('register', 'ApiRegisterController');
+        Route::resource('courses', 'ApiCoursesController');
+        Route::get('Courses/search', 'ApiCoursesController@search');
+        Route::get('Courses/ShowReviews/{course}', 'ApiCoursesController@ShowReviews');
+        Route::get('Subscribe', 'ApiSocialController@subscribe');
+        Route::get('Contact', 'ApiSocialController@contact');
+        Route::resource('categorys', 'ApiCategorysController');
+        Route::resource('teachers', 'ApiTeachersController');
+        Route::get('Index/', 'ApiIndexController@index');
+        Route::resource('packs', 'ApiPacksController');
 });
 
 Route::group([
     'prefix' => '/v1',
     'namespace' => 'Api\V1',
-    'middleware' => ['throttle:30,1'],
+    'middleware' => ['apimid','throttle:30,1'],
     'as' => 'api.'],
     # User cant request a url more than 30 times in 60 seconds.
     function () {
-        Route::resource('courses', 'ApiCoursesController');
-        Route::get('Courses/search', 'ApiCoursesController@search');
-        Route::get('Courses/ShowReviews/{course}', 'ApiCoursesController@ShowReviews');
-        Route::get('Courses/AddCourse/{course}', 'ApiCoursesController@AddCourse');
-        Route::get('Index/', 'ApiIndexController@index');
-        Route::get('Packs/AddPack/{pack}', 'ApiPacksController@take');
-        Route::resource('packs', 'ApiPacksController');
-
-        Route::get('Reviews', 'ApiReviewsController@store');
-        Route::get('DelReviews/{review}', 'ApiReviewsController@destroy');
-
-
         Route::get('Sections/{section}', 'ApiSectionsController@show');
-        Route::get('Subscribe', 'ApiSocialController@subscribe');
-        Route::get('Contact', 'ApiSocialController@contact');
-
-        Route::get('Teachers', 'ApiTeachersController@index');
-        Route::get('Teachers/{teacher}', 'ApiTeachersController@show');
+        Route::get('favorite/{section}', 'ApiSectionsController@favorite');
+        Route::post('Reviews', 'ApiReviewsController@store');
+        Route::delete('DelReviews/{review}', 'ApiReviewsController@destroy');
         Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
-
-        Route::get('UsersOperation', 'ApiUsersOperationController@ChangePass');
+        Route::get('Courses/AddCourse/{course}', 'ApiCoursesController@AddCourse');
+        Route::post('Packs/AddPack/{pack}', 'ApiPacksController@take');
+        Route::post('UserChangePass', 'ApiUsersOperationController@ChangePass');
         Route::post('UsersUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
         Route::get('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
         Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');

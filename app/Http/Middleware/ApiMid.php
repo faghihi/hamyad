@@ -10,13 +10,13 @@ class ApiMid
 {
     public function handle($request, Closure $next)
     {
-        $response=['result'=>'0','message'=>'authentication Needed'];
+
         $n = Input::get('api_token');
         $user = User::where('api_token', $n)->first();
         if(!is_null($user))
             return $next($request);
         else
-            return $response;
+            return redirect('/api/v1/NotAuth');
 
     }
 }

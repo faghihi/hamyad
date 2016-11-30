@@ -41,4 +41,10 @@ class ApiLoginController extends Controller
         }
         return $response;
     }
+
+    public function Fail()
+    {
+        $response=['result'=>'0','message'=>'authentication Needed'];
+        return $response;
+    }
 }
