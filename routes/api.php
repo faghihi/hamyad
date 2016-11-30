@@ -5,7 +5,7 @@
 Route::group([
     'prefix' => '/v1',
     'namespace' => 'Api\V1',
-    'middleware' => ['auth:api', 'throttle:30,1'],
+    'middleware' => ['throttle:30,1'],
     'as' => 'api.'],
     # User cant request a url more than 30 times in 60 seconds.
     function () {

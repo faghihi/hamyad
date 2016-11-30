@@ -7,7 +7,7 @@ use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-//use App\Http\Controllers\CategorysController; TODO
+use App\Http\Controllers\CategoryController;
 
 use App\Http\Requests\StoreCategorysRequest;
 
@@ -16,16 +16,16 @@ use App\Http\Requests\UpdateCategorysRequest;
 class ApiCategorysController extends Controller
 {
     /**
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function __construct()
+    protected $categorys_controller;
+    public function __construct(CategoryController $item)
     {
-            $this->middleware('jwt.auth');
+            $this->categorys_controller = $item;
     }
 
     public function index()
     {
-        return Category::all();
+        return $this->categorys_controller->
     }
 
     /**
