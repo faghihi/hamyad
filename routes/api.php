@@ -57,7 +57,7 @@ Route::group([
         Route::get('Teachers/{teacher}', 'ApiTeachersController@show');
         Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
 
-        Route::get('UsersOperation/', 'ApiUsersOperationController@ChangePass');
+        Route::get('UsersOperation', 'ApiUsersOperationController@ChangePass');
         Route::post('UsersUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
-        Route::post('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
+        Route::get('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
     });

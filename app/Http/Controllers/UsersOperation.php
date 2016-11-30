@@ -73,18 +73,17 @@ class UsersOperation extends Controller
         $user = \Auth::user();
         if (Input::has('Name')) {
             $user->name = Input::get('Name');
-            if($user->save())
-                return 1;
+            try{
+                $user->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
         }
         else
             return 0;
     }
-
-
-    public function test($input ){
-    }
-
-
     public function RetrieveMyCourses()
     {
         $user=\Auth::user();
