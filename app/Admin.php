@@ -23,7 +23,7 @@ class Admin extends Model
 //    use SoftDeletes;
     protected $table="admins";
     protected $fillable = ['name', 'email', 'password', 'remember_token', 'role_id'];
-
+    public static $rules = array();
 
     /**
      * @return void

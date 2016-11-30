@@ -15,7 +15,7 @@ class r_AdminSeed extends Seeder
             [
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
-                'password' => '$2y$10$qUQF4EoSSjt1ZvSqvWT/dOf/oW3P5/zY2HswaR9bzMoepkh7oDQEK',
+                'password' => '123456789',
                 'role_id' => 1,
                 'remember_token' => '',
             ],

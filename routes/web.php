@@ -7,9 +7,20 @@ Route::get('/', function () {
 
 });
 
+// Admin Authentication Routes...
+
+$this->get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
+
+$this->post('admin/login', 'Admin\Auth\LoginController@login');
+
+$this->post('admin/logout', 'Admin\Auth\LoginController@logout');
+
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 {
+    Route::get('/',function (){
+       return redirect('admin\login');
+    });
     // Backpack\CRUD: Define the resources for the entities you want to CRUD.
     CRUD::resource('Categories', 'Admin\CategoryCrudController');
     CRUD::resource('Courses', 'Admin\CourseCrudController');

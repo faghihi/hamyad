@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('image')->nullable();
+            $table->boolean('admin')->default('0');
             $table->integer('role_id')->unsigned()->nullable()->index();
             $table->boolean('activated')->default(false);
             $table->string('api_token')->nullable();
