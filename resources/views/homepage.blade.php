@@ -167,7 +167,7 @@
 					
 						<div class="GridLex-gap-20">   
 						
-							<div class="GridLex-grid-noGutter-equalHeight">
+							<div class="GridLex-grid-noGutter-equalHeight GridLex-grid-center">
 
 								@foreach($Data['category'] as $item)
 									<div class="GridLex-col-2_sm-3_xs-4_xss-6">
@@ -229,21 +229,14 @@
 												@if(isset($course['image']))
 													<?php $image=$course['image'];?>
 												@else
-													<?php $image='images/course/course-item-sm-01.jpg';?>
+													<?php $image='images/course/course-item-sm-02.jpg';?>
 												@endif
 												<img src="{{$image}}" alt="Image" class="img-responsive" />
 											</div>
 											<div class="course-item-top clearfix">
-												<div class="rating-wrapper text-left">
-													<div class="rating-item">
-														@if($course['rates_count'] == 0)
-															<?php $rate=0;?>
-														@else
-															<?php $rate=$course['rates_value']/$course['rates_count']?>
-														@endif
-														<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
-													</div>
-													<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
+												<div class="course-item-instructor text-left">
+													<span>وستا جونیور</span>&nbsp;
+													<i class="fa fa-building-o" aria-hidden="true"></i>
 												</div>
 												<div class="course-item-price bg-danger">
 													@if($course['price'] > 1000)
@@ -256,9 +249,22 @@
 											</div>
 											<div class="course-item-content">
 
+												<div class="rating-wrapper text-left">
+													<div class="rating-item">
+														@if($course['rates_count'] == 0)
+															<?php $rate=0;?>
+														@else
+															<?php $rate=$course['rates_value']/$course['rates_count']?>
+														@endif
+														<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
+													</div>
+													<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
+												</div>
+
 												<h3 class="text-primary">{{$course['name']}}</h3>
 												<p>{{$course['description']}}</p>
-												</div>
+
+											</div>
 											<div class="course-item-instructor">
 												<b class="text-primary">ارائه دهندگان</b>
 												<p>{{$course['Teachers']}}</p>
