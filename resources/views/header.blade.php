@@ -65,7 +65,7 @@
                                     <a href="#">Layout Option</a>
                                     <ul>
                                         <li><a href="index-layout-01.html">Layout Option 01</a></li>
-                                        <li><a href="index.blade.php">Layout Option 02</a></li>
+                                        <li><a href="homepage.blade.php">Layout Option 02</a></li>
                                         <li><a href="index-layout-03.html">Layout Option 03</a></li>
                                         <li><a href="index-layout-04.html">Layout Option 04</a></li>
                                     </ul>

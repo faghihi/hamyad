@@ -7917,12 +7917,12 @@ namespace {
         /**
          * Returns the root path from which this request is executed.
          * 
-         * Suppose that an index.php file instantiates this request object:
+         * Suppose that an homepage.blade.php file instantiates this request object:
          * 
-         *  * http://localhost/index.php         returns an empty string
-         *  * http://localhost/index.php/page    returns an empty string
-         *  * http://localhost/web/index.php     returns '/web'
-         *  * http://localhost/we%20b/index.php  returns '/we%20b'
+         *  * http://localhost/homepage.blade.php         returns an empty string
+         *  * http://localhost/homepage.blade.php/page    returns an empty string
+         *  * http://localhost/web/homepage.blade.php     returns '/web'
+         *  * http://localhost/we%20b/homepage.blade.php  returns '/we%20b'
          *
          * @return string The raw path (i.e. not urldecoded)
          * @static 
@@ -7938,7 +7938,7 @@ namespace {
          * The base URL never ends with a /.
          * 
          * This is similar to getBasePath(), except that it also includes the
-         * script filename (e.g. index.php) if one exists.
+         * script filename (e.g. homepage.blade.php) if one exists.
          *
          * @return string The raw URL (i.e. not urldecoded)
          * @static 

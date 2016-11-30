@@ -117,10 +117,17 @@ Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/index', function (){
-    return view('index');
+
+Route::get('/homepage', function (){
+    return view('homepage');
 });
 
 Route::get('/ajax-register', function (){
     return view('ajax-login-modal-register');
+});
+Route::get('/ajax-login', function (){
+    return view('ajax-login-modal-login');
+});
+Route::get('/ajax-forgot-password', function (){
+    return view('ajax-login-modal-forgot-password');
 });
