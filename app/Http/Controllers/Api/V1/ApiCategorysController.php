@@ -25,7 +25,7 @@ class ApiCategorysController extends Controller
 
     public function index()
     {
-        return $this->categorys_controller->
+        return $this->categorys_controller->RetrieveCategories();
     }
 
     /**
