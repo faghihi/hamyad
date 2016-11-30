@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Course;
 use App\Review;
 
+use App\Section;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ReviewsController;
-use App\Http\Requests\StoreReviewsRequest;
-
-use App\Http\Requests\UpdateReviewsRequest;
+use Illuminate\Support\Facades\Input;
+use Mockery\CountValidator\Exception;
 
 class ApiReviewsController extends Controller
 {
@@ -25,20 +27,6 @@ class ApiReviewsController extends Controller
         $this->reviews_controller = $item;
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function index()
-    {
-        return Review::all();
-    }
-
-    public function show($id)
-    {
-        return Review::findOrFail($id);
-    }
-
-
     public function update(UpdateReviewsRequest $request, $id)
     {
         $review = Review::findOrFail($id);
@@ -47,16 +35,78 @@ class ApiReviewsController extends Controller
         return $review;
     }
 
-    public function store(StoreReviewsRequest $request)
+    public function store()
     {
-        return $this->reviews_conroller->store();
+        $response = ['result' => 0];
+        $input=Input::all();
+        $newr=new Review();
+        $newr->comment=$input['comment'];
+
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        if (is_null($user)){
+            return $response;
+        }
+        else {
+            $newr->user_id=$user->id;
+        }
+
+        if(Input::has('teacher')){
+            $newr->teacher_rate=$input['teacher'];
+        }
+        elseif (Input::has('course'))
+        {
+            $newr->course_rate=$input['course'];
+        }
+        elseif (Input::has('pack'))
+        {
+            $newr->pack_rate=$input['pack'];
+        }
+
+        if($newr->save())
+        {
+            if(Input::has('Course')){
+                $course=Course::findorfail(Input::get('Course'));
+                try{
+                    $course->reviews()->attach($newr->id);
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    return $response;
+                }
+                $response['result'] = 1;
+
+            }
+            elseif(Input::has('Section')){
+                $section=Section::findorfail(Input::get('Section'));
+
+                try{
+                    $section->reviews()->attach($newr->id);
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    return $response;
+                }
+                $response['result'] = 1;
+            }
+            return $response;
+        }
+        return $response;
     }
 
-    public function destroy($id)
+    public function destroy(Review $review)
     {
-        $review = Review::findOrFail($id);
-        $review->delete();
+        $response = ['result' => '0'];
 
-        return '';
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        if (!is_null($user) && $review->user_id == $user->id){
+            $review->delete();
+            $response['result'] = 1;
+            return $response;
+        }
+        else {
+            return $response;
+        }
     }
 }

@@ -92,10 +92,10 @@ class ApiCoursesController extends Controller
 
         $number = Input::get('number');
         $discount = Input::get('discount');
+        $response = ['result' => '0'];
 
         $n = Input::get('api_token');
         $user = User::where('api_token', $n)->first();
-        $response = ['result' => '0'];
 
         if (is_null($user)){
             return $response;

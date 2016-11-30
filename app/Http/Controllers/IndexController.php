@@ -6,8 +6,10 @@ use App\Category;
 use App\Course;
 use App\Teacher;
 use App\TV;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller
 {
@@ -57,14 +59,18 @@ class IndexController extends Controller
         }
         $Categories=Category::all();
         $Data['category']=$Categories;
-        if(Auth::check()){
-            $user=Auth::user();
-            $Data['user']['name']=$user->name;
-        }
-        else{
+
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        if (is_null($user)){
             $Data['user']['name']='NoUser';
         }
-
+        else {
+            $Data['user']['name']=$user->name;
+        }
+//        Input::
+//        User::
         return $Data;
 
     }

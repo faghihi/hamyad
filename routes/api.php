@@ -44,4 +44,7 @@ Route::group([
         Route::get('Index/', 'ApiIndexController@index');
         Route::get('Packs/AddPack/{pack}', 'ApiPacksController@take');
         Route::resource('packs', 'ApiPacksController');
+
+        Route::get('Reviews', 'ApiReviewsController@store');
+        Route::get('DelReviews/{review}', 'ApiReviewsController@destroy');
     });
