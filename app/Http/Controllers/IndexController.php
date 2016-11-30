@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Course;
+use App\Teacher;
 use App\TV;
 use Auth;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ class IndexController extends Controller
 {
     //Controling the indexs View's
 
-    public function index(){
+    public function RetrieveData()
+    {
         $Data=array();
         $Data['Courses']=array();
         $courses=Course::orderBy('created_at', 'desc')->get();
@@ -36,11 +38,21 @@ class IndexController extends Controller
             $Data['user']['name']='NoUser';
         }
 
-        #testing the result
-//        foreach ($Data as $item){
-//            print_r($item);
-//            echo "<BR>";
-//        }
+        return $Data;
+
+    }
+
+    public function Teachers()
+    {
+        $numberOfRows = 4;
+        $teachers=Teacher::all();
+        $teachers = $teachers->shuffle()->slice(0,$numberOfRows);
+        return $teachers;
+
+    }
+    public function index(){
+        return $this->RetrieveData();
+//        return $this->Teachers();
     }
 
 }

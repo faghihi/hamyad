@@ -51,4 +51,14 @@ class PackController extends Controller
         }
         return $courses;
     }
+
+    public function Take(Pack $pack,$payment,$discount,$period)
+    {
+        $StartDate=date('Y-m-d H:i:s');
+        $days=$period;
+        $final_time= strtotime(date("Y-m-d H:i:s", strtotime($StartDate)) . " +$days day");
+        $final_time = date("Y-m-d H:i:s",$final_time);
+        $user=\Auth::user();
+        $user->pack_take()->attach($pack->id,['paid'=>$payment,'discount_used'=>$discount,'start'=>$StartDate,'end'=>$final_time]);
+    }
 }
