@@ -16,11 +16,12 @@ jQuery(function() {
 					delayAfter: 0,
 					exitTime: 300,
 					onAfter: function(){
-						
+
+						//options of typewriter must get from DB By ajax
 						var placeholderText = [
-							"What do you want to study?",
+							"چی دوست داری یاد بگیری؟",
 							"Business?",
-							"Computer & IT?",
+							"کامپیوتر و IT؟",
 							"Science?",
 							"Design?",
 							"Photography?",
@@ -180,7 +181,7 @@ jQuery(function() {
 		}
 
 		if ($(window).width() > 992) {
-			$(".navbar-arrow ul ul > li").has("ul").children("a").append("<i class='arrow-indicator fa fa-angle-right'></i>");
+			$(".navbar-arrow ul ul > li").has("ul").children("a").append("<i class='arrow-indicator fa fa-angle-left'></i>");
 		}
 
 
@@ -355,7 +356,7 @@ jQuery(function() {
 			$('body').modalmanager('loading');
 
 			setTimeout(function(){
-				 $modal.load('ajax-login-modal-login', '', function(){
+				 $modal.load('/ajax-login', '', function(){
 					$modal.modal();
 				});
 			}, 1000);
@@ -392,7 +393,7 @@ jQuery(function() {
 
 			setTimeout(function(){
 
-				 $modalForgotPassword.load('ajax-login-modal-forgot-password', '', function(){
+				 $modalForgotPassword.load('/ajax-forgot-password', '', function(){
 					$modalForgotPassword.modal();
 				});
 

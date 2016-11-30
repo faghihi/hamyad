@@ -7,7 +7,7 @@
 						
 	<div class="row gap-20">
 	
-		<div class="col-xs-12 col-md-12">
+		{{--<div class="col-xs-12 col-md-12">
 			<button class="btn btn-facebook btn-block">Register with Facebook</button>
 		</div>
 		<div class="col-xs-12 col-md-12 mt-5">
@@ -18,7 +18,7 @@
 			<div class="login-modal-or">
 				<div><span>or</span></div>
 			</div>
-		</div>
+		</div>--}}
 		
 		<div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -33,7 +33,7 @@
 
 			<div class="form-group"> 
 				<label>Email Address</label>
-				<input class="form-control" placeholder="Enter your email address" type="text"> 
+				<input class="form-control" placeholder="Enter your email address" type="email">
 			</div>
 		
 		</div>
@@ -42,7 +42,7 @@
 		
 			<div class="form-group"> 
 				<label>Password</label>
-				<input class="form-control" placeholder="Min 8 and Max 20 characters" type="text"> 
+				<input class="form-control" placeholder="Min 8 and Max 20 characters" type="password">
 			</div>
 		
 		</div>
@@ -51,21 +51,21 @@
 		
 			<div class="form-group"> 
 				<label>Password Confirmation</label>
-				<input class="form-control" placeholder="Re-type password again" type="text"> 
+				<input class="form-control" placeholder="Re-type password again" type="password">
 			</div>
 		
 		</div>
 		
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<div class="checkbox-block"> 
-				<input id="register_accept_checkbox" name="register_accept_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
-				<label class="" for="register_accept_checkbox">By register, I read &amp; accept <a href="#">the terms</a></label>
+			<div class="checkbox-inline">
+				<input id="register_accept_checkbox" name="register_accept_checkbox" class="checkbox" value="First Choice" type="checkbox">
+				<label class="" for="register_accept_checkbox"><a href="#">قوانین</a> را خوانده ام و پذیرفتم.</label>
 			</div>
 		</div>
 		
 		<div class="col-xs-12 col-sm-12 col-md-12">
 			<div class="login-box-box-action">
-				Already have account? <a data-toggle="modal" href="#loginModal">Log-in</a>
+				 حساب کاربری دارید?<a data-toggle="modal" href="#loginModal">  ورود</a>
 			</div>
 		</div>
 		

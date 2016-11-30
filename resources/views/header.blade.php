@@ -9,7 +9,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-offset-6 col-sm-6">
 
                             <div class="top-header-widget">
                                 <a href="javascript:void(0)" class="btn-ajax-login" data-toggle="modal">
@@ -38,7 +38,7 @@
             <div class="container">
 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.blade.php"><i class="education-icon-book7"></i> Edu<strong class="uppercase">Tute</strong></a>
+                    <a class="navbar-brand" href="index-1.blade.php"><i class="education-icon-book7"></i> Edu<strong class="uppercase">Tute</strong></a>
                 </div>
 
                 <div id="navbar" class="collapse navbar-collapse navbar-arrow">
@@ -46,7 +46,7 @@
                     <ul class="nav navbar-nav navbar-right" id="responsive-menu">
 
                         <li>
-                            <a href="index.blade.php">Home</a>
+                            <a href="index-1.blade.php">Home</a>
                             <ul>
                                 <li>
                                     <a href="#">Hero Header Option</a>
@@ -65,7 +65,7 @@
                                     <a href="#">Layout Option</a>
                                     <ul>
                                         <li><a href="index-layout-01.html">Layout Option 01</a></li>
-                                        <li><a href="index-layout-02.html">Layout Option 02</a></li>
+                                        <li><a href="index.blade.php">Layout Option 02</a></li>
                                         <li><a href="index-layout-03.html">Layout Option 03</a></li>
                                         <li><a href="index-layout-04.html">Layout Option 04</a></li>
                                     </ul>

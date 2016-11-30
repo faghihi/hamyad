@@ -4,7 +4,10 @@ Author:         Crenoveative
 URL:            http://crenoveative.com
 Created:        18/10/2016
 -------------------------------------------------------------------*/
-
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
 
 /**
  * Header
@@ -123,7 +126,7 @@ a.navbar-brand:hover {
 
 .navbar-nav li ul li ul {
     position: absolute;
-    left: 188px;
+    right: 188px;
     top: -2px;
     box-shadow: -10px 1px 20px rgba(0, 0, 0, 0.1)
 }
@@ -174,7 +177,7 @@ a.navbar-brand:hover {
 .navbar-arrow ul ul > li .arrow-indicator {
     position: absolute;
     top: 50%;
-    right: 15px;
+    left: 15px;
     margin-top: -8px;
     font-size: 16px;
     color: #CCC
@@ -834,7 +837,7 @@ ul.top-header-dropdown li:first-child {
 .main-search-wrapper .input-group .form-control {
     border: 0;
     height: 50px;
-    border-radius: 4px 0 0 4px !important;
+    border-radius: 0 4px 4px 0 !important;
     font-size: 18px;
     padding-left: 25px;
 }
@@ -1230,6 +1233,14 @@ ul.top-search-list li a:hover {
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
 }
 
+.course-item-top .rating-wrapper {
+    margin: 10px 0 5px;
+}
+
+.course-item-top .rating-wrapper > div {
+    display: inline-block;
+}
+
 .course-item-price {
     position: absolute;
     top: 10px;
@@ -1255,7 +1266,7 @@ ul.top-search-list li a:hover {
 
 .course-item-content {
     padding: 25px 15px;
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .course-item-content h3 {
@@ -1267,14 +1278,6 @@ ul.top-search-list li a:hover {
 
 .course-item-content p {
     margin-top: 20px;
-}
-
-.course-item-content .rating-wrapper {
-    margin: 0 0 5px;
-}
-
-.course-item-content .rating-wrapper > div {
-    display: inline-block;
 }
 
 .course-item-bottom {
@@ -1446,6 +1449,12 @@ ul.top-search-list li a:hover {
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.13);
     margin-right: -20px;
+}
+
+.course-item .course-item-instructor {
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 20px;
 }
 
 .course-list-item .course-instructor {}
@@ -2466,13 +2475,13 @@ ul.subtitle-list li:first-child .time {
 
 .featured-sm-item .icon {
     width: 45px;
-    float: left;
+    float: right;
     font-size: 36px;
     padding-top: 5px;
 }
 
 .featured-sm-item .content {
-    margin-left: 45px;
+    margin-right: 45px;
     line-height: 1.7;
     letter-spacing: 1.5px;
     font-size: 13px;
@@ -2634,7 +2643,7 @@ a.category-item:hover {
     top: 0;
     left: 0;
     right: 0;
-    font-size: 32px;
+    font-size: 34px;
     margin: 0 0 15px;
 }
 
@@ -2667,6 +2676,14 @@ a.category-item:hover {
     background: #0D7CC9;
     border-radius: 50%;
     font-size: 32px;
+}
+
+.category-item img{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    //border: .5px solid #0D7CC9;
+    //border-radius: 50%;
 }
 
 .call-featiured {
@@ -2820,7 +2837,7 @@ a.category-item:hover {
     border-radius: 50%;
 }
 
-.testimonial-item:before {
+/*.testimonial-item:before {
     font-family: 'themify';
     content: "\e67e";
     position: absolute;
@@ -2828,7 +2845,7 @@ a.category-item:hover {
     right: 20px;
     font-size: 34px;
     color: #E5E5E5;
-}
+}*/
 
 .slick-testimonial-wrapper {}
 
@@ -4543,7 +4560,7 @@ ul.secondary-footer-menu li a:hover {
 }
 
 .login-box-link-action {
-    text-align: right;
+    text-align: left;
 }
 
 .login-box-box-action {

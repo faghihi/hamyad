@@ -1,22 +1,15 @@
 <?php
 
 
-Route::get('/','IndexController@index');
+Route::get('/', function () {
 
-// Admin Authentication Routes...
+    return view('welcome');
 
-$this->get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
-
-$this->post('admin/login', 'Admin\Auth\LoginController@login');
-
-$this->post('admin/logout', 'Admin\Auth\LoginController@logout');
+});
 
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 {
-    Route::get('/',function (){
-       return redirect('admin\login');
-    });
     // Backpack\CRUD: Define the resources for the entities you want to CRUD.
     CRUD::resource('Categories', 'Admin\CategoryCrudController');
     CRUD::resource('Courses', 'Admin\CourseCrudController');
@@ -130,10 +123,4 @@ Route::get('/index', function (){
 
 Route::get('/ajax-register', function (){
     return view('ajax-login-modal-register');
-});
-
-Route::resource('teachers','TeachersController');
-
-Route::get('test',function (){
-   return view('test.upload');
 });

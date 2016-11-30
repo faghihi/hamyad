@@ -20,7 +20,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<div class="checkbox-block"> 
+			<div class="checkbox-inline">
 				<input id="forgot_password_checkbox" name="forgot_password_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
 				<label class="" for="forgot_password_checkbox">Generate new password</label>
 			</div>
