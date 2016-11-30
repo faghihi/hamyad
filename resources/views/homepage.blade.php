@@ -67,8 +67,8 @@
 					
 						<div class="main-search-wrapper">
 					
-							<h2 class="text-center">What course will you like to learn?</h2>
-							<p class="lead text-center">Occasional entreaties comparison me difficulty so themselves.</p>
+							<h2 class="text-center">علاقه مند به یادگیری چه چیزی هستید ؟!</h2>
+							<p class="lead text-center">ساعت ها آموزش کاربردی و تایید شده انتظار شما را میکشد</p>
 
 							<div class="input-group">
 								<input type="text" class="form-control placeholder-type-writter">
@@ -92,7 +92,7 @@
 												</div>
 												
 												<div class="content">
-													More than 35,000 courses
+													بیش از هزار درس موجود
 												</div>
 												
 											</div>
@@ -108,7 +108,7 @@
 												</div>
 												
 												<div class="content">
-													Over 9 million students
+													بیش از ۱۰ هزار کاربر
 												</div>
 												
 											</div>
@@ -124,7 +124,7 @@
 												</div>
 												
 												<div class="content">
-													Learn anywhere, anythime you like
+													قابلیت استفاده در تلفن همراه
 												</div>
 												
 											</div>
@@ -157,7 +157,7 @@
 						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 						
 							<div class="section-title">
-								<h2 class="text-center">Browse by Category</h2>
+								<h2 class="text-center">دسته بندی ها</h2>
 							</div>
 						</div>
 					
@@ -210,8 +210,8 @@
 						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 						
 							<div class="section-title">
-								<h2 class="text-center">Latest Courses</h2>
-								<p>However venture pursuit he am mr cordial. Forming musical am hearing studied be luckily. <strong>Ourselves for determine</strong> attending how led gentleman sincerity.</p>
+								<h2 class="text-center">دوره های جدید</h2>
+								<p>جز اولین نفراتی باشید که از اخیرترین درس های ایجاد شده در هم یاد استفاده میکنند, <strong>تلاش را آغاز کنید.</strong></p>
 							</div>
 						</div>
 					
@@ -220,281 +220,58 @@
 					<div class="course-item-wrapper gap-20">
 					
 						<div class="GridLex-grid-noGutter-equalHeight GridLex-grid-center">
-						
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="rating-wrapper text-left">
-												<div class="rating-item">
-													<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-												</div>
-												<span> (7 review)</span>
-											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
 
-											<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-											<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson</p>
-										</div>
-										<div class="course-item-instructor">
-											<b class="text-primary">ارائه دهندگان</b>
-											<p><span>Mark Lassoff </span>، <span>Ange Ermolova</span>، <span>Nicholas Mavrakis</span></p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/02.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="rating-wrapper text-left">
-												<div class="rating-item">
-													<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+							@foreach($Data['Courses'] as $course)
+								<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
+									<div class="course-item">
+										<a href="#">
+											<div class="course-item-image">
+												@if(isset($course['image']))
+													<?php $image=$course['image'];?>
+												@else
+													<?php $image='images/course/course-item-sm-01.jpg';?>
+												@endif
+												<img src="{{$image}}" alt="Image" class="img-responsive" />
+											</div>
+											<div class="course-item-top clearfix">
+												<div class="rating-wrapper text-left">
+													<div class="rating-item">
+														@if($course['rates_count'] == 0)
+															<?php $rate=0;?>
+														@else
+															<?php $rate=$course['rates_value']/$course['rates_count']?>
+														@endif
+														<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
+													</div>
+													<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
 												</div>
-												<span> (7 review)</span>
-											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
-											<h3 class="text-primary">Food Photography: Shooting at Restaurants</h3>
-											<p>She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel.</p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Photography </span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/03.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="rating-wrapper text-left">
-												<div class="rating-item">
-													<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+												<div class="course-item-price bg-danger">
+													@if($course['price'] > 1000)
+														<?php $price=$course['price']/1000 . ' هزار تومان'?>
+													@else
+														<?php $price=$course['price'] . ' تومان'?>
+													@endif
+													{{$price}}
 												</div>
-												<span> (7 review)</span>
 											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
-											<h3 class="text-primary">Introduction to HTML: Build a Portfolio Website</h3>
-											<p>Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient newspaper questions consulted</p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Wed Design</span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/04.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
+											<div class="course-item-content">
+
+												<h3 class="text-primary">{{$course['name']}}</h3>
+												<p>{{$course['description']}}</p>
+												</div>
 											<div class="course-item-instructor">
-												<div class="image">
-													<img src="images/testimonial/02.jpg" alt="Image" class="img-circle" />
-												</div>
-												<span>Nicholas Mavrakis</span>
+												<b class="text-primary">ارائه دهندگان</b>
+												<p>{{$course['Teachers']}}</p>
 											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
+											<div class="course-item-bottom clearfix">
+												<div><i class="fa fa-folder-open-o"></i><span class="block">{{$course['category']['name']}}</span></div>
+												<div><i class="fa fa-pencil-square-o"></i><span class="block">{{$course['sections_count']}} سرفصل</span></div>
+												<div><i class="fa fa-calendar-check-o"></i><span class="block">{{$course['sections_time']}} دقیقه</span></div>
 											</div>
-										</div>
-										<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-											<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-											<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson </p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
+										</a>
+									</div>
 								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/05.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="course-item-instructor">
-												<div class="image">
-													<img src="images/testimonial/01.jpg" alt="Image" class="img-circle" />
-												</div>
-												<span>Mark Lassoff </span>
-											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-											<h3 class="text-primary">Introduction to HTML: Build a Portfolio Website</h3>
-											<p>Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient ask him cold feel</p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Wed Design</span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/06.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="course-item-instructor">
-												<div class="image">
-													<img src="images/testimonial/04.jpg" alt="Image" class="img-circle" />
-												</div>
-												<span>Suttira Ketkaew</span>
-											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-											<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-											<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson</p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/07.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="course-item-instructor">
-												<div class="image">
-													<img src="images/testimonial/03.jpg" alt="Image" class="img-circle" />
-												</div>
-												<span>Ange Ermolova</span>
-											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-											<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-											<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson</p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
-								<div class="course-item">
-									<a href="#">
-										<div class="course-item-image">
-											<img src="images/course-item/08.jpg" alt="Image" class="img-responsive" />
-										</div>
-										<div class="course-item-top clearfix">
-											<div class="course-item-instructor">
-												<div class="image">
-													<img src="images/testimonial/02.jpg" alt="Image" class="img-circle" />
-												</div>
-												<span>Nicholas Mavrakis</span>
-											</div>
-											<div class="course-item-price bg-danger">
-												$19.56
-											</div>
-										</div>
-										<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-											<h3 class="text-primary">Food Photography: Shooting at Restaurants</h3>
-											<p>She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel.</p>
-										</div>
-										<div class="course-item-bottom clearfix">
-											<div><i class="fa fa-folder-open-o"></i><span class="block"> Photography </span></div>
-											<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-											<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-										</div>
-									</a>
-								</div>
-							</div>
+							@endforeach
 
 						</div>
 					
