@@ -31,7 +31,6 @@ class ApiTeachersController extends Controller
 
     public function rate(Teacher $teacher)
     {
-
         $n = Input::get('api_token');
         $user = User::where('api_token', $n)->first();
 
