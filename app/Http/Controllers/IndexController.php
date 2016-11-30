@@ -28,8 +28,6 @@ class IndexController extends Controller
         }
 
         foreach ($Data['Courses'] as $course ){
-            $courses = Course::all();
-            foreach ($courses as $course){
                 $course['Teachers']="";
                 $counter=0;
                 foreach ($course->teachers as $teacher){
@@ -56,11 +54,7 @@ class IndexController extends Controller
                 $course['rates_value']=$rate_value;
                 $course['rates_count']=$rate_count;
                 $counter=$course->category->name;
-
-            }
         }
-//        $TVs=TV::all();
-//        $Data['TV']=$TVs;
         $Categories=Category::all();
         $Data['category']=$Categories;
         if(Auth::check()){
