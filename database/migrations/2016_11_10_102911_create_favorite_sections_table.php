@@ -21,6 +21,8 @@ class CreateFavoriteSectionsTable extends Migration
             $table->integer('section_id')->unsigned();
 
             $table->timestamps();
+            $table->unique( array('user_id','section_id') );
+
         });
     }
 

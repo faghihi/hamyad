@@ -24,18 +24,8 @@ use Illuminate\Support\Facades\Session;
 class CoursesController extends Controller
 
 {
-    /**
 
-     * Display a listing of Course.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function index()
-
+    public function RetrieveCourses()
     {
         $courses = Course::all();
         foreach ($courses as $course){
@@ -76,20 +66,16 @@ class CoursesController extends Controller
 //            echo "\n";
 //        }
         return $courses;
+    }
+
+    public function index()
+
+    {
+        return $this->RetrieveCourses();
 //        return view('courses.index')->with(['courses'=>$courses,'Tags'=>$tags,'Categories'=>$Categories]);
     }
 
 
-
-    /**
-
-     * Show the form for creating new Course.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
 
     public function create()
 
@@ -102,18 +88,6 @@ class CoursesController extends Controller
     }
 
 
-
-    /**
-
-     * Store a newly created Course in storage.
-
-     *
-
-     * @param  \App\Http\Requests\StoreCoursesRequest  $request
-
-     * @return \Illuminate\Http\Response
-
-     */
 
     public function store(StoreCoursesRequest $request)
 
@@ -128,19 +102,6 @@ class CoursesController extends Controller
     }
 
 
-
-    /**
-
-     * Show the form for editing Course.
-
-     *
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
     public function edit($id)
 
     {
@@ -153,21 +114,6 @@ class CoursesController extends Controller
 
     }
 
-
-
-    /**
-
-     * Update Course in storage.
-
-     *
-
-     * @param  \App\Http\Requests\UpdateCoursesRequest  $request
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
 
     public function update(UpdateCoursesRequest $request, $id)
 
@@ -183,22 +129,7 @@ class CoursesController extends Controller
 
     }
 
-
-
-    /**
-
-     * Display Course.
-
-     *
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function show(Course $course)
-
+    public function ShowSpecificCourse(Course $course)
     {
         $course['Teachers']='';
         foreach ($course->teachers as $teacher){
@@ -249,58 +180,16 @@ class CoursesController extends Controller
         #testing the result
 //        print_r($course);
         return $course;
+    }
+
+    public function show(Course $course)
+
+    {
+            return $this->ShowSpecificCourse($course);
 //        return view('courses.show', compact('course'));
 
     }
 
-    public function Section(Section $section)
-    {
-        $course = $section->courses;
-        $section['course'] = $course;
-        $next = $course->section->where('part', $section->part + 1)->first();
-        if (!is_null($next)) {
-            $section['next'] = $next;
-        } else {
-            $section['next'] = 'last';
-        }
-        $pre = $course->section->where('part', $section->part - 1)->first();
-        if (!is_null($pre)) {
-            $section['pre'] = $pre;
-        } else {
-            $section['pre'] = 'first';
-        }
-        $count = 0;
-        foreach ($course->teachers as $teacher) {
-            $section['Teacher' . $count] = $teacher;
-            $count++;
-        }
-        $section['Teacher_count'] = $count;
-        $rate_count=0;
-        $rate_value=0;
-        foreach ($section->rates as $rate){
-            $rate_count++;
-            $rate_value +=$rate->pivot->rate;
-        }
-        $section['rates_value']=$rate_value;
-        $section['rates_count']=$rate_count;
-
-        $allsections = array();
-        $count = 0;
-        foreach ($course->section as $item) {
-            $allsections[$count] = $item;
-            if ($section->id == $item->id)
-                $allsections[$count]['enable'] = 1;
-            else
-                $allsections[$count]['enable'] = 0;
-            $count++;
-        }
-
-        #testng the result
-//        print_r($section);
-        return $section;
-    }
-    
-    
     /* Search in Courses */
 
     public function Search()
