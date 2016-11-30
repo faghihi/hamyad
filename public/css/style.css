@@ -2539,7 +2539,7 @@ ul.subtitle-list li:first-child .time {
 .counting-wrapper {
     position: relative;
     padding: 100px 0 110px;
-    padding-left: 150px;
+    padding-right: 150px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -5336,7 +5336,7 @@ ul.static-page-menu li.active a {
 .team-item ul.team-item-social {
     position: absolute;
     top: 25px;
-    right: 25px;
+    left: 25px;
     border: 1px solid #E5E5E5;
     -webkit-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.15);

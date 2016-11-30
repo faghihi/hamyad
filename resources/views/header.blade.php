@@ -144,7 +144,7 @@
                         <li>
                             <a href="#">Page</a>
                             <ul>
-                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="about.blade.php">About Us</a></li>
                                 <li><a href="price.html">Pricing</a></li>
                                 <li><a href="faq.html">Faq</a></li>
                                 <li><a href="faq-02.html">Faq 02</a></li>
@@ -162,7 +162,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.blade.php">Contact Us</a></li>
                     </ul>
 
 

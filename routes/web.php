@@ -117,6 +117,12 @@ Route::get('/home', 'HomeController@index');
 Route::get('/homepage', function (){
     return view('homepage');
 });
+Route::get('/contactUs', function (){
+    return view('contact');
+});
+Route::get('/aboutUs', function (){
+    return view('about');
+});
 
 Route::get('/ajax-register', function (){
     return view('ajax-login-modal-register');
