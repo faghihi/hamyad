@@ -19,6 +19,8 @@ class CreateCategoryTagTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('tag_id')->unsigned();
 
+            $table->unique( array('tag_id','category_id') );
+
             $table->timestamps();
         });
     }

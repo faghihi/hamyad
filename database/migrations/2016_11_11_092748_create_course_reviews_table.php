@@ -19,6 +19,8 @@ class CreateCourseReviewsTable extends Migration
             $table->integer('course_id')->unsigned();
             $table->integer('review_id')->unsigned();
 
+            $table->unique( array('review_id','course_id') );
+
             $table->timestamps();
         });
     }

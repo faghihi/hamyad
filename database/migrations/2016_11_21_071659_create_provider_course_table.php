@@ -17,6 +17,7 @@ class CreateProviderCourseTable extends Migration
             $table->increments('id');
             $table->integer('course_id')->unsigned();
             $table->integer('provider_id')->unsigned();
+
             $table->timestamps();
         });
     }

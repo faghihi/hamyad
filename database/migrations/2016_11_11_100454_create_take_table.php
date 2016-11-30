@@ -23,6 +23,7 @@ class CreateTakeTable extends Migration
             $table->string('paid')->nullable();
             $table->string('discount_used')->nullable();
 
+            $table->unique( array('user_id','course_id') );
             $table->timestamps();
 
 

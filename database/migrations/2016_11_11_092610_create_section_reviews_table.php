@@ -19,6 +19,8 @@ class CreateSectionReviewsTable extends Migration
             $table->integer('section_id')->unsigned();
             $table->integer('review_id')->unsigned();
 
+            $table->unique( array('review_id','section_id') );
+
             $table->timestamps();
         });
     }

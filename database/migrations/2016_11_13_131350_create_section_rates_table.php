@@ -21,6 +21,8 @@ class CreateSectionRatesTable extends Migration
             $table->integer('section_id')->unsigned();
             $table->integer('user_id')->unsigned();
 
+            $table->unique( array('user_id','section_id') );
+
             $table->timestamps();
         });
     }

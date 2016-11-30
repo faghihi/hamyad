@@ -21,6 +21,9 @@ class CreateTakepackTable extends Migration
             $table->string('discount_used')->nullable();
             $table->date('start');
             $table->date('end');
+
+            $table->unique( array('user_id','pack_id') );
+
             $table->timestamps();
         });
     }

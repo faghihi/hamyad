@@ -18,7 +18,7 @@ class CreateCourseTagTable extends Migration
 
             $table->integer('course_id')->unsigned();
             $table->integer('tag_id')->unsigned();
-
+            $table->unique( array('tag_id','course_id') );
             $table->timestamps();
         });
     }

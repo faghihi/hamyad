@@ -21,6 +21,8 @@ class CreateCourseRatesTable extends Migration
             $table->integer('course_id')->unsigned();
             $table->integer('user_id')->unsigned();
 
+            $table->unique( array('user_id','course_id') );
+
             $table->timestamps();
         });
     }

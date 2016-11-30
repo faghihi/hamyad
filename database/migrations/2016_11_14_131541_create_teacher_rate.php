@@ -26,6 +26,8 @@ class CreateTeacherRate extends Migration
             $table->integer('teacher_id')->unsigned();
             $table->integer('user_id')->unsigned();
 
+            $table->unique( array('teacher_id','user_id') );
+
             $table->timestamps();
         });
     }
