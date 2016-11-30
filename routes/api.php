@@ -9,7 +9,7 @@ Route::group([
     'as' => 'api.'],
     # User cant request a url more than 30 times in 60 seconds.
     function () {
- 
+
     # TODO API TOKEN
     # TODO Requests
 
@@ -23,11 +23,11 @@ Route::group([
     Route::resource('useractions', 'ApiUserActionsController');
     Route::resource('users', 'ApiUsersController');
     Route::resource('categorys', 'ApiCategorysController');
-    Route::resource('packs', 'ApiPacksController');
     Route::resource('sections', 'ApiSectionsController');
     Route::resource('teachers', 'ApiTeachersController');
     Route::resource('discounts', 'ApiDiscountsController');
     Route::resource('providers', 'ApiProvidersController');
+    Route::get('favorite/{section}', 'ApiSectionsController@favorite');
 });
 
 Route::group([
@@ -38,4 +38,10 @@ Route::group([
     # User cant request a url more than 30 times in 60 seconds.
     function () {
         Route::resource('courses', 'ApiCoursesController');
+        Route::get('Courses/search', 'ApiCoursesController@search');
+        Route::get('Courses/ShowReviews/{course}', 'ApiCoursesController@ShowReviews');
+        Route::get('Courses/AddCourse/{course}', 'ApiCoursesController@AddCourse');
+        Route::get('Index/', 'ApiIndexController@index');
+        Route::get('Packs/AddPack/{pack}', 'ApiPacksController@take');
+        Route::resource('packs', 'ApiPacksController');
     });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Section;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SectionsController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\SectionsController;
 # TODO
 use App\Http\Requests\StoreSectionsRequest;
 use App\Http\Requests\UpdateSectionsRequest;
+use Illuminate\Support\Facades\Input;
+use Mockery\CountValidator\Exception;
 
 class ApiSectionsController extends Controller
 {
@@ -20,36 +23,29 @@ class ApiSectionsController extends Controller
         $this->sections_controller = $item;
     }
 
-    public function index()
-    {
-        return Section::all();
-    }
+//    no index
 
     public function show(Section $section)
     {
-        return $section;
+        return $this->sections_controller->ShowSpecificSection($section);
     }
 
-    public function update(UpdatePacksRequest $request, $id)
+    public function favorite(Section $favorite)
     {
-        $section = Section::findOrFail($id);
-        $section->update($request->all());
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
 
-        return $section;
-    }
+        $response = ['result' => '0'];
 
-    public function store(StoreSectionsRequest $request)
-    {
-        $section = Section::create($request->all());
+        try {
+            $user->fav_sections()->attach($favorite->id);
+        }
 
-        return $section;
-    }
+        catch ( \Illuminate\Database\QueryException $e){
 
-    public function destroy($id)
-    {
-        $section = Section::findOrFail($id);
-        $section->delete();
-
-        return '';
+            return $response;
+        }
+        $response['result'] = 1;
+        return $response;
     }
 }
