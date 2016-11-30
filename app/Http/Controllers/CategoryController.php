@@ -23,7 +23,7 @@ class CategoryController extends Controller
 //        return view('Category.index',compact('Categories'));
     }
 
-    public function show(Category $category)
+    public function ShowSpecificCategories(Category $category)
     {
         $courses=$category->courses;
         foreach ($courses as $course){
@@ -56,5 +56,9 @@ class CategoryController extends Controller
 
         }
         return $courses;
+    }
+    public function show(Category $category)
+    {
+        return $this->ShowSpecificCategories($category);
     }
 }
