@@ -23,20 +23,9 @@ class SocialController extends Controller
         }
         return 1;
     }
-    protected function validator(array $data)
-    {
-        return \Validator::make($data, [
-            'Name' => 'required|max:255',
-            'Email' => 'required|email|',
-            'Message' => 'required|min:10',
-        ]);
-    }
 
     public function StoreContact($input)
     {
-        if(! $this->validator($input)){
-            return 0;
-        }
         if(isset($input['Name'])&&isset($input['Email'])&&isset($input['Message'])){
             $message=new Contact();
             $message->name=$input['Name'];
