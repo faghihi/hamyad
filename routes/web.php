@@ -123,9 +123,12 @@ Route::get('/aboutUs', function (){
 Route::get('/FAQ', function (){
     return view('public-pages.faq');
 });
-Route::get('/instructor', function (){
-    return view('instructor.instructor-list');
-});
+
+Route::get('/instructor','TeachersController@index');
+
+//Route::get('/instructor', function (){
+//    return view('instructor.instructor-list');
+//});
 Route::get('/detail', function (){
     return view('instructor.instructor-detail');
 });

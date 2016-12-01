@@ -140,7 +140,7 @@
 											
 												<div class="col-xss-12 col-xs-12 col-sm-7 col-md-9">
 												
-													<h4>We found 86 instructors for <strong>Computer</strong></h4>
+													<h4>تعداد {{count($Data)}} استاد یافت شد</h4>
 												</div>
 												
 												<div class="col-xss-12 col-xs-12 col-sm-5 col-md-3">
@@ -159,489 +159,59 @@
 										<div class="GridLex-gap-20">
 															
 											<div class="GridLex-grid-noGutter-equalHeight">
-													
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/course-item/01.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
+												@foreach($Data as $teacher)
+													<div class="GridLex-col-3_sm-6_xs-6_xss-12">
+
+														<div class="teacher-item-grid">
+
+															{{--<ul class="user-action">--}}
+
+																{{--<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>--}}
+																{{--<li><a href="#" data-toggle="tooltip" data-placement="right" title=""><i class="fa fa-user-plus"></i></a></li>--}}
+
+															{{--</ul>--}}
+
+															<a href="#">
+
+																<div class="image">
+																	@if(isset($teacher['image']))
+																		<?php $image=$teacher['image'];?>
+																	@else
+																		<?php $image='images/course-item/01.jpg';?>
+																	@endif
+																	<img src="{{$image}}" alt="Image" />
 																</div>
-																<h3>Alexey Barnashov</h3>
-																<p class="labeling">Computer Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>تعداد <span class="text-danger font700">12 درس</span> تدریس میکند.</li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/02.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+
+																<div class="content">
+
+																	<div class="rating-wrapper">
+																		<div class="rating-item">
+																			@if($teacher['rates_count'] == 0)
+																				<?php $rate=0;?>
+																			@else
+																				<?php $rate=$teacher['rates_value']/$teacher['rates_count']?>
+																			@endif
+																			<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
+																		</div>
+																		<span> ({{$teacher['rates_count']}} نظر)</span>
 																	</div>
-																	<span> (7 review)</span>
+																	<h3>{{$teacher['name']}}</h3>
+																	<p class="labeling">{{$teacher['description']}}</p>
+
 																</div>
-																<h3>Ange Ermolova</h3>
-																<p class="labeling">English Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
+
+															</a>
+
+															<ul class="meta-list">
+																<li>ارائه دهنده ی <span class="text-danger font700">{{count($teacher['courses'])}}  دوره</span></li>
+															</ul>
+
+														</div>
+
 													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/03.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Chaiyapatt Putsathit</h3>
-																<p class="labeling">Business Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/04.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Khairoz Nadzri</h3>
-																<p class="labeling">Computer Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/03.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Chaiyapatt Putsathit</h3>
-																<p class="labeling">Business Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/04.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Khairoz Nadzri</h3>
-																<p class="labeling">Computer Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/01.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Alexey Barnashov</h3>
-																<p class="labeling">Computer Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/02.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Ange Ermolova</h3>
-																<p class="labeling">English Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/01.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Alexey Barnashov</h3>
-																<p class="labeling">Computer Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/02.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Ange Ermolova</h3>
-																<p class="labeling">English Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/03.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Chaiyapatt Putsathit</h3>
-																<p class="labeling">Business Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
-												<div class="GridLex-col-3_sm-6_xs-6_xss-12">
-												
-													<div class="teacher-item-grid">
-													
-														<ul class="user-action">
-														
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Save"><i class="fa fa-heart"></i></a></li>
-															<li><a href="#" data-toggle="tooltip" data-placement="right" title="Follow"><i class="fa fa-user-plus"></i></a></li>
-															
-														</ul>
-														
-														<a href="#">
-														
-															<div class="image">
-																<img src="images/man/04.jpg" alt="Image" />
-															</div>
-															
-															<div class="content">
-															
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3>Khairoz Nadzri</h3>
-																<p class="labeling">Computer Teacher</p>
-																
-															</div>
-															
-														</a>
-														
-														<ul class="meta-list">
-															<li>He have taught <span class="text-danger font700">12 courses</span></li>
-														</ul>
-													
-													</div>
-													
-												</div>
-												
+												@endforeach
 											</div>
-											
+
 										</div>
 										
 									</div>

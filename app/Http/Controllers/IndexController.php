@@ -80,6 +80,7 @@ class IndexController extends Controller
         else {
             $Data['user']['name']=Auth::user()->name;
         }
+//        return $Data;
 //        return $this->Teachers();
         return view('homepage')->with('Data',$Data);
     }

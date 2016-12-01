@@ -27,7 +27,8 @@ class TeachersController extends Controller
     }
     public function index()
     {
-        return $this->RetrieveData();
+        $data=$this->RetrieveData();
+        return view('instructor.instructor-list')->with('Data',$data);
     }
 
     public function Search()

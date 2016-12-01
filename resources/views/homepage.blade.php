@@ -235,7 +235,7 @@
 											</div>
 											<div class="course-item-top clearfix">
 												<div class="course-item-instructor text-left">
-													<span>{{$course['provider']}}</span>&nbsp;
+													<span>{{$course['provider'][0]['name']}}</span>&nbsp;
 													<i class="fa fa-building-o" aria-hidden="true"></i>
 												</div>
 												<div class="course-item-price bg-danger">
