@@ -144,10 +144,10 @@
                         <li>
                             <a href="#">Page</a>
                             <ul>
-                                <li><a href="about.blade.php">About Us</a></li>
+                                <li><a href="public-pages/about.blade.php">About Us</a></li>
                                 <li><a href="price.html">Pricing</a></li>
                                 <li><a href="faq.html">Faq</a></li>
-                                <li><a href="faq-02.html">Faq 02</a></li>
+                                <li><a href="public-pages/faq.blade.php">Faq 02</a></li>
                                 <li><a href="404-page.html">404 - Error Page</a></li>
                                 <li><a href="static-page.html">Static Page</a></li>
                                 <li><a href="typography.html">Typography</a></li>
@@ -162,7 +162,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.blade.php">Contact Us</a></li>
+                        <li><a href="public-pages/contact.blade.php">Contact Us</a></li>
                     </ul>
 
 

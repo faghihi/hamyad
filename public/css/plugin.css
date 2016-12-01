@@ -282,7 +282,7 @@ Created:        18/10/2016
     content: '\f055';
     position: absolute;
     font-family: 'FontAwesome';
-    right: 0;
+    left: 0;
     top: 0;
     font-size: 16px;
     -webkit-transition: all .5s;
@@ -302,7 +302,7 @@ Created:        18/10/2016
 .panel-body ul,
 .panel-body ol {
     list-style: disc;
-    margin-left: 20px;
+    margin-right: 20px;
     line-height: 25px
 }
 
@@ -326,7 +326,7 @@ Created:        18/10/2016
     font-family: 'FontAwesome';
     font-size: 16px;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
@@ -361,7 +361,7 @@ Created:        18/10/2016
     font-family: 'FontAwesome';
     font-size: 16px;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);

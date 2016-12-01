@@ -114,15 +114,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/homepage', function (){
-    return view('homepage');
-});
 Route::get('/contactUs', function (){
-    return view('contact');
+    return view('public-pages.contact');
 });
 Route::get('/aboutUs', function (){
-    return view('about');
+    return view('public-pages.about');
 });
+Route::get('/FAQ', function (){
+    return view('public-pages.faq');
+});
+
 
 Route::get('/ajax-register', function (){
     return view('ajax-login-modal-register');
