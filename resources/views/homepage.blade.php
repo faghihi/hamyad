@@ -310,20 +310,20 @@
 					</div>
 					
 					<div class="GridLex-col-6_sm-12_xs-12 bg-img" style="background-image:url('images/teacher-bg.jpg'); background-position: top right">
-					
+
 						<div class="promo-box-03 overlay-primary">
-							
+
 							<div class="promo-box-03-inner">
-							
+
 								<h2 class="mb-25 text-white">Becoming a course contributor</h2>
 								<p>Engaged its was evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began of cause an scale. Often voice and the spoke.</p>
-								
+
 								<a href="#" class="btn btn-danger">Apply Now</a>
-							
+
 							</div>
-							
+
 						</div>
-						
+
 					</div>
 					
 				</div>
