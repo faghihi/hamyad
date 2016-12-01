@@ -229,7 +229,7 @@
 												@if(isset($course['image']))
 													<?php $image=$course['image'];?>
 												@else
-													<?php $image='images/course/course-item-sm-02.jpg';?>
+													<?php $image='images/course-item/01.jpg';?>
 												@endif
 												<img src="{{$image}}" alt="Image" class="img-responsive" />
 											</div>

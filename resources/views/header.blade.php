@@ -110,30 +110,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Instructor</a>
-                            <ul>
-                                <li>
-                                    <a href="instructor-grid.html">Instructor - Grid</a>
-                                    <ul>
-                                        <li><a href="instructor-grid-02.html">Instructor - Grid 02</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="instructor-list.html">Instructor - List </a>
-                                    <ul>
-                                        <li><a href="instructor-list-02.html">Instructor - List 02</a></li>
-                                        <li><a href="instructor-list-03.html">Instructor - List 03</a></li>
-                                        <li><a href="instructor-list-04.html">Instructor - List 04</a></li>
-                                        <li><a href="instructor-list-05.html">Instructor - List 05</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="instructor-detail.html">Instructor Detail</a>
-                                    <ul>
-                                        <li><a href="instructor-detail-02.html">Instructor Detail 02</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <a href="/instructor">Instructor</a>
                         </li>
                         <li>
                             <a href="blog.html">Blog</a>
@@ -162,7 +139,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="public-pages/contact.blade.php">Contact Us</a></li>
+                        <li><a href="/contactUs">Contact Us</a></li>
                     </ul>
 
 

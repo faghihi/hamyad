@@ -222,7 +222,7 @@ body {
 img {
     width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
 }
 
@@ -1716,7 +1716,7 @@ section,
         position: absolute;
         top: 0;
         bottom: 0;
-        left: -999px;
+        right: -999px;
         width: 999px;
     }
     .equal-content-sidebar-by-gridLex .sidebar-wrapper:after {
