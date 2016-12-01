@@ -22,6 +22,15 @@ class ApiIndexController extends Controller
     public function index()
     {
         $restore = $this->index_controller->RetrieveData();
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        if (is_null($user)){
+            $restore['user']['name']='NoUser';
+        }
+        else {
+            $restore['user']['name']=$user->name;
+        }
 
         $restore['teacher'] = $this->index_controller->Teachers();
 

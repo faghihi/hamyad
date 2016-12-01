@@ -60,15 +60,6 @@ class IndexController extends Controller
         }
         $Categories=Category::all();
         $Data['category']=$Categories;
-
-        if (!Auth::check()){
-            $Data['user']['name']='NoUser';
-        }
-        else {
-            $Data['user']['name']=Auth::user()->name;
-        }
-//        Input::
-//        User::
         return $Data;
 
     }
@@ -83,6 +74,12 @@ class IndexController extends Controller
     }
     public function index(){
         $Data=$this->RetrieveData();
+        if (!Auth::check()){
+            $Data['user']['name']='NoUser';
+        }
+        else {
+            $Data['user']['name']=Auth::user()->name;
+        }
 //        return $this->Teachers();
         return view('homepage')->with('Data',$Data);
     }
