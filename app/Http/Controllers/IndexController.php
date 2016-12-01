@@ -56,18 +56,16 @@ class IndexController extends Controller
                 $course['rates_value']=$rate_value;
                 $course['rates_count']=$rate_count;
                 $counter=$course->category->name;
+                $counter=$course->provider;
         }
         $Categories=Category::all();
         $Data['category']=$Categories;
 
-        $n = Input::get('api_token');
-        $user = User::where('api_token', $n)->first();
-
-        if (is_null($user)){
+        if (!Auth::check()){
             $Data['user']['name']='NoUser';
         }
         else {
-            $Data['user']['name']=$user->name;
+            $Data['user']['name']=Auth::user()->name;
         }
 //        Input::
 //        User::

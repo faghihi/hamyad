@@ -235,7 +235,7 @@
 											</div>
 											<div class="course-item-top clearfix">
 												<div class="course-item-instructor text-left">
-													<span>وستا جونیور</span>&nbsp;
+													<span>{{$course['provider']}}</span>&nbsp;
 													<i class="fa fa-building-o" aria-hidden="true"></i>
 												</div>
 												<div class="course-item-price bg-danger">
