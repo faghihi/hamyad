@@ -28,9 +28,9 @@ class SocialController extends Controller
     public function StoreContact($input)
     {
         $rules = array(
-            'name' => 'Required|Min:3|Max:80',
-            'email'     => 'Required|Between:3,64|Email',
-            'message' => 'Required|Min:10'
+            'Name' => 'Required|Min:3|Max:80',
+            'Email'     => 'Required|Between:3,64|Email',
+            'Message' => 'Required|Min:10'
         );
 
         $validator = Validator::make($input, $rules);
