@@ -129,9 +129,7 @@ Route::get('/instructor','TeachersController@index');
 //Route::get('/instructor', function (){
 //    return view('instructor.instructor-list');
 //});
-Route::get('/detail', function (){
-    return view('instructor.instructor-detail');
-});
+Route::get('/instructor/{teacher}','TeachersController@show');
 
 
 Route::get('/ajax-register', function (){

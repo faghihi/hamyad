@@ -63,12 +63,6 @@ class CoursesController extends Controller
         }
         $tags=Tag::all();
         $Categories=Category::all();
-
-        # testing the result
-//        foreach ($courses as $course){
-//            print_r($course);
-//            echo "\n";
-//        }
         return $courses;
     }
 
