@@ -123,9 +123,13 @@
 												
 												<ul class="address-list">
 													@if(empty($Data['email']))
-														<?php $email='موجود نمی باشد'; ?>
+														<?php $email='موجود نمی باشد';
+																$email_mode='disabled';
+															?>
 													@else
-														<?php $email=$Data['email']; ?>
+														<?php $email=$Data['email'];
+																$email_mode='';
+														?>
 													@endif
 
 													<li><i class="fa fa-envelope"></i>{{$email}}</li>
@@ -134,9 +138,18 @@
 
 												
 												<div class="btn-wrapper">
-													
-													<button class="btn btn-primary btn-sm"><i class="fa fa-download"></i>دانلود رزومه</button>
-													<button class="btn btn-default btn-sm btn-inverse">ارتباط با مدرس</button>
+													@if(empty($Data['resume_link']))
+														<?php $mode='disabled';
+																$link='#'
+														?>
+													@else
+														<?php $mode='';
+															$link='../'.$Data['resume_link'];
+														?>
+													@endif
+													<a href="{{$link}}"><button class="btn btn-primary btn-sm" {{$mode}}><i class="fa fa-download"></i>دانلود رزومه</button></a>
+														<?php #TODO adding contact service  ?>
+													<button class="btn btn-default btn-sm btn-inverse" {{$email_mode}}>ارتباط با مدرس</button>
 												</div>
 												
 											</div>
@@ -222,7 +235,7 @@
 					
 												<div class="GridLex-grid-noGutter-equalHeight">
 
-													@foreach($Data['courses'] as $course)
+													@foreach($Data['Course'] as $course)
 														<div class="GridLex-col-6_xs-6_xss-12">
 															<div class="course-item">
 																<a href="#">
@@ -277,196 +290,6 @@
 														</div>
 													@endforeach
 
-													<div class="GridLex-col-6_xs-6_xss-12">
-														<div class="course-item">
-															<a href="#">
-																<div class="course-item-image">
-																	<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
-																</div>
-																<div class="course-item-top clearfix">
-																	<div class="course-item-instructor text-left">
-																		<span>وستا جونیور</span>&nbsp;
-																		<i class="fa fa-building-o" aria-hidden="true"></i>
-																	</div>
-																	<div class="course-item-price bg-danger">
-																		$19.56
-																	</div>
-																</div>
-																<div class="course-item-content">
-																	<div class="rating-wrapper">
-																		<div class="rating-item">
-																			<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																		</div>
-																		<span> (7 review)</span>
-																	</div>
-																	<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-																	<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson</p>
-																</div>
-																<div class="course-item-instructor">
-																	<b class="text-primary">ارائه دهندگان</b>
-																	<p>حسین فقیهی</p>
-																</div>
-																<div class="course-item-bottom clearfix">
-																	<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-																	<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																	<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-																</div>
-															</a>
-														</div>
-													</div>
-
-													<div class="GridLex-col-6_xs-6_xss-12">
-														<div class="course-item">
-															<a href="#">
-																<div class="course-item-image">
-																	<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
-																</div>
-																<div class="course-item-top clearfix">
-																	<div class="course-item-instructor text-left">
-																		<span>وستا جونیور</span>&nbsp;
-																		<i class="fa fa-building-o" aria-hidden="true"></i>
-																	</div>
-																	<div class="course-item-price bg-danger">
-																		$19.56
-																	</div>
-																</div>
-																<div class="course-item-content">
-																	<div class="rating-wrapper">
-																		<div class="rating-item">
-																			<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																		</div>
-																		<span> (7 review)</span>
-																	</div>
-																	<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-																	<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson</p>
-																</div>
-																<div class="course-item-instructor">
-																	<b class="text-primary">ارائه دهندگان</b>
-																	<p>حسین فقیهی</p>
-																</div>
-																<div class="course-item-bottom clearfix">
-																	<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-																	<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																	<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-																</div>
-															</a>
-														</div>
-													</div>
-
-													<div class="GridLex-col-6_xs-6_xss-12">
-														<div class="course-item">
-															<a href="#">
-																<div class="course-item-image">
-																	<img src="images/course-item/02.jpg" alt="Image" class="img-responsive" />
-																</div>
-																<div class="course-item-top clearfix">
-																	<div class="course-item-instructor text-left">
-																		<span>وستا جونیور</span>&nbsp;
-																		<i class="fa fa-building-o" aria-hidden="true"></i>
-																	</div>
-																	<div class="course-item-price bg-danger">
-																		$19.56
-																	</div>
-																</div>
-																<div class="course-item-content">
-																	<div class="rating-wrapper">
-																		<div class="rating-item">
-																			<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																		</div>
-																		<span> (7 review)</span>
-																	</div>
-																	<h3 class="text-primary">Food Photography: Shooting at Restaurants</h3>
-																	<p>She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel.</p>
-																</div>
-																<div class="course-item-instructor">
-																	<b class="text-primary">ارائه دهندگان</b>
-																	<p>حسین فقیهی</p>
-																</div>
-																<div class="course-item-bottom clearfix">
-																	<div><i class="fa fa-folder-open-o"></i><span class="block"> Photography </span></div>
-																	<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																	<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-																</div>
-															</a>
-														</div>
-													</div>
-
-													<div class="GridLex-col-6_xs-6_xss-12">
-														<div class="course-item">
-															<a href="#">
-																<div class="course-item-image">
-																	<img src="images/course-item/02.jpg" alt="Image" class="img-responsive" />
-																</div>
-																<div class="course-item-top clearfix">
-																	<div class="course-item-instructor text-left">
-																		<span>وستا جونیور</span>&nbsp;
-																		<i class="fa fa-building-o" aria-hidden="true"></i>
-																	</div>
-																	<div class="course-item-price bg-danger">
-																		$19.56
-																	</div>
-																</div>
-																<div class="course-item-content">
-																	<div class="rating-wrapper">
-																		<div class="rating-item">
-																			<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																		</div>
-																		<span> (7 review)</span>
-																	</div>
-																	<h3 class="text-primary">Food Photography: Shooting at Restaurants</h3>
-																	<p>She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel.</p>
-																</div>
-																<div class="course-item-instructor">
-																	<b class="text-primary">ارائه دهندگان</b>
-																	<p>حسین فقیهی</p>
-																</div>
-																<div class="course-item-bottom clearfix">
-																	<div><i class="fa fa-folder-open-o"></i><span class="block"> Photography </span></div>
-																	<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																	<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-																</div>
-															</a>
-														</div>
-													</div>
-
-													<div class="GridLex-col-6_xs-6_xss-12">
-														<div class="course-item">
-															<a href="#">
-																<div class="course-item-image">
-																	<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
-																</div>
-																<div class="course-item-top clearfix">
-																	<div class="course-item-instructor text-left">
-																		<span>وستا جونیور</span>&nbsp;
-																		<i class="fa fa-building-o" aria-hidden="true"></i>
-																	</div>
-																	<div class="course-item-price bg-danger">
-																		$19.56
-																	</div>
-																</div>
-																<div class="course-item-content">
-																	<div class="rating-wrapper">
-																		<div class="rating-item">
-																			<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																		</div>
-																		<span> (7 review)</span>
-																	</div>
-																	<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
-																	<p>Create Code That Screams with C++! Hours of Video Lecture, Lab Exercises and Dozens of Code Samples for You To Use! Dave Pither-Patterson</p>
-																</div>
-																<div class="course-item-instructor">
-																	<b class="text-primary">ارائه دهندگان</b>
-																	<p>حسین فقیهی</p>
-																</div>
-																<div class="course-item-bottom clearfix">
-																	<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-																	<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																	<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-																</div>
-															</a>
-														</div>
-													</div>
-
 												</div>
 
 											</div>
@@ -484,97 +307,53 @@
 								<div class="sidebar-wrapper pt-40">
 
 									<div class="sidebar-header clearfix">
-										<h4 class="mb-15">Courses Taught by Him</h4>
+										<h4 class="mb-15">دروس مدرس </h4>
 									</div>
 									
 									<div class="related-course mb-20">
 									
 										<ul class="related-course-item mb-30">
-											<li class="clearfix">
-												<a href="#">
-													<div class="image">
-														<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-													</div>
-													<div class="content">
-														<h6>Become a Certified Hadoop Developer</h6>
-														<div class="rating-wrapper">
-															<div class="rating-item">
-																<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-															</div>
-															<span>(7 review)</span>
+											@foreach(array_slice($Data['Course'], 0, 3) as $course)
+												<li class="clearfix">
+													<a href="#">
+														<div class="image">
+															@if(empty($course['image']))
+																<?php $image='../images/course/course-item-sm-01.jpg'?>
+															@else
+																<?php $image='../'.$course['image']?>
+															@endif
+															<img src="{{$image}}" alt="Related Course" />
 														</div>
-														<span class="price">$199.<small>98</small></span>
-													</div>
-												</a>
-											</li>
-											<li class="clearfix">
-												<a href="#">
-													<div class="image">
-														<img src="images/course/course-item-sm-02.jpg" alt="Related Course" />
-													</div>
-													<div class="content">
-														<h6>Microsoft Excel 2010: Advanced Training</h6>
-														<div class="rating-wrapper">
-															<div class="rating-item">
-																<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+														<div class="content">
+															<h6>{{$course['name']}}</h6>
+															<div class="rating-wrapper">
+																<div class="rating-item">
+																	@if($course['rates_count'] == 0)
+																		<?php $rate=0;?>
+																	@else
+																		<?php $rate=$course['rates_value']/$course['rates_count']?>
+																	@endif
+																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
+																</div>
+																<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
 															</div>
-															<span>(7 review)</span>
+															<span class="price">
+																@if($course['price'] > 1000)
+																	<?php $price=$course['price']/1000 . ' هزار تومان'?>
+																@else
+																	<?php $price=$course['price'] . ' تومان'?>
+																@endif
+																{{$price}}
+															</span>
 														</div>
-														<span class="price">$199.<small>98</small></span>
-													</div>
-												</a>
-											</li>
-											<li class="clearfix">
-												<a href="#">
-													<div class="image">
-														<img src="images/course/course-item-sm-03.jpg" alt="Related Course" />
-													</div>
-													<div class="content">
-														<h6>The Java Spring Tutorial: Learn Java's Popular Web Framework</h6>
-														<div class="rating-wrapper">
-															<div class="rating-item">
-																<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-															</div>
-															<span>(7 review)</span>
-														</div>
-														<span class="price">$199.<small>98</small></span>
-													</div>
-												</a>
-											</li>
+													</a>
+												</li>
+											@endforeach
 										</ul>
 										
-										<a href="#more-his-courses" class="btn btn-primary btn-sm btn-inverse anchor">More Courses</a>
+										<a href="#more-his-courses" class="btn btn-primary btn-sm btn-inverse anchor">بیشتر</a>
 
 									</div>
-									
-									<div class="sidebar-header clearfix">
-										<h4 class="mb-15">Search a course</h4>
-									</div>
-									
-									<div class="search-sm-wrapper mb-30">
-									
-										<form class="clearfix">
-										
-											<div class="form-group">
-											
-												<input type="text" class="form-control" placeholder="Keyword" />
-											
-											</div>
-											
-											<a href="#" class=" btn btn-primary btn-sm">Search <i class="ion-search"></i></a>
-											
-										</form>
-										
-										<div class="search-sm-top-search">
-											<h6>Top search: </h6>
-											<div class="tag-cloud clearfix">
-												<a href="#" class="tag-item">HTML5</a> <a href="#" class="tag-item">CSS3</a> <a href="#" class="tag-item">jQuery</a> 
-												<a href="#" class="tag-item">Creative</a> <a href="#" class="tag-item">Design</a> 
-											</div>
-										</div>
-										
-									</div>
-									
 								</div>
 								
 							</div>

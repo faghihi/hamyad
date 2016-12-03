@@ -54,6 +54,20 @@ class TeachersController extends Controller
 
     public function ShowSpecific(Teacher $teacher)
     {
+        $teacher['Course_count']=count($teacher->courses);
+        $rate_count=0;
+        $rate_value=0;
+        foreach ($teacher->rates as $rate){
+            $rate_count++;
+            $rate_value +=$rate->pivot->rate;
+        }
+        $teacher['rates_value']=$rate_value;
+        $teacher['rates_count']=$rate_count;
+        $key=['name','image','rates_value','rates_count','Course_count','description','background','education','awards','resume_link','phone','email','work_ex'];
+        foreach ($key as $k){
+            $Data[$k]=$teacher[$k];
+        }
+        $Data['Course']=array();
         foreach ($teacher->courses as $course){
             $counter11=$course->provider;
             $course['Teachers']="";
@@ -65,9 +79,6 @@ class TeachersController extends Controller
                     $course['Teachers']=$teacher->name;
                 $counter++;
             }
-            $course['Providers']="";
-            $counter1=0;
-
             $rate_count=0;
             $rate_value=0;
             foreach ($course->rates as $rate){
@@ -85,18 +96,10 @@ class TeachersController extends Controller
             $course['rates_value']=$rate_value;
             $course['rates_count']=$rate_count;
             $counter=$course->category->name;
+            $Data['Course'][]=$course;
 
         }
-        $teacher['Course_count']=count($teacher->courses);
-        $rate_count=0;
-        $rate_value=0;
-        foreach ($teacher->rates as $rate){
-            $rate_count++;
-            $rate_value +=$rate->pivot->rate;
-        }
-        $teacher['rates_value']=$rate_value;
-        $teacher['rates_count']=$rate_count;
-        return $teacher;
+        return $Data;
     }
     public function Show(Teacher $teacher)
     {

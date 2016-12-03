@@ -39,7 +39,6 @@ class CoursesController extends Controller
                     $course['Teachers']=$teacher->name;
                 $counter++;
             }
-            $course['Providers']="";
             $counter1=0;
 
             $rate_count=0;
