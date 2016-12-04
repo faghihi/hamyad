@@ -26,8 +26,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-8">
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter your email address">
-                                        <input type="submit" class="btn btn-submit" value="SUBSCIBE">
+                                        <input type="email" class="form-control" placeholder="آدرس ایمیل شما">
+                                        <input type="submit" class="btn btn-submit" value="عضویت در خبرنامه">
                                     </div>
 
                                 </div>

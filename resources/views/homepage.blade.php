@@ -298,10 +298,10 @@
 						
 							<div class="promo-box-03-inner">
 							
-								<h2 class="mb-25 text-white">Join a Student Community</h2>
-								<p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily. Minuter him own clothes but observe country. </p>
+								<h2 class="mb-25 text-white">به جمع دانشجویان هم یاد بپیوندید</h2>
+								<p>با پیوستن به جمعیت دانشجویان هم یاد میتوانید از امکانات و دوره های بی نظیر سایت بهره مند شوید.</p>
 								
-								<a href="#" class="btn btn-primary">Join Now</a>
+								<a href="#" class="btn btn-primary">عضو شوید</a>
 								
 							</div>
 							
@@ -315,10 +315,10 @@
 
 							<div class="promo-box-03-inner">
 
-								<h2 class="mb-25 text-white">Becoming a course contributor</h2>
-								<p>Engaged its was evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began of cause an scale. Often voice and the spoke.</p>
+								<h2 class="mb-25 text-white">به جمع مدرسین هم یاد بپیوندید</h2>
+								<p>با پیوستن به جمع مدرسین هم یاد میتوانید دروس تهیه شده خود را در بین هزاران دانشجوی مشتاق پخش کنید و از مزایای آن بهره مند شوید .</p>
 
-								<a href="#" class="btn btn-danger">Apply Now</a>
+								<a href="#" class="btn btn-danger">ارتباط به عنوان مدرس</a>
 
 							</div>
 
@@ -339,8 +339,8 @@
 						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 						
 							<div class="section-title">
-								<h2 class="text-center">What People Say</h2>
-								<p>Marianne interest in exertion as. <strong>Offering my branched</strong> confined oh dashwood.</p>
+								<h2 class="text-center">کاربران ما چه میگویند؟!</h2>
+								{{--<p>Marianne interest in exertion as. <strong>Offering my branched</strong> confined oh dashwood.</p>--}}
 							</div>
 						</div>
 					
@@ -586,8 +586,8 @@
 						<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 						
 							<div class="section-title mb-30">
-								<h2 class="text-center">Learn from anywhere anytime</h2>
-								<p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
+								<h2 class="text-center">هم یاد را همراهتان داشته باشید.</h2>
+								<p>هم یاد طوری طراحی شده است تا شما بتوانید به راحت ترین شکل ممکن روی دستگاه همراهتان آن را نصب کرده و از آن استفاده نمایید.</p>
 							</div>
 							
 							<div class="mt-30 text-center">

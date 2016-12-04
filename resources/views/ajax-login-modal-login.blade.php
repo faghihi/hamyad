@@ -1,6 +1,6 @@
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	<h4 class="modal-title text-center">Sign-in into your account</h4>
+	<h4 class="modal-title text-center">وارد شوید !</h4>
 </div>
 
 <div class="modal-body">
@@ -22,8 +22,8 @@
 		<div class="col-xs-12 col-sm-12 col-md-12">
 
 			<div class="form-group"> 
-				<label>Username</label>
-				<input class="form-control" placeholder="Min 4 and Max 10 characters" type="text"> 
+				<label>ایمیل</label>
+				<input class="form-control" placeholder="ایمیل خود را وارد نمایید" type="text">
 			</div>
 		
 		</div>
@@ -31,8 +31,8 @@
 		<div class="col-xs-12 col-sm-12 col-md-12">
 		
 			<div class="form-group"> 
-				<label>Password</label>
-				<input class="form-control" placeholder="Min 4 and Max 10 characters" type="text"> 
+				<label>رمز عبور</label>
+				<input class="form-control" placeholder="کیبورد شما روی زبان انگلیسیی باشد" type="password">
 			</div>
 		
 		</div>
@@ -40,13 +40,13 @@
 		<div class="col-xs-12 col-sm-6 col-md-6">
 			<div class="checkbox-inline">
 				<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
-				<label class="" for="remember_me_checkbox">Remember me</label>
+				<label class="" for="remember_me_checkbox">مرا به خاطر بسپار</label>
 			</div>
 		</div>
 		
 		<div class="col-xs-12 col-sm-6 col-md-6">
 			<div class="login-box-link-action">
-				<a class="" data-toggle="modal" href="#forgotPasswordModal">Forgot password?</a>
+				<a class="" data-toggle="modal" href="#forgotPasswordModal">رمز خود را فراموش کردید ؟!</a>
 			</div>
 		</div>
 		
@@ -61,6 +61,6 @@
 
 
 <div class="modal-footer text-center">
-	<button type="button" class="btn btn-primary">Log-in</button>
-	<button type="button" data-dismiss="modal" class="btn btn-dark">Close</button>
+	<button type="button" class="btn btn-primary">ورود</button>
+	<button type="button" data-dismiss="modal" class="btn btn-dark">بستن</button>
 </div>

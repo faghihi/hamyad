@@ -13,17 +13,17 @@
 
                             <div class="top-header-widget">
                                 <a href="javascript:void(0)" class="btn-ajax-login" data-toggle="modal">
-                                    <i class="ion-log-in mr-3"></i> Sign-in
+                                    <i class="ion-log-in mr-3"></i> ورود
                                 </a>
                             </div>
                             <div class="top-header-widget ">
                                 <a href="javascript:void(0)" class="btn-ajax-register" data-toggle="modal">
-                                    <i class="ion-person-add mr-3"></i> Sign-up
+                                    <i class="ion-person-add mr-3"></i> ثبت نام
                                 </a>
                             </div>
                             <div class="top-header-widget hidden-xs">
                                 <a href="#">
-                                    <i class="fa fa-comments mr-3"></i> Support
+                                    <i class="fa fa-comments mr-3"></i> ارتباط 
                                 </a>
                             </div>
 
