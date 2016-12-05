@@ -61,4 +61,6 @@ class ApiSectionsController extends Controller
         $response['result'] = 1;
         return $response;
     }
+
+    #TODO reviews catch
 }

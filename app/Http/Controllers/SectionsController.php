@@ -76,7 +76,7 @@ class SectionsController extends Controller
 
     public function ShowReviews(Section $section)
     {
-        $reviews=$section->reviews;
+        $reviews=$section->reviews->where('enable',1);
         foreach ($reviews as $review){
             $user=User::findorfail($review->user_id);
             $review['user_name']=$user->name;

@@ -124,12 +124,12 @@ Route::get('/FAQ', function (){
     return view('public-pages.faq');
 });
 
-Route::get('/instructor','TeachersController@index');
+//Teachers Routes
 
-//Route::get('/instructor', function (){
-//    return view('instructor.instructor-list');
-//});
+Route::get('/instructor','TeachersController@index');
 Route::get('/instructor/{teacher}','TeachersController@show');
+
+Route::get('SectionReview/{section}','SectionsController@ShowReviews');
 
 
 Route::get('/ajax-register', function (){

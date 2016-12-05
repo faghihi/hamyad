@@ -9,34 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-
-/**
-
- * Class Review
-
- *
-
- * @package App
-
- * @property string $comment
-
- * @property double $teacher_rate
-
- * @property double $video_rate
-
- * @property double $cat_rate
-
- * @property double $pack_rate
-
- */
-
 class Review extends Model
 
 {
     use CrudTrait;
 //    use SoftDeletes;
     protected $table='reviews';
-    protected $fillable = ['comment','teacher_rate','pack_rate','user_id','course_rate'];
+    protected $fillable = ['comment','section_rate','user_id','course_rate','enable'];
 
     /**
      * @return void

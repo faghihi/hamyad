@@ -60,70 +60,16 @@ class CoursesController extends Controller
             $counter=$course->category->name;
 
         }
-        $tags=Tag::all();
-        $Categories=Category::all();
         return $courses;
     }
 
     public function index()
 
     {
-        return $this->RetrieveCourses();
+        $Courses=$this->RetrieveCourses();
+        $tags=Tag::all();
+        $Categories=Category::all();
 //        return view('courses.index')->with(['courses'=>$courses,'Tags'=>$tags,'Categories'=>$Categories]);
-    }
-
-
-
-    public function create()
-
-    {
-
-
-
-        return view('courses.create', compact(''));
-
-    }
-
-
-
-    public function store(StoreCoursesRequest $request)
-
-    {
-
-        Course::create($request->all());
-
-
-
-        return redirect()->route('courses.index');
-
-    }
-
-
-    public function edit($id)
-
-    {
-
-
-
-        $course = Course::findOrFail($id);
-
-        return view('courses.edit', compact('course', ''));
-
-    }
-
-
-    public function update(UpdateCoursesRequest $request, $id)
-
-    {
-
-        $course = Course::findOrFail($id);
-
-        $course->update($request->all());
-
-
-
-        return redirect()->route('courses.index');
-
     }
 
     public function ShowSpecificCourse(Course $course)
@@ -226,7 +172,7 @@ class CoursesController extends Controller
 
     public function ShowReviews(Course $course)
     {
-        $reviews=$course->reviews;
+        $reviews=$course->reviews->where('enable',1);
         foreach ($reviews as $review){
             $user=User::findorfail($review->user_id);
             $review['user_name']=$user->name;
@@ -255,65 +201,4 @@ class CoursesController extends Controller
         return 1;
 
     }
-
-    /**
-     *
-     * Remove Course from storage.
-
-     *
-
-     * @param  int  $id
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function destroy($id)
-
-    {
-
-        $course = Course::findOrFail($id);
-
-        $course->delete();
-
-
-
-        return redirect()->route('courses.index');
-
-    }
-
-
-
-    /**
-
-     * Delete all selected Course at once.
-
-     *
-
-     * @param Request $request
-
-     */
-
-    public function massDestroy(Request $request)
-
-    {
-
-        if ($request->input('ids')) {
-
-            $entries = Course::whereIn('id', $request->input('ids'))->get();
-
-
-
-            foreach ($entries as $entry) {
-
-                $entry->delete();
-
-            }
-
-        }
-
-    }
-
-
-
 }
