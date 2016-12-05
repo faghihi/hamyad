@@ -27,8 +27,22 @@ class TeachersController extends Controller
     }
     public function index()
     {
-        $data=$this->RetrieveData();
-        return view('instructor.instructor-list')->with('Data',$data);
+//        $data=$this->RetrieveData();
+        $teachers=Teacher::paginate(10);
+        foreach ($teachers as $teacher){
+            $teacher['Course_count']=count($teacher->courses);
+            $rate_count=0;
+            $rate_value=0;
+            foreach ($teacher->rates as $rate){
+                $rate_count++;
+                $rate_value +=$rate->pivot->rate;
+            }
+            $teacher['rates_value']=$rate_value;
+            $teacher['rates_count']=$rate_count;
+        }
+        $total=count(Teacher::all());
+//        return view('instructor.instructor-list')->with('Data',$data);
+        return view('instructor.instructor-list')->with(['Data'=>$teachers,'total'=>$total]);
     }
 
     public function Search()

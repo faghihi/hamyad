@@ -141,6 +141,7 @@
 												<div class="col-xss-12 col-xs-12 col-sm-7 col-md-9">
 												
 													<h4>تعداد {{count($Data)}} استاد یافت شد</h4>
+													{{--<h4>تعداد {{$total}} استاد یافت شد</h4>--}}
 												</div>
 												
 												<div class="col-xss-12 col-xs-12 col-sm-5 col-md-3">
@@ -222,33 +223,33 @@
 										
 											<div class="row">
 
-												<div class="col-xs-12 col-sm-4">
-													<div class="pagination-text">Showing reslut 1 to 15 from 248 </div>
-												</div>
-
-												<div class="col-xs-12 col-sm-4">
-													<nav class="text-center">
-														<ul class="pagination">
-															<li>
-																<a href="#" aria-label="Previous">
-																	<span aria-hidden="true">&raquo;</span>
-																</a>
-															</li>
-															<li class="active"><a href="#">1</a></li>
-															<li><a href="#">2</a></li>
-															<li><a href="#">3</a></li>
-															<li><span>...</span></li>
-															<li><a href="#">11</a></li>
-															<li><a href="#">12</a></li>
-															<li><a href="#">13</a></li>
-															<li>
-																<a href="#" aria-label="Next">
-																	<span aria-hidden="true">&laquo;</span>
-																</a>
-															</li>
-														</ul>
-													</nav>
-												</div>
+												{{--<div class="col-xs-12 col-sm-4">--}}
+													{{--<div class="pagination-text">Showing reslut 1 to 15 from 248 </div>--}}
+												{{--</div>--}}
+												{{$Data->links('Pagination.default')}}
+												{{--<div class="col-xs-12 col-sm-4">--}}
+													{{--<nav class="text-center">--}}
+														{{--<ul class="pagination">--}}
+															{{--<li>--}}
+																{{--<a href="#" aria-label="Previous">--}}
+																	{{--<span aria-hidden="true">&raquo;</span>--}}
+																{{--</a>--}}
+															{{--</li>--}}
+															{{--<li class="active"><a href="#">1</a></li>--}}
+															{{--<li><a href="#">2</a></li>--}}
+															{{--<li><a href="#">3</a></li>--}}
+															{{--<li><span>...</span></li>--}}
+															{{--<li><a href="#">11</a></li>--}}
+															{{--<li><a href="#">12</a></li>--}}
+															{{--<li><a href="#">13</a></li>--}}
+															{{--<li>--}}
+																{{--<a href="#" aria-label="Next">--}}
+																	{{--<span aria-hidden="true">&laquo;</span>--}}
+																{{--</a>--}}
+															{{--</li>--}}
+														{{--</ul>--}}
+													{{--</nav>--}}
+												{{--</div>--}}
 
 											</div>
 											
