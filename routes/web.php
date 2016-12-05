@@ -105,6 +105,8 @@ Route::resource('courses', 'CoursesController');
 
 
 #test Routes
+Route::get('Search','CoursesController@Search');
+
 Route::get('coursereview/{course}','CoursesController@ShowReviews');
 #Email Verification Route
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');

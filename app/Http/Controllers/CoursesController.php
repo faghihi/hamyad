@@ -156,17 +156,39 @@ class CoursesController extends Controller
                 $query->where('tag_name', 'like', $input['tag'.$i]);
             })->get();
             foreach ($courses as $course){
-                echo $course->name." ";
+//                echo $course->name." ";
                 if(!in_array($course->id,$list)){
                     $result[]=$course;
                     $list[]=$course->id;
                 }
             }
         }
-        #testing the result
-        foreach ($result as $item){
-            echo $item->name;
-            echo "\n";
+        $category_list=array();
+        $catnumber = 0;
+        while (Input::has('Cat' . $catnumber)) {
+            $category_list[]=$input['Cat'.$catnumber];
+            $catnumber++;
+        }
+        if($catnumber==0)
+        {
+            return $result;
+//            foreach ($result as $k){
+//                echo $k->name.'<br>';
+//            }
+//            print_r($category_list);
+        }
+        else{
+            $Data=array();
+            foreach ($result as $item){
+                if(in_array($item->category->name,$category_list)){
+                    $Data[]=$item;
+                }
+            }
+            return $Data;
+//            foreach ($Data as $k){
+//                echo $k->name.'<br>';
+//            }
+//            print_r($category_list);
         }
     }
 
