@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Course;
+use App\Discount;
 use App\Section;
 
 use App\Tag;

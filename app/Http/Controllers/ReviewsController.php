@@ -24,6 +24,13 @@ class ReviewsController extends Controller
 
     {
         $input=Input::all();
+        $rules = array(
+            'comment' => 'required|min:10',
+        );
+        $validator = Validator::make($input, $rules);
+        if($validator->fails()){
+            return 0;
+        }
         $newr=new Review();
         $newr->comment=$input['comment'];
         if(! \Auth::check()){
