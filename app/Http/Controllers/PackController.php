@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pack;
+use App\User;
 use Illuminate\Http\Request;
 
 class PackController extends Controller
@@ -75,5 +76,30 @@ class PackController extends Controller
             return 0;
         }
         return 1;
+    }
+
+    public function ExtendAlertUsers()
+    {
+        $users=User::all();
+        $Data=array();
+        foreach ($users as $user){
+            foreach ($user->pack_take as $instace){
+                $end=new \DateTime($instace->pivot->end);
+                $today=date('Y-m-d H:i:s');
+                $today=new \DateTime($today);
+                $interval = $today->diff($end);
+                if($interval->days < 2)
+                {
+                    $item=$user;
+                    $pack=Pack::find($instace->id);
+                    $item['Pack_id']=$pack->id;
+                    $item['Pack_name']=$pack->title;
+                    $item['Pack_desc']=$pack->description;
+                    $item['remain']=$interval->days;
+                    $Data[]=$item;
+                }
+            }
+        }
+        return $Data;
     }
 }

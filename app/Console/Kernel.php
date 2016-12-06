@@ -37,6 +37,8 @@ class Kernel extends ConsoleKernel
                 }
             }
         })->daily();
+
+        #TODO ADD Alert Emails
     }
 
     /**

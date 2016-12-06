@@ -148,7 +148,11 @@ Route::get('/Date',function(){
     $date1 = new DateTime("2007-03-24");
     $date2 = new DateTime("2007-03-30");
     $interval = $date1->diff($date2);
-    echo  $interval->days;
+    if($interval->days < 2)
+        echo 1;
+    else
+        echo 0;
 });
+Route::get('/AlertUsers','PackController@ExtendAlertUsers');
 
 Route::get('testmail','EmailController@test');
