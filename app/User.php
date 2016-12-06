@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\CRUD\CrudTrait;
 use Hash;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class User
@@ -21,6 +22,7 @@ use Hash;
 class User extends Authenticatable
 {
     use CrudTrait;
+    use Notifiable;
 //    use SoftDeletes;
 
 

@@ -184,6 +184,7 @@ return [
         */
         Backpack\Base\BaseServiceProvider::class,
         Backpack\CRUD\CrudServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
 
     ],
 
@@ -232,7 +233,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
 
 ];
