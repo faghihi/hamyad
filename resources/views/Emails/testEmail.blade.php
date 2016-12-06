@@ -1,0 +1,2 @@
+testing the email
+{{$a}}

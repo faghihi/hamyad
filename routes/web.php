@@ -143,3 +143,12 @@ Route::get('/ajax-login', function (){
 Route::get('/ajax-forgot-password', function (){
     return view('ajax-login-modal-forgot-password');
 });
+
+Route::get('/Date',function(){
+    $date1 = new DateTime("2007-03-24");
+    $date2 = new DateTime("2007-03-30");
+    $interval = $date1->diff($date2);
+    echo  $interval->days;
+});
+
+Route::get('testmail','EmailController@test');
