@@ -5,13 +5,35 @@ use League\Flysystem\Exception;
 use Mail;
 class EmailController extends Controller
 {
-    public function html_email($data,$page,$subject,$to_email,$from_email){
-        $Email=$to_email;
+    public function send_email($data,$page,$subject,$to_email){
+        $Email=\Config::get('email.email_send');
+        $name=\Config::get('email.name');
         try {
-            Mail::send('Emails.'.$page, $data, function($message) use ($Email,$subject,$from_email) {
-                $message->to($Email)->subject
+            Mail::send('Emails.'.$page, $data, function($message) use ($Email,$subject,$to_email,$name) {
+                $message->to($to_email)->subject
                 ($subject);
-                $message->from($from_email,'هم یاد');
+                $message->from($Email,$name);
+            });
+        } catch (Exception $e) {
+            if (count(Mail::failures()) > 0) {
+                return 0;
+            }
+        }
+        catch(\Swift_SwiftException $se){
+            return 0;
+        }
+        return 1;
+    }
+
+    public function info_email($data,$page,$subject){
+        $Email=\Config::get('email.email_send');
+        $to_email=\Config::get('email.email_to');
+        $name=\Config::get('email.name');
+        try {
+            Mail::send('Emails.'.$page, $data, function($message) use ($Email,$subject,$name,$to_email) {
+                $message->to($to_email)->subject
+                ($subject);
+                $message->from($Email,$name);
             });
         } catch (Exception $e) {
             if (count(Mail::failures()) > 0) {
@@ -26,7 +48,7 @@ class EmailController extends Controller
 
     public function test()
     {
-        if($this->html_email(array('a'=>10),'testEmail','تست ایمیل','h.faghihi15@gmail.com','h.faghihi15@gmail.com'))
+        if($this->send_email(array('a'=>10),'testEmail','تست ایمیل','faghihi@ce.sharif.edu'))
             return 1;
         else
             return 0;

@@ -156,3 +156,7 @@ Route::get('/Date',function(){
 Route::get('/AlertUsers','PackController@ExtendAlertUsers');
 
 Route::get('testmail','EmailController@test');
+
+Route::get('testconf',function(){
+   echo Config::get('app.timezone');
+});
