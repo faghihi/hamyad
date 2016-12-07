@@ -24,6 +24,7 @@ return [
    |
    */
     'name'=>'هم یاد',
+
     /*
      |--------------------------------------------------------------------------
      | Email For Recieving Info
@@ -35,4 +36,17 @@ return [
      */
 
      'email_to' =>'h.faghihi15@gmail.com',
+
+    /*
+     |--------------------------------------------------------------------------
+     | Email Subject to Send For Activation Email
+     |--------------------------------------------------------------------------
+     |
+     | Change this and the subject of activation mail will change
+     |
+     |
+     */
+
+    'activation'=> 'Activation Email',
+
 ];

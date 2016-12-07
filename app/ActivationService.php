@@ -13,7 +13,7 @@ class ActivationService
 
     protected $activationRepo;
 
-    protected $resendAfter = 24;
+    protected $resendAfter = 1;
 
     public function __construct(Mailer $mailer, ActivationRepository $activationRepo)
     {
@@ -31,10 +31,12 @@ class ActivationService
         $token = $this->activationRepo->createActivation($user);
 
         $link = route('user.activate', $token);
-        $message = sprintf('Activate account <a href="%s">%s</a>', $link, $link);
+        $message ="Activate you Account : $link";
 
         $this->mailer->raw($message, function (Message $m) use ($user) {
-            $m->to($user->email)->subject('Activation mail');
+            $m->to($user->email)
+                ->subject(\Config::get('email.activation'))
+                ->from(\Config::get('email.email_send'),\Config::get('email.name'));
         });
 
 
