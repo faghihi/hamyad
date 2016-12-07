@@ -147,7 +147,7 @@
 															$link='../'.$Data['resume_link'];
 														?>
 													@endif
-													<a href="{{$link}}"><button class="btn btn-primary btn-sm" {{$mode}}><i class="fa fa-download"></i>دانلود رزومه</button></a>
+													<a href="{{$link}}"><button class="btn btn-primary btn-sm" {{$mode}}><i class="fa fa-download"></i>&nbsp;دانلود رزومه</button></a>
 														<?php #TODO adding contact service  ?>
 													<button class="btn btn-default btn-sm btn-inverse" {{$email_mode}}>ارتباط با مدرس</button>
 												</div>

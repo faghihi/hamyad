@@ -63,13 +63,15 @@
 			
 				<div class="container">
 					
-					<h1 class="page-title">	وارد شوید !</h1>
-					
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li class="active">ورود </li>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Courses</a></li>
+								<li><a href="#">Course Result</a></li>
+								<li><a href="#">Course Detail</a></li>
+								<li class="active">Course Confirmation</li>
 							</ol>
 						</div>
 						
@@ -83,97 +85,50 @@
 
 			</div>
 			
-			<div class="register-page-wrapper">
-			
-				<div class="container">
-
-					<div class="row gap-50">
-
-						<div class="col-md-8 col-md-offset-2">
-							<div class="register-panel">
-								<div class="panel-body">
-									@if (session('status'))
-										<div class="alert alert-success">
-											{{ session('status') }}
-										</div>
-									@endif
-									@if (session('warning'))
-										<div class="alert alert-warning">
-											{{ session('warning') }}
-										</div>
-									@endif
-									<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-										{{ csrf_field() }}
-
-										<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-											<label for="email" class="col-md-3 col-md-offset-1 text-right  control-label">E-Mail Address</label>
-
-											<div class="col-md-7">
-												<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-												@if ($errors->has('email'))
-													<span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-												@endif
-											</div>
-										</div>
-
-										<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-											<label for="password" class="col-md-3 col-md-offset-1 text-right  control-label">Password</label>
-
-											<div class="col-md-7">
-												<input id="password" type="password" class="form-control" name="password" required>
-
-												@if ($errors->has('password'))
-													<span class="help-block">
-													<strong>{{ $errors->first('password') }}</strong>
-												</span>
-												@endif
-												<div class="row">
-													<div class="col-md-6">
-														<div class="checkbox-inline">
-															<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
-															<label class="" for="remember_me_checkbox">مرا به خاطر بسپار</label>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="login-box-link-action">
-															<a a href="{{ url('/password/reset') }}">رمز خود را فراموش کردید ؟!</a>
-														</div>
-													</div>
-
-												</div>
-
-											</div>
-										</div>
-
-										<div class="form-group">
-											<div class="col-md-7 col-md-offset-4">
-												<div class="register-box-box-action">
-													عضو نیستید؟<a href="register"> ثبت نام </a>
-												</div>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<div class="col-md-7 col-md-offset-4">
-												<button type="submit" class="btn btn-primary btn-block">
-													ورود
-												</button>
-											</div>
-										</div>
-									</form>
+			<div class="container pt-60 pb-70">
+				
+				<div class="row">
+				
+					<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+					
+						<div class="confirmation-wrapper">
+						
+							<div class="confirmation-header">
+							
+								<div class="icon">
+								
+									<i style="color:#cc0000" class="ion-ios-close-outline"></i>
+								
 								</div>
+								
+								<h2>Payment Canceled!</h2>
+								<h5 class="text-uppercase text-muted">sorry</h5>
+								<p> Views abode law heard jokes too. Was are delightful solicitude discovered collecting man day. Resolving neglected sir tolerably but existence conveying for.</p>
+								
 							</div>
+							
+							<div class="course-list-item-wrapper-2">
+								
+								<div class="course-list-item-02">
+									
+									<div class="text-center mt-30">
+									
+										<a href="#" class="btn btn-danger">Back to course</a>
+								
+									</div>
+									
+								</div>
+								
+							</div>
+						
 						</div>
 
 					</div>
-
+					
 				</div>
-
-			</div>	
 				
+			</div>
+
 		</div>
 		<!-- end Main Wrapper -->
 		

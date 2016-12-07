@@ -58,122 +58,195 @@
 
 		<!-- start Main Wrapper -->
 		<div class="main-wrapper scrollspy-container">
-		
+
 			<div class="breadcrumb-wrapper">
-			
+
 				<div class="container">
-					
-					<h1 class="page-title">	وارد شوید !</h1>
-					
+
+					<h1 class="page-title">Feature Items</h1>
+
 					<div class="row">
-					
+
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li class="active">ورود </li>
+								<li><a href="../">Home</a></li>
+								<li class="active">Courses</li>
 							</ol>
 						</div>
-						
+
 						<div class="col-xs-12 col-sm-4 hidden-xs">
 							<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 
 			</div>
-			
-			<div class="register-page-wrapper">
-			
-				<div class="container">
 
-					<div class="row gap-50">
+			<div class="equal-content-sidebar-wrapper">
 
-						<div class="col-md-8 col-md-offset-2">
-							<div class="register-panel">
-								<div class="panel-body">
-									@if (session('status'))
-										<div class="alert alert-success">
-											{{ session('status') }}
-										</div>
-									@endif
-									@if (session('warning'))
-										<div class="alert alert-warning">
-											{{ session('warning') }}
-										</div>
-									@endif
-									<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-										{{ csrf_field() }}
+				<div class="equal-content-sidebar-by-gridLex">
 
-										<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-											<label for="email" class="col-md-3 col-md-offset-1 text-right  control-label">E-Mail Address</label>
+					<div class="container">
 
-											<div class="col-md-7">
-												<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+						<div class="GridLex-grid-noGutter-equalHeight">
 
-												@if ($errors->has('email'))
-													<span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-												@endif
-											</div>
-										</div>
+							<div class="GridLex-col-12_sm-12_xs-12_xss-12">
 
-										<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-											<label for="password" class="col-md-3 col-md-offset-1 text-right  control-label">Password</label>
+								<div class="content-wrapper mb-10">
 
-											<div class="col-md-7">
-												<input id="password" type="password" class="form-control" name="password" required>
+									<div class="sorting-wrappper">
 
-												@if ($errors->has('password'))
-													<span class="help-block">
-													<strong>{{ $errors->first('password') }}</strong>
-												</span>
-												@endif
-												<div class="row">
-													<div class="col-md-6">
-														<div class="checkbox-inline">
-															<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
-															<label class="" for="remember_me_checkbox">مرا به خاطر بسپار</label>
+										<div class="sorting-form">
+
+											<div id="change-search" class="collapse">
+
+												<div class="change-search-wrapper">
+
+													<div class="row">
+
+														<div class="col-xs-12 col-sm-10 col-md-10">
+
+															<div class="row gap-0">
+
+																<div class="col-xs-12 col-sm-12 col-md-12">
+
+																	<div class="form-group">
+																		<input type="text" class="form-control no-br" placeholder="Java Programming">
+																	</div>
+
+																</div>
+
+															</div>
+
 														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="login-box-link-action">
-															<a a href="{{ url('/password/reset') }}">رمز خود را فراموش کردید ؟!</a>
+
+														<div class="col-xs-12 col-sm-2 col-md-2 mt-12-xs">
+															<button class="btn btn-block btn-primary btn-form"><i class="fa fa-search"></i></button>
 														</div>
+
 													</div>
 
 												</div>
-
 											</div>
+
 										</div>
 
-										<div class="form-group">
-											<div class="col-md-7 col-md-offset-4">
-												<div class="register-box-box-action">
-													عضو نیستید؟<a href="register"> ثبت نام </a>
+										<div class="sorting-header">
+
+											<div class="row">
+
+												<div class="col-xss-12 col-xs-12 col-sm-7 col-md-9">
+													<h4>تعداد {{count($Data)}} درس یافت شد</h4>
 												</div>
+
+												<div class="col-xss-12 col-xs-12 col-sm-5 col-md-3">
+													<button class="btn btn-primary btn-block btn-toggle collapsed btn-form btn-inverse btn-sm" data-toggle="collapse" data-target="#change-search"></button>
+												</div>
+
 											</div>
+
 										</div>
 
-										<div class="form-group">
-											<div class="col-md-7 col-md-offset-4">
-												<button type="submit" class="btn btn-primary btn-block">
-													ورود
-												</button>
+									</div>
+
+									<div class="course-item-wrapper alt-bg-light clearfix">
+
+										<div class="GridLex-gap-20">
+
+											<div class="GridLex-grid-noGutter-equalHeight">
+
+												<div class="GridLex-col-3_mdd-3_sm-6_xs-6_xss-12">
+													<div class="course-item">
+														<a href="#">
+															<div class="course-item-image">
+																@if(isset($course['image']))
+																	<?php $image=$course['image'];?>
+																@else
+																	<?php $image='images/course-item/01.jpg';?>
+																@endif
+																<img src="{{$image}}" alt="Image" class="img-responsive" />
+															</div>
+															<div class="course-item-top clearfix">
+																<div class="course-item-instructor text-left">
+																	<span>{{$course['provider'][0]['name']}}</span>&nbsp;
+																	<i class="fa fa-building-o" aria-hidden="true"></i>
+																</div>
+																<div class="course-item-price bg-danger">
+																	@if($course['price'] > 1000)
+																		<?php $price=$course['price']/1000 . ' هزار تومان'?>
+																	@else
+																		<?php $price=$course['price'] . ' تومان'?>
+																	@endif
+																	{{$price}}
+																</div>
+															</div>
+															<div class="course-item-content">
+
+																<div class="rating-wrapper text-left">
+																	<div class="rating-item">
+																		@if($course['rates_count'] == 0)
+																			<?php $rate=0;?>
+																		@else
+																			<?php $rate=$course['rates_value']/$course['rates_count']?>
+																		@endif
+																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
+																	</div>
+																	<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
+																</div>
+
+																<h3 class="text-primary">{{$course['name']}}</h3>
+																<p>{{$course['description']}}</p>
+
+															</div>
+															<div class="course-item-instructor">
+																<b class="text-primary">ارائه دهندگان</b>
+																<p>{{$course['Teachers']}}</p>
+															</div>
+															<div class="course-item-bottom clearfix">
+																<div><i class="fa fa-folder-open-o"></i><span class="block">{{$course['category']['name']}}</span></div>
+																<div><i class="fa fa-pencil-square-o"></i><span class="block">{{$course['sections_count']}} سرفصل</span></div>
+																<div><i class="fa fa-calendar-check-o"></i><span class="block">{{$course['sections_time']}} دقیقه</span></div>
+															</div>
+														</a>
+													</div>
+												</div>
+
 											</div>
+
 										</div>
-									</form>
+
+									</div>
+
+									<div class="clear"></div>
+
+									<div class="pager-wrappper clearfix">
+
+										<div class="pager-innner">
+
+											<div class="row">
+
+												{{$Data->links('Pagination.default')}}
+
+											</div>
+
+										</div>
+
+									</div>
+
 								</div>
+
 							</div>
+
 						</div>
 
 					</div>
 
 				</div>
 
-			</div>	
-				
+			</div>
+
 		</div>
 		<!-- end Main Wrapper -->
 		
@@ -230,5 +303,6 @@
 
 
 </body>
+
 
 </html>

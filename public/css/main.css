@@ -1396,13 +1396,13 @@ ul.list-with-icon li {
 ul.list-with-icon li > span {
     display: inline-block;
     position: relative;
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 ul.list-with-icon li i {
     position: absolute;
     top: 4px;
-    left: 0;
+    right: 0;
 }
 
 ul.border-bottom {

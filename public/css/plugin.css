@@ -259,7 +259,7 @@ Created:        18/10/2016
 
 .panel-body {
     background: #fff;
-    padding: 10px 0 20px
+    padding: 40px 10px 20px 10px
 }
 
 .panel:last-child .panel-body {
@@ -3036,7 +3036,7 @@ body.modal-open,
 /* Slider */
 
 .slick-loading .slick-list {
-    background: #fff url(images/slick-loader.gif) center center no-repeat
+    background: #fff url(/images/slick-loader.gif) center center no-repeat
 }
 
 
@@ -3940,7 +3940,7 @@ body.modal-open,
     margin-left: -250px;
     margin-top: -260px;
     text-indent: -9999px;
-    background: url("../images/logo.png") no-repeat 0 0
+    background: url("/images/logo.png") no-repeat 0 0
 }
 
 .top_box .btn_pop {
@@ -3951,7 +3951,7 @@ body.modal-open,
     height: 128px;
     margin-left: -64px;
     margin-top: -24px;
-    background: url("../images/btn_pop.png") no-repeat 0 0;
+    background: url("/images/btn_pop.png") no-repeat 0 0;
     cursor: pointer
 }
 
@@ -3961,7 +3961,7 @@ body.modal-open,
     top: 20px;
     width: 32px;
     height: 32px;
-    background: url("images/volume.png") no-repeat;
+    background: url("/images/volume.png") no-repeat;
     cursor: pointer
 }
 
@@ -3979,7 +3979,7 @@ body.modal-open,
     height: 100%;
     left: 0;
     top: 0;
-    background: url("images/bg.png");
+    background: url("/images/bg.png");
     z-index: -9
 }
 
@@ -4038,7 +4038,7 @@ body.modal-open,
     top: 0;
     width: 40px;
     height: 40px;
-    background: url("images/close.png") no-repeat 0 0;
+    background: url("/images/close.png") no-repeat 0 0;
     cursor: pointer
 }
 
@@ -4049,7 +4049,7 @@ body.modal-open,
     height: 100%;
     left: 0;
     top: 0;
-    background: url("images/bg_pop.png");
+    background: url("/images/bg_pop.png");
     z-index: 9
 }
 

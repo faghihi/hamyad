@@ -105,11 +105,40 @@ Route::get('/FAQ', function (){
 Route::get('/instructor','TeachersController@index');
 Route::get('/instructor/{teacher}','TeachersController@show');
 
+//courses Routes
+
+Route::get('/Courses', function (){
+    return view('courses.courses-list');
+});
+Route::get('/review', function (){
+    return view('courses.course-review');
+});
+Route::get('/learn', function (){
+    return view('courses.course-learning');
+});
+Route::get('/conf', function (){
+    return view('courses.course-confirmation');
+});
+Route::get('/cancel', function (){
+    return view('courses.course-cancel');
+});
+Route::get('/course-detail', function (){
+    return view('courses.course-detail');
+});
+
+
+Route::get('/FAQ', function (){
+    return view('public-pages.faq');
+});
+
 Route::get('SectionReview/{section}','SectionsController@ShowReviews');
 
 
 Route::get('/ajax-register', function (){
     return view('ajax-login-modal-register');
+});
+Route::get('/new-register', function (){
+    return view('signin-signUp.register');
 });
 Route::get('/ajax-login', function (){
     return view('ajax-login-modal-login');

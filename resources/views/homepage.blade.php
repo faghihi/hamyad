@@ -308,7 +308,7 @@
 						</div>
 						
 					</div>
-					
+
 					<div class="GridLex-col-6_sm-12_xs-12 bg-img" style="background-image:url('images/teacher-bg.jpg'); background-position: top right">
 
 						<div class="promo-box-03 overlay-primary">
