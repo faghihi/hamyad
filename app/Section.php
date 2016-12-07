@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Backpack\CRUD\CrudTrait;
 class Section extends Model
 {
-    use CrudTrait;
 //    use SoftDeletes;
 
     protected $table='sections';

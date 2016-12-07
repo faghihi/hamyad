@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Backpack\CRUD\CrudTrait;
 
 class Discount extends Model
 {
-    use CrudTrait;
 //    use SoftDeletes;
     protected $table="discount";
 

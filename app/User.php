@@ -4,7 +4,6 @@ namespace App;
 //use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Backpack\CRUD\CrudTrait;
 use Hash;
 use Illuminate\Notifications\Notifiable;
 
@@ -21,7 +20,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use CrudTrait;
     use Notifiable;
 //    use SoftDeletes;
 

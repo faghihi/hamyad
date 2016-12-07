@@ -3,32 +3,6 @@
 
 Route::get('/','IndexController@index');
 
-// Admin Interface Routes
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
-{
-    // Backpack\CRUD: Define the resources for the entities you want to CRUD.
-    CRUD::resource('Categories', 'Admin\CategoryCrudController');
-    CRUD::resource('Courses', 'Admin\CourseCrudController');
-    CRUD::resource('Discounts', 'Admin\DiscountCrudController');
-    CRUD::resource('Packs', 'Admin\PackCrudController');
-    CRUD::resource('Providers', 'Admin\ProviderCrudController');
-    CRUD::resource('Reviews', 'Admin\ReviewCrudController');
-    CRUD::resource('Roles', 'Admin\RoleCrudController');
-    CRUD::resource('Sections', 'Admin\SectionCrudController');
-    CRUD::resource('Subscribes', 'Admin\SubscribeCrudController');
-    CRUD::resource('Tags', 'Admin\TagCrudController');
-    CRUD::resource('Teachers', 'Admin\TeacherCrudController');
-    CRUD::resource('Users', 'Admin\UserCrudController');
-    CRUD::resource('Useractions', 'Admin\UserActionsCrudController');
-    CRUD::resource('Admins', 'Admin\AdminsCrudController');
-
-});
-
-Route::get('/admin/elfinder', function () {
-    return view('vendor/elfinder/elfinder');
-});
-
-
 // Authentication Routes...
 
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');

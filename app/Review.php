@@ -7,12 +7,10 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\CrudTrait;
 
 class Review extends Model
 
 {
-    use CrudTrait;
 //    use SoftDeletes;
     protected $table='reviews';
     protected $fillable = ['comment','section_rate','user_id','course_rate','enable'];

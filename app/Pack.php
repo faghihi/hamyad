@@ -5,11 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Backpack\CRUD\CrudTrait;
 
 class Pack extends Model
 {
-    use CrudTrait;
 //    use SoftDeletes;
 
     protected $table='packs';
