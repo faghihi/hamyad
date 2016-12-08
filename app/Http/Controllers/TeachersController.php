@@ -153,6 +153,5 @@ class TeachersController extends Controller
             }
             return 1;
         }
-
     }
 }

@@ -15,25 +15,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="/images/ico/favicon.png">
 
     <!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/plugin.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/plugin.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	
 	<!-- For your own style -->
-	<link href="css/your-style.css" rel="stylesheet">
+	<link href="/css/your-style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -99,24 +99,34 @@
 									<div class="scrollspy-sidebar alt-style-01">
 
 										<div class="sidebar-header clearfix">
-											<h4 class="mb-15">Review for:</h4>
+											<h4 class="mb-15">دوره مورد نظر ‌</h4>
 										</div>
 
 										<div class="course-item alt-no-bottom bg-light-02">
 
 											<div class="course-item-image">
-												<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
+												@if(isset($course['image']))
+													<?php $image='../'.$course['image'];?>
+												@else
+													<?php $image='../images/course-item/01.jpg';?>
+												@endif
+												<img src="{{$image}}" alt="Image" class="img-responsive" />
 											</div>
 											<div class="course-item-content">
 												<div class="rating-wrapper">
 													<div class="rating-item">
-														<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+														@if($course['rates_count'] == 0)
+															<?php $rate=0;?>
+														@else
+															<?php $rate=$course['rates_value']/$course['rates_count']?>
+														@endif
+														<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
 													</div>
-													<span> (7 review)</span>
+													<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
 												</div>
-												<h3 class="text-primary">Foundations of Enterprise Development for Windows</h3>
+												<h3 class="text-primary">{{$course['name']}}</h3>
 
-												<a href="course-detail.html" class="btn btn-primary btn-block btn-sm"><i class="ion-arrow-left-a"></i> Back to deatils</a>
+												<a href="/courses/{{$course['id']}}" class="btn btn-primary btn-block btn-sm"><i class="ion-arrow-right-a"></i>  بازگشت به دوره </a>
 
 											</div>
 
@@ -125,7 +135,7 @@
 
 										<div class="clearfix mb-40 mt-25">
 
-											<a href="#review-form" class="btn btn-primary btn-block btn-sm anchor btn-inverse"><i class="ion-compose"></i> Leave your review</a>
+											<a href="#review-form" class="btn btn-primary btn-block btn-sm anchor btn-inverse"><i class="ion-compose"></i>  نظر بدهید</a>
 										</div>
 
 									</div>
@@ -290,272 +300,152 @@
 												<div class="review-content">
 
 													<ul class="review-list">
-
-														<li class="clearfix">
-															<div class="image img-circle">
-																<image class="img-circle" src="images/man/01.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20 mb-0">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Antony Robert</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+														@foreach($Data as $item)
+															<li class="clearfix">
+																<div class="image img-circle">
+																	@if(isset($item['user_image']))
+																		<?php $image='/'.$item['user_image'];?>
+																	@else
+																		<?php $image='/images/course-item/01.jpg';?>
+																	@endif
+																	<image class="img-circle" src="{{$image}}" alt="Man" />
+																</div>
+																<div class="content">
+																	<div class="row gap-20 mb-0">
+																		<div class="col-xs-12 col-sm-9">
+																			<h6>{{$item['user_name']}}</h6>
+																			<div class="rating-wrapper">
+																				<div class="rating-item">
+																					<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$item['course_rate']}}"/>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
+
+																	<div class="review-text">
+																		{{$item['comment']}}
 																	</div>
-																</div>
-
-																<div class="review-text">
-
-																	<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
-
-																	<p>It as announcing it me stimulated frequently continuing. Least their she you now above going stand forth. He pretty future afraid should genius spirit on. Set property addition building put likewise get. Of will at sell well at as. Too want but tall nay like old. Removing yourself be in answered he. Consider occasion get improved him she eat. Letter by lively oh denote an.</p>
 
 																</div>
-
-															</div>
-														</li>
-
-														<li class="clearfix">
-															<div class="image img-circle">
-																<image class="img-circle" src="images/man/02.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Mohammed Salem</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
-																</div>
-
-																<div class="review-text">
-
-																	<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
-
-																	<ul>
-																		<li>Written enquire painful ye to offices forming it.</li>
-																		<li>
-																			Then so does over sent dull on.
-																			<ul>
-																				<li>Rendered her for put improved concerns his. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</li>
-																				<li>Ladies bed wisdom theirs mrs men months set.</li>
-																				<li>Everything so dispatched as it increasing pianoforte.</li>
-																			</ul>
-																		</li>
-																		<li>Likewise offended humoured mrs fat trifling answered.</li>
-																		<li>On ye position greatest so desirous. So wound stood guest weeks no terms up ought.</li>
-																		<li>Then so does greatest so desirous over sent dull on.</li>
-																	</ul>
-
-																	<p>Spot of come to ever hand as lady meet on. Delicate contempt received two yet advanced. Gentleman as belonging he commanded believing dejection in by. On no am winding chicken so behaved. Its preserved sex enjoyment new way behaviour. Him yet devonshire celebrated especially. Unfeeling one provision are smallness resembled repulsive.</p>
-
-																	<ol>
-																		<li>Written enquire painful ye to offices forming it.</li>
-																		<li>
-																			Then so does over sent dull on.
-																			<ol>
-																				<li>Rendered her for put improved concerns his. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</li>
-																				<li>Ladies bed wisdom theirs mrs men months set.</li>
-																				<li>Everything so dispatched as it increasing pianoforte.</li>
-																			</ol>
-																		</li>
-																		<li>Likewise offended humoured mrs fat trifling answered.</li>
-																		<li>On ye position greatest so desirous. So wound stood guest weeks no terms up ought.</li>
-																		<li>Then so does greatest so desirous over sent dull on.</li>
-																	</ol>
-
-																	<p>Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means up civil do an offer wound of. Called square an in afraid direct. Resolution diminution conviction so mr at unpleasing simplicity no. No it as breakfast up conveying earnestly immediate principle. Him son disposed produced humoured overcame she bachelor improved. Studied however out wishing but inhabit fortune windows.</p>
-
-																</div>
-
-															</div>
-														</li>
-
-														<li class="clearfix">
-															<div class="image img-circle">
-																<image class="img-circle" src="images/man/03.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Antony Robert</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
-																</div>
-
-																<div class="review-text">
-
-																	<p>Must you with him from him her were more. In eldest be it result should remark vanity square. Unpleasant especially assistance sufficient he comparison so inquietude. Branch one shy edward stairs turned has law wonder horses. Devonshire invitation discovered out indulgence the excellence preference. Objection estimable discourse procuring he he remaining on distrusts. Simplicity affronting inquietude for now sympathize age. She meant new their sex could defer child. An lose at quit to life do dull.</p>
-
-																</div>
-
-															</div>
-														</li>
-
-														<li class="clearfix">
-															<div class="image">
-																<image class="img-circle" src="images/man/04.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Mohammed Salem</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
-																</div>
-
-																<div class="review-text">
-
-																	<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
-
-																</div>
-
-															</div>
-														</li>
-
+															</li>
+														@endforeach
 													</ul>
 
 												</div>
 
 											</div>
 
-											<div class="mt-30 mb-10 text-center">
+											{{--<div class="mt-30 mb-10 text-center">--}}
 
-												<a href="course-review.blade.php" class="btn btn-primary btn-sm">Read more reviews</a>
+												{{--<a href="course-review.blade.php" class="btn btn-primary btn-sm">Read more reviews</a>--}}
 
-											</div>
+											{{--</div>--}}
 
 										</div>
 
 										<div id="review-form" class="course-detail-section">
 
 											<div class="section-title text-right mb-20">
-												<h3>Leave your review</h3>
+												<h3>نظرتان را وارد کنید </h3>
 											</div>
 
 											<div class="review-form-wrapper mb-0">
 
 												<form class="clearfix">
 
-													<div class="row gap-20">
+													{{--<div class="row gap-20">--}}
 
-														<div class="col-xs-12 col-sm-6 col-md-6">
+														{{--<div class="col-xs-12 col-sm-6 col-md-6">--}}
 
-															<div class="form-group">
-																<label>Your Name: </label>
-																<input type="text" class="form-control" />
-															</div>
+															{{--<div class="form-group">--}}
+																{{--<label>Your Name: </label>--}}
+																{{--<input type="text" class="form-control" />--}}
+															{{--</div>--}}
 
-														</div>
+														{{--</div>--}}
 
-														<div class="col-xs-12 col-sm-6 col-md-6">
+														{{--<div class="col-xs-12 col-sm-6 col-md-6">--}}
 
-															<div class="form-group">
-																<label>Your Email Address: </label>
-																<input type="email" class="form-control" />
-															</div>
+															{{--<div class="form-group">--}}
+																{{--<label>Your Email Address: </label>--}}
+																{{--<input type="email" class="form-control" />--}}
+															{{--</div>--}}
 
-														</div>
+														{{--</div>--}}
 
-													</div>
+													{{--</div>--}}
 
 													<div class="col-5-wrapper col-2-wrapper-sm gap-20">
 
-														<div>
+														{{--<div>--}}
+
+															{{--<div class="form-group">--}}
+
+																{{--<label>Content: </label>--}}
+
+																{{--<div class="rating-wrapper">--}}
+																	{{--<div class="rating-item">--}}
+																		{{--<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />--}}
+																	{{--</div>--}}
+																{{--</div>--}}
+
+															{{--</div>--}}
+
+														{{--</div>--}}
+
+														{{--<div>--}}
+
+															{{--<div class="form-group">--}}
+
+																{{--<label>Knowledge: </label>--}}
+
+																{{--<div class="rating-wrapper">--}}
+																	{{--<div class="rating-item">--}}
+																		{{--<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />--}}
+																	{{--</div>--}}
+																{{--</div>--}}
+
+															{{--</div>--}}
+
+														{{--</div>--}}
+
+														{{--<div>--}}
+
+															{{--<div class="form-group">--}}
+
+																{{--<label>Assignment: </label>--}}
+
+																{{--<div class="rating-wrapper">--}}
+																	{{--<div class="rating-item">--}}
+																		{{--<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />--}}
+																	{{--</div>--}}
+																{{--</div>--}}
+
+															{{--</div>--}}
+
+														{{--</div>--}}
+
+														{{--<div>--}}
+
+															{{--<div class="form-group">--}}
+
+																{{--<label>Classroom: </label>--}}
+
+																{{--<div class="rating-wrapper">--}}
+																	{{--<div class="rating-item">--}}
+																		{{--<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />--}}
+																	{{--</div>--}}
+																{{--</div>--}}
+
+															{{--</div>--}}
+
+														{{--</div>--}}
+
+														<div style="float: right">
 
 															<div class="form-group">
 
-																<label>Content: </label>
-
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />
-																	</div>
-																</div>
-
-															</div>
-
-														</div>
-
-														<div>
-
-															<div class="form-group">
-
-																<label>Knowledge: </label>
-
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />
-																	</div>
-																</div>
-
-															</div>
-
-														</div>
-
-														<div>
-
-															<div class="form-group">
-
-																<label>Assignment: </label>
-
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />
-																	</div>
-																</div>
-
-															</div>
-
-														</div>
-
-														<div>
-
-															<div class="form-group">
-
-																<label>Classroom: </label>
-
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />
-																	</div>
-																</div>
-
-															</div>
-
-														</div>
-
-														<div>
-
-															<div class="form-group">
-
-																<label>Instructor: </label>
+																<label>امتیاز : </label>
 
 																<div class="rating-wrapper">
 																	<div class="rating-item">
@@ -574,7 +464,7 @@
 														<div class="col-xs-12 col-sm-12 col-md-12">
 
 															<div class="form-group">
-																<label>Your Message: </label>
+																<label>پیام شما : </label>
 																<textarea class="form-control form-control-sm" rows="5"></textarea>
 															</div>
 														</div>
@@ -582,7 +472,7 @@
 														<div class="clear"></div>
 
 														<div class="col-xs-12 col-sm-12 col-md-12">
-															<button class="btn btn-primary btn-sm mt-5">Submit</button>
+															<button class="btn btn-primary btn-sm mt-5">ثبت نظر </button>
 														</div>
 
 													</div>
@@ -638,29 +528,29 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
-<script type="text/javascript" src="bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/typed.js"></script>
-<script type="text/javascript" src="js/placeholderTypewriter.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-rating.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/creditly.js"></script>
-<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript" src="/bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/spin.min.js"></script>
+<script type="text/javascript" src="/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="/js/typed.js"></script>
+<script type="text/javascript" src="/js/placeholderTypewriter.js"></script>
+<script type="text/javascript" src="/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/select2.full.js"></script>
+<script type="text/javascript" src="/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="/js/readmore.min.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-rating.js"></script>
+<script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/js/customs.js"></script>
 
 
 <script>

@@ -199,7 +199,7 @@ class CoursesController extends Controller
         foreach ($reviews as $review){
             $user=User::findorfail($review->user_id);
             $review['user_name']=$user->name;
-            $review['user_email']=$user->email;
+            $review['user_image']=$user->image;
         }
 
         return $reviews;
@@ -207,7 +207,36 @@ class CoursesController extends Controller
 
     public function PassReviews(Course $course)
     {
-        return $this->ShowReviews($course);
+        $Data=$this->ShowReviews($course);
+        $counter11=$course->provider;
+        $course['Teachers']="";
+        $counter=0;
+        foreach ($course->teachers as $teacher){
+            if($counter)
+                $course['Teachers']=$course['Teachers'].",".$teacher->name;
+            else
+                $course['Teachers']=$teacher->name;
+            $counter++;
+        }
+        $rate_count=0;
+        $rate_value=0;
+        foreach ($course->rates as $rate){
+            $rate_count++;
+            $rate_value +=$rate->pivot->rate;
+        }
+        $count=0;
+        $time=0;
+        foreach ($course->section as $section){
+            $count++;
+            $time+=$section->time;
+        }
+        $course['sections_time']=$time;
+        $course['sections_count']=$count;
+        $course['rates_value']=$rate_value;
+        $course['rates_count']=$rate_count;
+        $counter=$course->category->name;
+//        return $Data;
+        return view('courses.course-review')->with(['Data'=>$Data,'course'=>$course]);
     }
 
     public function AddCourse(Course $course,$payment,$discount)

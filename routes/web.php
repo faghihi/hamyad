@@ -113,6 +113,9 @@ Route::get('/Courses', function (){
 Route::get('/review', function (){
     return view('courses.course-review');
 });
+
+Route::get('SectionReview/{course}','CoursesController@PassReviews');
+
 Route::get('/learn', function (){
     return view('courses.course-learning');
 });
