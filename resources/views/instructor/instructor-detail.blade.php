@@ -238,7 +238,7 @@
 													@foreach($Data['Course'] as $course)
 														<div class="GridLex-col-6_xs-6_xss-12">
 															<div class="course-item">
-																<a href="#">
+																<a href="/courses/{{$course['id']}}">
 																	<div class="course-item-image">
 																		@if(isset($course['image']))
 																			<?php $image=$course['image'];?>
@@ -315,7 +315,7 @@
 										<ul class="related-course-item mb-30">
 											@foreach(array_slice($Data['Course'], 0, 3) as $course)
 												<li class="clearfix">
-													<a href="#">
+													<a href="/courses/{{$course['id']}}">
 														<div class="image">
 															@if(empty($course['image']))
 																<?php $image='../images/course/course-item-sm-01.jpg'?>

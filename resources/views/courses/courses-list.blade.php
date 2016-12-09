@@ -160,7 +160,7 @@
 
 												<div class="GridLex-col-3_mdd-3_sm-6_xs-6_xss-12">
 													<div class="course-item">
-														<a href="#">
+														<a href="/courses/{{$course['id']}}">
 															<div class="course-item-image">
 																@if(isset($course['image']))
 																	<?php $image=$course['image'];?>

@@ -172,7 +172,7 @@
 
 															{{--</ul>--}}
 
-															<a href="#">
+															<a href="/instructor/{{$teacher['id']}}">
 
 																<div class="image">
 																	@if(isset($teacher['image']))
