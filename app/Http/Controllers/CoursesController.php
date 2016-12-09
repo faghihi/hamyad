@@ -161,6 +161,35 @@ class CoursesController extends Controller
         foreach ($course->tags as $tag){
             foreach ($tag->courses as $item){
                 $i++;
+                $counter11=$item->provider;
+                $item['Teachers']="";
+                $counter=0;
+                foreach ($item->teachers as $teacher){
+                    if($counter)
+                        $item['Teachers']=$item['Teachers'].",".$teacher->name;
+                    else
+                        $item['Teachers']=$teacher->name;
+                    $counter++;
+                }
+                $counter1=0;
+
+                $rate_count=0;
+                $rate_value=0;
+                foreach ($item->rates as $rate){
+                    $rate_count++;
+                    $rate_value +=$rate->pivot->rate;
+                }
+                $count=0;
+                $time=0;
+                foreach ($item->section as $section){
+                    $count++;
+                    $time+=$section->time;
+                }
+                $item['sections_time']=$time;
+                $item['sections_count']=$count;
+                $item['rates_value']=$rate_value;
+                $item['rates_count']=$rate_count;
+                $counter=$item->category->name;
                 $course["relate".$i]=$item;
             }
             if($i==3)
