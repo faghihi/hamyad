@@ -67,10 +67,44 @@ class CoursesController extends Controller
     public function index()
 
     {
-        $Courses=$this->RetrieveCourses();
+//        $Courses=$this->RetrieveCourses();
+        $courses = Course::paginate(10);
+        $count_course=count(Course::all());
+        foreach ($courses as $course){
+            $counter11=$course->provider;
+            $course['Teachers']="";
+            $counter=0;
+            foreach ($course->teachers as $teacher){
+                if($counter)
+                    $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                else
+                    $course['Teachers']=$teacher->name;
+                $counter++;
+            }
+            $counter1=0;
+
+            $rate_count=0;
+            $rate_value=0;
+            foreach ($course->rates as $rate){
+                $rate_count++;
+                $rate_value +=$rate->pivot->rate;
+            }
+            $count=0;
+            $time=0;
+            foreach ($course->section as $section){
+                $count++;
+                $time+=$section->time;
+            }
+            $course['sections_time']=$time;
+            $course['sections_count']=$count;
+            $course['rates_value']=$rate_value;
+            $course['rates_count']=$rate_count;
+            $counter=$course->category->name;
+
+        }
         $tags=Tag::all();
         $Categories=Category::all();
-//        return view('courses.index')->with(['courses'=>$courses,'Tags'=>$tags,'Categories'=>$Categories]);
+        return view('courses.courses-list')->with(['course_count'=>$count_course,'Data'=>$courses,'Tags'=>$tags,'Categories'=>$Categories]);
     }
 
     public function ShowSpecificCourse(Course $course)
@@ -108,8 +142,20 @@ class CoursesController extends Controller
         $course['rates_value']=$rate_value;
         $course['rates_count']=$rate_count;
         $course['Category']=$course->category->name;
-
-        $course['Reviews']=$course->reviews();
+        $reviewss=$course->reviews->where('enable',1);
+        $r_count=0;
+        $reviews=array();
+        while($r_count<5 && $r_count < count($reviewss))
+        {
+            $reviews[]=$reviewss[$r_count];
+            $r_count++;
+        }
+        foreach ($reviews as $review){
+            $user=User::findorfail($review->user_id);
+            $review['user_name']=$user->name;
+            $review['user_image']=$user->image;
+        }
+        $course['Reviews']=$reviews;
 
         $i=0;
         foreach ($course->tags as $tag){
@@ -129,8 +175,9 @@ class CoursesController extends Controller
     public function show(Course $course)
 
     {
-            return $this->ShowSpecificCourse($course);
-//        return view('courses.show', compact('course'));
+        $Data=$this->ShowSpecificCourse($course);
+//        return $Data;
+        return view('courses.course-detail')->with('course',$Data);
 
     }
 

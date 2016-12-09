@@ -138,7 +138,7 @@
 											<div class="row">
 
 												<div class="col-xss-12 col-xs-12 col-sm-7 col-md-9">
-													<h4>تعداد {{count($Data)}} درس یافت شد</h4>
+													<h4>تعداد {{$course_count}} درس یافت شد</h4>
 												</div>
 
 												<div class="col-xss-12 col-xs-12 col-sm-5 col-md-3">
@@ -156,6 +156,7 @@
 										<div class="GridLex-gap-20">
 
 											<div class="GridLex-grid-noGutter-equalHeight">
+												@foreach($Data as $course)
 
 												<div class="GridLex-col-3_mdd-3_sm-6_xs-6_xss-12">
 													<div class="course-item">
@@ -212,9 +213,9 @@
 														</a>
 													</div>
 												</div>
+												@endforeach
 
 											</div>
-
 										</div>
 
 									</div>

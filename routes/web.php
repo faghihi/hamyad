@@ -107,14 +107,7 @@ Route::get('/instructor/{teacher}','TeachersController@show');
 
 //courses Routes
 
-Route::get('/Courses', function (){
-    return view('courses.courses-list');
-});
-Route::get('/review', function (){
-    return view('courses.course-review');
-});
-
-Route::get('SectionReview/{course}','CoursesController@PassReviews');
+Route::get('CourseReview/{course}','CoursesController@PassReviews');
 
 Route::get('/learn', function (){
     return view('courses.course-learning');

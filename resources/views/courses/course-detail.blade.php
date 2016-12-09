@@ -15,25 +15,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="/images/ico/favicon.png">
 
     <!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/plugin.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/plugin.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	
 	<!-- For your own style -->
-	<link href="css/your-style.css" rel="stylesheet">
+	<link href="/css/your-style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -89,10 +89,15 @@
 					<div class="info clearfix">
 								
 						<div class="image">
-							<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
+							@if(isset($course['image']))
+								<?php $image='/'.$course['image'];?>
+							@else
+								<?php $image='/images/course-item/01.jpg';?>
+							@endif
+							<img src="{{$image}}" alt="Image" class="img-responsive" />
 						</div>
 						<div class="content">
-							<h2>Introduction to HTML: Build a Portfolio Website</h2>
+							<h2>{{$course['name']}}</h2>
 						</div>
 						
 						<ul class="meta-list">
@@ -101,8 +106,9 @@
 							<li>
 								<div class="meta-category">
 									<div class="content">
-										<span class="text-muted mt-3 block">Category</span>
-										<h6><a href="course-detail-section-2" class="anchor">Web Design</a>, <a href="course-detail-section-2" class="anchor">HTML</a></h6>
+										<span class="text-muted mt-3 block">دسته بندی</span>
+										{{--<h6><a href="course-detail-section-2" class="anchor">Web Design</a>, <a href="course-detail-section-2" class="anchor">HTML</a></h6>--}}
+										<h6>{{$course['category']['name']}}</h6>
 									</div>
 								</div>
 							</li>
@@ -110,26 +116,38 @@
 							<li>
 								<div class="meta-category">
 									<div class="content">
-										<span class="text-muted mt-3 block">Duation</span>
-										<h6>5.4 hours (24 lessons)</h6>
+										<span class="text-muted mt-3 block">طول دوره</span>
+										<h6>{{$course['sections_time']}} دقیقه<span> ({{$course['sections_count']}} درس) </span></h6>
 									</div>
 								</div>
 							</li>
 							
 							<li>
 								<div class="meta-rating">
-									<span class="text-muted mt-3 block">Reviews</span>
+									<span class="text-muted mt-3 block">امتیاز</span>
 									<div class="rating-wrapper">
 										<div class="rating-item">
-											<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+											@if($course['rates_count'] == 0)
+												<?php $rate=0;?>
+											@else
+												<?php $rate=$course['rates_value']/$course['rates_count']?>
+											@endif
+											<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
 										</div>
-										<span> (7 review)</span>
+										<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
 									</div>
 								</div>
 							</li>
 							
 							<li class="meta-price">
-								<div class="price bg-danger">$19.56</div>
+								<div class="price bg-danger">
+									@if($course['price'] > 1000)
+										<?php $price=$course['price']/1000 . ' هزار تومان'?>
+									@else
+										<?php $price=$course['price'] . ' تومان'?>
+									@endif
+									{{$price}}
+								</div>
 							</li>
 							
 						</ul>
@@ -156,15 +174,15 @@
 									
 										<ul class="scrollspy-sidenav">
 										
-											<li class="heading"><h5>Course Menu</h5></li>
+											<li class="heading"><h5>منوی دوره</h5></li>
 											<li>
 											
 												<ul class="nav faq-nav">
-													<li><a href="#course-detail-section-0" class="anchor">Course Introduction</a></li>
-													<li><a href="#course-detail-section-1" class="anchor">Course Lession</a></li>
-													<li><a href="#course-detail-section-2" class="anchor">About Teacher</a></li>
-													<li><a href="#course-detail-section-3" class="anchor">Review</a></li>
-													<li><a href="#course-detail-section-4" class="anchor">Related Courses</a></li>
+													<li><a href="#course-detail-section-0" class="anchor">معرفی دوره</a></li>
+													<li><a href="#course-detail-section-1" class="anchor">دروس دوره</a></li>
+													<li><a href="#course-detail-section-2" class="anchor">اساتید</a></li>
+													<li><a href="#course-detail-section-3" class="anchor">نظرات</a></li>
+													<li><a href="#course-detail-section-4" class="anchor">دروس مرتبط</a></li>
 												</ul>
 												
 											</li>
@@ -172,7 +190,7 @@
 										</ul>
 										
 										<div class="clearfix mb-20 mt-30">
-											<a href="#" class="btn btn-primary btn-block btn-md">Attend Now</a>
+											<a href="#" class="btn btn-primary btn-block btn-md">همین حالا عضو شوید</a>
 										</div>
 										
 									</div>
@@ -190,7 +208,7 @@
 										<div id="course-detail-section-0" class="course-detail-section">
 											
 											<div class="section-title mb-20">
-												<h3>Course Introduction</h3>
+												<h3>معرفی دوره</h3>
 											</div>
 											
 											<div class="flex-video vimeo mb-40"> 
@@ -201,28 +219,28 @@
 											
 												<div class="listing-box clearfix">
 												
-													<h5>Course Highlight</h5>
+													<h5>مشخصات اصلی دوره</h5>
 													
 													<ul class="listing-box-list">
 
 														<li>
 															<div class="row gap-10">
-																<div class="col-xs-5 col-sm-6"><i class="fa fa-clock-o mr-5"></i> Duration</div>
-																<div class="col-xs-7 col-sm-6 text-left font600">5.4 houres</div>
+																<div class="col-xs-5 col-sm-6"><i class="fa fa-clock-o mr-5"></i>  طول دوره </div>
+																<div class="col-xs-7 col-sm-6 text-left font600">{{$course['sections_time']}} دقیقه</div>
 															</div>
 														</li>
 														
 														<li>
 															<div class="row gap-10">
-																<div class="col-xs-5 col-sm-5"><i class="fa fa-pencil-square-o mr-5"></i> Lesson</div>
-																<div class="col-xs-7 col-sm-7 text-left font600"> 24 lessons</div>
+																<div class="col-xs-5 col-sm-5"><i class="fa fa-pencil-square-o mr-5"></i>  تعداد دروس </div>
+																<div class="col-xs-7 col-sm-7 text-left font600">{{$course['sections_count']}} درس </div>
 															</div>
 														</li>
 														
 														<li>
 															<div class="row gap-10">
-																<div class="col-xs-5 col-sm-5"><i class="fa fa-users mr-5"></i> No. Student</div>
-																<div class="col-xs-7 col-sm-7 text-left font600"> 15 availabilities</div>
+																<div class="col-xs-5 col-sm-5"><i class="fa fa-users mr-5"></i> تعداد شرکت کنندگان</div>
+																<div class="col-xs-7 col-sm-7 text-left font600">{{$course['std_count']}} نفر</div>
 															</div>
 														</li>
 														
@@ -232,28 +250,32 @@
 											
 											</div>
 
-											<h5 class="text-uppercase font700">About the course</h5>
-											
-											<p>Delightful remarkably mr on announcing themselves entreaties favourable. About to in so terms voice at. Equal an would is found seems of. The particular friendship one sufficient terminated frequently themselves. It more shed went up is roof if loud case. Delay music in lived noise an. Beyond genius really enough passed is up.</p>
+											<h5 class="text-uppercase font700">در مورد دوره </h5>
 
-											<p>Old education him departure any arranging one prevailed. Their end whole might began her. Behaved the comfort another fifteen eat. Partiality had his themselves ask pianoforte increasing discovered. So mr delay at since place whole above miles. He to observe conduct at detract because. Way ham unwilling not breakfast furniture explained perpetual. Or mr surrounded conviction so astonished literature. Songs to an blush woman be sorry young. We certain as removal attempt.</p>
-											
-											<h6 class="spacing-10 font600">More Course Information</h6>
-											
-											<p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered. Continual say suspicion provision you neglected sir curiosity unwilling. Simplicity end themselves increasing led day sympathize yet. General windows effects not are drawing man garrets. Common indeed garden you his ladies out yet. Preference imprudence contrasted to remarkably in on. Taken now you him trees tears any. Her object giving end sister except oppose.</p>
-											
+											<p>
+												{!! $course['description'] !!}
+												<?php #TODO Empty Solution ?>
+											</p>
+											<br>
+											<br>
+											<br>
+											<br>
+											<br>
+											<br>
+											<br>
+											<br>
 										</div>
 										
 										<div id="course-detail-section-1" class="course-detail-section">
 										
 											<div class="section-title mb-20">
 											
-												<h3>Course Lession</h3>
+												<h3>مشحصات دروس دوره</h3>
 									
 											</div>
 
 											<div class="course-lession-wrapper-2 alt-item-bg">
-											
+												@foreach($course['section'] as $section)
 												<a href="#" class="course-lession-item-2">
 												
 													<div class="content-top">
@@ -262,14 +284,14 @@
 														
 															<div class="col-xs-12 col-sm-6 mb-15">
 															
-																<span class="lebal-lesson">Lesson 01</span> 
-																<span class="label label-primary">Preview</span>
+																<span class="lebal-lesson"> قسمت {{$section['part']}} </span>
+																{{--<span class="label label-success">Free</span>--}}
 																
 															</div>
 															
 															<div class="col-xs-12 col-sm-6 mb-15">
 																<div class="meta text-left text-right-xs">
-																	<i class="fa fa-video-camera"></i> video <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> 8:56 minutes
+																	<i class="fa fa-video-camera"></i>  ویدپو <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> {{$section['time']}} دقیقه
 																</div>
 															</div>
 														
@@ -279,146 +301,16 @@
 													
 													<div class="content">
 													
-														<h5>Introduction to Photoshop CS6 Extremely</h5>
+														<h5>{{$section['name']}}</h5>
 														
-														<p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
+														<p>
+															{{$section['description']}}
+														</p>
 
 													</div>
 												
 												</a>
-											
-												<a href="#" class="course-lession-item-2">
-												
-													<div class="content-top">
-													
-														<div class="row">
-														
-															<div class="col-xs-12 col-sm-6 mb-15">
-															
-																<span class="lebal-lesson">Lesson 02</span> 
-																<span class="label label-success">Free</span>
-																
-															</div>
-															
-															<div class="col-xs-12 col-sm-6 mb-15">
-																<div class="meta text-left text-right-xs">
-																	<i class="fa fa-video-camera"></i> video <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> 10:07 minutes
-																</div>
-															</div>
-														
-														</div>
-														
-													</div>
-													
-													<div class="content">
-													
-														<h5>Photoshop CS6 workspace and features</h5>
-														
-														<p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
-
-													</div>
-												
-												</a>
-											
-												<a href="#" class="course-lession-item-2">
-												
-													<div class="content-top">
-													
-														<div class="row">
-														
-															<div class="col-xs-12 col-sm-6 mb-15">
-															
-																<span class="lebal-lesson">Lesson 03</span> 
-																<span class="label label-danger">Locked</span>
-																
-															</div>
-															
-															<div class="col-xs-12 col-sm-6 mb-15">
-																<div class="meta text-left text-right-xs">
-																	<i class="fa fa-video-camera"></i> video <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> 8:56 minutes
-																</div>
-															</div>
-														
-														</div>
-														
-													</div>
-													
-													<div class="content">
-													
-														<h5>Adobe Bridge For Photo Management</h5>
-														
-														<p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
-
-													</div>
-												
-												</a>
-											
-												<a href="#" class="course-lession-item-2">
-												
-													<div class="content-top">
-													
-														<div class="row">
-														
-															<div class="col-xs-12 col-sm-6 mb-15">
-															
-																<span class="lebal-lesson">Lesson 04</span> 
-																<span class="label label-danger">Locked</span>
-																
-															</div>
-															
-															<div class="col-xs-12 col-sm-6 mb-15">
-																<div class="meta text-left text-right-xs">
-																	<i class="fa fa-video-camera"></i> video <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> 8:56 minutes
-																</div>
-															</div>
-														
-														</div>
-														
-													</div>
-													
-													<div class="content">
-													
-														<h5>Image adjustments</h5>
-														
-														<p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
-
-													</div>
-												
-												</a>
-											
-												<a href="#" class="course-lession-item-2">
-												
-													<div class="content-top">
-													
-														<div class="row">
-														
-															<div class="col-xs-12 col-sm-6 mb-15">
-															
-																<span class="lebal-lesson">Lesson 05</span> 
-																<span class="label label-danger">Locked</span>
-																
-															</div>
-															
-															<div class="col-xs-12 col-sm-6 mb-15">
-																<div class="meta text-left text-right-xs">
-																	<i class="fa fa-video-camera"></i> video <span class="mh-5">|</span> <i class="fa fa-clock"></i> 8:56 minutes
-																</div>
-															</div>
-														
-														</div>
-														
-													</div>
-													
-													<div class="content">
-													
-														<h5>Introduction to Photoshop CS6 Extremely</h5>
-														
-														<p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
-
-													</div>
-												
-												</a>
-											
+												@endforeach
 											</div>
 											
 										</div>
@@ -432,87 +324,61 @@
 											<div class="teacher-item-list-02-wrapper">
 												
 												<div class="teacher-item-list-02-sub hidden-after-sm">
-												
-													<div class="row gap-40">
-													
-														<div class="col-xs-12 col-sm-12 col-md-6">
-														
-															<div class="teacher-item-list-02 clearfix">
-													
-																<div class="row gap-20">
-																
-																	<div class="col-xs-12 col-sm-3 col-md-4">
-																	
-																		<div class="image">
-																			<img src="images/man/02.jpg" alt="Image" />
+													<?php $count=0;?>
+													@foreach($course['teachers'] as $teacher)
+															<?php $count++?>
+														@if($count%2==1)
+														<div class="row gap-40">
+														@endif
+															<div class="col-xs-12 col-sm-12 col-md-6">
+
+																<div class="teacher-item-list-02 clearfix">
+
+																	<div class="row gap-20">
+
+																		<div class="col-xs-12 col-sm-3 col-md-4">
+
+																			<div class="image">
+																				@if(isset($teacher['image']))
+																					<?php $image='/'.$teacher['image'];?>
+																				@else
+																					<?php $image='/images/man/02.jpg';?>
+																				@endif
+																				<img src="{{$image}}" alt="Image" />
+																			</div>
+
+																			<div class="clear"></div>
+
 																		</div>
-																		
-																		<div class="clear"></div>
-																				
-																	</div>
-																	
-																	<div class="col-xs-12 col-sm-9 col-md-8">
-																	
-																		<div class="content">
-																				
-																			<span class="font700 block text-uppercase mb-5 spacing-10 font11">Assitant Teacher 1</span>
-																			<h4><a href="#">Oxana Laporte</a></h4>
-																			<p class="labeling">Computer Teacher</p>
-																			
-																			<p class="short-info">About to in so terms voice at. Equal an would is found seems of.</p>
-																			
-																			<a href="#" class="btn btn-primary btn-inverse btn-sm">More about him</a>
-																			
+
+																		<div class="col-xs-12 col-sm-9 col-md-8">
+
+																			<div class="content">
+
+																				<span class="font700 block text-uppercase mb-5 spacing-10 font11">استاد </span>
+																				<h4><a href="#">{{$teacher['name']}}</a></h4>
+																				<p class="labeling">{{$teacher['description']}}</p>
+
+																				{{--<p class="short-info">About to in so terms voice at. Equal an would is found seems of.</p>--}}
+
+																				<a href="/instructor/{{$teacher['id']}}" class="btn btn-primary btn-inverse btn-sm">بیشتر</a>
+
+																			</div>
+
 																		</div>
-																		
-																	</div>
-																	
-																</div>
-																
-															</div>
-															
-														</div>
-														
-														<div class="col-xs-12 col-sm-12 col-md-6">
-														
-															<div class="teacher-item-list-02 clearfix">
-													
-																<div class="row gap-20">
-																
-																	<div class="col-xs-12 col-sm-3 col-md-4">
-																	
-																		<div class="image">
-																			<img src="images/man/03.jpg" alt="Image" />
-																		</div>
-																		
-																		<div class="clear"></div>
 
 																	</div>
-																	
-																	<div class="col-xs-12 col-sm-9 col-md-8">
-																	
-																		<div class="content">
-																				
-																			<span class="font700 block text-uppercase mb-5 spacing-10 font11">Assitant Teacher 2</span>
-																			<h4><a href="#">Michel Legrand</a></h4>
-																			<p class="labeling">Computer Teacher</p>
-																			
-																			<p class="short-info">Delightful remarkably mr on announcing themselves entreaties favourable.</p>
-																			
-																			<a href="#" class="btn btn-primary btn-inverse btn-sm">More about him</a>
-																			
-																		</div>
-																		
-																	</div>
-																	
+
 																</div>
-																
+
 															</div>
-															
-															
+															@if($count%2==0)
+															</div>
+															@endif
+													@endforeach
+													@if($count%2==1)
 														</div>
-														
-													</div>
+													@endif
 													
 												</div>
 												
@@ -525,33 +391,38 @@
 										<div id="course-detail-section-3" class="course-detail-section">
 										
 											<div class="section-title mb-20">
-												<h3>Review</h3>
+												<h3>نظرات</h3>
 											</div>
 											
 											<div class="review-wrapper">
 						
 												<div class="review-header">
-												
+
 													<div class="row">
-													
+
 														<div class="col-xs-12 col-sm-12 col-md-3">
-														
+
 															<div class="review-overall">
-															
-																<h5>Score Breakdown</h5>
-																<p class="review-overall-point"><span>4.6</span> / 5.0</p>
-																
+
+																<h5>امتیاز</h5>
+																@if($course['rates_count'] == 0)
+																	<?php $rate=0;?>
+																@else
+																	<?php $rate=$course['rates_value']/$course['rates_count']?>
+																@endif
+																<p class="review-overall-point"><span>{{$rate}}</span> /5.0</p>
+
 																<div class="rating-wrapper">
 																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
 																	</div>
-																	<span> (7 review)</span>
+																	<span> ({{$course['rates_count']}} نظر)</span>
 																</div>
-																<p class="review-overall-recommend">90% recommend this course</p>
+																{{--<p class="review-overall-recommend">90% recommend this course</p>--}}
 															</div>
-														
+
 														</div>
-														
+
 													</div>
 													
 												</div>
@@ -559,155 +430,36 @@
 												<div class="review-content">
 												
 													<ul class="review-list">
-													
-														<li class="clearfix">
-															<div class="image img-circle">
-																<img class="img-circle" src="images/man/01.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20 mb-0">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Antony Robert</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+
+														@foreach($course['Reviews'] as $item)
+															<li class="clearfix">
+																<div class="image img-circle">
+																	@if(isset($item['user_image']))
+																		<?php $image='/'.$item['user_image'];?>
+																	@else
+																		<?php $image='/images/course-item/01.jpg';?>
+																	@endif
+																	<image class="img-circle" src="{{$image}}" alt="Man" />
+																</div>
+																<div class="content">
+																	<div class="row gap-20 mb-0">
+																		<div class="col-xs-12 col-sm-9">
+																			<h6>{{$item['user_name']}}</h6>
+																			<div class="rating-wrapper">
+																				<div class="rating-item">
+																					<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$item['course_rate']}}"/>
+																				</div>
 																			</div>
 																		</div>
 																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
-																</div>
-																
-																<div class="review-text">
-																
-																	<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
-																	
-																	<p>It as announcing it me stimulated frequently continuing. Least their she you now above going stand forth. He pretty future afraid should genius spirit on. Set property addition building put likewise get. Of will at sell well at as. Too want but tall nay like old. Removing yourself be in answered he. Consider occasion get improved him she eat. Letter by lively oh denote an.</p>
-																
-																</div>
 
-															</div>
-														</li>
-														
-														<li class="clearfix">
-															<div class="image img-circle">
-																<img class="img-circle" src="images/man/02.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Mohammed Salem</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																			</div>
-																		</div>
+																	<div class="review-text">
+																		{{$item['comment']}}
 																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
-																</div>
-																
-																<div class="review-text">
-																
-																	<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
-																
-																	<ul>
-																		<li>Written enquire painful ye to offices forming it.</li>
-																		<li>
-																			Then so does over sent dull on.
-																			<ul>
-																				<li>Rendered her for put improved concerns his. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</li>
-																				<li>Ladies bed wisdom theirs mrs men months set.</li>
-																				<li>Everything so dispatched as it increasing pianoforte.</li>
-																			</ul>
-																		</li>
-																		<li>Likewise offended humoured mrs fat trifling answered.</li>
-																		<li>On ye position greatest so desirous. So wound stood guest weeks no terms up ought.</li>
-																		<li>Then so does greatest so desirous over sent dull on.</li>
-																	</ul>
-																	
-																	<p>Spot of come to ever hand as lady meet on. Delicate contempt received two yet advanced. Gentleman as belonging he commanded believing dejection in by. On no am winding chicken so behaved. Its preserved sex enjoyment new way behaviour. Him yet devonshire celebrated especially. Unfeeling one provision are smallness resembled repulsive.</p>
-																	
-																	<ol>
-																		<li>Written enquire painful ye to offices forming it.</li>
-																		<li>
-																			Then so does over sent dull on.
-																			<ol>
-																				<li>Rendered her for put improved concerns his. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</li>
-																				<li>Ladies bed wisdom theirs mrs men months set.</li>
-																				<li>Everything so dispatched as it increasing pianoforte.</li>
-																			</ol>
-																		</li>
-																		<li>Likewise offended humoured mrs fat trifling answered.</li>
-																		<li>On ye position greatest so desirous. So wound stood guest weeks no terms up ought.</li>
-																		<li>Then so does greatest so desirous over sent dull on.</li>
-																	</ol>
-																	
-																	<p>Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means up civil do an offer wound of. Called square an in afraid direct. Resolution diminution conviction so mr at unpleasing simplicity no. No it as breakfast up conveying earnestly immediate principle. Him son disposed produced humoured overcame she bachelor improved. Studied however out wishing but inhabit fortune windows.</p>
-																	
-																</div>
 
-															</div>
-														</li>
-														
-														<li class="clearfix">
-															<div class="image img-circle">
-																<img class="img-circle" src="images/man/03.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Antony Robert</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
 																</div>
-																
-																<div class="review-text">
-																
-																	<p>Must you with him from him her were more. In eldest be it result should remark vanity square. Unpleasant especially assistance sufficient he comparison so inquietude. Branch one shy edward stairs turned has law wonder horses. Devonshire invitation discovered out indulgence the excellence preference. Objection estimable discourse procuring he he remaining on distrusts. Simplicity affronting inquietude for now sympathize age. She meant new their sex could defer child. An lose at quit to life do dull.</p>
-																
-																</div>
-
-															</div>
-														</li>
-														
-														<li class="clearfix">
-															<div class="image">
-																<img class="img-circle" src="images/man/04.jpg" alt="Man" />
-															</div>
-															<div class="content">
-																<div class="row gap-20">
-																	<div class="col-xs-12 col-sm-9">
-																		<h6>Mohammed Salem</h6>
-																		<div class="rating-wrapper">
-																			<div class="rating-item">
-																				<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-xs-12 col-sm-3">
-																		<p class="review-date">18/03/2016</p>
-																	</div>
-																</div>
-																
-																<div class="review-text">
-																
-																	<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
-																
-																</div>
-
-															</div>
-														</li>
-														
+															</li>
+														@endforeach
 													</ul>
 												
 												</div>
@@ -716,8 +468,8 @@
 
 											<div class="mt-30 mb-10 text-left">
 											
-												<a href="course-review.blade.php" class="btn btn-primary btn-sm">Read more reviews</a>
-												<a href="course-review.blade.php#review-form" class="btn btn-danger btn-sm anchor">Leave your review</a>
+												<a href="/CourseReview/{{$course['id']}}" class="btn btn-primary btn-sm">نظرات بیشتر</a>
+												<a href="/CourseReview/{{$course['id']}}#review-form" class="btn btn-danger btn-sm anchor">نظرتان را بگذارید</a>
 												
 											</div>
 											
@@ -726,7 +478,7 @@
 										<div id="course-detail-section-4" class="course-detail-section">
 										
 											<div class="section-title mb-20">
-												<h3>Related Courses</h3>
+												<h3>دوره های مرتبط</h3>
 											</div>
 											
 											<div class="course-item-wrapper alt-bg-white course-item-wrapper-mmb-45 gap-20">
@@ -737,12 +489,12 @@
 														<div class="course-item">
 															<a href="#">
 																<div class="course-item-image">
-																	<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
+																	<img src="/images/course-item/01.jpg" alt="Image" class="img-responsive" />
 																</div>
 																<div class="course-item-top clearfix">
 																	<div class="course-item-instructor">
 																		<div class="image">
-																			<img src="images/testimonial/01.jpg" alt="Image" class="img-circle" />
+																			<img src="/images/testimonial/01.jpg" alt="Image" class="img-circle" />
 																		</div>
 																		<span>Mark Lassoff </span>
 																	</div>
@@ -772,12 +524,12 @@
 														<div class="course-item">
 															<a href="#">
 																<div class="course-item-image">
-																	<img src="images/course-item/02.jpg" alt="Image" class="img-responsive" />
+																	<img src="/images/course-item/02.jpg" alt="Image" class="img-responsive" />
 																</div>
 																<div class="course-item-top clearfix">
 																	<div class="course-item-instructor">
 																		<div class="image">
-																			<img src="images/testimonial/02.jpg" alt="Image" class="img-circle" />
+																			<img src="/images/testimonial/02.jpg" alt="Image" class="img-circle" />
 																		</div>
 																		<span>Nicholas Mavrakis</span>
 																	</div>
@@ -807,12 +559,12 @@
 														<div class="course-item">
 															<a href="#">
 																<div class="course-item-image">
-																	<img src="images/course-item/03.jpg" alt="Image" class="img-responsive" />
+																	<img src="/images/course-item/03.jpg" alt="Image" class="img-responsive" />
 																</div>
 																<div class="course-item-top clearfix">
 																	<div class="course-item-instructor">
 																		<div class="image">
-																			<img src="images/testimonial/03.jpg" alt="Image" class="img-circle" />
+																			<img src="/images/testimonial/03.jpg" alt="Image" class="img-circle" />
 																		</div>
 																		<span>Ange Ermolova</span>
 																	</div>
@@ -889,29 +641,29 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
-<script type="text/javascript" src="bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/typed.js"></script>
-<script type="text/javascript" src="js/placeholderTypewriter.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-rating.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/creditly.js"></script>
-<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript" src="/bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/spin.min.js"></script>
+<script type="text/javascript" src="/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="/js/typed.js"></script>
+<script type="text/javascript" src="/js/placeholderTypewriter.js"></script>
+<script type="text/javascript" src="/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/select2.full.js"></script>
+<script type="text/javascript" src="/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="/js/readmore.min.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-rating.js"></script>
+<script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/js/customs.js"></script>
 
 <script>
 !function ($) {
