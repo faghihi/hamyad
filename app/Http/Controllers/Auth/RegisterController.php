@@ -55,7 +55,7 @@ class RegisterController extends Controller
         $message = array(
             'name.required' => 'لطفا نام معتبری وارد نمایید' ,
             'name.max' => 'نام شما بیش از حد طولانی می باشد ',
-            'email.required'=>'',
+            'email.required'=>'ایمیل الزامی می باشد .',
             'email.email'=>'ایمیل شما معتبر نیست',
             'email.unique'=>'ایمیل قبلا توسط شخص دیگری ثبت شده است',
             'password.required'=>'رمز عبور ضروری میباشد ',
@@ -83,7 +83,7 @@ class RegisterController extends Controller
 
         $this->activationService->sendActivationMail($user);
 
-        return redirect('/login')->with('status', 'We sent you an activation code. Check your email.');
+        return redirect('/login')->with('status', 'ایمیل فعال سازی برای شما ارسال گشت .');
     }
 
     /**

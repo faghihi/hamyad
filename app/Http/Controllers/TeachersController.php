@@ -88,7 +88,7 @@ class TeachersController extends Controller
             $counter=0;
             foreach ($course->teachers as $teacher){
                 if($counter)
-                    $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                    $course['Teachers']=$course['Teachers']." , ".$teacher->name;
                 else
                     $course['Teachers']=$teacher->name;
                 $counter++;
