@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Title Of Site -->
-	<title>Edutute</title>
+	<title>هم یاد</title>
 	<meta name="description" content="HTML Responsive Landing Page Template for Course Online Based on Twitter Bootstrap 3.x.x" />
 	<meta name="keywords" content="study, learn, course, tutor, tutorial, teach, college, school, institute, teacher, instructor" />
 	<meta name="author" content="crenoveative">
@@ -51,7 +51,7 @@
 
 		<!-- start Header -->
 		<header id="header">
-			@include('header')
+			@include('header',array('user'=>$Data['user']['name']))
 		</header>
 		<!-- end Header -->
 
@@ -172,7 +172,7 @@
 								@foreach($Data['category'] as $item)
 									<div class="GridLex-col-2_sm-3_xs-4_xss-6">
 
-										<a href="#" class="category-item">
+										<a href="/categories/{{$item['id']}}" class="category-item">
 											<div class="icon">
 												@if(isset($item['icon']))
 													<?php $image=$item['icon'];?>
@@ -224,7 +224,7 @@
 							@foreach($Data['Courses'] as $course)
 								<div class="GridLex-col-3_mdd-4_sm-6_xs-6_xss-12">
 									<div class="course-item">
-										<a href="#">
+										<a href="/courses/{{$course['id']}}">
 											<div class="course-item-image">
 												@if(isset($course['image']))
 													<?php $image=$course['image'];?>
@@ -301,7 +301,7 @@
 								<h2 class="mb-25 text-white">به جمع دانشجویان هم یاد بپیوندید</h2>
 								<p>با پیوستن به جمعیت دانشجویان هم یاد میتوانید از امکانات و دوره های بی نظیر سایت بهره مند شوید.</p>
 								
-								<a href="#" class="btn btn-primary">عضو شوید</a>
+								<a href="/register" class="btn btn-primary">عضو شوید</a>
 								
 							</div>
 							

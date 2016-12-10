@@ -52,11 +52,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $message = array(
+            'name.required' => 'لطفا نام معتبری وارد نمایید' ,
+            'name.max' => 'نام شما بیش از حد طولانی می باشد ',
+            'email.required'=>'',
+            'email.email'=>'ایمیل شما معتبر نیست',
+            'email.unique'=>'ایمیل قبلا توسط شخص دیگری ثبت شده است',
+            'password.required'=>'رمز عبور ضروری میباشد ',
+            'password.min'=>'حداقل طول پسورد ۶ است ',
+            'password.confirmed'=>'رمز و تایید آن  مطابقت ندارند'
+        );
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-        ]);
+        ],$message);
     }
 
     public function register(Request $request)

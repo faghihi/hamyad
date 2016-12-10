@@ -47,7 +47,7 @@ class LoginController extends Controller
         if (!$user->activated) {
             $this->activationService->sendActivationMail($user);
             auth()->logout();
-            return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
+            return back()->with('warning', 'ایمیل فعال سازی برای شما ارسال شده است باید پیش از ورود اکانت خود را فعال نمایید .');
         }
         return redirect()->intended($this->redirectPath());
     }

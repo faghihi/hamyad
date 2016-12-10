@@ -75,12 +75,14 @@ class IndexController extends Controller
     public function index(){
         $Data=$this->RetrieveData();
         if (!Auth::check()){
-            $Data['user']['name']='NoUser';
+            $Data['user']['name']=0;
         }
         else {
-            $Data['user']['name']=Auth::user()->name;
+            $user=Auth::user();
+            $user=User::find($user->id);
+            $Data['user']['name']=$user->name;
         }
-//        return $Data;
+//        return $user;
 //        return $this->Teachers();
         return view('homepage')->with('Data',$Data);
     }

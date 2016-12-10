@@ -1,8 +1,5 @@
 <?php
 
-
-Route::get('/','IndexController@index');
-
 // Authentication Routes...
 
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
@@ -33,7 +30,13 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 
 
+// Index Route
+Route::get('/','IndexController@index');
 
+#Main URL's
+Route::resource('categories', 'CategoryController');
+Route::resource('packs', 'PackController');
+Route::resource('courses', 'CoursesController');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -71,12 +74,6 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-#Main URL's
-Route::resource('categories', 'CategoryController');
-Route::resource('packs', 'PackController');
-Route::resource('courses', 'CoursesController');
-
 
 #test Routes
 Route::get('Search','CoursesController@Search');
