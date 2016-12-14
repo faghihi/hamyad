@@ -15,25 +15,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="/images/ico/favicon.png">
 
     <!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/plugin.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/plugin.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	
 	<!-- For your own style -->
-	<link href="css/your-style.css" rel="stylesheet">
+	<link href="/css/your-style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -113,7 +113,7 @@
 																<div class="col-xs-12 col-sm-12 col-md-12">
 																
 																	<div class="form-group">
-																		<input type="text" class="form-control no-br" placeholder="Java Programming">
+																		<input type="text" name="name" class="form-control no-br" placeholder="Java Programming">
 																	</div>
 																
 																</div>
@@ -124,7 +124,7 @@
 														</div>
 														
 														<div class="col-xs-12 col-sm-2 col-md-2">
-															<button class="btn btn-block btn-primary btn-form"><i class="fa fa-search"></i></button>
+															<button class="btn btn-block btn-primary btn-form" onclick="gosearch()"><i class="fa fa-search"></i></button>
 														</div>
 														
 													</div>
@@ -178,7 +178,7 @@
 																	@if(isset($teacher['image']))
 																		<?php $image=Config::get('store.storagepath').$teacher['image'];?>
 																	@else
-																		<?php $image='images/course-item/01.jpg';?>
+																		<?php $image='/images/course-item/01.jpg';?>
 																	@endif
 																	<img src="{{$image}}" alt="Image" />
 																</div>
@@ -226,7 +226,11 @@
 												{{--<div class="col-xs-12 col-sm-4">--}}
 													{{--<div class="pagination-text">Showing reslut 1 to 15 from 248 </div>--}}
 												{{--</div>--}}
+												@if(! isset($Search))
 												{{$Data->links('Pagination.default')}}
+												@else
+													{!! $Data->appends(\Illuminate\Support\Facades\Input::except('page'))->render() !!}
+												@endif
 												{{--<div class="col-xs-12 col-sm-4">--}}
 													{{--<nav class="text-center">--}}
 														{{--<ul class="pagination">--}}
@@ -299,29 +303,36 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
-<script type="text/javascript" src="bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/typed.js"></script>
-<script type="text/javascript" src="js/placeholderTypewriter.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-rating.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/creditly.js"></script>
-<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript" src="/bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/spin.min.js"></script>
+<script type="text/javascript" src="/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="/js/typed.js"></script>
+<script type="text/javascript" src="/js/placeholderTypewriter.js"></script>
+<script type="text/javascript" src="/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/select2.full.js"></script>
+<script type="text/javascript" src="/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="/js/readmore.min.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-rating.js"></script>
+<script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/js/customs.js"></script>
+<script type="text/javascript">
+	function gosearch() {
+		var inp=$('input[name="name"]').val()
+		console.log(inp);
+		window.location.assign("/instructor/Search?name="+inp);
+	}
+</script>
 
 
 </body>

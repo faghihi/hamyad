@@ -39,6 +39,8 @@ Route::resource('packs', 'PackController');
 Route::resource('courses', 'CoursesController');
 Route::resource('sections','SectionsController');
 
+
+Route::get('/instructor/Search','TeachersController@Search');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', 'HomeController@index');

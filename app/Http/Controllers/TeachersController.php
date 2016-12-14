@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use App\User;
+use Barryvdh\Reflection\DocBlock\Type\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TeachersController extends Controller
 {
@@ -47,11 +49,12 @@ class TeachersController extends Controller
 
     public function Search()
     {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $input = Input::all();
         if(!isset($input['name'])){
-            return redirect('/');
+            return redirect('/instructors');
         }
-        $teachers=Teacher::where('name','like','%'.$input['name'].'%');
+        $teachers=Teacher::where('name','like','%'.$input['name'].'%')->get();
         foreach ($teachers as $teacher){
             $teacher['Course_count']=count($teacher->courses);
             $rate_count=0;
@@ -63,7 +66,13 @@ class TeachersController extends Controller
             $teacher['rates_value']=$rate_value;
             $teacher['rates_count']=$rate_count;
         }
-        return $teachers;
+        $total=count($teachers);
+        $col =$teachers;
+        $perPage = 10;
+        $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $entries = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+        $entries->setPath('/instructor/Search');
+        return view('instructor.instructor-list')->with(['Data'=>$entries,'total'=>$total,'Search'=>'1']);
     }
 
     public function ShowSpecific(Teacher $teacher)
