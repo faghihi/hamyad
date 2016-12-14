@@ -40,7 +40,7 @@ class UsersOperation extends Controller
     {
         if (Input::hasFile('image')) {
             $file = array('image' => Input::file('image'));
-            $rules = array('image' => 'required|max:10000|mimes:jpeg,JPEG,PNG,png');
+            $rules = array('image' => 'required|max:1000000|mimes:jpeg,JPEG,PNG,png');
             $validator = Validator::make($file, $rules);
             if ($validator->fails()) {
                 return 0;

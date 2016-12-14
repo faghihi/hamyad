@@ -304,7 +304,7 @@
 															<li class="clearfix">
 																<div class="image img-circle">
 																	@if(isset($item['user_image']))
-																		<?php $image='/'.$item['user_image'];?>
+																		<?php $image=Config::get('store.storagepath').$item['user_image'];?>
 																	@else
 																		<?php $image='/images/course-item/01.jpg';?>
 																	@endif

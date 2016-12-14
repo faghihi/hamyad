@@ -163,7 +163,7 @@
 														<a href="/courses/{{$course['id']}}">
 															<div class="course-item-image">
 																@if(isset($course['image']))
-																	<?php $image='/'.$course['image'];?>
+																	<?php $image=Config::get('store.storagepath').$course['image'];?>
 																@else
 																	<?php $image='/images/course-item/01.jpg';?>
 																@endif

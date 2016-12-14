@@ -156,3 +156,8 @@ Route::get('testmail','EmailController@test');
 Route::get('testcon',function(){
    echo Config::get('app.timezone');
 });
+
+Route::get('uploadimage',function (){
+    return view('uploadform');
+});
+Route::post('/imageupload','UsersOperation@UploadPhoto');

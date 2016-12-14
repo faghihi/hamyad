@@ -176,7 +176,7 @@
 
 																<div class="image">
 																	@if(isset($teacher['image']))
-																		<?php $image=$teacher['image'];?>
+																		<?php $image=Config::get('store.storagepath').$teacher['image'];?>
 																	@else
 																		<?php $image='images/course-item/01.jpg';?>
 																	@endif

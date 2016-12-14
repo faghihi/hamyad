@@ -90,7 +90,7 @@
 								
 						<div class="image">
 							@if(isset($course['image']))
-								<?php $image='/'.$course['image'];?>
+								<?php $image=Config::get('store.storagepath').$course['image'];?>
 							@else
 								<?php $image='/images/course-item/01.jpg';?>
 							@endif
@@ -340,7 +340,7 @@
 
 																			<div class="image">
 																				@if(isset($teacher['image']))
-																					<?php $image='/'.$teacher['image'];?>
+																					<?php $image=Config::get('store.storagepath').$teacher['image'];?>
 																				@else
 																					<?php $image='/images/man/02.jpg';?>
 																				@endif
@@ -435,7 +435,7 @@
 															<li class="clearfix">
 																<div class="image img-circle">
 																	@if(isset($item['user_image']))
-																		<?php $image='/'.$item['user_image'];?>
+																		<?php $image=Config::get('store.storagepath').$item['user_image'];?>
 																	@else
 																		<?php $image='/images/course-item/01.jpg';?>
 																	@endif
@@ -491,7 +491,7 @@
 																	<a href="#">
 																		<div class="course-item-image">
 																			@if(isset($course['relate'.$i]['image']))
-																				<?php $image='/'.$course['relate'.$i]['image'];?>
+																				<?php $image='/Storage/'.$course['relate'.$i]['image'];?>
 																			@else
 																				<?php $image='/images/course-item/01.jpg';?>
 																			@endif
