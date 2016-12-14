@@ -143,7 +143,7 @@
 											<div class="col-md-7">
 												<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 												<div class="login-box-box-action">
-													حساب کاربری دارید؟<a data-toggle="modal" href="#loginModal">  ورود</a>
+													حساب کاربری دارید؟<a href="/login">  ورود</a>
 												</div>
 											</div>
 										</div>

@@ -151,7 +151,7 @@
 										<div class="form-group">
 											<div class="col-md-7 col-md-offset-4">
 												<div class="register-box-box-action">
-													عضو نیستید؟<a href="register"> ثبت نام </a>
+													عضو نیستید؟<a href="/register"> ثبت نام </a>
 												</div>
 											</div>
 										</div>

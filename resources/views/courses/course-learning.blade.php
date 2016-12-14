@@ -86,7 +86,7 @@
 			
 				<div class="container">
 					
-					<p class="mb-0">You are now watching: </p>
+					<p class="mb-0">شما در حال مشاهده ی جلسه ی زیر هستید : </p>
 					<h2>{{$section['name']}} <small> از <span class="text-primary font700">{{$section['course']['name']}}</span></small></h2>
 
 				</div>
@@ -113,18 +113,26 @@
 										
 										<div class="watching-pager-wrapper">
 											<ul class="watching-pager mb-30 clearfix">
-												<li class="prev">
-													<a href="#">
-														<span class="text-primary font12">Previous lesson</span>
-														<h5>1.1 Basic Editing</h5>
-													</a>
-												</li>
+												@if($section['next']!='last')
+													<li class="prev">
+														<a href="/sections/{{$section['next']['id']}}">
+															<span class="text-primary font12">قسمت بعدی</span>
+															<h5>{{$section['next']['name']}}</h5>
+														</a>
+													</li>
+												@else
+													<li>قسمت آخر</li>
+												@endif
+												@if($section['pre']!='first')
 												<li class="next">
-													<a href="#">
-														<span class="text-primary font12">Next lesson</span>
-														<h5>1.3 Interface Introduction</h5>
+													<a href="/sections/{{$section['pre']['id']}}">
+														<span class="text-primary font12">قسمت قبلی</span>
+														<h5>{{$section['pre']['name']}}</h5>
 													</a>
 												</li>
+												@else
+													<li>قسمت اول</li>
+												@endif
 											</ul>
 										</div>
 										
@@ -132,84 +140,15 @@
 										
 										<div class="row">
 							
-											<div class="col-xss-12 col-xs-6 col-sm-6 col-md-6 mb-30">
+											<div class="col-xss-12 col-xs-12 col-sm-12 col-md-12 mb-30">
 											
 												<div class="section-title mb-20">
-													<h3>Chapter Description</h3>
+													<h3>توضیحات این قسمت</h3>
 												</div>
 
-												<p>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.</p>
-												
-												<h6> Some tools used in chapter</h6>
-												
-												<ul>
-													<li><a href="#" class="font700 pull-right">Notepad++</a> - Friendship contrasted solicitude insipidity in introduced literature it.</li>
-													<li><a href="#" class="font700 pull-right">Codekit</a> - Now indulgence dissimilar for his thoroughly has terminated</li>
-													<li><a href="#" class="font700 pull-right">Xampp</a> - Returned settling produced strongly ecstatic use yourself way</li>
-												</ul>
+												{!! $section['description'] !!}
 
-												<p>Friendship contrasted solicitude insipidity in introduced literature it. He seemed denote except as oppose do spring my. Between any may mention evening age shortly can ability regular. He shortly sixteen of colonel colonel evening cordial to. Although jointure an my of mistress servants am weddings. Age why the therefore education unfeeling for arranging. Above again money own scale maids ham least led.</p>
 
-											</div>
-											
-											<div class="col-xss-12 col-xs-6 col-sm-6 col-md-6">
-											
-												<div class="section-title mb-20">
-													<h3>Video Subtitle</h3>
-												</div>
-
-												<div class="nicescroll-module video-subtitle" style="">
-
-													<ul class="subtitle-list">
-													
-														<li><span class="time">0:15</span> So insisted received is occasion advanced honoured</li>
-														
-														<li><span class="time">0:45</span> Oh he decisively impression attachment friendship so if everything. </li>
-														
-														<li><span class="time">1:14</span> So feel been kept be at gate. Be september it extensive oh concluded of certainty.</li>
-														
-														<li><span class="time">1:34</span> Same an quit most an. Admitting an mr disposing sportsmen</li>
-														
-														<li><span class="time">2:21</span> Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six</li>
-														
-														<li><span class="time">3:22</span> Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. </li>
-														
-														<li><span class="time">4:03</span> So insisted received is occasion advanced honoured</li>
-														
-														<li><span class="time">4:26</span> Oh he decisively impression attachment friendship so if everything. </li>
-														
-														<li><span class="time">5:22</span> So feel been kept be at gate. Be september it extensive oh concluded of certainty.</li>
-														
-														<li><span class="time">5:50</span> Same an quit most an. Admitting an mr disposing sportsmen</li>
-														
-														<li><span class="time">6:02</span> Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six</li>
-														
-														<li><span class="time">6:38</span> Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. </li>
-														
-														<li><span class="time">7:11</span> Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six</li>
-														
-														<li><span class="time">7:56</span> Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. </li>
-														
-														<li><span class="time">8:31</span> So insisted received is occasion advanced honoured</li>
-														
-														<li><span class="time">9:06</span> Oh he decisively impression attachment friendship so if everything. </li>
-														
-														<li><span class="time">10:12</span> So feel been kept be at gate. Be september it extensive oh concluded of certainty.</li>
-														
-														<li><span class="time">10:46</span> Same an quit most an. Admitting an mr disposing sportsmen</li>
-														
-														<li><span class="time">11:39</span> Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six</li>
-														
-														<li><span class="time">12:29</span> Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. </li>
-													
-													</ul>
-													
-													<div class="text-center mt-20">
-														<button class="btn btn-primary btn-sm">Load more...</button>
-													</div>
-													
-												</div>
-											
 											</div>
 											
 										</div>
