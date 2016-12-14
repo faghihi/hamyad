@@ -25,7 +25,9 @@ class SectionsController extends Controller
     public function ShowSpecificSection(Section$section)
     {
         $course = $section->courses;
+//        $belabela=$course->sections;
         $section['course'] = $course;
+        $section['course']['sections']=$course->section;
         $next = $course->section->where('part', $section->part + 1)->first();
         if (!is_null($next)) {
             $section['next'] = $next;
@@ -43,7 +45,7 @@ class SectionsController extends Controller
             $section['Teacher' . $count] = $teacher;
             $count++;
         }
-        $section['Teacher_count'] = $count;
+        $section['Teacher_count'] = $count-1;
         $rate_count=0;
         $rate_value=0;
         foreach ($section->rates as $rate){
@@ -68,10 +70,17 @@ class SectionsController extends Controller
 
     public function show(Section $section)
     {
-        if($this->CheckAccess(\Auth::user(),$section))
-            return $this->ShowSpecificSection($section);
-        else
+        if(! \Auth::check()){
             echo "No Access";
+            return 0;
+        }
+        if($this->CheckAccess(\Auth::user(),$section)){
+            $section=$this->ShowSpecificSection($section);
+            return view('courses.course-learning')->with('section',$section);
+        }
+        else
+            echo 'No Access';
+        return 0;
     }
 
     public function ShowReviews(Section $section)

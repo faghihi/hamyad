@@ -15,25 +15,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="/images/ico/favicon.png">
 
     <!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/plugin.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/plugin.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 	
 	<!-- For your own style -->
-	<link href="css/your-style.css" rel="stylesheet">
+	<link href="/css/your-style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -87,7 +87,7 @@
 				<div class="container">
 					
 					<p class="mb-0">You are now watching: </p>
-					<h2>1.02 Basic Editing <small>/ of <span class="text-primary font700">1 Introduction to Photoshop CS6</span></small></h2> 
+					<h2>{{$section['name']}} <small> از <span class="text-primary font700">{{$section['course']['name']}}</span></small></h2>
 
 				</div>
 				
@@ -228,143 +228,116 @@
 									<div class="chapter-playlist-module mb-30">
 								
 										<div class="chapter-playlist">
-											<h5>Lesson 1 - Introduction to Photoshop CS6</h5>
+											<h5>{{$section['course']['name']}}</h5>
 											<ul class="playlist">
+												@foreach($section['course']['sections'] as $sec)
 												<li class="clearfix">
-													<a href="#">
+													<a href="/sections/{{$sec['id']}}">
 														<span class="icon"><i class="fa fa-play-circle"></i></span>
-														1.01 Getting Started 
-														<span class="duration">5:06</span>
+														{{$sec['name']}}
+														<span class="duration">{{$sec['time']}}</span>
 													</a>
 												</li>
-												<li class="playing clearfix">
-													<a href="#">
-														<span class="icon"><i class="fa fa-pause"></i></span>
-														1.02 Basic Editing 
-														<span class="duration">7:45</span>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<span class="icon"><i class="fa fa-play-circle"></i></span>
-														1.03 Interface and UX Introduction
-														<span class="duration">10:11</span>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<span class="icon"><i class="fa fa-play-circle"></i></span>
-														1.04 All Selection Tools 
-														<span class="duration">6:36</span>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<span class="icon"><i class="fa fa-play-circle"></i></span>
-														1.05 Brushes/Painting 
-														<span class="duration">8:44</span>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<span class="icon"><i class="fa fa-play-circle"></i></span>
-														1.06 Masking 
-														<span class="duration">6:36</span>
-													</a>
-												</li>
+												@endforeach
 											</ul>
 										</div>
 										
 									</div>
 
-									<div class="sidebar-module pb-30 clearfix">
-										
-										<div class="sidebar-header clearfix">
-											<h4 class="mb-15">Lessons in this course</h4>
-										</div>
-									
-										<div class="other-chapter">
-											<ul class="other-chapter-list">
-												<li class="clearfix">
-													<a href="#">
-														<div class="chapter">
-															<span>Lesson 02</span>
-														</div>
-														<div class="title">
-															<h6>Photoshop CS6 workspace and features</h6>
-														</div>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="chapter">
-															<span>Lesson 03</span>
-														</div>
-														<div class="title">
-															<h6>Adobe Bridge For Photo Management</h6>
-														</div>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="chapter">
-															<span>Lesson 04</span>
-														</div>
-														<div class="title">
-															<h6>Image adjustments</h6>
-														</div>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="chapter">
-															<span>Lesson 05</span>
-														</div>
-														<div class="title">
-															<h6>Select parts of an image and an object</h6>
-														</div>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="chapter">
-															<span>Lesson 06</span>
-														</div>
-														<div class="title">
-															<h6>Crop and transform</h6>
-														</div>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="chapter">
-															<span>Lesson 07</span>
-														</div>
-														<div class="title">
-															<h6>Printing and sharing photos</h6>
-														</div>
-													</a>
-												</li>
-											</ul>
-										</div>
-										
-									</div>
+									{{--<div class="sidebar-module pb-30 clearfix">--}}
+										{{----}}
+										{{--<div class="sidebar-header clearfix">--}}
+											{{--<h4 class="mb-15">Lessons in this course</h4>--}}
+										{{--</div>--}}
+									{{----}}
+										{{--<div class="other-chapter">--}}
+											{{--<ul class="other-chapter-list">--}}
+												{{--<li class="clearfix">--}}
+													{{--<a href="#">--}}
+														{{--<div class="chapter">--}}
+															{{--<span>Lesson 02</span>--}}
+														{{--</div>--}}
+														{{--<div class="title">--}}
+															{{--<h6>Photoshop CS6 workspace and features</h6>--}}
+														{{--</div>--}}
+													{{--</a>--}}
+												{{--</li>--}}
+												{{--<li class="clearfix">--}}
+													{{--<a href="#">--}}
+														{{--<div class="chapter">--}}
+															{{--<span>Lesson 03</span>--}}
+														{{--</div>--}}
+														{{--<div class="title">--}}
+															{{--<h6>Adobe Bridge For Photo Management</h6>--}}
+														{{--</div>--}}
+													{{--</a>--}}
+												{{--</li>--}}
+												{{--<li class="clearfix">--}}
+													{{--<a href="#">--}}
+														{{--<div class="chapter">--}}
+															{{--<span>Lesson 04</span>--}}
+														{{--</div>--}}
+														{{--<div class="title">--}}
+															{{--<h6>Image adjustments</h6>--}}
+														{{--</div>--}}
+													{{--</a>--}}
+												{{--</li>--}}
+												{{--<li class="clearfix">--}}
+													{{--<a href="#">--}}
+														{{--<div class="chapter">--}}
+															{{--<span>Lesson 05</span>--}}
+														{{--</div>--}}
+														{{--<div class="title">--}}
+															{{--<h6>Select parts of an image and an object</h6>--}}
+														{{--</div>--}}
+													{{--</a>--}}
+												{{--</li>--}}
+												{{--<li class="clearfix">--}}
+													{{--<a href="#">--}}
+														{{--<div class="chapter">--}}
+															{{--<span>Lesson 06</span>--}}
+														{{--</div>--}}
+														{{--<div class="title">--}}
+															{{--<h6>Crop and transform</h6>--}}
+														{{--</div>--}}
+													{{--</a>--}}
+												{{--</li>--}}
+												{{--<li class="clearfix">--}}
+													{{--<a href="#">--}}
+														{{--<div class="chapter">--}}
+															{{--<span>Lesson 07</span>--}}
+														{{--</div>--}}
+														{{--<div class="title">--}}
+															{{--<h6>Printing and sharing photos</h6>--}}
+														{{--</div>--}}
+													{{--</a>--}}
+												{{--</li>--}}
+											{{--</ul>--}}
+										{{--</div>--}}
+										{{----}}
+									{{--</div>--}}
 									
 									<div class="sidebar-module clearfix">
 										
 										<div class="sidebar-header clearfix">
-											<h4 class="mb-15">Course by</h4>
+											<h4 class="mb-15">تدریس شده توسط</h4>
 										</div>
-										
-										<a href="#" class="teacher-item-sm clearfix">
+										@for($i=0;$i<=$section['Teacher_count'];$i++)
+										<a href="/instructor/{{$section['Teacher'.$i]['id']}}" class="teacher-item-sm clearfix">
 											<div class="image">
-												<img src="images/man/01.jpg" alt="Man" />
+												@if(isset($section['Teacher'.$i]['image']))
+													<?php $image=Config::get('store.storagepath').$section['Teacher'.$i]['image'];?>
+												@else
+													<?php $image='/images/course-item/01.jpg';?>
+												@endif
+												<img src="{{$image}}" alt="Man" />
 											</div>
 											<div class="content">
-												<h3>Mikhail Gorbachev</h3>
-												<p class="labeling">Compoture Teacher</p>
+												<h3>{{$section['Teacher'.$i]['name']}}</h3>
+												<p class="labeling">{{$section['Teacher'.$i]['description']}}</p>
 											</div>
 										</a>
+										@endfor
 										
 									</div>
 									
@@ -411,29 +384,29 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
-<script type="text/javascript" src="bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/typed.js"></script>
-<script type="text/javascript" src="js/placeholderTypewriter.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-rating.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/creditly.js"></script>
-<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript" src="/bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/spin.min.js"></script>
+<script type="text/javascript" src="/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="/js/typed.js"></script>
+<script type="text/javascript" src="/js/placeholderTypewriter.js"></script>
+<script type="text/javascript" src="/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/select2.full.js"></script>
+<script type="text/javascript" src="/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="/js/readmore.min.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-rating.js"></script>
+<script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/js/customs.js"></script>
 
 
 </body>

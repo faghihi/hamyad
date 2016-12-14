@@ -37,6 +37,7 @@ Route::get('/','IndexController@index');
 Route::resource('categories', 'CategoryController');
 Route::resource('packs', 'PackController');
 Route::resource('courses', 'CoursesController');
+Route::resource('sections','SectionsController');
 
 Route::group(['middleware' => 'auth'], function () {
 

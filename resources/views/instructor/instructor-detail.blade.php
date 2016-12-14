@@ -103,9 +103,9 @@
 									
 											<div class="image">
 												@if(isset($Data['image']))
-													<?php $image='../'.$Data['image'];?>
+													<?php $image=Config::get('store.storagepath').$Data['image'];?>
 												@else
-													<?php $image='../images/course-item/01.jpg';?>
+													<?php $image='/images/course-item/01.jpg';?>
 												@endif
 												<img src="{{$image}}" alt="Image" />
 											</div>
