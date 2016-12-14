@@ -110,10 +110,44 @@
 
 															<div class="row gap-0">
 
-																<div class="col-xs-12 col-sm-12 col-md-12">
+																<div class="col-xs-12 col-sm-7 col-md-7">
 
 																	<div class="form-group">
-																		<input type="text" class="form-control no-br" placeholder="Java Programming">
+																		<select class="select2-multi form-control" dir="rtl" multiple data-placeholder="Java" data-maximum-selection-length="5" style="width: 100%;float: right;">
+																			<option>All tags</option>
+																			<option value="0"> Mathematics</option>
+																			<option value="1"> Business</option>
+																			<option value="2"> Computer</option>
+																			<option value="3"> Marketing</option>
+																			<option value="4"> Physics</option>
+																			<option value="5"> Biology</option>
+																			<option value="6"> Chemistry</option>
+																			<option value="7"> Programming</option>
+																			<option value="8"> Engineering</option>
+																			<option value="9"> Design</option>
+																			<option value="9"> Design</option>
+																		</select>
+																	</div>
+
+																</div>
+
+																<div class="col-xs-12 col-sm-5 col-md-5">
+
+																	<div class="form-group">
+																		<select class="select2-multi form-control" multiple data-placeholder="All Category" data-maximum-selection-length="3" style="width: 100%;">
+																			<option>All Category</option>
+																			<option value="0"> Mathematics</option>
+																			<option value="1"> Business</option>
+																			<option value="2"> Computer</option>
+																			<option value="3"> Marketing</option>
+																			<option value="4"> Physics</option>
+																			<option value="5"> Biology</option>
+																			<option value="6"> Chemistry</option>
+																			<option value="7"> Programming</option>
+																			<option value="8"> Engineering</option>
+																			<option value="9"> Design</option>
+																			<option value="9"> Design</option>
+																		</select>
 																	</div>
 
 																</div>

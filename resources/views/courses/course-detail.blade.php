@@ -190,7 +190,7 @@
 										</ul>
 										
 										<div class="clearfix mb-20 mt-30">
-											<a href="#" class="btn btn-primary btn-block btn-md">همین حالا عضو شوید</a>
+											<a href="#" class="btn btn-primary btn-block btn-md" data-toggle="modal" data-target="#courseModal">همین حالا عضو شوید</a>
 										</div>
 										
 									</div>
@@ -585,13 +585,9 @@
 </div>
 <!-- end Back To Top -->
 
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-		
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+<div id="courseModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+	@include('courses.course-purchase')
 </div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
 
 <!-- JS -->
 <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>

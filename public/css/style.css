@@ -74,7 +74,7 @@ a.navbar-brand:hover {
 }
 
 .navbar-nav > li:last-child > a {
-    padding-right: 0
+    padding-left: 0
 }
 
 
@@ -2037,6 +2037,14 @@ ul.related-course-item li .rating-wrapper > div {
     float: right;
     margin-left: 30px;
     margin-bottom: 20px;
+}
+
+#courseModal .listing-box {
+    float: right;
+    padding-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .watching-pager-wrapper {
@@ -5809,7 +5817,7 @@ ul.review-list li .content .rating-wrapper {
 
 .error-404 {
     display: block;
-    font-size: 150px;
+    font-size: 100px;
     line-height: 150px;
     color: #333;
     margin-bottom: 20px;
@@ -6095,12 +6103,12 @@ a.pricing-item-02 {
 
 .pricing-item-02 .pricing-heading {
     width: 200px;
-    float: left;
+    float: right;
     padding-top: 10px;
 }
 
 .pricing-item-02 .pricing-content {
-    margin-left: 240px;
+    margin-right: 240px;
 }
 
 .pricing-item-02 .pricing-best {
@@ -6140,7 +6148,7 @@ a.pricing-item-02 {
 .pricing-item-02 .pricing-price span {
     font-size: 15px;
     font-weight: 400;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .pricing-item-02 .pricing-heading .font-sm {
@@ -6161,14 +6169,14 @@ a.pricing-item-02 {
 .pricing-item-02 ul.pricing-list li {
     position: relative;
     margin-bottom: 10px;
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .pricing-item-02 ul.pricing-list li:before {
     content: "";
     position: absolute;
     top: 14px;
-    left: 0;
+    right: 0;
     width: 7px;
     height: 1px;
     background: rgba(0, 0, 0, 0.5);
@@ -6184,7 +6192,7 @@ a.pricing-item-02 {
     content: "\f3d6";
     position: absolute;
     bottom: 20px;
-    right: -40px;
+    right: -25px;
     color: #FFF;
     font-size: 34px;
     o-transition: all 0.3s ease-out;
@@ -6221,7 +6229,7 @@ a.pricing-item-02:hover ul:after {
         width: 140px
     }
     .pricing-item-02 .pricing-content {
-        margin-left: 200px
+        margin-right: 200px
     }
 }
 
@@ -6232,7 +6240,7 @@ a.pricing-item-02:hover ul:after {
         margin-bottom: 30px
     }
     .pricing-item-02 .pricing-content {
-        margin-left: 0
+        margin-right: 0
     }
     .pricing-item-02 .pricing-best {
         top: -15px;

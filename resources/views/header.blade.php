@@ -59,7 +59,11 @@
                             <a href="/Profile">بخش کاربری</a>
                         </li>
                         <li>
-                            <a href="/courses">دوره ها </a>
+                            <a href="javascript:void(0)">آموزش </a>
+                            <ul>
+                                <li><a href="/courses">دوره ها</a></li>
+                                <li><a href="/packages">بسته ها</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="/instructor">اساتید</a>

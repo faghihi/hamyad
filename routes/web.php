@@ -140,6 +140,15 @@ Route::get('/ajax-login', function (){
 Route::get('/ajax-forgot-password', function (){
     return view('ajax-login-modal-forgot-password');
 });
+Route::get('/limited', function (){
+    return view('public-pages.video-access-fail');
+});
+Route::get('/cooperation', function (){
+    return view('instructor.addInstructor');
+});
+Route::get('/packages', function (){
+    return view('courses.packages');
+});
 
 Route::get('/Date',function(){
     $date1 = new DateTime("2007-03-24");
