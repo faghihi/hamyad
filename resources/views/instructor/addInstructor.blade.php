@@ -96,8 +96,8 @@
 							<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 							
 								<div class="section-title">
-									<h2 class="text-center">contact us for cooperation</h2>
-									<p>However venture pursuit he am mr cordial. Forming musical am hearing studied be luckily. <strong>Ourselves for determine</strong> attending how led gentleman sincerity.</p>
+									<h2 class="text-center">صفحه ی درخواست همکاری</h2>
+									<p>اگر استادی هستید که در زمینه ی تولید محتوای آموزشی الکترونیک فعالیت دارید و علاقه مندید کار های شما در سایت هم یاد به نمایش گذاشته شود از فرم زیر اقدام نمایید .<strong>  به مجموعه ی موفق ما بپیوندید .</strong></p>
 								</div>
 							</div>
 						
@@ -107,7 +107,7 @@
 
 							<div class="col-sm-7 col-md-6 col-md-offset-1 mb-30">
 							
-								<form class="contact-form-wrapper" data-toggle="validator">
+								<form class="contact-form-wrapper" data-toggle="validator" method="post" action="/SubmitInstructor">
 								
 									<div class="row">
 									
@@ -115,7 +115,7 @@
 										
 											<div class="form-group">
 												<label for="inputName">نام و نام خانوادگی<span class="font10 text-danger">(اجباری)</span></label>
-												<input id="inputName" type="text" class="form-control" data-error="Your name is required" required>
+												<input id="inputName" type="text" name="Name" class="form-control" data-error="وارد کردن نام اجباری میباشد" required>
 												<div class="help-block with-errors"></div>
 											</div>
 											
@@ -125,7 +125,7 @@
 										
 											<div class="form-group">
 												<label for="inputEmail">ایمیل <span class="font10 text-danger">(اجباری)</span></label>
-												<input id="inputEmail" type="email" class="form-control" data-error="Your email is required and must be a valid email address" required>
+												<input id="inputEmail" type="email" name="Email" class="form-control" data-error="ایمیل شما جهت تماس های آتی اجباری است ." required>
 												<div class="help-block with-errors"></div>
 											</div>
 											
@@ -134,8 +134,9 @@
 										<div class="col-sm-6">
 										
 											<div class="form-group">
-												<label>تلفن تماس</label>
-												<input type="tel" class="form-control" />
+												<label>تلفن تماس <span class="font10 text-danger">(اجباری)</span></label>
+												<input id="inputTel" type="text" pattern="[0]{1}[0-9]{10}" name="Telephone" class="form-control" data-error="شماره تماس اجباری است ." required>
+												<div class="help-block with-errors"></div>
 											</div>
 											
 										</div>
@@ -144,7 +145,7 @@
 										
 											<div class="form-group">
 												<label for="inputMessage">مشخصات <span class="font10 text-black">(اطلاعات مضاعف)</span></label>
-												<textarea id="inputMessage" class="form-control" rows="8" data-minlength="20" data-error="حداقل پیامتان باید شامل 20 کلمه باشد" required></textarea>
+												<textarea id="inputMessage" name="Description" class="form-control" rows="8" data-minlength="20" data-error="حداقل پیامتان باید شامل 20 کلمه باشد" required></textarea>
 												<div class="help-block with-errors"></div>
 											</div>
 
@@ -168,7 +169,7 @@
 										<h5>آپلود رزومه</h5>
 										<div class="input-group">
 											<label class="btn btn-default btn-file">
-												Browse <input type="file">
+												Browse <input type="file" name="Resume">
 											</label>
 										</div>
 
@@ -177,7 +178,7 @@
 										<h5>آپلود ویدئو آموزش</h5>
 										<div class="input-group">
 											<label class="btn btn-default btn-file">
-												Browse <input type="file">
+												Browse <input type="file" name="Sample">
 											</label>
 										</div>
 									</li>

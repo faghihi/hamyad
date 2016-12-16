@@ -20,12 +20,11 @@ jQuery(function() {
 						//options of typewriter must get from DB By ajax
 						var placeholderText = [
 							"چی دوست داری یاد بگیری؟",
-							"Business?",
+							"تجارت ؟!",
 							"کامپیوتر و IT؟",
-							"Science?",
-							"Design?",
-							"Photography?",
-							"Writing?"
+							"دروس دانشگاهی ؟!",
+							"طراحی ؟!",
+							"عکاسی ؟!",
 						];
 
 						$('.placeholder-type-writter').placeholderTypewriter({
