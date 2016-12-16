@@ -168,7 +168,7 @@ class UsersOperation extends Controller
     {
         $rules = array(
             'Name' => 'required|min:7',
-            'Email' => 'required|email',
+            'Email' => 'required|Email',
             'Description' => 'required|min:20',
             'Telephone'=>'required'
         );
@@ -178,7 +178,7 @@ class UsersOperation extends Controller
             'Description.required' => 'وارد کردن توضیحات  شما ضروری است ',
             'Telephone.required' => 'وارد کردن شماره تماس شما ضروری است ',
             'Name.min' => 'نام کامل خود را وارد نمایید ( حداقل ۷ کاراکتر) ',
-            'Email.email' => 'ایمیل معتبر نیست',
+            'Email.Email' => 'ایمیل معتبر نیست',
             'Description.min' => 'حداقل ۲۰ کاراکتر لازم است'
         ];
         $input=Input::all();

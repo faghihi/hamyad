@@ -108,8 +108,8 @@
 							<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 							
 								<div class="section-title">
-									<h2 class="text-center">contact us for help</h2>
-									<p>However venture pursuit he am mr cordial. Forming musical am hearing studied be luckily. <strong>Ourselves for determine</strong> attending how led gentleman sincerity.</p>
+									<h2 class="text-center">تماس با ما </h2>
+									<p>برای ارتباط با تیم هم یاد از فرم زیر استفاده نمایید.</p>
 								</div>
 							</div>
 						
@@ -119,15 +119,38 @@
 
 							<div class="col-sm-7 col-md-6 col-md-offset-1 mb-30">
 							
-								<form class="contact-form-wrapper" data-toggle="validator">
-								
+								<form class="contact-form-wrapper" data-toggle="validator" method="post" action="/SaveContact">
+									{{ csrf_field() }}
+									@if (count($errors) > 0)
+										<div class="alert alert-danger">
+											<ul>
+												@foreach ($errors->all() as $error)
+													<li>{{ $error }}</li>
+												@endforeach
+											</ul>
+										</div>
+									@endif
+									@if (isset($_GET['Error']))
+										<div class="alert alert-danger">
+											<p>
+												مشکلی در ثبت پیام شما به وجود آمد مججدا تلاش بفرمایید .
+											</p>
+										</div>
+									@endif
+									@if (isset($_GET['Complete']))
+										<div class="alert alert-success">
+											<p>
+												پیام شما با موفقیت ارسال شد
+											</p>
+										</div>
+									@endif
 									<div class="row">
 									
 										<div class="col-sm-6">
 										
 											<div class="form-group">
 												<label for="inputName">نام <span class="font10 text-danger">(اجباری)</span></label>
-												<input id="inputName" type="text" class="form-control" data-error="Your name is required" required>
+												<input id="inputName" name="Name" type="text" class="form-control" data-error="نام شما اجباری است " required>
 												<div class="help-block with-errors"></div>
 											</div>
 											
@@ -137,7 +160,7 @@
 										
 											<div class="form-group">
 												<label for="inputEmail">ایمیل <span class="font10 text-danger">(اجباری)</span></label>
-												<input id="inputEmail" type="email" class="form-control" data-error="Your email is required and must be a valid email address" required>
+												<input id="inputEmail" name="Email" type="email" class="form-control" data-error="آدرس ایمیل اجباری است و باید معتبر باشد" required>
 												<div class="help-block with-errors"></div>
 											</div>
 											
@@ -147,7 +170,7 @@
 										
 											<div class="form-group">
 												<label>موضوع</label>
-												<input type="text" class="form-control" />
+												<input type="text" name="Subject" class="form-control" />
 											</div>
 											
 										</div>
@@ -156,7 +179,7 @@
 										
 											<div class="form-group">
 												<label for="inputMessage">متن پیام <span class="font10 text-danger">(اجباری)</span></label>
-												<textarea id="inputMessage" class="form-control" rows="8" data-minlength="20" data-error="حداقل پیامتان باید شامل 20 کلمه باشد" required></textarea>
+												<textarea id="inputMessage" name="Description" class="form-control" rows="8" data-minlength="20" data-error="حداقل پیامتان باید شامل 20 کلمه باشد" required></textarea>
 												<div class="help-block with-errors"></div>
 											</div>
 
