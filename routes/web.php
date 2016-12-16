@@ -145,7 +145,7 @@ Route::get('/ajax-forgot-password', function (){
 Route::get('/limited', function (){
     return view('public-pages.video-access-fail');
 });
-Route::get('/cooperation', function (){
+Route::get('/cooperate', function (){
     return view('instructor.addInstructor');
 });
 Route::get('/packages', function (){
@@ -173,3 +173,4 @@ Route::get('uploadimage',function (){
     return view('uploadform');
 });
 Route::post('/imageupload','UsersOperation@UploadPhoto');
+Route::post('/SubmitInstructor','UsersOperation@Cooperate');

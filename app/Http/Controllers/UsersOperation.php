@@ -167,15 +167,26 @@ class UsersOperation extends Controller
     public function Cooperate()
     {
         $rules = array(
-            'Name' => 'required|min:10',
+            'Name' => 'required|min:7',
             'Email' => 'required|email',
             'Description' => 'required|min:20',
             'Telephone'=>'required'
         );
+        $messages = [
+            'Name.required' => 'وارد کردن نام شما ضروری است ',
+            'Email.required' => 'وارد کردن ایمیل شما ضروری است ',
+            'Description.required' => 'وارد کردن توضیحات  شما ضروری است ',
+            'Telephone.required' => 'وارد کردن شماره تماس شما ضروری است ',
+            'Name.min' => 'نام کامل خود را وارد نمایید ( حداقل ۷ کاراکتر) ',
+            'Email.email' => 'ایمیل معتبر نیست',
+            'Description.min' => 'حداقل ۲۰ کاراکتر لازم است'
+        ];
         $input=Input::all();
-        $validator = Validator::make($input, $rules);
+        $validator = Validator::make($input, $rules,$messages);
         if($validator->fails()){
-            return redirect('/cooperate?error=1');
+            return redirect('/cooperate')
+                ->withErrors($validator)
+                ->withInput();
         }
         $Co=New Cooperate();
         $Co->name=$input['Name'];
@@ -185,12 +196,19 @@ class UsersOperation extends Controller
         if (Input::hasFile('Resume')) {
             $file = array('Resume' => Input::file('Resume'));
             $rules = array('Resume' => 'required|max:1000000|mimes:pdf,PDF,docx');
-            $validator = Validator::make($file, $rules);
+            $messages = [
+                'Resume.required' => 'رزومه شما اجباری است  ',
+                'Resume.max' => 'فایل شما از حداکثر مجاز بیشتر است ',
+                'Resume.mimes' => 'تایپ های مورد قبول تنها pdf و docx است .',
+            ];
+            $validator = Validator::make($file, $rules,$messages);
             if ($validator->fails()) {
-                return redirect('/cooperate?error=2');
+                return redirect('/cooperate')
+                    ->withErrors($validator)
+                    ->withInput();
             }
             if (Input::file('Resume')->isValid()) {
-                $destinationPath = 'uploads/'; // upload path
+                $destinationPath = 'uploads'; // upload path
                 $extension = Input::file('Resume')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111,99999).'.'.$extension; // renameing image
                 Input::file('Resume')->move($destinationPath, $fileName); // uploading file to given path
@@ -199,48 +217,29 @@ class UsersOperation extends Controller
                     $Co->save();
                 }
                 catch ( \Illuminate\Database\QueryException $e){
-                    return 0;
+                    return view('instructor.addInstructor')->with('error','2');
                 }
-                return 1;
             }
             else {
-                return 0;
-            }
-        }
-        if (Input::hasFile('Resume')) {
-            $file = array('Resume' => Input::file('Resume'));
-            $rules = array('Resume' => 'required|max:1000000|mimes:pdf,PDF,docx');
-            $validator = Validator::make($file, $rules);
-            if ($validator->fails()) {
-                return redirect('/cooperate?error=2');
-            }
-            if (Input::file('Resume')->isValid()) {
-                $destinationPath = 'uploads/'; // upload path
-                $extension = Input::file('Resume')->getClientOriginalExtension(); // getting image extension
-                $fileName = rand(11111,99999).'.'.$extension; // renameing image
-                Input::file('Resume')->move($destinationPath, $fileName); // uploading file to given path
-                $Co->resume_link=$destinationPath.'/'.$fileName;
-                try{
-                    $Co->save();
-                }
-                catch ( \Illuminate\Database\QueryException $e){
-                    return redirect('cooperate?error=2');
-                }
-//                return redirect('cooperate?complete=1');
-            }
-            else {
-                return redirect('cooperate?error=2');
+                return view('instructor.addInstructor')>with('error','2');
             }
         }
         if (Input::hasFile('Sample')) {
             $file = array('Sample' => Input::file('Sample'));
             $rules = array('Sample' => 'required|max:10000000|mimes:mp4,mkv');
-            $validator = Validator::make($file, $rules);
+            $messages = [
+                'Sample.required' => 'نمونه کار  شما اجباری است  ',
+                'Sample.max' => 'فایل شما از حداکثر مجاز بیشتر است ',
+                'Sample.mimes' => 'تایپ های مورد قبول تنها mp4,mkv است .',
+            ];
+            $validator = Validator::make($file, $rules,$messages);
             if ($validator->fails()) {
-                return redirect('/cooperate?error=2');
+                return redirect('/cooperate')
+                    ->withErrors($validator)
+                    ->withInput();
             }
             if (Input::file('Sample')->isValid()) {
-                $destinationPath = 'uploads/'; // upload path
+                $destinationPath = 'uploads'; // upload path
                 $extension = Input::file('Sample')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111,99999).'.'.$extension; // renameing image
                 Input::file('Sample')->move($destinationPath, $fileName); // uploading file to given path
@@ -249,13 +248,22 @@ class UsersOperation extends Controller
                     $Co->save();
                 }
                 catch ( \Illuminate\Database\QueryException $e){
-                    return redirect('cooperate?error=2');
+                    return view('instructor.addInstructor')->with('error','2');
                 }
-                return redirect('cooperate?complete=1');
+                return view('instructor.addInstructor')->with('complete','1');
+
             }
             else {
-                return redirect('cooperate?error=2');
+                return view('instructor.addInstructor')->with('error','2');
             }
         }
+        try{
+            $Co->save();
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+            return view('instructor.addInstructor')->with('error','2');
+        }
+        return view('instructor.addInstructor')->with('complete','1'); 
+
     }
 }

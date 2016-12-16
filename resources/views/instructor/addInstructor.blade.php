@@ -107,8 +107,32 @@
 
 							<div class="col-sm-7 col-md-6 col-md-offset-1 mb-30">
 							
-								<form class="contact-form-wrapper" data-toggle="validator" method="post" action="/SubmitInstructor">
-								
+								<form class="contact-form-wrapper"  id="mainform" data-toggle="validator" method="post" action="/SubmitInstructor" enctype="multipart/form-data" >
+									{{ csrf_field() }}
+									@if (count($errors) > 0)
+										<div class="alert alert-danger">
+											<ul>
+												@foreach ($errors->all() as $error)
+													<li>{{ $error }}</li>
+												@endforeach
+											</ul>
+										</div>
+									@endif
+									@if (isset($error) && count($error) > 0)
+										<div class="alert alert-danger">
+											<p>
+												مشکلی در آپلود فایل ها وجود دارد
+											</p>
+										</div>
+									@endif
+									@if (isset($complete))
+										<div class="alert alert-success">
+											<p>
+												پیام شما با موفقیت ارسال شد
+											</p>
+										</div>
+									@endif
+
 									<div class="row">
 									
 										<div class="col-sm-12">
@@ -169,7 +193,7 @@
 										<h5>آپلود رزومه</h5>
 										<div class="input-group">
 											<label class="btn btn-default btn-file">
-												Browse <input type="file" name="Resume">
+												Browse <input form="mainform" type="file" name="Resume">
 											</label>
 										</div>
 
@@ -178,7 +202,7 @@
 										<h5>آپلود ویدئو آموزش</h5>
 										<div class="input-group">
 											<label class="btn btn-default btn-file">
-												Browse <input type="file" name="Sample">
+												Browse <input form="mainform" type="file" name="Sample">
 											</label>
 										</div>
 									</li>
