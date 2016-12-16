@@ -211,7 +211,7 @@ table {
 body {
     font-size: 13px;
     line-height: 23px;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "IRANSans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #777;
     -webkit-font-smoothing: antialiased!important;
     font-smoothing: antialiased!important;
@@ -296,7 +296,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'IRANSans','Roboto Condensed', sans-serif;
 }
 
 .h1,
@@ -418,7 +418,7 @@ p:last-child {
 blockquote,
 .blockquote {
     overflow: hidden;
-    font-family: "Merriweather", "Georgia", Times New Roman, Times, serif;
+    font-family: "IRANSans", "Merriweather", "Georgia", Times New Roman, Times, serif;
     font-size: 18px;
     line-height: 36px;
     font-style: italic;
@@ -2559,7 +2559,7 @@ a.link-alt:hover {
 
 .section-title {
     text-align: center;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'IRANSans', 'Roboto Condensed', sans-serif;
     margin: 0 0 52px
 }
 
@@ -2571,7 +2571,7 @@ a.link-alt:hover {
 }
 
 .section-title p {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'IRANSans', 'Roboto Condensed', sans-serif;
     font-size: 18px;
     font-weight: 300;
     line-height: 30px;
@@ -3044,7 +3044,7 @@ a.link-alt:hover {
     text-transform: uppercase;
     color: #0D7CC9;
     font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IRANSans','Open Sans', sans-serif;
     letter-spacing: 2px;
 }
 

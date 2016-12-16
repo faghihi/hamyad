@@ -404,7 +404,26 @@ jQuery(function() {
 
 });
 
+$('#profile').ready(function () {
 
+	$('#changeNameClick').click(function () {
+		$('#changePass').parent().parent().parent().hide();
+		$('#changeAvatar').parent().parent().parent().hide();
+		$('#changeName').parent().parent().parent().show();
+	});
+
+	$('#changeAvatarClick').click(function () {
+		$('#changePass').parent().parent().parent().hide();
+		$('#changeName').parent().parent().parent().hide();
+		$('#changeAvatar').parent().parent().parent().show();
+	});
+
+	$('#changePassClick').click(function () {
+		$('#changeName').parent().parent().parent().hide();
+		$('#changeAvatar').parent().parent().parent().hide();
+		$('#changePass').parent().parent().parent().show();
+	});
+});
 
 
 

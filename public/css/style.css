@@ -4,6 +4,12 @@ Author:         Crenoveative
 URL:            http://crenoveative.com
 Created:        18/10/2016
 -------------------------------------------------------------------*/
+html, body, p, h1, h2, h3, h4, h5, h6,
+a, li, div, span {
+    font-family: 'IRANSans';
+}
+
+
 p {
     text-align: justify;
     text-justify: inter-word;
@@ -1181,7 +1187,7 @@ ul.top-search-list li a:hover {
     color: #555;
     font-size: 12px;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IRANSans', 'Open Sans', sans-serif;
 }
 
 .change-search-wrapper > div {
@@ -1283,7 +1289,7 @@ ul.top-search-list li a:hover {
     font-weight: 700;
     font-size: 14px;
     padding: 4px 10px 3px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'IRANSans', 'Roboto Condensed', sans-serif;
 }
 
 .course-item-price:before {
@@ -1943,8 +1949,27 @@ ul.related-course-item li .rating-wrapper > div {
     float: right;
 }
 
+.profile-detail.course-detail-header .info > .image {
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
+    border-radius: 50%;
+    float: right;
+}
+
+.profile-detail.course-detail-header .info > .image img {
+    border-radius: 50%;
+}
+
 .course-detail-header .info > .content {
     margin-right: 175px;
+}
+
+.profile-detail.course-detail-header .info > .content {
+    margin-right: 145px;
 }
 
 .course-detail-header .info > .content h2 {
@@ -1965,6 +1990,11 @@ ul.related-course-item li .rating-wrapper > div {
 .course-detail-header ul.meta-list {
     margin: 0;
     margin-right: 175px;
+}
+
+.profile-detail.course-detail-header ul.meta-list {
+    margin: 0;
+    margin-right: 155px;
 }
 
 .course-detail-header ul.meta-list li {
@@ -2011,6 +2041,10 @@ ul.related-course-item li .rating-wrapper > div {
     margin-right: 60px;
 }
 
+.profile-detail.course-detail-header ul.meta-list li .meta-teacher > .content {
+    margin-right: 0;
+}
+
 .course-detail-header ul.meta-list li .meta-rating .rating-wrapper {
     margin: 6px 0 0;
 }
@@ -2037,6 +2071,16 @@ ul.related-course-item li .rating-wrapper > div {
     float: right;
     margin-left: 30px;
     margin-bottom: 20px;
+}
+
+.course-intro .changing-list {
+    margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 992px) {
+    .course-intro .changing-list {
+        margin-bottom: 20px;
+    }
 }
 
 #courseModal .listing-box {
@@ -2490,7 +2534,7 @@ ul.subtitle-list li:first-child .time {
     font-size: 20px;
     line-height: 32px;
     font-weight: 300;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'IRANSans', 'Roboto Condensed', sans-serif;
 }
 
 .image-bg-promo h1,
@@ -2563,7 +2607,7 @@ ul.subtitle-list li:first-child .time {
     font-weight: 700;
     font-size: 14px;
     padding: 4px 10px 3px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'IRANSans', 'Roboto Condensed', sans-serif;
     background: #DF2938;
     color: #FFF;
     position: absolute;
@@ -5030,6 +5074,8 @@ ul.static-page-menu li.active a {
 }
 
 .teacher-item-list-02 .image {
+    width: 117.5px;
+    height: 117.5px;
     border: 2px solid rgba(255, 255, 255, 0.5);
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
     -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
@@ -5822,7 +5868,7 @@ ul.review-list li .content .rating-wrapper {
     color: #333;
     margin-bottom: 20px;
     text-shadow: 5px 5px 1px rgba(0, 0, 0, .1);
-    font-family: 'Montserrat', sans-serif
+    font-family: 'IRANSans', 'Montserrat', sans-serif
 }
 
 
@@ -6122,7 +6168,7 @@ a.pricing-item-02 {
     text-align: center;
     border-radius: 50%;
     line-height: 1;
-    font-size: 11px;
+    font-size: 70%;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 700;
