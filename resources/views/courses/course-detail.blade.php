@@ -276,7 +276,7 @@
 
 											<div class="course-lession-wrapper-2 alt-item-bg">
 												@foreach($course['section'] as $section)
-												<a href="#" class="course-lession-item-2">
+												<a href="/sections/{{$section['id']}}" class="course-lession-item-2">
 												
 													<div class="content-top">
 													

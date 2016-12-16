@@ -71,16 +71,14 @@ class SectionsController extends Controller
     public function show(Section $section)
     {
         if(! \Auth::check()){
-            echo "No Access";
-            return 0;
+            return view('public-pages.noaccess')->with('key','1');
         }
         if($this->CheckAccess(\Auth::user(),$section)){
             $section=$this->ShowSpecificSection($section);
             return view('courses.course-learning')->with('section',$section);
         }
         else
-            echo 'No Access';
-        return 0;
+            return view('public-pages.noaccess');
     }
 
     public function ShowReviews(Section $section)

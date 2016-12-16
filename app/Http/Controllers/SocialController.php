@@ -32,7 +32,6 @@ class SocialController extends Controller
             'Email'     => 'Required|Between:3,64|Email',
             'Message' => 'Required|Min:10'
         );
-
         $validator = Validator::make($input, $rules);
         if (! $validator->fails()) {
             $message = new Contact();
@@ -52,9 +51,44 @@ class SocialController extends Controller
         }
         return 0;
     }
-    public function Contact(){
+    public function Contact()
+    {
         $input=Input::all();
-        $this->StoreContact($input);
+        $rules = array(
+            'Name' => 'Required|Min:3|Max:80',
+            'Email'     => 'Required|Between:3,64|Email',
+            'Description' => 'Required|Min:20'
+        );
+        $messages = [
+            'Name.required' => 'وارد کردن نام شما ضروری است ',
+            'Email.required' => 'وارد کردن ایمیل شما ضروری است ',
+            'Description.required' => 'وارد کردن توضیحات  شما ضروری است ',
+            'Name.min' => 'نام کامل خود را وارد نمایید ( حداقل ۷ کاراکتر) ',
+            'Email.email' => 'ایمیل معتبر نیست',
+            'Description.min' => 'حداقل ۲۰ کاراکتر لازم است'
+        ];
+        $validator = Validator::make($input, $rules,$messages);
+        if (! $validator->fails()) {
+            $message = new Contact();
+            $message->name = $input['Name'];
+            $message->email = $input['Email'];
+            if (isset($input['Subject'])) {
+                $message->subject = $input['Subject'];
+            }
+            $message->message = $input['Description'];
+            try{
+                $message->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return redirect('/contactUs?Error=1');
+            }
+            return redirect('/contactUs?Complete=1');
+        }
+        else{
+            return redirect('/contactUs')
+                ->withErrors($validator)
+                ->withInput();
+        }
     }
 
 

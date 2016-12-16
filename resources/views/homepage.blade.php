@@ -262,7 +262,7 @@
 												</div>
 
 												<h3 class="text-primary">{{$course['name']}}</h3>
-												<p>{{$course['description']}}</p>
+												<p>{!! $course['description'] !!}</p>
 
 											</div>
 											<div class="course-item-instructor">
