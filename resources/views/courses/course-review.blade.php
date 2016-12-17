@@ -299,6 +299,23 @@
 
 												<div class="review-content">
 
+													<br>
+													@if (count($errors) > 0)
+														<div class="alert alert-danger">
+															<ul>
+																@foreach ($errors->all() as $error)
+																	<li>{{ $error }}</li>
+																@endforeach
+															</ul>
+														</div>
+													@endif
+														@if (isset($_GET['success']))
+															<div class="alert alert-success">
+																<p>
+																	پیام شما با موفقیت ارسال شد و پس از تایید به نمایش در خواهد آمد
+																</p>
+															</div>
+														@endif
 													<ul class="review-list">
 														@foreach($Data as $item)
 															<li class="clearfix">
@@ -342,7 +359,7 @@
 											{{--</div>--}}
 
 										</div>
-
+										@if($able==1)
 										<div id="review-form" class="course-detail-section">
 
 											<div class="section-title text-right mb-20">
@@ -350,9 +367,9 @@
 											</div>
 
 											<div class="review-form-wrapper mb-0">
+												<form class="clearfix" method="post" action="/CourseReview/{{$course['id']}}">
 
-												<form class="clearfix">
-
+													{{ csrf_field() }}
 													{{--<div class="row gap-20">--}}
 
 														{{--<div class="col-xs-12 col-sm-6 col-md-6">--}}
@@ -449,7 +466,7 @@
 
 																<div class="rating-wrapper">
 																	<div class="rating-item">
-																		<input type="hidden" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />
+																		<input type="hidden" name="course" class="rating-label" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" value="0" />
 																	</div>
 																</div>
 
@@ -465,7 +482,7 @@
 
 															<div class="form-group">
 																<label>پیام شما : </label>
-																<textarea class="form-control form-control-sm" rows="5"></textarea>
+																<textarea class="form-control form-control-sm" rows="5" name="comment"></textarea>
 															</div>
 														</div>
 
@@ -482,6 +499,7 @@
 											</div>
 
 										</div>
+										@endif
 
 									</div>
 
