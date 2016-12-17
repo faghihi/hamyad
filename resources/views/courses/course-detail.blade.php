@@ -585,10 +585,6 @@
 </div>
 <!-- end Back To Top -->
 
-<div id="courseModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
-	@include('courses.course-purchase')
-</div>
-
 <!-- JS -->
 <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>

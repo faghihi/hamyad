@@ -30,7 +30,7 @@
                             @endif
                             <div class="top-header-widget hidden-xs">
                                 <a href="#">
-                                    <i class="fa fa-comments mr-3"></i> ارتباط 
+                                    <i class="ion-log-out mr-3"></i> خروج
                                 </a>
                             </div>
 

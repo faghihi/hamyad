@@ -1020,7 +1020,7 @@ input[type='radio'] + label,
 input[type='checkbox'] + label {
     margin: 0;
     clear: none;
-    padding: 4px 0 3px 18px;
+    padding: 4px 18px 3px 0;
     cursor: pointer;
     font-weight: 400;
     line-height: 18px;
@@ -1032,7 +1032,7 @@ input[type='checkbox'] + label:before {
     font-family: 'FontAwesome';
     content: "\f096";
     position: absolute;
-    left: 0;
+    right: 0;
     top: 5px;
     color: #999
 }

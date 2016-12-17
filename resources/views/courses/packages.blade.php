@@ -108,26 +108,25 @@
 									
 							<div class="GridLex-col-6_sm-6_xs-12_xss-12">
 							
-								<a href="#" class="pricing-item-02 clearfix">
+								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal" data-toggle="modal">
 							
 									<div class="pricing-heading">
 									
-										<h6 class="pricing-title">روزانه</h6>
-										<p class="pricing-price">$29.99 <span>/ month</span></p>
-										<p class="font-sm">Best for one student</p>
-									
+										<h6 class="pricing-title">هزینه پک</h6>
+										<p class="pricing-price">$9.99 <span>/ روزانه </span></p>
+										<p class="pricing-price">$29.99 <span>/ ماهانه</span></p>
+										<p class="pricing-price">$59.99 <span>/ سالانه</span></p>
+
 									</div>
 									
 									<div class="pricing-content">
 									
 										<ul class="pricing-list">
 													
-											<li>Instrument cultivated alteration</li>
-											<li>Favourable expression law</li>
-											<li>Both new like tore mutual</li>
-											<li class="not-this">The ourselves suffering</li>
-											<li class="not-this">By disposed replying mr</li>
-											
+											<li>آموزش طراحی وب</li>
+											<li>آموزش جاوا اسکریپت</li>
+											<li>برای مشاهده ی لیست کامل کلیک کنید.</li>
+
 										</ul>
 									
 									</div>
@@ -137,38 +136,37 @@
 							</div>
 							
 							<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-							
-								<a href="#" class="pricing-item-02 clearfix">
-							
+
+								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal" data-toggle="modal">
+
 									<div class="pricing-heading">
-									
-										<h6 class="pricing-title">ماهانه</h6>
-										<p class="pricing-price">$38.99 <span>/ month</span></p>
-										<p class="font-sm">Best for two student</p>
-									
+
+										<h6 class="pricing-title">هزینه پک</h6>
+										<p class="pricing-price">$9.99 <span>/ روزانه </span></p>
+										<p class="pricing-price">$29.99 <span>/ ماهانه</span></p>
+										<p class="pricing-price">$59.99 <span>/ سالانه</span></p>
+
 									</div>
-									
+
 									<div class="pricing-content">
-									
+
 										<ul class="pricing-list">
-													
-											<li>Instrument cultivated alteration</li>
-											<li>Favourable expression law</li>
-											<li>Both new like tore mutual</li>
-											<li>The ourselves suffering</li>
-											<li class="not-this">By disposed replying mr</li>
-											
+
+											<li>آموزش طراحی وب</li>
+											<li>آموزش جاوا اسکریپت</li>
+											<li>آموزش php</li>
+
 										</ul>
-									
+
 									</div>
-								
+
 								</a>
 							
 							</div>
 							
 							<div class="GridLex-col-6_sm-6_xs-12_xss-12">
 							
-								<a href="#" class="pricing-item-02 clearfix">
+								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal" data-toggle="modal">
 							
 									<div class="pricing-best"><i class="ion-thumbsup"></i><span class="block mt-5">پیشنهادی</span></div>
 									
@@ -187,9 +185,7 @@
 											<li>Instrument cultivated alteration</li>
 											<li>Favourable expression law</li>
 											<li>Both new like tore mutual</li>
-											<li>The ourselves suffering</li>
-											<li><span class="font700 text-uppercase">By disposed</span> replying mr</li>
-											
+
 										</ul>
 									
 									</div>
@@ -227,13 +223,10 @@
 </div>
 <!-- end Back To Top -->
 
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-		
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+
+<div id="packModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+	@include('courses.package-purchase-modal')
 </div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
 
 <!-- JS -->
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>

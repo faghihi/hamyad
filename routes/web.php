@@ -121,6 +121,9 @@ Route::get('/cancel', function (){
 Route::get('/course-detail', function (){
     return view('courses.course-detail');
 });
+Route::get('/attend', function (){
+    return view('courses.course-purchase');
+});
 
 
 Route::get('/FAQ', function (){

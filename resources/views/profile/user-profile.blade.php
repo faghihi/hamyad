@@ -121,7 +121,7 @@
 
 											<ul class="nav faq-nav">
 												<li><a href="#course-detail-section-0" class="anchor">اطلاعات شخصی</a></li>
-												<li><a href="#course-detail-section-1" class="anchor">پیام ها</a></li>
+												{{--<li><a href="#course-detail-section-1" class="anchor">پیام ها</a></li>--}}
 												<li><a href="#course-detail-section-2" class="anchor">درس ها</a></li>
 												<li><a href="#course-detail-section-3" class="anchor">پکیج ها</a></li>
 											</ul>
@@ -248,7 +248,7 @@
 										</div>
 									</div>
 
-									<div id="course-detail-section-1" class="course-detail-section">
+									{{--<div id="course-detail-section-1" class="course-detail-section">
 
 										<div class="section-title text-right mb-20">
 
@@ -338,7 +338,7 @@
 
 										</div>
 
-									</div>
+									</div>--}}
 
 									<div id="course-detail-section-2" class="course-detail-section">
 
@@ -459,35 +459,9 @@
 
 										</div>
 
-										<div class="pager-wrappper">
+										<div class="mt-30 mb-10 text-left">
 
-											<div class="row">
-
-												<div class="col-xs-12 col-sm-8">
-
-													<ul class="pagination">
-														<li>
-															<a href="#" aria-label="Previous">
-																<span aria-hidden="true">&laquo;</span>
-															</a>
-														</li>
-														<li class="active"><a href="#">1</a></li>
-														<li><a href="#">2</a></li>
-														<li><a href="#">3</a></li>
-														<li><span>...</span></li>
-														<li><a href="#">11</a></li>
-														<li><a href="#">12</a></li>
-														<li><a href="#">13</a></li>
-														<li>
-															<a href="#" aria-label="Next">
-																<span aria-hidden="true">&raquo;</span>
-															</a>
-														</li>
-
-													</ul>
-												</div>
-
-											</div>
+											<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
 
 										</div>
 
@@ -507,13 +481,13 @@
 
 												<div class="GridLex-col-12_sm-12_xs-12_xss-12">
 
-													<a href="#" class="pricing-item-02 clearfix">
+													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
 
 														<div class="pricing-heading">
 
-															<h6 class="pricing-title">روزانه</h6>
-															<p class="pricing-price">$29.99 <span>/ month</span></p>
-															<p class="font-sm">Best for one student</p>
+															<h6 class="pricing-title">نام پک روزانه</h6>
+															<p class="pricing-price">$9.99 <span>/ روزانه </span></p>
+															<p class="font-sm">فعال</p>
 
 														</div>
 
@@ -521,11 +495,9 @@
 
 															<ul class="pricing-list">
 
-																<li>Instrument cultivated alteration</li>
-																<li>Favourable expression law</li>
-																<li>Both new like tore mutual</li>
-																<li class="not-this">The ourselves suffering</li>
-																<li class="not-this">By disposed replying mr</li>
+																<li>آموزش طراحی وب</li>
+																<li>آموزش جاوا اسکریپت</li>
+																<li>برای مشاهده ی لیست کامل کلیک کنید.</li>
 
 															</ul>
 
@@ -537,13 +509,13 @@
 
 												<div class="GridLex-col-12_sm-12_xs-12_xss-12">
 
-													<a href="#" class="pricing-item-02 clearfix">
+													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
 
 														<div class="pricing-heading">
 
-															<h6 class="pricing-title">ماهانه</h6>
-															<p class="pricing-price">$38.99 <span>/ month</span></p>
-															<p class="font-sm">Best for two student</p>
+															<h6 class="pricing-title">نام پک ماهانه</h6>
+															<p class="pricing-price">$38.99 <span> / ماهانه</span></p>
+															<p class="font-sm">تمام شده</p>
 
 														</div>
 
@@ -554,8 +526,6 @@
 																<li>Instrument cultivated alteration</li>
 																<li>Favourable expression law</li>
 																<li>Both new like tore mutual</li>
-																<li>The ourselves suffering</li>
-																<li class="not-this">By disposed replying mr</li>
 
 															</ul>
 
@@ -569,35 +539,9 @@
 
 										</div>
 
-										<div class="pager-wrappper">
+										<div class="mt-30 mb-10 text-left">
 
-											<div class="row">
-
-												<div class="col-xs-12 col-sm-8">
-
-													<ul class="pagination">
-														<li>
-															<a href="#" aria-label="Previous">
-																<span aria-hidden="true">&laquo;</span>
-															</a>
-														</li>
-														<li class="active"><a href="#">1</a></li>
-														<li><a href="#">2</a></li>
-														<li><a href="#">3</a></li>
-														<li><span>...</span></li>
-														<li><a href="#">11</a></li>
-														<li><a href="#">12</a></li>
-														<li><a href="#">13</a></li>
-														<li>
-															<a href="#" aria-label="Next">
-																<span aria-hidden="true">&raquo;</span>
-															</a>
-														</li>
-
-													</ul>
-												</div>
-
-											</div>
+											<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
 
 										</div>
 
@@ -639,13 +583,9 @@
 </div>
 <!-- end Back To Top -->
 
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+<div id="packModalProfile" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+	@include('courses.package-purchase-modal')
 </div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
 
 <!-- JS -->
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
