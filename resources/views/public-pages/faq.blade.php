@@ -440,7 +440,7 @@
 							
 									<p>Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of.</p>
 									
-									<a href="#" class="btn btn-primary mt-15">Contact Us</a>
+									<a href="/contactUs" class="btn btn-primary mt-15">Contact Us</a>
 								</div>
 							</div>
 

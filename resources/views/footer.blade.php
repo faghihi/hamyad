@@ -20,19 +20,25 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 mb-30">
 
                         <div class="newsletter-footer">
-
-                            <form action="#" method="post" class="row">
-
                                 <div class="col-xs-12 col-sm-12 col-md-8">
 
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="آدرس ایمیل شما">
-                                        <input type="submit" class="btn btn-submit" value="عضویت در خبرنامه">
+                                    <div id="subform" class="form-group">
+                                        <input type="email" id="submail" class="form-control" placeholder="آدرس ایمیل شما">
+                                        <input type="submit" id="subscribe" data-link="{{ url('/Subscribe') }}"  data-token="{{ csrf_token() }}" class="btn btn-submit" value="عضویت در خبرنامه">
+                                    </div>
+                                    <div class="alert alert-danger" id="errorform" style="display: none;">
+                                        <p>ایمیل شما معتبر نمیباشد</p>
+                                    </div>
+                                    <div class="alert alert-danger" id="errorform1" style="display: none;">
+                                        <p>شما قبلا عضو شده اید</p>
+                                    </div><div class="alert alert-danger" id="errorform2" style="display: none;">
+                                        <p>ارتباط با سرور قطع شده است .</p>
+                                    </div><div class="alert alert-success" id="successform" style="display: none;">
+                                        <p>موفقیت آمیز بود . باتشکر از همراهی شما دوست عزیز !</p>
                                     </div>
 
-                                </div>
 
-                            </form>
+                                </div>
 
                         </div>
 

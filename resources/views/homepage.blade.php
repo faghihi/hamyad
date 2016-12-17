@@ -318,7 +318,7 @@
 								<h2 class="mb-25 text-white">به جمع مدرسین هم یاد بپیوندید</h2>
 								<p>با پیوستن به جمع مدرسین هم یاد میتوانید دروس تهیه شده خود را در بین هزاران دانشجوی مشتاق پخش کنید و از مزایای آن بهره مند شوید .</p>
 
-								<a href="#" class="btn btn-danger">ارتباط به عنوان مدرس</a>
+								<a href="/cooperate" class="btn btn-danger">ارتباط به عنوان مدرس</a>
 
 							</div>
 
@@ -669,6 +669,8 @@
 <script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="js/control.js"></script>
+
 
 
 </body>

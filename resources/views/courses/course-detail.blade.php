@@ -488,7 +488,7 @@
 														@if(isset($course['relate'.$i]))
 															<div class="GridLex-col-4_mdd-3_sm-6_xs-6_xss-12">
 																<div class="course-item">
-																	<a href="#">
+																	<a href="/courses/{{$course['relate'.$i]['id'] }}">
 																		<div class="course-item-image">
 																			@if(isset($course['relate'.$i]['image']))
 																				<?php $image='/Storage/'.$course['relate'.$i]['image'];?>

@@ -178,3 +178,5 @@ Route::get('uploadimage',function (){
 Route::post('/imageupload','UsersOperation@UploadPhoto');
 Route::post('/SubmitInstructor','UsersOperation@Cooperate');
 Route::post('/SaveContact','SocialController@Contact');
+Route::post('/Subscribe','SocialController@Subscribe');
+Route::get('/Subscribe','SocialController@Subscribe');
