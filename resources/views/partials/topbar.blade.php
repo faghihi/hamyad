@@ -6,7 +6,7 @@
 
             <div class="navbar-header">
 
-                <a href="{{ url('/home') }}"
+                <a href="{{ url('/profile') }}"
 
                    class="navbar-brand">
 
