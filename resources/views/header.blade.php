@@ -29,8 +29,8 @@
                                 </div>
                             @endif
                             <div class="top-header-widget hidden-xs">
-                                <a href="/contactUs">
-                                    <i class="fa fa-comments mr-3"></i> ارتباط 
+                                <a href="#">
+                                    <i class="ion-log-out mr-3"></i> خروج
                                 </a>
                             </div>
 
