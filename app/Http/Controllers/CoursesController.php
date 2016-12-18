@@ -315,8 +315,14 @@ class CoursesController extends Controller
         $course['rates_value']=$rate_value;
         $course['rates_count']=$rate_count;
         $counter=$course->category->name;
+        if(\Auth::check())
+        {
+            $able=1;
+        }
+        else
+            $able=0;
 //        return $Data;
-        return view('courses.course-review')->with(['Data'=>$Data,'course'=>$course]);
+        return view('courses.course-review')->with(['Data'=>$Data,'course'=>$course,'able'=>$able]);
     }
 
     public function AddCourse(Course $course,$payment,$discount)

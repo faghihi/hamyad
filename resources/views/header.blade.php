@@ -29,8 +29,8 @@
                                 </div>
                             @endif
                             <div class="top-header-widget hidden-xs">
-                                <a href="#">
-                                    <i class="ion-log-out mr-3"></i> خروج
+                                <a href="/contactUs">
+                                    <i class="fa fa-comments mr-3"></i> ارتباط 
                                 </a>
                             </div>
 
@@ -56,7 +56,7 @@
                             <a href="/">خانه</a>
                         </li>
                         <li>
-                            <a href="/Profile">بخش کاربری</a>
+                            <a href="/login">بخش کاربری</a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">آموزش </a>

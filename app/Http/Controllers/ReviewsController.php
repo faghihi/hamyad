@@ -10,6 +10,7 @@ use App\Course;
 use App\Review;
 
 use App\Section;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreReviewsRequest;
@@ -20,68 +21,77 @@ use Illuminate\Support\Facades\Input;
 
 class ReviewsController extends Controller
 {
-    public function store()
+    public function store(Course $course)
 
     {
         $input=Input::all();
         $rules = array(
             'comment' => 'required|min:10',
         );
-        $validator = Validator::make($input, $rules);
+        $messages = [
+            'comment.required' => 'وارد کردن پیام شما ضروری است ',
+            'comment.min' => 'حداقل ۱۰ کاراکتر برای ارسال پیام شما لازم است.',
+        ];
+        $validator = \Validator::make($input, $rules,$messages);
         if($validator->fails()){
-            return 0;
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
         }
         $newr=new Review();
         $newr->comment=$input['comment'];
         if(! \Auth::check()){
-           return 0;
+           return redirect()->back();
         }
         else{
             $newr->user_id=\Auth::id();
         }
-        if(Input::has('teacher')){
-            $newr->teacher_rate=$input['teacher'];
-        }
-        elseif (Input::has('course'))
+        if (Input::has('course'))
         {
             $newr->course_rate=$input['course'];
-        }
-        elseif (Input::has('pack'))
-        {
-            $newr->pack_rate=$input['pack'];
-        }
-
-        if($newr->save())
-        {
-            if(Input::has('Course')){
-                $course=Course::findorfail(Input::get('Course'));
-                try{
-                    $course->reviews()->attach($newr->id);
-                }
-                catch ( \Illuminate\Database\QueryException $e){
-                    return 0;
-                }
-                return 1;
-
-            }
-            elseif(Input::has('Section')){
-                $section=Section::findorfail(Input::get('Section'));
-
-                try{
-                    $section->reviews()->attach($newr->id);
-                }
-                catch ( \Illuminate\Database\QueryException $e){
-                    return 0;
-                }
-                return 1;
+            $user=\Auth::user();
+            if($this->StoreRate($user,$course,$newr->course_rate)==0)
+            {
+                return view('errors.404');
             }
         }
-
-        return 0;
-
+        try{
+            $newr->save();
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+            return view('errors.404');
+        }
+        try{
+            $course->reviews()->attach($newr->id);
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+            return view('errors.404');
+        }
+        return redirect('/CourseReview/'.$course['id'].'?success=1');
     }
 
-
+    public function StoreRate(User $user,Course $course,$rate)
+    {
+        $hasTask = $course->rates()->where('users.id', $user->id)->exists();
+        if($hasTask){
+            try {
+                $course->rates()->updateExistingPivot($user->id,['rate'=>$rate]);
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
+        }
+        else{
+            try {
+                $course->rates()->attach($user->id,['rate'=>$rate]);
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
+        }
+    }
     public function destroy(Review $review)
     {
         $user=\Auth::user();

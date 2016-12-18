@@ -42,11 +42,6 @@ Route::resource('sections','SectionsController');
 
 Route::get('/instructor/Search','TeachersController@Search');
 Route::group(['middleware' => 'auth'], function () {
-
-    Route::get('/home', 'HomeController@index');
-
-
-
     Route::resource('roles', 'RolesController');
 
     Route::post('roles_mass_destroy', ['uses' => 'RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
@@ -76,8 +71,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
 #test Routes
 Route::get('Search','CoursesController@Search');
 
@@ -88,7 +81,6 @@ Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
 Route::get('/contactUs', function (){
     return view('public-pages.contact');
@@ -182,4 +174,5 @@ Route::post('/imageupload','UsersOperation@UploadPhoto');
 Route::post('/SubmitInstructor','UsersOperation@Cooperate');
 Route::post('/SaveContact','SocialController@Contact');
 Route::post('/Subscribe','SocialController@Subscribe');
+Route::post('/CourseReview/{course}','ReviewsController@Store');
 Route::get('/Subscribe','SocialController@Subscribe');
