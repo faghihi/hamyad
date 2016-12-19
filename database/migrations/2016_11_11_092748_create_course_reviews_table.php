@@ -23,6 +23,7 @@ class CreateCourseReviewsTable extends Migration
 
             $table->timestamps();
         });
+
     }
 
     /**

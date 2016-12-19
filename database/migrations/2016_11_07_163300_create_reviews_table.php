@@ -18,7 +18,6 @@ class CreateReviewsTable extends Migration
             $table->string('comment');
             $table->integer('user_id')->unsigned()->index();
             # Rate items
-            $table->double('section_rate', 15, 2)->nullable();
             $table->double('course_rate', 15, 2)->nullable();
             $table->boolean('enable')->default('0');
             $table->timestamps();
@@ -40,7 +39,8 @@ class CreateReviewsTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
 
     }

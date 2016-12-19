@@ -12,9 +12,9 @@ class Review extends Seeder
     public function run()
     {
         $items = [
-            ['comment' => 'teacher is really cool','section_rate'=>4.5,'user_id'=>1],
+            ['comment' => 'teacher is really cool','course_rate'=>4.5,'user_id'=>1],
             ['comment' => 'course is really cool','course_rate'=>2.5,'user_id'=>1],
-            ['comment' => 'pack is really cool','section_rate'=>3,'user_id'=>2],
+            ['comment' => 'pack is really cool','course_rate'=>3,'user_id'=>2],
             ['comment' => 'pack is really cool','course_rate'=>3,'user_id'=>2]
         ];
         foreach ($items as $item) {

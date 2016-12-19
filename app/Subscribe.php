@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Subscribe extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
 
     protected $table='subscribes';
     protected $fillable = ['email'];

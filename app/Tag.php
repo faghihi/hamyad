@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tag extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
 
     protected $table='tags';
     protected $fillable = ['tag_name'];

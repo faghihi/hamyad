@@ -24,6 +24,7 @@ class CreateFavoriteSectionsTable extends Migration
             $table->unique( array('user_id','section_id') );
 
         });
+
     }
 
     /**

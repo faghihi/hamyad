@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discount extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
     protected $table="discount";
 
     protected $fillable=['code','type','value','count'];

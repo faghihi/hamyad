@@ -23,6 +23,7 @@ class CreateSectionReviewsTable extends Migration
 
             $table->timestamps();
         });
+
     }
 
     /**
