@@ -85,10 +85,15 @@
 				<div class="info clearfix">
 
 					<div class="image">
-						<img src="/images/man/01.jpg" alt="Image" class="img-responsive" />
+						@if(isset($user['image']))
+							<?php $image='/'.$user['image'];?>
+						@else
+							<?php $image='/images/man/01.jpg';?>
+						@endif
+						<img src="{{$image}}" alt="Image" class="img-responsive" />
 					</div>
 					<div class="content">
-						<h2>سلام روشنک</h2>
+						<h2>{{$user['name']}}</h2>
 					</div>
 
 				</div>
@@ -156,14 +161,14 @@
 													<li>
 														<div class="row gap-10">
 															<div class="col-xs-5 col-sm-6"><i class="fa fa-graduation-cap"></i> نام</div>
-															<div class="col-xs-7 col-sm-6 text-right font600">روشنک میرزایی</div>
+															<div class="col-xs-7 col-sm-6 text-right font600">{{$user['name']}}</div>
 														</div>
 													</li>
 
 													<li>
 														<div class="row gap-10">
 															<div class="col-xs-5 col-sm-6"><i class="fa fa-envelope"></i> ایمیل</div>
-															<div class="col-xs-7 col-sm-6 text-right font600">r@gmail.com</div>
+															<div class="col-xs-7 col-sm-6 text-right font600">{{$user['email']}}</div>
 														</div>
 													</li>
 
@@ -189,7 +194,7 @@
 														<label>نام جدید</label>
 													</div>
 													<div class="col-sm-5">
-														<input type="text" class="form-control" placeholder="نام قبلی بیاد">
+														<input type="text" class="form-control" placeholder="{{$user['name']}}">
 													</div>
 
 													<div class="col-sm-2">
@@ -205,7 +210,7 @@
 														<label>عکس جدید</label>
 													</div>
 													<div class="col-sm-5">
-														<input type="file" class="form-control" placeholder="نام قبلی بیاد">
+														<input type="file" class="form-control">
 													</div>
 
 													<div class="col-sm-2">
@@ -347,120 +352,64 @@
 
 											<div class="GridLex-grid-noGutter-equalHeight">
 
+												@foreach($Courses as $course)
 												<div class="GridLex-col-4_mdd-6_xs-6_xss-12">
 													<div class="course-item">
-														<a href="#">
+														<a href="/courses/{{$course['id']}}">
 															<div class="course-item-image">
-																<img src="/images/course-item/01.jpg" alt="Image" class="img-responsive" />
+																@if(isset($course['image']))
+																	<?php $image=Config::get('store.storagepath').$course['image'];?>
+																@else
+																	<?php $image='/images/course-item/01.jpg';?>
+																@endif
+																<img src="{{$image}}" alt="Image" class="img-responsive" />
 															</div>
+															@if(isset($course['provider'][0]))
 															<div class="course-item-top clearfix">
-																<div class="course-item-instructor">
-																	<div class="image">
-																		<img src="/images/testimonial/01.jpg" alt="Image" class="img-circle" />
-																	</div>
-																	<span>Mark Lassoff </span>
-																</div>
-																<div class="course-item-price bg-danger">
-																	$19.56
+																<div class="course-item-instructor text-left">
+																	<span>{{$course['provider'][0]['name']}}</span>&nbsp;
+																	<i class="fa fa-building-o" aria-hidden="true"></i>
 																</div>
 															</div>
+															@endif
 															<div class="course-item-content">
 																<div class="rating-wrapper">
 																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+																		@if($course['rates_count'] == 0)
+																			<?php $rate=0;?>
+																		@else
+																			<?php $rate=$course['rates_value']/$course['rates_count']?>
+																		@endif
+																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
 																	</div>
-																	<span> (7 review)</span>
+																	<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
 																</div>
-																<h3 class="text-primary">Foundations of Enterprise Development</h3>
+																<h3 class="text-primary">{{$course['name']}}</h3>
+															</div>
+															<div class="course-item-instructor">
+																<b class="text-primary">ارائه دهندگان</b>
+																<p>{{$course['Teachers']}}</p>
 															</div>
 															<div class="course-item-bottom clearfix">
-																<div><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></div>
-																<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
+																<div><i class="fa fa-folder-open-o"></i><span class="block">{{$course['category']['name']}}</span></div>
+																<div><i class="fa fa-pencil-square-o"></i><span class="block">{{$course['sections_count']}} سرفصل</span></div>
+																<div><i class="fa fa-calendar-check-o"></i><span class="block">{{$course['sections_time']}} دقیقه</span></div>
 															</div>
 														</a>
 													</div>
 												</div>
-
-												<div class="GridLex-col-4_mdd-6_xs-6_xss-12">
-													<div class="course-item">
-														<a href="#">
-															<div class="course-item-image">
-																<img src="/images/course-item/02.jpg" alt="Image" class="img-responsive" />
-															</div>
-															<div class="course-item-top clearfix">
-																<div class="course-item-instructor">
-																	<div class="image">
-																		<img src="/images/testimonial/02.jpg" alt="Image" class="img-circle" />
-																	</div>
-																	<span>Nicholas Mavrakis</span>
-																</div>
-																<div class="course-item-price bg-danger">
-																	$19.56
-																</div>
-															</div>
-															<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3 class="text-primary">Food Photography: Shooting at Restaurants</h3>
-															</div>
-															<div class="course-item-bottom clearfix">
-																<div><i class="fa fa-folder-open-o"></i><span class="block"> Photography </span></div>
-																<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-															</div>
-														</a>
-													</div>
-												</div>
-
-												<div class="GridLex-col-4_mdd-6_xs-6_xss-12">
-													<div class="course-item">
-														<a href="#">
-															<div class="course-item-image">
-																<img src="/images/course-item/03.jpg" alt="Image" class="img-responsive" />
-															</div>
-															<div class="course-item-top clearfix">
-																<div class="course-item-instructor">
-																	<div class="image">
-																		<img src="/images/testimonial/03.jpg" alt="Image" class="img-circle" />
-																	</div>
-																	<span>Ange Ermolova</span>
-																</div>
-																<div class="course-item-price bg-danger">
-																	$19.56
-																</div>
-															</div>
-															<div class="course-item-content">
-																<div class="rating-wrapper">
-																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																	</div>
-																	<span> (7 review)</span>
-																</div>
-																<h3 class="text-primary">Introduction to HTML: Build a Portfolio Website</h3>
-															</div>
-															<div class="course-item-bottom clearfix">
-																<div><i class="fa fa-folder-open-o"></i><span class="block"> Wed Design</span></div>
-																<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
-															</div>
-														</a>
-													</div>
-												</div>
-
+												@endforeach
 											</div>
 
 										</div>
 
-										<div class="mt-30 mb-10 text-left">
+										@if(count($Courses) > 3)
+											<div class="mt-30 mb-10 text-left">
 
-											<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
+												<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
 
-										</div>
+											</div>
+										@endif
 
 									</div>
 
@@ -474,67 +423,44 @@
 											{{--<div class="pricing-wrapper-02 clearfix">--}}
 
 										<div class="GridLex-gap-30 pricing-wrapper-02">
-											<div class="GridLex-grid-noGutter-equalHeight">
+											<?php $count=0; ?>
+											@foreach($Packs as $pack)
+												@if($count % 3==0)
+													<div class="GridLex-grid-noGutter-equalHeight">
+												@endif
+														<div class="GridLex-col-4_sm-12_xs-4_xss-4">
 
-												<div class="GridLex-col-4_sm-12_xs-4_xss-4">
+															<a href="/packs/{{$pack['id']}}" class="pricing-item-02 clearfix" >
 
-													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
+																<div class="pricing-heading">
 
-														<div class="pricing-heading">
+																	<h6 class="pricing-price">{{$pack['title']}}</h6>
+																	<p class="pricing-heading">تاریخ پایان اعتبار:  <span>{{$pack['end']}}</span></p>
+																	<p class="font-sm">فعال</p>
 
-															<h6 class="pricing-title">نام پک روزانه</h6>
-															<p class="pricing-price">$9.99 <span>/ روزانه </span></p>
-															<p class="font-sm">فعال</p>
+																</div>
 
-														</div>
-
-													</a>
-
-												</div>
-
-												<div class="GridLex-col-4_sm-12_xs-4_xss-4">
-
-													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
-
-														<div class="pricing-heading">
-
-															<h6 class="pricing-title">نام پک ماهانه</h6>
-															<p class="pricing-price">$38.99 <span> / ماهانه</span></p>
-															<p class="font-sm">تمام شده</p>
+															</a>
 
 														</div>
+													@if($count%3==2)
+													</div>
+													@endif
+												<?php $count++; ?>
+											@endforeach
+												@if($count%3==0 || $count==1)
+													</div>
+												@endif
 
-													</a>
+											@if(count($Packs)>3)
+											<div class="mt-30 mb-10 text-left">
 
-												</div>
-
-												<div class="GridLex-col-4_sm-12_xs-4_xss-4">
-
-													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
-
-														<div class="pricing-heading">
-
-															<h6 class="pricing-title">نام پک ماهانه</h6>
-															<p class="pricing-price">$38.99 <span> / ماهانه</span></p>
-															<p class="font-sm">تمام شده</p>
-
-														</div>
-
-													</a>
-
-												</div>
+												<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
 
 											</div>
+											@endif
 
 										</div>
-
-										<div class="mt-30 mb-10 text-left">
-
-											<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
-
-										</div>
-
-									</div>
 
 								</div>
 
