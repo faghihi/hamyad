@@ -25,6 +25,7 @@ class CreateCourseRatesTable extends Migration
 
             $table->timestamps();
         });
+
     }
 
     /**

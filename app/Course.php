@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
 
     protected $table='courses';
     protected $fillable = ['name', 'description', 'price','image'];

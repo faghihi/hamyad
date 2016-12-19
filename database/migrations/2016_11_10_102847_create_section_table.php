@@ -46,7 +46,8 @@ class CreateSectionTable extends Migration
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
     protected $table='roles';
     protected $fillable = ['title'];
 

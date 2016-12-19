@@ -43,7 +43,8 @@ class CreateCoursesTable extends Migration
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categorys')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
 
 

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 
 {
-//    use SoftDeletes;
+    use SoftDeletes;
     protected $table='reviews';
     protected $fillable = ['comment','section_rate','user_id','course_rate','enable'];
 
