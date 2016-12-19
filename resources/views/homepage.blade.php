@@ -51,7 +51,7 @@
 
 		<!-- start Header -->
 		<header id="header">
-			@include('header',array('user'=>$Data['user']['name']))
+			@include('header')
 		</header>
 		<!-- end Header -->
 
@@ -71,9 +71,9 @@
 							<p class="lead text-center">ساعت ها آموزش کاربردی و تایید شده انتظار شما را میکشد</p>
 
 							<div class="input-group">
-								<input type="text" class="form-control placeholder-type-writter">
+								<input type="text" name="name" class="form-control placeholder-type-writter">
 								<span class="input-group-btn">
-									<button class="btn btn-primary" type="button"><i class="ion-ios-search-strong"></i></button>
+									<button class="btn btn-primary" onclick="gosearch1()" type="button"><i class="ion-ios-search-strong"></i></button>
 								</span>
 							</div><!-- /input-group -->
 						
@@ -670,6 +670,13 @@
 <script type="text/javascript" src="js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="js/customs.js"></script>
 <script type="text/javascript" src="js/control.js"></script>
+	<script type="text/javascript">
+		function gosearch1() {
+			var inp=$('input[name="name"]').val()
+			console.log(inp);
+			window.location.assign("/Searching?name="+inp);
+		}
+	</script>
 
 
 

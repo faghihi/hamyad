@@ -150,6 +150,7 @@ Route::get('/profile', function (){
     return view('profile.user-profile');
 });
 
+Route::get('/Searching','IndexController@Search');
 Route::get('/Date',function(){
     $date1 = new DateTime("2007-03-24");
     $date2 = new DateTime("2007-03-30");

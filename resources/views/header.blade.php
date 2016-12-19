@@ -10,11 +10,10 @@
 
                     <div class="row">
                         <div class="col-sm-offset-6 col-sm-6">
-                            @if(!isset($user) || $user=='0')
+                            @if(! Auth::check())
                             <div class="top-header-widget">
                                 <a href="/login" class="btn-ajax-login">
                                     <i class="ion-log-in mr-3"></i> ورود
-                                    {{--<i class="ion-log-in mr-3"></i> {{$user}}--}}
                                 </a>
                             </div>
                             <div class="top-header-widget ">
@@ -24,15 +23,44 @@
                             </div>
                             @else
                                 <div class="top-header-widget ">
-                                    {{$user}}
+                                    {{Auth::user()->name}}
                                         <span>خوش آمدی</span>
                                 </div>
+                                <div class="top-header-widget hidden-xs">
+                                    <a href="{{ url('/logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="ion-log-out mr-3"></i> خروج
+                                    </a>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
                             @endif
-                            <div class="top-header-widget hidden-xs">
-                                <a href="#">
-                                    <i class="ion-log-out mr-3"></i> خروج
-                                </a>
-                            </div>
+                                {{--@if(!isset($user) || $user=='0')--}}
+                            {{--<div class="top-header-widget">--}}
+                                {{--<a href="/login" class="btn-ajax-login">--}}
+                                    {{--<i class="ion-log-in mr-3"></i> ورود--}}
+                                {{--</a>--}}
+                            {{--</div>--}}
+                            {{--<div class="top-header-widget ">--}}
+                                {{--<a href="/register" class="btn-ajax-register">--}}
+                                    {{--<i class="ion-person-add mr-3"></i> ثبت نام--}}
+                                    {{--<i class="ion-person-add mr-3"></i> {{$user}}--}}
+                                {{--</a>--}}
+                            {{--</div>--}}
+                            {{--@else--}}
+                                {{--<div class="top-header-widget ">--}}
+                                    {{--{{$user}}--}}
+                                        {{--<span>خوش آمدی</span>--}}
+                                {{--</div>--}}
+                                {{--<div class="top-header-widget hidden-xs">--}}
+                                    {{--<a href="#">--}}
+                                        {{--<i class="ion-log-out mr-3"></i> خروج--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
 
 
                         </div>

@@ -251,7 +251,11 @@
 
 											<div class="row">
 
-												{{$Data->links('Pagination.default')}}
+												@if(! isset($Search))
+													{{$Data->links('Pagination.default')}}
+												@else
+													{!! $Data->appends(\Illuminate\Support\Facades\Input::except('page'))->render() !!}
+												@endif
 
 											</div>
 

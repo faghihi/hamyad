@@ -2,23 +2,6 @@
  * Created by hossein on 12/17/16.
  */
 
-// $('#subscribe').click(function () {
-//     var display2 = {};
-//     display2["Email"] = $('#submail').val();
-//     // console.log( JSON.stringify(display2) );
-//     $.ajax({
-//         Type:'get',
-//         dataType: 'json',
-//         url: '/Subscribe',
-//         data: {'data':JSON.stringify(display2)},
-//         success: function ($info) {
-//             alert('salam');
-//             // console.log($info);
-//             // $('#Enter_string').text($info.begining_numbers);
-//             console.log($info);
-//         }
-//     });
-// });
 $("#subscribe").click(function(){
     var url = $(this).attr("data-link");
 
@@ -52,17 +35,3 @@ $("#subscribe").click(function(){
         }
     }); //end of ajax
 });
-
-// function getMessage(){
-//     var display2 = {};
-//     display2["Email"] = $('#submail').val();
-//     $.ajax({
-//         type:'POST',
-//         url:'/Subscribe',
-//         data:{'_token': "<?php echo csrf_token() ?>",'data':JSON.stringify(display2)},
-//         success:function(data){
-//             // $("#msg").html(data.msg);
-//             console.log(data.msg);
-//         }
-//     });
-// }
