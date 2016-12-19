@@ -15,25 +15,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="/images/ico/favicon.png">
 
 	<!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/plugin.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/plugin.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
-	<link href="css/style.css" rel="stylesheet">
-
-	<!-- For your own style -->
-	<link href="css/your-style.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -354,12 +351,12 @@
 													<div class="course-item">
 														<a href="#">
 															<div class="course-item-image">
-																<img src="images/course-item/01.jpg" alt="Image" class="img-responsive" />
+																<img src="/images/course-item/01.jpg" alt="Image" class="img-responsive" />
 															</div>
 															<div class="course-item-top clearfix">
 																<div class="course-item-instructor">
 																	<div class="image">
-																		<img src="images/testimonial/01.jpg" alt="Image" class="img-circle" />
+																		<img src="/images/testimonial/01.jpg" alt="Image" class="img-circle" />
 																	</div>
 																	<span>Mark Lassoff </span>
 																</div>
@@ -389,12 +386,12 @@
 													<div class="course-item">
 														<a href="#">
 															<div class="course-item-image">
-																<img src="images/course-item/02.jpg" alt="Image" class="img-responsive" />
+																<img src="/images/course-item/02.jpg" alt="Image" class="img-responsive" />
 															</div>
 															<div class="course-item-top clearfix">
 																<div class="course-item-instructor">
 																	<div class="image">
-																		<img src="images/testimonial/02.jpg" alt="Image" class="img-circle" />
+																		<img src="/images/testimonial/02.jpg" alt="Image" class="img-circle" />
 																	</div>
 																	<span>Nicholas Mavrakis</span>
 																</div>
@@ -424,12 +421,12 @@
 													<div class="course-item">
 														<a href="#">
 															<div class="course-item-image">
-																<img src="images/course-item/03.jpg" alt="Image" class="img-responsive" />
+																<img src="/images/course-item/03.jpg" alt="Image" class="img-responsive" />
 															</div>
 															<div class="course-item-top clearfix">
 																<div class="course-item-instructor">
 																	<div class="image">
-																		<img src="images/testimonial/03.jpg" alt="Image" class="img-circle" />
+																		<img src="/images/testimonial/03.jpg" alt="Image" class="img-circle" />
 																	</div>
 																	<span>Ange Ermolova</span>
 																</div>
@@ -476,10 +473,10 @@
 										{{--<div class="course-item-wrapper alt-bg-white gap-20">--}}
 											{{--<div class="pricing-wrapper-02 clearfix">--}}
 
-												<div class="GridLex-gap-30 pricing-wrapper-02">
+										<div class="GridLex-gap-30 pricing-wrapper-02">
 											<div class="GridLex-grid-noGutter-equalHeight">
 
-												<div class="GridLex-col-12_sm-12_xs-12_xss-12">
+												<div class="GridLex-col-4_sm-12_xs-4_xss-4">
 
 													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
 
@@ -491,23 +488,11 @@
 
 														</div>
 
-														<div class="pricing-content">
-
-															<ul class="pricing-list">
-
-																<li>آموزش طراحی وب</li>
-																<li>آموزش جاوا اسکریپت</li>
-																<li>برای مشاهده ی لیست کامل کلیک کنید.</li>
-
-															</ul>
-
-														</div>
-
 													</a>
 
 												</div>
 
-												<div class="GridLex-col-12_sm-12_xs-12_xss-12">
+												<div class="GridLex-col-4_sm-12_xs-4_xss-4">
 
 													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
 
@@ -519,15 +504,19 @@
 
 														</div>
 
-														<div class="pricing-content">
+													</a>
 
-															<ul class="pricing-list">
+												</div>
 
-																<li>Instrument cultivated alteration</li>
-																<li>Favourable expression law</li>
-																<li>Both new like tore mutual</li>
+												<div class="GridLex-col-4_sm-12_xs-4_xss-4">
 
-															</ul>
+													<a href="#" class="pricing-item-02 clearfix" data-target="#packModalProfile" data-toggle="modal">
+
+														<div class="pricing-heading">
+
+															<h6 class="pricing-title">نام پک ماهانه</h6>
+															<p class="pricing-price">$38.99 <span> / ماهانه</span></p>
+															<p class="font-sm">تمام شده</p>
 
 														</div>
 
@@ -583,106 +572,30 @@
 </div>
 <!-- end Back To Top -->
 
-<div id="packModalProfile" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title text-center">لیست دروس بسته</h4>
-	</div>
-
-	<div class="modal-body">
-		<div class="row gap-20">
-
-			<div class="related-course mb-30">
-
-				<ul class="related-course-item mb-20">
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>Become a Certified Hadoop Developer</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-02.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>Microsoft Excel 2010: Advanced Training</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-03.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>The Java Spring Tutorial: Learn Java's Popular Web Framework</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-				</ul>
-
-			</div>
-
-		</div>
-	</div>
-
-	<div class="modal-footer text-center">
-		<button form="course-pur" type="button" class="btn btn-primary">خرید</button>
-		<button type="button" data-dismiss="modal" class="btn btn-dark">بستن</button>
-	</div>
-</div>
-
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
-<script type="text/javascript" src="bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/typed.js"></script>
-<script type="text/javascript" src="js/placeholderTypewriter.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-rating.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/creditly.js"></script>
-<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript" src="/bootstrap-rtl-3.3.4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/spin.min.js"></script>
+<script type="text/javascript" src="/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="/js/typed.js"></script>
+<script type="text/javascript" src="/js/placeholderTypewriter.js"></script>
+<script type="text/javascript" src="/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/select2.full.js"></script>
+<script type="text/javascript" src="/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="/js/readmore.min.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-rating.js"></script>
+<script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="/js/customs.js"></script>
 
 <script>
 	!function ($) {

@@ -1818,6 +1818,11 @@ input[type='checkbox']:checked + label:before {
     overflow: visible
 }
 
+.pack .modal-body{
+    max-height: 450px;
+    overflow-y: auto;
+}
+
 .modal.modal-absolute {
     position: absolute;
     z-index: 950
