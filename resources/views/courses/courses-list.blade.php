@@ -96,6 +96,13 @@
 
 								<div class="content-wrapper mb-10">
 
+									@if (isset($_GET['error']))
+										<div class="alert alert-danger">
+											<p>
+												لزوما باید فیلد تگ را پر نمایید . برای مشاهده ی بر اساس دسته بندی ها در صفه ی اصلی و دسته ی مورد نظرتان کلیک نمایید
+											</p>
+										</div>
+									@endif
 									<div class="sorting-wrappper">
 
 										<div class="sorting-form">
@@ -112,20 +119,11 @@
 
 																<div class="col-xs-12 col-sm-7 col-md-7">
 
-																	<div class="form-group">
+																	<div class="form-group" id="tagss">
 																		<select class="select2-multi form-control" dir="rtl" multiple data-placeholder="Java" data-maximum-selection-length="5" style="width: 100%;float: right;">
-																			<option>All tags</option>
-																			<option value="0"> Mathematics</option>
-																			<option value="1"> Business</option>
-																			<option value="2"> Computer</option>
-																			<option value="3"> Marketing</option>
-																			<option value="4"> Physics</option>
-																			<option value="5"> Biology</option>
-																			<option value="6"> Chemistry</option>
-																			<option value="7"> Programming</option>
-																			<option value="8"> Engineering</option>
-																			<option value="9"> Design</option>
-																			<option value="9"> Design</option>
+																			@foreach($Tags as $tag)
+																				<option value="{{$tag['id']}}">{{$tag['tag_name']}}</option>
+																			@endforeach
 																		</select>
 																	</div>
 
@@ -133,20 +131,11 @@
 
 																<div class="col-xs-12 col-sm-5 col-md-5">
 
-																	<div class="form-group">
+																	<div class="form-group" id="catss">
 																		<select class="select2-multi form-control" multiple data-placeholder="All Category" data-maximum-selection-length="3" style="width: 100%;">
-																			<option>All Category</option>
-																			<option value="0"> Mathematics</option>
-																			<option value="1"> Business</option>
-																			<option value="2"> Computer</option>
-																			<option value="3"> Marketing</option>
-																			<option value="4"> Physics</option>
-																			<option value="5"> Biology</option>
-																			<option value="6"> Chemistry</option>
-																			<option value="7"> Programming</option>
-																			<option value="8"> Engineering</option>
-																			<option value="9"> Design</option>
-																			<option value="9"> Design</option>
+																			@foreach($Categories as $cat)
+																				<option value="{{$cat['id']}}">{{$cat['name']}}</option>
+																			@endforeach
 																		</select>
 																	</div>
 
@@ -157,7 +146,7 @@
 														</div>
 
 														<div class="col-xs-12 col-sm-2 col-md-2 mt-12-xs">
-															<button class="btn btn-block btn-primary btn-form"><i class="fa fa-search"></i></button>
+															<button class="btn btn-block btn-primary btn-form" onclick="gosearch()"><i class="fa fa-search"></i></button>
 														</div>
 
 													</div>
@@ -232,7 +221,7 @@
 																</div>
 
 																<h3 class="text-primary">{{$course['name']}}</h3>
-																<p>{{$course['description']}}</p>
+																<p> {!! $course['description'] !!} </p>
 
 															</div>
 															<div class="course-item-instructor">
@@ -335,6 +324,28 @@
 <script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="/js/customs.js"></script>
+	<script type="text/javascript">
+		function gosearch() {
+			var count=0;
+			var str='';
+			$('#catss .select2-selection__choice').each(function () {
+				count++;
+			});
+			for (var i=0;i<count;i++)
+				str+='cat'+i+'='+$('#catss .select2-selection__choice').eq(i).attr('title')+'&';
+
+			var count1=0;
+			var str1='';
+			$('#tagss .select2-selection__choice').each(function () {
+				count1++;
+			});
+			for (var j=0;j<count1;j++)
+				str1+='tag'+j+'='+$('#tagss .select2-selection__choice').eq(j).attr('title')+'&';
+			console.log(str);
+			console.log(str1);
+			window.location.assign("/Courses/Search?"+str+str1);
+		}
+	</script>
 
 
 </body>

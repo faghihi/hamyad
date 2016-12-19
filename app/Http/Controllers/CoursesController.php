@@ -14,6 +14,8 @@ use App\Section;
 use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
+use Barryvdh\Reflection\DocBlock\Type\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 use App\Http\Requests\StoreCoursesRequest;
 
@@ -109,9 +111,14 @@ class CoursesController extends Controller
 
     public function ShowSpecificCourse(Course $course)
     {
-        $course['Teachers']='';
+        $course['Teachers']="";
+        $counter=0;
         foreach ($course->teachers as $teacher){
-            $course['Teachers']=$course['Teachers'].",".$teacher->name;
+            if($counter)
+                $course['Teachers']=$course['Teachers'].",".$teacher->name;
+            else
+                $course['Teachers']=$teacher->name;
+            $counter++;
         }
         $rate_count=0;
         $rate_value=0;
@@ -216,17 +223,15 @@ class CoursesController extends Controller
 
     /* Search in Courses */
 
-    public function Search()
+    public function Search(Request $request)
     {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $input = Input::all();
         $tagnumber = 0;
         while (Input::has('tag' . $tagnumber)) {
             $input['tag'.$tagnumber]=strtolower($input['tag'.$tagnumber]);
             $input['tag'.$tagnumber]=ucfirst($input['tag'.$tagnumber]);
             $tagnumber++;
-        }
-        if($tagnumber==0){
-            return redirect('/');
         }
         $result=array();
         $list=array();
@@ -237,6 +242,32 @@ class CoursesController extends Controller
             })->get();
             foreach ($courses as $course){
 //                echo $course->name." ";
+                $course['Teachers']="";
+                $counter=0;
+                foreach ($course->teachers as $teacher){
+                    if($counter)
+                        $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                    else
+                        $course['Teachers']=$teacher->name;
+                    $counter++;
+                }
+                $rate_count=0;
+                $rate_value=0;
+                foreach ($course->rates as $rate){
+                    $rate_count++;
+                    $rate_value +=$rate->pivot->rate;
+                }
+                $count=0;
+                $time=0;
+                foreach ($course->section as $section){
+                    $count++;
+                    $time+=$section->time;
+                }
+                $course['sections_time']=$time;
+                $course['sections_count']=$count;
+                $course['rates_value']=$rate_value;
+                $course['rates_count']=$rate_count;
+                $counter=$course->category->name;
                 if(!in_array($course->id,$list)){
                     $result[]=$course;
                     $list[]=$course->id;
@@ -245,13 +276,27 @@ class CoursesController extends Controller
         }
         $category_list=array();
         $catnumber = 0;
-        while (Input::has('Cat' . $catnumber)) {
-            $category_list[]=$input['Cat'.$catnumber];
+        while (Input::has('cat' . $catnumber)) {
+            $category_list[]=$input['cat'.$catnumber];
             $catnumber++;
         }
+        if($tagnumber==0){
+            return redirect('/courses?error=tag');
+        }
+        $tags=Tag::all();
+        $Categories=Category::all();
         if($catnumber==0)
         {
-            return $result;
+            $total=count($result);
+            $col =$result;
+            $perPage = 10;
+//            $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+            $offset = ($currentPage * $perPage) - $perPage;
+            $entries = new LengthAwarePaginator(array_slice($result, $offset, $perPage, true), count($col), $perPage, $currentPage,['path' => $request->url(), 'query' => $request->query()]);
+            $entries->setPath('/Courses/Search');
+            return view('courses.courses-list')->with(['Data'=>$entries,'course_count'=>$total,'Search'=>'1','Tags'=>$tags,'Categories'=>$Categories]);
+//                echo 1;
+//            return $result;
 //            foreach ($result as $k){
 //                echo $k->name.'<br>';
 //            }
@@ -264,7 +309,15 @@ class CoursesController extends Controller
                     $Data[]=$item;
                 }
             }
-            return $Data;
+            $total=count($Data);
+            $col =$Data;
+            $perPage = 10;
+            $offset = ($currentPage * $perPage) - $perPage;
+            $entries = new LengthAwarePaginator(array_slice($Data, $offset, $perPage, true), count($col), $perPage, $currentPage,['path' => $request->url(), 'query' => $request->query()]);
+            $entries->setPath('/Courses/Search');
+//            return $Data;
+//            echo 0;
+            return view('courses.courses-list')->with(['Data'=>$entries,'course_count'=>$total,'Search'=>'1','Tags'=>$tags,'Categories'=>$Categories]);
 //            foreach ($Data as $k){
 //                echo $k->name.'<br>';
 //            }
