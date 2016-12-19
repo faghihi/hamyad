@@ -25,9 +25,13 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
+	<link href="/css/video-js.css" rel="stylesheet">
 	<link href="/css/animate.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/css/plugin.css" rel="stylesheet">
+
+	<!-- video.js -->
+	<link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
 	<link href="/css/style.css" rel="stylesheet">
@@ -107,8 +111,18 @@
 							
 									<div class="watching-content-wrapper">
 
-										<div class="flex-video vimeo mb-40"> 
-											<iframe src="http://player.vimeo.com/video/43499940" allowfullscreen></iframe> 
+										<div class="flex-video mb-40">
+
+
+											<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="/videos/02.png" data-setup='{"fluid": true}'>
+
+												<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+												<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+												<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+
+
+											</video>
+
 										</div>
 										
 										<div class="watching-pager-wrapper">
@@ -121,7 +135,7 @@
 														</a>
 													</li>
 												@else
-													<li>قسمت آخر</li>
+													<li></li>
 												@endif
 												@if($section['pre']!='first')
 												<li class="next">
@@ -131,7 +145,9 @@
 													</a>
 												</li>
 												@else
-													<li>قسمت اول</li>
+													<li>
+
+													</li>
 												@endif
 											</ul>
 										</div>
@@ -343,10 +359,18 @@
 <script type="text/javascript" src="/js/bootstrap-rating.js"></script>
 <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/video.min.js"></script>
+<script type="text/javascript" src="/js/videojs-ie8.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="/js/customs.js"></script>
 
+<!-- Call the plugin -->
+<script>
+jQuery(function() {
+    jQuery('video, audio').acornMediaPlayer();
+});
+</script>
 
 </body>
 
