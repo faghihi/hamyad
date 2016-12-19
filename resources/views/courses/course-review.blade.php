@@ -158,141 +158,24 @@
 
 													<div class="row">
 
-														<div class="col-xs-12 col-sm-12 col-md-3">
+														<div class="col-xs-12 col-sm-12 col-md-12">
 
 															<div class="review-overall">
 
-																<h5>Score Breakdown</h5>
+																<h5>رتبه ی درس</h5>
 																<p class="review-overall-point">5.0/ <span>4.6</span> </p>
 
 																<div class="rating-wrapper">
 																	<div class="rating-item">
 																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
 																	</div>
-																	<span> (7 review)</span>
+																	<span> (7 نظر)</span>
 																</div>
-																<p class="review-overall-recommend">90% recommend this course</p>
-															</div>
-
-														</div>
-
-														<div class="col-xs-12 col-sm-12 col-md-9">
-
-															<div class="review-overall-breakdown">
-
-																<div class="row gap-20">
-
-																	<div class="col-xs-12 col-sm-7">
-
-																		<h5>Score Breakdown</h5>
-
-																		<ul class="breakdown-list right">
-
-																			<li class="clearfix">
-																				<div class="rating-wrapper">
-																					<div class="rating-item">
-																						<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="5.0"/>
-																					</div>
-																					<span> (5)</span>
-																				</div>
-																				<div class="progress progress-primary">
-																					<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-																				</div>
-																				<div class="breakdown-count"> (58)</div>
-																			</li>
-
-																			<li class="clearfix">
-																				<div class="rating-wrapper">
-																					<div class="rating-item">
-																						<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="4.0"/>
-																					</div>
-																					<span> (4)</span>
-																				</div>
-																				<div class="progress progress-primary">
-																					<div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%;"></div>
-																				</div>
-																				<div class="breakdown-count"> (132)</div>
-																			</li>
-
-																			<li class="clearfix">
-																				<div class="rating-wrapper">
-																					<div class="rating-item">
-																						<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.0"/>
-																					</div>
-																					<span> (3)</span>
-																				</div>
-																				<div class="progress progress-primary">
-																					<div class="progress-bar" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
-																				</div>
-																				<div class="breakdown-count"> (89)</div>
-																			</li>
-
-																			<li class="clearfix">
-																				<div class="rating-wrapper">
-																					<div class="rating-item">
-																						<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="2.0"/>
-																					</div>
-																					<span> (2)</span>
-																				</div>
-																				<div class="progress progress-primary">
-																					<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-																				</div>
-																				<div class="breakdown-count"> (58)</div>
-																			</li>
-
-																			<li class="clearfix">
-																				<div class="rating-wrapper">
-																					<div class="rating-item">
-																						<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="1.0"/>
-																					</div>
-																					<span> (1)</span>
-																				</div>
-																				<div class="progress progress-primary">
-																					<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
-																				</div>
-																				<div class="breakdown-count"> (9)</div>
-																			</li>
-
-																		</ul>
-
-																	</div>
-
-																	<div class="col-xs-12 col-sm-5 col-md-4">
-
-																		<h5>Average Rating For</h5>
-																		<ul class="breakdown-list for-avg clearfix">
-
-																			<li>
-																				Content <span class="pull-left">4.5</span>
-																			</li>
-
-																			<li>
-																				Knowledge <span class="pull-left">4.5</span>
-																			</li>
-
-																			<li>
-																				Assignment <span class="pull-left">4.2</span>
-																			</li>
-
-																			<li>
-																				Classroom <span class="pull-left">3.8</span>
-																			</li>
-
-																			<li>
-																				Instructor <span class="pull-left">4.4</span>
-																			</li>
-
-																		</ul>
-
-																	</div>
-
-																</div>
-
+																<p class="review-overall-recommend">90% از کاربران این درس را به شما پیشنهاد می کنند.</p>
 
 															</div>
 
 														</div>
-
 													</div>
 
 												</div>
