@@ -105,6 +105,7 @@
 									@endif
 									<div class="sorting-wrappper">
 
+										@if(! isset($Pack))
 										<div class="sorting-form">
 
 											<div id="change-search" class="collapse">
@@ -155,6 +156,7 @@
 											</div>
 
 										</div>
+										@endif
 
 										<div class="sorting-header">
 
@@ -164,9 +166,11 @@
 													<h4>تعداد {{$course_count}} درس یافت شد</h4>
 												</div>
 
+												@if(! isset($Pack))
 												<div class="col-xss-12 col-xs-12 col-sm-5 col-md-3">
 													<button class="btn btn-primary btn-block btn-toggle collapsed btn-form btn-inverse btn-sm" data-toggle="collapse" data-target="#change-search"></button>
 												</div>
+												@endif
 
 											</div>
 
@@ -193,10 +197,12 @@
 																<img src="{{$image}}" alt="Image" class="img-responsive" />
 															</div>
 															<div class="course-item-top clearfix">
-																<div class="course-item-instructor text-left">
-																	<span>{{$course['provider'][0]['name']}}</span>&nbsp;
-																	<i class="fa fa-building-o" aria-hidden="true"></i>
-																</div>
+																@if(isset($course['provider'][0]))
+																		<div class="course-item-instructor text-left">
+																			<span>{{$course['provider'][0]['name']}}</span>&nbsp;
+																			<i class="fa fa-building-o" aria-hidden="true"></i>
+																		</div>
+																@endif
 																<div class="course-item-price bg-danger">
 																	@if($course['price'] > 1000)
 																		<?php $price=$course['price']/1000 . ' هزار تومان'?>
@@ -251,11 +257,7 @@
 
 											<div class="row">
 
-												@if(! isset($Search))
-													{{$Data->links('Pagination.default')}}
-												@else
-													{!! $Data->appends(\Illuminate\Support\Facades\Input::except('page'))->render() !!}
-												@endif
+												{{$Data->links('Pagination.default')}}
 
 											</div>
 

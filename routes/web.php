@@ -146,9 +146,7 @@ Route::get('/cooperate', function (){
 Route::get('/packages', function (){
     return view('courses.packages');
 });
-Route::get('/profile', function (){
-    return view('profile.user-profile');
-});
+Route::get('/profile', 'UsersOperation@Profile');
 
 Route::get('/Searching','IndexController@Search');
 Route::get('/Date',function(){

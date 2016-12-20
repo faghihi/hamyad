@@ -169,7 +169,10 @@ class CoursesController extends Controller
         foreach ($course->tags as $tag){
             foreach ($tag->courses as $item){
                 if(in_array($item->id,$notvalid))
+                {
                     continue;
+                }
+
                 $i++;
                 $counter11=$item->provider;
                 $item['Teachers']="";

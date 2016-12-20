@@ -498,10 +498,12 @@
 																			<img src="{{$image}}" alt="Image" class="img-responsive" />
 																		</div>
 																		<div class="course-item-top clearfix">
+																			@if(isset($course['relate'.$i]['provider'][0]))
 																			<div class="course-item-instructor text-left">
 																				<span>{{$course['relate'.$i]['provider'][0]['name']}}</span>&nbsp;
 																				<i class="fa fa-building-o" aria-hidden="true"></i>
 																			</div>
+																			@endif
 																			<div class="course-item-price bg-danger">
 																				@if($course['relate'.$i]['price'] > 1000)
 																					<?php $price=$course['relate'.$i]['price']/1000 . ' هزار تومان'?>

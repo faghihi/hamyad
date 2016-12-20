@@ -114,11 +114,9 @@
 										<div class="flex-video mb-40">
 
 
-											<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="/videos/02.png" data-setup='{"fluid": true}'>
+											<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="/images/blog/01.jpg" data-setup='{"fluid": true}'>
 
-												<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-												<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-												<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+												<source src="{{$section['link']}}" type="video/mp4">
 
 
 											</video>
