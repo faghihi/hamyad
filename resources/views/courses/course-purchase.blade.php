@@ -43,7 +43,7 @@
 	
 </head>
 
-<body>
+<body id="attend">
 
 <!-- start Container Wrapper -->
 <div class="container-wrapper">
@@ -190,11 +190,11 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-1" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-1" name="featured_checkbox" value="general" type="checkbox" class="checkbox" checked/>
 															<label class="clearfix" for="featured_checkbox-1">
 																<span class="h6">مبلغ اصلی</span>
 																<span class="p">Comparison dissimilar unpleasant six compliment. Ashamed company thought wishing colonel prevent.</span>
-																<span class="price">$12.43</span>
+																<span class="price">150 هزار تومان</span>
 															</label>
 														</div>
 													</div>
@@ -205,11 +205,11 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-2" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-2" name="featured_checkbox" value="daily" type="checkbox" class="checkbox"/>
 															<label class="clearfix" for="featured_checkbox-2">
 																<span class="h6">قیمت روزانه</span>
 																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																<span class="price">$12.43</span>
+																<span class="price">12 هزار تومان</span>
 															</label>
 														</div>
 													</div>
@@ -220,11 +220,11 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-3" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-3" name="featured_checkbox" value="month" type="checkbox" class="checkbox"/>
 															<label class="clearfix" for="featured_checkbox-3">
 																<span class="h6">ماهانه</span>
 																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																<span class="price">$12.43</span>
+																<span class="price">50 هزار تومان</span>
 															</label>
 														</div>
 													</div>
@@ -235,11 +235,11 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-4" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-4" name="featured_checkbox" value="year" type="checkbox" class="checkbox"/>
 															<label class="clearfix" for="featured_checkbox-4">
 																<span class="h6">سالانه</span>
 																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																<span class="price">$12.43</span>
+																<span class="price">100هزار تومان</span>
 															</label>
 														</div>
 													</div>
@@ -284,8 +284,8 @@
 											<div id="paymentPaypal" class="payment-option-form">
 												<div class="inner">
 
-													<h4 class="text-primary">مبلغ پرداختی: <span class="font700"><span  id="full-price">100</span> هزار تومان </span></h4>
-													<p>به جای: <strong><span id="now-price">150 </span> هزار تومان</strong>. </p>
+													<h4 class="text-primary">مبلغ پرداختی: <span class="font700" id="full-price">100 هزار تومان </span></h4>
+													<p>به جای: <strong id="now-price">150 هزار تومان</strong>. </p>
 													<p><span class="text-warning">تذکر </span>ابتدا مبلغ را انتخاب کرده و سپس کد تخفیف را اعمال کنید، در غیر اینصورت مبلغ محاصبه نمی شود.</p>
 												</div>
 

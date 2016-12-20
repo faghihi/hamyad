@@ -431,4 +431,18 @@ $('#profile').ready(function () {
 });
 
 
+$('#attend').ready(function () {
 
+	$('#full-price:eq(0)').text($('input[name="featured_checkbox"]:checked').siblings().find('.price').eq(0).text());
+
+	$('input[name="featured_checkbox"]').change(function(){
+
+		$('input[name="featured_checkbox"]').prop('checked',false);
+		$(this).prop('checked',true);
+
+		var price= $(this).siblings().find('.price').eq(0).text();
+		$('#full-price:eq(0)').text(price);
+	});
+
+
+});
