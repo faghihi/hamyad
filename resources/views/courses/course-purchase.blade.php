@@ -45,357 +45,333 @@
 
 <body>
 
+<!-- start Container Wrapper -->
+<div class="container-wrapper">
 
-	<!-- start Container Wrapper -->
-	<div class="container-wrapper">
+	<!-- start Header -->
+	<header id="header">
 
-		<!-- start Header -->
-		<header id="header">
-	  
-			@include('header')
+		@include('header')
 
-		</header>
-		<!-- end Header -->
+	</header>
+	<!-- end Header -->
 
-		<!-- start Main Wrapper -->
-		<div class="main-wrapper scrollspy-container">
-		
-			<div class="breadcrumb-wrapper">
-			
-				<div class="container">
-				
-					<h1 class="page-title">خرید</h1>
-					
-					<div class="row">
-					
-						<div class="col-xs-12 col-sm-8">
-							<ol class="breadcrumb">
-								<li><a href="/">صفحه اصلی</a></li>
-								<li><a href="#">دروس</a></li>
-								<li class="active">خرید</li>
-							</ol>
-						</div>
-						
-						<div class="col-xs-12 col-sm-4 hidden-xs">
-							<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
-						</div>
-						
+	<!-- start Main Wrapper -->
+	<div class="main-wrapper scrollspy-container">
+
+		<div class="breadcrumb-wrapper">
+
+			<div class="container">
+
+				<h1 class="page-title">خرید</h1>
+
+				<div class="row">
+
+					<div class="col-xs-12 col-sm-8">
+						<ol class="breadcrumb">
+							<li><a href="/">صفحه اصلی</a></li>
+							<li><a href="#">دروس</a></li>
+							<li class="active">خرید</li>
+						</ol>
 					</div>
-					
+
+					<div class="col-xs-12 col-sm-4 hidden-xs">
+						<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
+					</div>
+
 				</div>
 
 			</div>
-			
-			<div class="equal-content-sidebar-wrapper detail-page-wrapper">
-				
-				<div class="equal-content-sidebar-by-gridLex right-sidebar">
-	
-					<div class="container">
-					
-						<div class="GridLex-grid-noGutter-equalHeight">
-							
-							<div class="GridLex-col-3_sm-4_xs-12_xss-12">
-							
-								<aside class="sidebar-wrapper">
-							
-									<div class="scrollspy-sidebar alt-style-01">
 
-										<div class="sidebar-header clearfix">
-											<h4 class="mb-15">خرید:</h4>
-										</div>
+		</div>
 
-										<div class="related-course mb-30">
+		<div class="equal-content-sidebar-wrapper detail-page-wrapper">
 
-											<ul class="related-course-item mb-20">
-												<li class="clearfix">
-													<a href="#">
-														<div class="image">
-															<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-														</div>
-														<div class="content">
-															<h6>Become a Certified Hadoop Developer</h6>
-															<div class="rating-wrapper">
-																<div class="rating-item">
-																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																</div>
-																<span>(7 review)</span>
-															</div>
-															<span class="price">$199.<small>98</small></span>
-														</div>
-													</a>
-												</li>{{--
-												<li class="clearfix">
-													<a href="#">
-														<div class="image">
-															<img src="images/course/course-item-sm-02.jpg" alt="Related Course" />
-														</div>
-														<div class="content">
-															<h6>Microsoft Excel 2010: Advanced Training</h6>
-															<div class="rating-wrapper">
-																<div class="rating-item">
-																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																</div>
-																<span>(7 review)</span>
-															</div>
-															<span class="price">$199.<small>98</small></span>
-														</div>
-													</a>
-												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="image">
-															<img src="images/course/course-item-sm-03.jpg" alt="Related Course" />
-														</div>
-														<div class="content">
-															<h6>The Java Spring Tutorial: Learn Java's Popular Web Framework</h6>
-															<div class="rating-wrapper">
-																<div class="rating-item">
-																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																</div>
-																<span>(7 review)</span>
-															</div>
-															<span class="price">$199.<small>98</small></span>
-														</div>
-													</a>
-												</li>--}}
-											</ul>
+			<div class="equal-content-sidebar-by-gridLex right-sidebar">
 
-										</div>
+				<div class="container">
 
+					<div class="GridLex-grid-noGutter-equalHeight">
+
+						<div class="GridLex-col-3_sm-4_xs-12_xss-12">
+
+							<aside class="sidebar-wrapper">
+
+								<div class="scrollspy-sidebar alt-style-01">
+
+									<div class="sidebar-header clearfix">
+										<h4 class="mb-15">خرید:</h4>
 									</div>
 
-								</aside>
+									<div class="related-course mb-30">
 
-							</div>
-
-							<div class="GridLex-col-9_sm-8_xs-12_xss-12">
-
-								<div class="content-wrapper">
-
-									<div class="payment-content-wrapper mb-0">
-
-										<form id="payment-form" class="creditly-card-form">
-
-										<div class="row">
-
-											<div class="col-xs-12 col-md-8">
-													<div class="section-title text-right mb-20">
-														<h3 class="mb-10">اطلاعات</h3>
+										<ul class="related-course-item mb-20">
+											<li class="clearfix">
+												<a href="#">
+													<div class="image">
+														<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
 													</div>
-											</div>
-
-										</div>
-
-											<div class="payment-content-box">
-
-												<div class="row gap-20">
-
-													<div class="col-xs-12 col-sm-12 col-md-12">
-
-														<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-primary">نام خریدار</h6></div>
-														<div class="col-xs-9 col-sm-12 col-md-9"><p>{{$user['name']}}</p></div>
-
+													<div class="content">
+														<h6>Become a Certified Hadoop Developer</h6>
+														<br>
+														<span class="price">$199.<small>98</small></span>
 													</div>
-
-													<br>
-
-													<div class="col-xs-12 col-sm-12 col-md-12">
-														<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-danger">مبلغ</h6></div>
-														<div class="col-xs-9 col-sm-12 col-md-9"><p><b>55</b>&nbsp;هزار تومان</p></div>
-													</div>
-
-													<div class="col-xs-12 col-sm-12 col-md-12">
-
-														<div class="form-group">
-
-															<div class="col-xs-3 col-sm-12 col-md-3">
-
-																<label>کد تخفیف: </label>
-
-															</div>
-
-															<div class="col-xs-9 col-sm-12 col-md-9">
-
-																<input form="payment-form" type="text" class="form-control" placeholder="کد" />
-
-															</div>
-
-														</div>
-
-													</div>
-
-												</div>
-
-											</div>
-
-											<div class="row">
-
-												<div class="col-xs-12 col-md-12">
-														<div class="section-title text-right mb-20">
-															<h3 class="mb-10">قیمت</h3>
-														</div>
-												</div>
-
-											</div>
-
-											<div class="payment-content-box">
-
-												<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
-
-													<div class="GridLex-grid-noGutter-equalHeight">
-
-														<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-
-															<div class="featured-checkbox">
-																<div class="checkbox-block">
-																	<input id="featured_checkbox-1" name="featured_checkbox" type="checkbox" class="checkbox"/>
-																	<label class="clearfix" for="featured_checkbox-1">
-																		<span class="h6">مبلغ اصلی</span>
-																		<span class="p">Comparison dissimilar unpleasant six compliment. Ashamed company thought wishing colonel prevent.</span>
-																		<span class="price">$12.43</span>
-																	</label>
-																</div>
-															</div>
-
-														</div>
-
-														<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-
-															<div class="featured-checkbox">
-																<div class="checkbox-block">
-																	<input id="featured_checkbox-2" name="featured_checkbox" type="checkbox" class="checkbox"/>
-																	<label class="clearfix" for="featured_checkbox-2">
-																		<span class="h6">قیمت روزانه</span>
-																		<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																		<span class="price">$12.43</span>
-																	</label>
-																</div>
-															</div>
-
-														</div>
-
-														<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-
-															<div class="featured-checkbox">
-																<div class="checkbox-block">
-																	<input id="featured_checkbox-3" name="featured_checkbox" type="checkbox" class="checkbox"/>
-																	<label class="clearfix" for="featured_checkbox-3">
-																		<span class="h6">ماهانه</span>
-																		<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																		<span class="price">$12.43</span>
-																	</label>
-																</div>
-															</div>
-
-														</div>
-
-														<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-
-															<div class="featured-checkbox">
-																<div class="checkbox-block">
-																	<input id="featured_checkbox-4" name="featured_checkbox" type="checkbox" class="checkbox"/>
-																	<label class="clearfix" for="featured_checkbox-4">
-																		<span class="h6">سالانه</span>
-																		<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																		<span class="price">$12.43</span>
-																	</label>
-																</div>
-															</div>
-
-														</div>
-
-													</div>
-
-												</div>
-
-											</div>
-
-											<div class="row">
-
-												<div class="col-xs-12 col-md-8">
-														<div class="section-title text-left mb-20">
-															<h3 class="mb-10">انتخاب درگاه پرداخت</h3>
-														</div>
-												</div>
-
-											</div>
-
-											<div class="payment-content-box">
-
-												<div id="paymentOption" class="payment-option-wrapper">
-
-													<div class="row">
-
-														<div class="col-sm-12">
-
-															<div class="radio-block font-icon-radio">
-																<input id="payments1" name="payments" type="radio" class="radio" value="paymentsCreditCard" />
-																<label class="" for="payments1"><span>بانک ملی</span> <img src="images/payment-credit-cards.jpg" alt="Image"></label>
-															</div>
-
-														</div>
-
-														<div class="clear mb-10"></div>
-
-														<div class="col-sm-12">
-															<div class="radio-block font-icon-radio">
-																<input id="payments2" name="payments" type="radio" class="radio" value="paymentPaypal"/>
-																<label class="" for="payments2"><span>بانک تجارت</span> <img src="images/payment-paypal.jpg" alt="Image"></label>
-															</div>
-														</div>
-														
-													</div>
-												
-												</div>
-												
-											</div>
-									
-											<a href="#" class="btn btn-primary mt-10">Proceed to payment</a>
-											
-										</form>
+												</a>
+											</li>
+										</ul>
 
 									</div>
 
 								</div>
-								
+
+							</aside>
+
+						</div>
+
+						<div class="GridLex-col-9_sm-8_xs-12_xss-12">
+
+							<div class="content-wrapper">
+
+								<div class="payment-content-wrapper mb-0">
+
+									<form id="payment-form" class="creditly-card-form"></form>
+
+									<form id="coupon-form" ></form>
+
+									<div class="row">
+
+										<div class="col-xs-12 col-md-8">
+											<div class="section-title text-right mb-20">
+												<h3 class="mb-10">اطلاعات</h3>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="payment-content-box">
+
+										<div class="row gap-20">
+
+											<div class="col-xs-12 col-sm-12 col-md-12">
+
+												<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-primary">نام خریدار</h6></div>
+												<div class="col-xs-9 col-sm-12 col-md-9"><p>{{$user['name']}}</p></div>
+
+											</div>
+
+											<br>
+
+											<div class="col-xs-12 col-sm-12 col-md-12">
+												<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-primary">ایمیل</h6></div>
+												<div class="col-xs-9 col-sm-12 col-md-9"><p>rk.mirzaee.m@gmail.com</p></div>
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="row">
+
+										<div class="col-xs-12 col-md-12">
+											<div class="section-title text-right mb-20">
+												<h3 class="mb-10">قیمت</h3>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="payment-content-box">
+
+										<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
+
+											<div class="GridLex-grid-noGutter-equalHeight">
+
+												<div class="GridLex-col-6_sm-6_xs-12_xss-12">
+
+													<div class="featured-checkbox">
+														<div class="checkbox-block">
+															<input id="featured_checkbox-1" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<label class="clearfix" for="featured_checkbox-1">
+																<span class="h6">مبلغ اصلی</span>
+																<span class="p">Comparison dissimilar unpleasant six compliment. Ashamed company thought wishing colonel prevent.</span>
+																<span class="price">$12.43</span>
+															</label>
+														</div>
+													</div>
+
+												</div>
+
+												<div class="GridLex-col-6_sm-6_xs-12_xss-12">
+
+													<div class="featured-checkbox">
+														<div class="checkbox-block">
+															<input id="featured_checkbox-2" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<label class="clearfix" for="featured_checkbox-2">
+																<span class="h6">قیمت روزانه</span>
+																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
+																<span class="price">$12.43</span>
+															</label>
+														</div>
+													</div>
+
+												</div>
+
+												<div class="GridLex-col-6_sm-6_xs-12_xss-12">
+
+													<div class="featured-checkbox">
+														<div class="checkbox-block">
+															<input id="featured_checkbox-3" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<label class="clearfix" for="featured_checkbox-3">
+																<span class="h6">ماهانه</span>
+																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
+																<span class="price">$12.43</span>
+															</label>
+														</div>
+													</div>
+
+												</div>
+
+												<div class="GridLex-col-6_sm-6_xs-12_xss-12">
+
+													<div class="featured-checkbox">
+														<div class="checkbox-block">
+															<input id="featured_checkbox-4" name="featured_checkbox" type="checkbox" class="checkbox"/>
+															<label class="clearfix" for="featured_checkbox-4">
+																<span class="h6">سالانه</span>
+																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
+																<span class="price">$12.43</span>
+															</label>
+														</div>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+
+										<br><br>
+
+										<div class="row">
+
+											<div class="form-group">
+
+												<div class="col-xs-2 col-sm-12 col-md-2">
+
+													<label class="text-primary">کد تخفیف: </label>
+
+												</div>
+
+												<div class="col-xs-4 col-sm-12 col-md-4">
+
+													<input form="payment-form" type="text" class="form-control" placeholder="کد" />
+
+												</div>
+
+												<div class="col-xs-2 col-sm-12 col-md-2">
+
+													<button class="btn btn-danger btn-block btn-sm mt-5">بررسی</button>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
+
+											<div id="paymentPaypal" class="payment-option-form">
+												<div class="inner">
+
+													<h4 class="text-primary">مبلغ پرداختی: <span class="font700"><span  id="full-price">100</span> هزار تومان </span></h4>
+													<p>به جای: <strong><span id="now-price">150 </span> هزار تومان</strong>. </p>
+													<p><span class="text-warning">تذکر </span>ابتدا مبلغ را انتخاب کرده و سپس کد تخفیف را اعمال کنید، در غیر اینصورت مبلغ محاصبه نمی شود.</p>
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="row">
+
+										<div class="col-xs-12 col-md-8">
+											<div class="section-title text-left mb-20">
+												<h3 class="mb-10">انتخاب درگاه پرداخت</h3>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="payment-content-box">
+
+										<div id="paymentOption" class="payment-option-wrapper">
+
+											<div class="row">
+
+												<div class="col-sm-12">
+
+													<div class="radio-block font-icon-radio">
+														<input id="payments1" name="payments" type="radio" class="radio" value="paymentsCreditCard" />
+														<label class="" for="payments1"><span>بانک ملی</span> <img src="images/payment-credit-cards.jpg" alt="Image"></label>
+													</div>
+
+												</div>
+
+												<div class="clear mb-10"></div>
+
+												<div class="col-sm-12">
+													<div class="radio-block font-icon-radio">
+														<input id="payments2" name="payments" type="radio" class="radio" value="paymentPaypal"/>
+														<label class="" for="payments2"><span>بانک تجارت</span> <img src="images/payment-paypal.jpg" alt="Image"></label>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<button form="coupon-form" class="btn btn-primary mt-10">Proceed to payment</button>
+
+								</div>
+
 							</div>
 
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 
 			</div>
-			
-			
-		</div>
-		<!-- end Main Wrapper -->
-		
-		<!-- start Footer Wrapper -->
-		<div class="footer-wrapper scrollspy-footer">
-		
-			@include('footer')
 
 		</div>
-		<!-- end Footer Wrapper -->
-		
+
+
 	</div>
-	<!-- end Container Wrapper -->
- 
- 
+	<!-- end Main Wrapper -->
+
+	<!-- start Footer Wrapper -->
+	<div class="footer-wrapper scrollspy-footer">
+
+		@include('footer')
+
+	</div>
+	<!-- end Footer Wrapper -->
+
+</div>
+<!-- end Container Wrapper -->
+
+
 <!-- start Back To Top -->
 <div id="back-to-top">
-   <a href="#"><i class="ion-ios-arrow-up"></i></a>
+	<a href="#"><i class="ion-ios-arrow-up"></i></a>
 </div>
 <!-- end Back To Top -->
-
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-		
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
-</div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
 
 
 <!-- JS -->
