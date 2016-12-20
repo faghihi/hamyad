@@ -109,12 +109,20 @@
 											<li class="clearfix">
 												<a href="#">
 													<div class="image">
-														<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
+														@if(! empty($Info['image']))
+															<?php $image=Config::get('store.storagepath').$Info['image'];?>
+														@else
+															<?php $image='/images/course-item/01.jpg';?>
+														@endif
+														<img src="{{$image}}" alt="Related Course" />
 													</div>
 													<div class="content">
-														<h6>Become a Certified Hadoop Developer</h6>
-														<br>
-														<span class="price">$199.<small>98</small></span>
+														@if(isset($Pack))
+															<h6>{{$Info['title']}}</h6>
+														@endif
+														@if(isset($Course))
+																<h6>{{$Info['name']}}</h6>
+															@endif
 													</div>
 												</a>
 											</li>
@@ -163,7 +171,7 @@
 
 											<div class="col-xs-12 col-sm-12 col-md-12">
 												<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-primary">ایمیل</h6></div>
-												<div class="col-xs-9 col-sm-12 col-md-9"><p>rk.mirzaee.m@gmail.com</p></div>
+												<div class="col-xs-9 col-sm-12 col-md-9"><p>{{$user['email']}}</p></div>
 											</div>
 
 										</div>
@@ -186,6 +194,7 @@
 
 											<div class="GridLex-grid-noGutter-equalHeight">
 
+												@if(! isset($Pack))
 												<div class="GridLex-col-6_sm-6_xs-12_xss-12">
 
 													<div class="featured-checkbox">
@@ -193,14 +202,23 @@
 															<input id="featured_checkbox-1" name="featured_checkbox" value="general" type="checkbox" class="checkbox" checked/>
 															<label class="clearfix" for="featured_checkbox-1">
 																<span class="h6">مبلغ اصلی</span>
-																<span class="p">Comparison dissimilar unpleasant six compliment. Ashamed company thought wishing colonel prevent.</span>
-																<span class="price">150 هزار تومان</span>
+																<span class="p">مبلغ پرداختی شما به ازای دریافت داپمی این دوره </span>
+																<span class="price">
+																	@if($Info['price'] >= 1000)
+																		<?php $price=$Info['price']/1000 . ' هزار تومان'?>
+																	@else
+																		<?php $price=$Info['price'] . ' تومان'?>
+																	@endif
+																	{{$price}}
+																</span>
 															</label>
 														</div>
 													</div>
 
 												</div>
+												@endif
 
+												@if(isset($Pack))
 												<div class="GridLex-col-6_sm-6_xs-12_xss-12">
 
 													<div class="featured-checkbox">
@@ -209,7 +227,14 @@
 															<label class="clearfix" for="featured_checkbox-2">
 																<span class="h6">قیمت روزانه</span>
 																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																<span class="price">12 هزار تومان</span>
+																<span class="price">
+																	@if($Info['price_day'] >= 1000)
+																		<?php $price=$Info['price_day']/1000 . ' هزار تومان'?>
+																	@else
+																		<?php $price=$Info['price_day'] . ' تومان'?>
+																	@endif
+																	{{$price}}
+																</span>
 															</label>
 														</div>
 													</div>
@@ -223,8 +248,15 @@
 															<input id="featured_checkbox-3" name="featured_checkbox" value="month" type="checkbox" class="checkbox"/>
 															<label class="clearfix" for="featured_checkbox-3">
 																<span class="h6">ماهانه</span>
-																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																<span class="price">50 هزار تومان</span>
+																<span class="p">این پک فقط به مدت 1 ماه مهلت استفاده دارد.</span>
+																<span class="price">
+																	@if($Info['price_month'] >= 1000)
+																		<?php $price=$Info['price_month']/1000 . ' هزار تومان'?>
+																	@else
+																		<?php $price=$Info['price_month'] . ' تومان'?>
+																	@endif
+																	{{$price}}
+																</span>
 															</label>
 														</div>
 													</div>
@@ -238,13 +270,21 @@
 															<input id="featured_checkbox-4" name="featured_checkbox" value="year" type="checkbox" class="checkbox"/>
 															<label class="clearfix" for="featured_checkbox-4">
 																<span class="h6">سالانه</span>
-																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
-																<span class="price">100هزار تومان</span>
+																<span class="p">این پک فقط به مدت 1 سال مهلت استفاده دارد.</span>
+																<span class="price">
+																	@if($Info['price_year'] >= 1000)
+																		<?php $price=$Info['price_year']/1000 . ' هزار تومان'?>
+																	@else
+																		<?php $price=$Info['price_year'] . ' تومان'?>
+																	@endif
+																	{{$price}}
+																</span>
 															</label>
 														</div>
 													</div>
 
 												</div>
+													@endif
 
 											</div>
 										</div>
