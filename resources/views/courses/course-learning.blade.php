@@ -133,7 +133,7 @@
 														</a>
 													</li>
 												@else
-													<li></li>
+													<li><p style="color:#F7F7F7">آخر</p></li>
 												@endif
 												@if($section['pre']!='first')
 												<li class="next">
@@ -144,7 +144,7 @@
 												</li>
 												@else
 													<li>
-
+														<p style="color:#F7F7F7">نخست</p>
 													</li>
 												@endif
 											</ul>
