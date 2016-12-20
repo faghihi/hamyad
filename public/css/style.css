@@ -1969,6 +1969,8 @@ ul.related-course-item li .rating-wrapper > div {
 
 .profile-detail.course-detail-header .info > .image img {
     border-radius: 50%;
+    height: 100%;
+    width: 100%;
 }
 
 .course-detail-header .info > .content {

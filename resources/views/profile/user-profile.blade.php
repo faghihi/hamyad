@@ -522,6 +522,7 @@
 <script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="/js/customs.js"></script>
+<script type="text/javascript" src="/js/profileChange.js"></script>
 
 <script>
 	!function ($) {
