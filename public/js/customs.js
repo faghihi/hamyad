@@ -281,12 +281,12 @@ jQuery(function() {
 		 * Payment Method
 		 */
 
-		$("div.payment-option-form").hide();
+		/*$("div.payment-option-form").hide();*/
 		
 		$("input[name$='payments']").on("click",function() {
-				var test = $(this).val();
+				/*var test = $(this).val();
 				$("div.payment-option-form").hide();
-				$("#" + test).show();
+				$("#" + test).show();*/
 		});
 		
 		
@@ -399,7 +399,12 @@ jQuery(function() {
 			}, 1000);
 
 		});
-		
+
+		$("form").submit(function()
+			{
+				$(this).find("[type='submit']").prop('disabled',true);
+
+			});;
 		
 
 });

@@ -160,15 +160,15 @@
 
 													<li>
 														<div class="row gap-10">
-															<div class="col-xs-5 col-sm-6"><i class="fa fa-graduation-cap"></i> نام</div>
-															<div class="col-xs-7 col-sm-6 text-right font600">{{$user['name']}}</div>
+															<div class="col-xs-5 col-sm-3"><i class="fa fa-graduation-cap"></i> نام</div>
+															<div class="col-xs-7 col-sm-9 text-right font600">{{$user['name']}}</div>
 														</div>
 													</li>
 
 													<li>
 														<div class="row gap-10">
-															<div class="col-xs-5 col-sm-6"><i class="fa fa-envelope"></i> ایمیل</div>
-															<div class="col-xs-7 col-sm-6 text-right font600">{{$user['email']}}</div>
+															<div class="col-xs-5 col-sm-3"><i class="fa fa-envelope"></i> ایمیل</div>
+															<div class="col-xs-7 col-sm-9 text-right font600">{{$user['email']}}</div>
 														</div>
 													</li>
 

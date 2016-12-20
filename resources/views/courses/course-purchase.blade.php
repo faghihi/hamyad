@@ -114,50 +114,11 @@
 														</div>
 														<div class="content">
 															<h6>Become a Certified Hadoop Developer</h6>
-															<div class="rating-wrapper">
-																<div class="rating-item">
-																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																</div>
-																<span>(7 review)</span>
-															</div>
-															<span class="price">$199.<small>98</small></span>
-														</div>
-													</a>
-												</li>{{--
-												<li class="clearfix">
-													<a href="#">
-														<div class="image">
-															<img src="images/course/course-item-sm-02.jpg" alt="Related Course" />
-														</div>
-														<div class="content">
-															<h6>Microsoft Excel 2010: Advanced Training</h6>
-															<div class="rating-wrapper">
-																<div class="rating-item">
-																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																</div>
-																<span>(7 review)</span>
-															</div>
+															<br>
 															<span class="price">$199.<small>98</small></span>
 														</div>
 													</a>
 												</li>
-												<li class="clearfix">
-													<a href="#">
-														<div class="image">
-															<img src="images/course/course-item-sm-03.jpg" alt="Related Course" />
-														</div>
-														<div class="content">
-															<h6>The Java Spring Tutorial: Learn Java's Popular Web Framework</h6>
-															<div class="rating-wrapper">
-																<div class="rating-item">
-																	<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-																</div>
-																<span>(7 review)</span>
-															</div>
-															<span class="price">$199.<small>98</small></span>
-														</div>
-													</a>
-												</li>--}}
 											</ul>
 
 										</div>
@@ -174,8 +135,10 @@
 							
 									<div class="payment-content-wrapper mb-0">
 
-										<form id="payment-form" class="creditly-card-form">
-										
+										<form id="payment-form" class="creditly-card-form"></form>
+
+										<form id="coupon-form" ></form>
+
 										<div class="row">
 										
 											<div class="col-xs-12 col-md-8">
@@ -200,28 +163,8 @@
 													<br>
 
 													<div class="col-xs-12 col-sm-12 col-md-12">
-														<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-danger">مبلغ</h6></div>
-														<div class="col-xs-9 col-sm-12 col-md-9"><p><b>55</b>&nbsp;هزار تومان</p></div>
-													</div>
-
-													<div class="col-xs-12 col-sm-12 col-md-12">
-													
-														<div class="form-group">
-
-															<div class="col-xs-3 col-sm-12 col-md-3">
-
-																<label>کد تخفیف: </label>
-
-															</div>
-
-															<div class="col-xs-9 col-sm-12 col-md-9">
-
-																<input form="payment-form" type="text" class="form-control" placeholder="کد" />
-
-															</div>
-														
-														</div>
-														
+														<div class="col-xs-3 col-sm-12 col-md-3"><h6 class="text-primary">ایمیل</h6></div>
+														<div class="col-xs-9 col-sm-12 col-md-9"><p>rk.mirzaee.m@gmail.com</p></div>
 													</div>
 												
 												</div>
@@ -305,7 +248,49 @@
 														</div>
 														
 													</div>
-							
+												</div>
+
+												<br><br>
+
+												<div class="row">
+
+													<div class="form-group">
+
+														<div class="col-xs-2 col-sm-12 col-md-2">
+
+															<label class="text-primary">کد تخفیف: </label>
+
+														</div>
+
+														<div class="col-xs-4 col-sm-12 col-md-4">
+
+															<input form="payment-form" type="text" class="form-control" placeholder="کد" />
+
+														</div>
+
+														<div class="col-xs-2 col-sm-12 col-md-2">
+
+															<button class="btn btn-danger btn-block btn-sm mt-5">بررسی</button>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<br>
+
+												<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
+
+													<div id="paymentPaypal" class="payment-option-form">
+														<div class="inner">
+
+															<h4 class="text-primary">مبلغ پرداختی: <span class="font700">100 هزار تومان </span></h4>
+															<p>به جای: <strong> 150 هزار تومان </strong>. </p>
+														</div>
+
+													</div>
+
 												</div>
 
 											</div>
@@ -350,9 +335,7 @@
 												
 											</div>
 									
-											<a href="#" class="btn btn-primary mt-10">Proceed to payment</a>
-											
-										</form>
+											<button form="coupon-form" class="btn btn-primary mt-10">Proceed to payment</button>
 
 									</div>
 
