@@ -2615,7 +2615,7 @@ ul.subtitle-list li:first-child .time {
 .featured-checkbox label .price {
     line-height: 1;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 95%;
     padding: 4px 10px 3px;
     font-family: 'IRANSans', 'Roboto Condensed', sans-serif;
     background: #DF2938;
