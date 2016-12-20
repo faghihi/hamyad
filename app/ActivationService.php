@@ -13,7 +13,7 @@ class ActivationService
 
     protected $activationRepo;
 
-    protected $resendAfter = 1;
+    protected $resendAfter = 0;
 
     public function __construct(Mailer $mailer, ActivationRepository $activationRepo)
     {
@@ -32,12 +32,17 @@ class ActivationService
 
         $link = route('user.activate', $token);
         $message ="Activate you Account : $link";
+        try{
+            $this->mailer->raw($message, function (Message $m) use ($user) {
+                $m->to($user->email)
+                    ->subject(\Config::get('email.activation'))
+                    ->from(\Config::get('email.email_send'),\Config::get('email.name'));
+            });
+        }
+        catch(\Swift_SwiftException $se){
+            return 0;
+        }
 
-        $this->mailer->raw($message, function (Message $m) use ($user) {
-            $m->to($user->email)
-                ->subject(\Config::get('email.activation'))
-                ->from(\Config::get('email.email_send'),\Config::get('email.name'));
-        });
 
 
     }

@@ -42,6 +42,8 @@ Route::resource('sections','SectionsController');
 
 Route::get('/instructor/Search','TeachersController@Search');
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/PackBuy/{pack}','PackController@Buy');
+
     Route::resource('roles', 'RolesController');
 
     Route::post('roles_mass_destroy', ['uses' => 'RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
