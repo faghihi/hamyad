@@ -23,7 +23,23 @@ class PackController extends Controller
     }
     public function index()
     {
-        return $this->RetrieveAll();
+        $packs=Pack::all();
+        foreach ($packs as $pack){
+            $pack['count_courses']=count($pack->courses);
+            $counter=$pack->courses;
+            $i=1;
+            foreach ($pack->courses as $course)
+            {
+                if($i==4){
+                    break;
+                }
+                $pack['relate'.$i]=$course->name;
+                $i++;
+            }
+        }
+//        return $packs;
+        return view('courses.packages')->with(['Packs'=>$packs]);
+
     }
 
     public function ShowSpecificPack(Pack $pack)
@@ -139,5 +155,12 @@ class PackController extends Controller
             }
         }
         return $Data;
+    }
+
+    public function Buy(Pack $pack)
+    {
+        $user=\Auth::user();
+        return view('courses.course-purchase')->with(['user'=>$user]);
+//        return $pack;
     }
 }

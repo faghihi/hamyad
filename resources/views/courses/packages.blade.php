@@ -101,26 +101,50 @@
 					<div class="GridLex-gap-30">
 				
 						<div class="GridLex-grid-noGutter-equalHeight">
-									
+							@foreach($Packs as $pack)
 							<div class="GridLex-col-6_sm-6_xs-12_xss-12">
 							
-								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal1" data-toggle="modal">
+								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal{{$pack['id']}}" data-toggle="modal">
 							
 									<div class="pricing-heading">
 
-										<h6 class="pricing-title">هزینه پک</h6>
-										<p class="pricing-price">30 هزار تومان<span>/ روزانه </span></p>
-										<p class="pricing-price">50 هزار تومان<span>/ ماهانه</span></p>
-										<p class="pricing-price">100 هزار تومان<span>/ سالانه</span></p>
+										<h6 class="pricing-title">{{$pack['title']}}</h6>
+										<p class="pricing-price">
+											@if($pack['price_day'] > 1000)
+												<?php $price=$pack['price_day']/1000 . ' هزار تومان'?>
+											@else
+												<?php $price=$pack['price_day'] . ' تومان'?>
+											@endif
+											{{$price}}
+											<span>/ روزانه </span>
+										</p>
+										<p class="pricing-price">
+											@if($pack['price_month'] > 1000)
+												<?php $price=$pack['price_month']/1000 . ' هزار تومان'?>
+											@else
+												<?php $price=$pack['price_month'] . ' تومان'?>
+											@endif
+											{{$price}}
+											<span>/ ماهانه </span>
+										</p>
+										<p class="pricing-price">
+											@if($pack['price_year'] > 1000)
+												<?php $price=$pack['price_year']/1000 . ' هزار تومان'?>
+											@else
+												<?php $price=$pack['price_year'] . ' تومان'?>
+											@endif
+											{{$price}}
+											<span>/ سالانه </span>
+										</p>
 
 									</div>
 									
 									<div class="pricing-content">
 									
 										<ul class="pricing-list">
-													
-											<li>آموزش طراحی وب</li>
-											<li>آموزش جاوا اسکریپت</li>
+											@for($i=1;$i<=$pack['count_courses']&&$i<=4;$i++)
+											<li>{{$pack['relate'.$i]}}</li>
+											@endfor
 											<li>برای مشاهده ی لیست کامل کلیک کنید.</li>
 
 										</ul>
@@ -130,67 +154,7 @@
 								</a>
 							
 							</div>
-							
-							<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-
-								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal2" data-toggle="modal">
-
-									<div class="pricing-heading">
-
-										<h6 class="pricing-title">هزینه پک</h6>
-										<p class="pricing-price">30 هزار تومان<span>/ روزانه </span></p>
-										<p class="pricing-price">50 هزار تومان<span>/ ماهانه</span></p>
-										<p class="pricing-price">100 هزار تومان<span>/ سالانه</span></p>
-
-									</div>
-
-									<div class="pricing-content">
-
-										<ul class="pricing-list">
-
-											<li>آموزش طراحی وب</li>
-											<li>آموزش جاوا اسکریپت</li>
-											<li>برای مشاهده ی لیست کامل کلیک کنید.</li>
-
-										</ul>
-
-									</div>
-
-								</a>
-							
-							</div>
-							
-							<div class="GridLex-col-6_sm-6_xs-12_xss-12">
-							
-								<a href="#" class="pricing-item-02 clearfix" data-target="#packModal3" data-toggle="modal">
-
-									<div class="pricing-best"><i class="ion-thumbsup"></i><span class="block mt-5">پیشنهادی</span></div>
-
-									<div class="pricing-heading">
-
-										<h6 class="pricing-title">هزینه پک</h6>
-										<p class="pricing-price">30 هزار تومان<span>/ روزانه </span></p>
-										<p class="pricing-price">50 هزار تومان<span>/ ماهانه</span></p>
-										<p class="pricing-price">100 هزار تومان<span>/ سالانه</span></p>
-
-									</div>
-
-									<div class="pricing-content">
-
-										<ul class="pricing-list">
-
-											<li>آموزش طراحی وب</li>
-											<li>آموزش جاوا اسکریپت</li>
-											<li>برای مشاهده ی لیست کامل کلیک کنید.</li>
-
-										</ul>
-
-									</div>
-
-
-								</a>
-							
-							</div>
+								@endforeach
 							
 						</div>
 						
@@ -221,8 +185,8 @@
 </div>
 <!-- end Back To Top -->
 
-
-<div id="packModal1" class="modal fade login-box-wrapper pack" data-width="800" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+@foreach($Packs as $pack)
+<div id="packModal{{$pack['id']}}" class="modal fade login-box-wrapper pack" data-width="800" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		<h4 class="modal-title text-center">لیست دروس بسته</h4>
@@ -232,143 +196,51 @@
 		<div class="row gap-20">
 
 			<div class="related-course mb-30">
+				<?php $count=0; ?>
 
 				<ul class="related-course-item  mb-20">
-					<li class="clearfix">
+					@foreach($pack['courses'] as $course)
+						@if($count%3==0)
+							<li class="clearfix">
 						<div class="GridLex-gap-30 pricing-wrapper-02">
 							<div class="GridLex-grid-noGutter-equalHeight">
-
+								@endif
 								<div class="GridLex-col-4_sm-12_xs-4_xss-4">
-									<a href="#">
+									<a href="/courses/{{$course['id']}}" target="_blank">
 										<div class="image">
-											<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
+											@if(isset($course['image']))
+												<?php $image=Config::get('store.storagepath').$course['image'];?>
+											@else
+												<?php $image='/images/course-item/01.jpg';?>
+											@endif
+											<img src="{{$image}}" alt="Related Course" />
 										</div>
 										<div class="content">
-											<h6>Become a Certified Hadoop Developer</h6>
+											<h6>{{$course['name']}}</h6>
 											<br>
-											<span class="price">$199.<small>98</small></span>
+											<span class="price">
+											@if($course['price'] > 1000)
+												<?php $price=$course['price']/1000 . ' هزار تومان'?>
+											@else
+												<?php $price=$course['price'] . ' تومان'?>
+											@endif
+											{{$price}}
+											</span>
 										</div>
 									</a>
 								</div>
-
-
-								<div class="GridLex-col-4_sm-12_xs-4_xss-4">
-									<a href="#">
-										<div class="image">
-											<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-										</div>
-										<div class="content">
-											<h6>Become a Certified Hadoop Developer</h6>
-											<br>
-											<span class="price">$199.<small>98</small></span>
-										</div>
-									</a>
-								</div>
-
-
-								<div class="GridLex-col-4_sm-12_xs-4_xss-4">
-									<a href="#">
-										<div class="image">
-											<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-										</div>
-										<div class="content">
-											<h6>Become a Certified Hadoop Developer</h6>
-											<br>
-											<span class="price">$199.<small>98</small></span>
-										</div>
-									</a>
-								</div>
-
+								@if($count%3==2)
 							</div>
-
 						</div>
-
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>Become a Certified Hadoop Developer</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>Become a Certified Hadoop Developer</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-01.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>Become a Certified Hadoop Developer</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-02.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>Microsoft Excel 2010: Advanced Training</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="#">
-							<div class="image">
-								<img src="images/course/course-item-sm-03.jpg" alt="Related Course" />
-							</div>
-							<div class="content">
-								<h6>The Java Spring Tutorial: Learn Java's Popular Web Framework</h6>
-								<div class="rating-wrapper">
-									<div class="rating-item">
-										<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
-									</div>
-									<span>(7 review)</span>
-								</div>
-								<span class="price">$199.<small>98</small></span>
-							</div>
-						</a>
-					</li>
+							</li>
+							@endif
+						<?php $count++; ?>
+					@endforeach
+				@if($count%3==1)
+					</div>
+				</div>
+				</li>
+				@endif
 				</ul>
 
 			</div>
@@ -377,10 +249,11 @@
 	</div>
 
 	<div class="modal-footer text-center">
-		<button form="course-pur" type="button" class="btn btn-primary">خرید</button>
+		<a href="/PackBuy/{{$pack['id']}}"><button form="course-pur" type="button" class="btn btn-primary">خرید</button></a>
 		<button type="button" data-dismiss="modal" class="btn btn-dark">بستن</button>
 	</div>
 </div>
+@endforeach
 
 <!-- JS -->
 <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
