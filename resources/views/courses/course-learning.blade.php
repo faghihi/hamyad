@@ -114,7 +114,12 @@
 										<div class="flex-video mb-40">
 
 
-											<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="/images/blog/01.jpg" data-setup='{"fluid": true}'>
+											@if(! empty($section['image']))
+												<?php $image=Config::get('store.storagepath').$section['image'];?>
+											@else
+												<?php $image='/images/course-item/01.jpg';?>
+											@endif
+											<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="{{$image}}" data-setup='{"fluid": true}'>
 
 												<source src="{{$section['link']}}" type="video/mp4">
 
