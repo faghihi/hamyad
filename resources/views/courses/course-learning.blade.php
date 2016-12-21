@@ -64,12 +64,12 @@
 			
 				<div class="container">
 					<div class="row">
-					
+
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="/">Home</a></li>
-								<li><a href="#">Courses list</a></li>
-								<li class="active">Learning</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/courses">دروس</a></li>
+								<li class="active">آموزش</li>
 							</ol>
 						</div>
 						
@@ -114,7 +114,7 @@
 											@endif
 											<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="{{$image}}" data-setup='{"fluid": true}'>
 
-												<source src="{{$section['link']}}" type="video/mp4">
+												<source src="{{Config::get('store.storagepath').$section['link']}}" type="video/mp4">
 
 
 											</video>

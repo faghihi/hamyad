@@ -211,11 +211,28 @@
 											<div class="flex-video mb-40">
 												
 												{{--<img class="img-responsive" src="/images/blog/01.jpg">--}}
+												@if(isset($course['image']))
+													<?php $image=Config::get('store.storagepath').$course['image'];?>
+												@else
+													<?php $image='/images/course-item/01.jpg';?>
+												@endif
 
-												<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="/images/blog/01.jpg" data-setup='{"fluid": true}'>
+												<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="{{$image}}" data-setup='{"fluid": true}'>
 
 													{{--<source src="{{$section['link']}}" type="video/mp4">--}}
-													<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+													<?php
+														$thiss=0;
+														foreach ($course->section as $section )
+															{
+																if ($section->part==0){
+																	$thiss=$section;
+																	break;
+																}
+															}
+													?>
+													@if($thiss)
+														<source src="{{Config::get('store.storagepath').$thiss->link}}" type="video/mp4">
+													@endif
 
 
 												</video>

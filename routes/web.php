@@ -180,4 +180,7 @@ Route::post('/CourseReview/{course}','ReviewsController@Store');
 Route::get('/Subscribe','SocialController@Subscribe');
 Route::get('/Courses/Search','CoursesController@Search');
 Route::get('/ChangePass','UsersOperation@ChangePass');
+Route::get('/home',function (){
+   return redirect('/');
+});
 
