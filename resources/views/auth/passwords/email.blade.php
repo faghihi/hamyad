@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Title Of Site -->
-	<title>Edutute</title>
+	<title>هم یاد</title>
 	<meta name="description" content="HTML Responsive Landing Page Template for Course Online Based on Twitter Bootstrap 3.x.x" />
 	<meta name="keywords" content="study, learn, course, tutor, tutorial, teach, college, school, institute, teacher, instructor" />
 	<meta name="author" content="crenoveative">
@@ -72,10 +72,6 @@
 								<li><a href="/">ورود</a></li>
 								<li class="active">	فراموشی رمز</li>
 							</ol>
-						</div>
-						
-						<div class="col-xs-12 col-sm-4 hidden-xs">
-							<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
 						</div>
 						
 					</div>
@@ -157,14 +153,6 @@
    <a href="#"><i class="ion-ios-arrow-up"></i></a>
 </div>
 <!-- end Back To Top -->
-
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-		
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
-</div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
 
 <!-- JS -->
 <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>

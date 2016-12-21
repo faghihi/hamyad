@@ -367,14 +367,13 @@
 											</div>
 											
 											<div class="name">
-												<h5>Antony Robert</h5>
-												<span>From Spain</span>
+												<h5>شیما</h5>
 											</div>
 											
 										</div>
 										
 										<div class="content">
-											<p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
+											<p>سایت بسیار خوب و آموزنده ای است. من بسیار چیزهای خوبی یاد گرفتم. ممنون. :-)</p>
 										</div>
 									
 									</div>
@@ -394,14 +393,13 @@
 											</div>
 											
 											<div class="name">
-												<h5>Mohammed Salem</h5>
-												<span>From Turkey</span>
+												<h5>محمد سالم</h5>
 											</div>
 											
 										</div>
 										
 										<div class="content">
-											<p>Consider now provided laughter boy landlord dashwood. Often voice and the spoke. No shewing fertile village equally prepare up females sentiments increasing particular.</p>
+											<p>درس هایی بسیار زیرادی با قیمت مناسب موجود است</p>
 										</div>
 									
 									</div>
@@ -421,14 +419,13 @@
 											</div>
 											
 											<div class="name">
-												<h5>Chaiyapatt Putsathit</h5>
-												<span>From Thailand</span>
+												<h5>اصغر بیچاره</h5>
 											</div>
 											
 										</div>
 										
 										<div class="content">
-											<p>Advantages boisterous day excellence boy. Out between our two waiting wishing. Pursuit he he garrets greater towards amiable so placing. Abode shy shade she hours forth its use.</p>
+											<p>من از پک وب بسیار راضی هستم و وستا کمپ آن را بسیار عالی برگذار کرد. با تشکر.</p>
 										</div>
 									
 									</div>
@@ -598,7 +595,7 @@
 										<i class="ion-social-apple"></i>
 									</span>
 									<span class="content">
-										Download on the
+										دانلود در
 										<span class="block">App Store</span>
 									</span>
 								</a>
@@ -607,7 +604,7 @@
 										<i class="ion-social-android"></i>
 									</span>
 									<span class="content">
-										Get it on
+										دانلود در
 										<span class="block">Google Play</span>
 									</span>
 								</a>
@@ -638,14 +635,6 @@
    <a href="#"><i class="ion-ios-arrow-up"></i></a>
 </div>
 <!-- end Back To Top -->
-
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-		
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
-</div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
 
 <!-- JS -->
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>

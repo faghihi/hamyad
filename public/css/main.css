@@ -2922,14 +2922,14 @@ a.link-alt:hover {
 }
 
 .btn-app {
-    text-align: left;
+    text-align: right;
     font-size: 12px;
-    line-height: 1;
+    line-height: 1.5;
     background: #222;
-    padding: 13px 15px 11px;
+    padding: 13px 15px 11px 15px;
     border: 0;
     letter-spacing: 0;
-    margin-right: 0;
+    margin-left: 0;
 }
 
 .btn-app:after {
@@ -2938,10 +2938,11 @@ a.link-alt:hover {
 
 .btn-app .icon {
     display: block;
-    float: left;
+    float: right;
     font-size: 36px;
     line-height: 1;
-    margin-right: 7px;
+    margin-left: 7px;
+    margin-top: 10px;
 }
 
 .btn-app .content {

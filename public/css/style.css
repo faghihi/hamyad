@@ -2922,12 +2922,15 @@ a.category-item:hover {
 
 .testimonial-item .image {
     width: 90px;
+    height: 90px;
     background: #FFF;
     border-radius: 50%;
     padding: 3px;
 }
 
 .testimonial-item .image .image-inner {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     padding: 2px;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
@@ -3232,6 +3235,7 @@ ul.sidebar-post li a:hover h6 {
 
 ul.sidebar-post li .image {
     width: 80px;
+    height: 80px;
     float: left;
     margin-top: 5px;
     border: 2px solid #FFF;
@@ -3823,11 +3827,11 @@ ul.sort-by li a:hover::after {
 }
 
 .sorting-header .btn-toggle.collapsed:before {
-    content: '+ Change Search';
+    content: '+ جستجو';
 }
 
 .sorting-header .btn-toggle:before {
-    content: '- Cancel';
+    content: '- انصراف';
 }
 
 .sorting-content {
@@ -4486,8 +4490,8 @@ ul.comment-item ul {
 
 ul.menu-footer li {
     margin-bottom: 5px;
-    width: 33.3333%;
-    float: left;
+    width: 50%;
+    float: right;
 }
 
 ul.menu-footer li a {
@@ -4571,7 +4575,7 @@ h4.footer-title {
 }
 
 ul.secondary-footer-menu {
-    float: left;
+    float: right;
 }
 
 ul.secondary-footer-menu li {
@@ -5410,6 +5414,7 @@ ul.static-page-menu li.active a {
 
 .team-item .image {
     width: 120px;
+    height: 120px;
     margin: 0 0 20px;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);
     -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.43);

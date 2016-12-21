@@ -10,10 +10,10 @@
                     <div class="col-sm-12 col-md-3 mb-30">
 
                         <div class="footer-logo">
-                            <a href="#home"><i class="education-icon-book7"></i> Edu<strong class="uppercase">Tute</strong></a>
+                            <a href="#home"><i class="education-icon-book7"></i> هم<strong class="uppercase">یاد</strong></a>
                         </div>
 
-                        <p class="about-us-footer">Abilities or he perfectly pretended so strangers be exquisite. Oh to another chamber pleased imagine do in. Went me rank at last loud shot an draw. Excellent so to no sincerity smallness.</p>
+                        <p class="about-us-footer">هم یاد سایت آموزش آنلاین می باشد و توضیحات مربوط به آن که چ چیزهایی هست.</p>
 
                     </div>
 
@@ -43,18 +43,12 @@
                         </div>
 
                         <ul class="menu-footer">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">People</a></li>
-                            <li><a href="#">Leadership</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Partners</a></li>
-                            <li><a href="#">Community</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Directory</a></li>
+                            <li><a href="/aboutUs">درباره ی ما</a></li>
+                            <li><a href="/instructor">اساتید</a></li>
+                            <li><a href="/courses">دروس</a></li>
+                            <li><a href="/blog.html">وبلاگ</a></li>
+                            <li><a href="/FAQ">FAQ</a></li>
+                            <li><a href="/contactUs">ارتباط با ما</a></li>
                         </ul>
 
                     </div>
@@ -65,15 +59,13 @@
                             <a href="#"><i class="fa fa-facebook-official"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-google-plus "></i></a>
-                            <a href="#"><i class="fa fa-codepen"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
+                            <a href="#"><i class="fa fa-paper-plane"></i></a>
                             <a href="#"><i class="fa fa-github"></i></a>
-                            <a href="#"><i class="fa fa-jsfiddle"></i></a>
                             <a href="#"><i class="fa fa-stack-overflow"></i></a>
                         </div>
 
 
-                        <p class="footer-address">11/87, Santisuk Road, T. Sabarang, A.Muang, Pattani 94000 <br /><span class="block text-white font20 font700 line20 mt-5 mb-5">+66 74 665 855</span>support@edutute.com</p>
+                        <p class="footer-address">تهران، خیابان انقلاب، بعد از چچهارراه ولیعصر، کوچه ی سعید، دانشگاه صنعتی امیرکبیر، پ 2. <br /><span class="block text-white font20 font700 line20 mt-5 mb-5">021 4455 4455</span>support@hamyad.com</p>
 
                     </div>
 
@@ -89,17 +81,22 @@
 
                 <div class="row">
 
-                    <div class="col-xs-12 col-sm-6">
-                        <p class="copy-right">&#169; Copyright 2016 EduTUTE - Responsive Template.</p>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-4">
                         <ul class="secondary-footer-menu clearfix">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Sign-in</a></li>
-                            <li><a href="#">Sign-up</a></li>
+                            <li><a href="/profile">بخش کاربری</a></li>
+                            <li><a href="/login">ورود</a></li>
+                            <li><a href="/register">ثبت نام</a></li>
                         </ul>
                     </div>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <p class="copy-right text-center"> ساخته شده توسط <a href="vestajunior.ir" class="text-white">گروه وستا</a></p>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <p class="copy-right text-left">Copyright 2016 &#169; hamyad</p>
+                    </div>
+
 
                 </div>
 

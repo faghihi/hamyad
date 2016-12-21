@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Title Of Site -->
-	<title>Edutute</title>
+	<title>هم یاد</title>
 	<meta name="description" content="HTML Responsive Landing Page Template for Course Online Based on Twitter Bootstrap 3.x.x" />
 	<meta name="keywords" content="study, learn, course, tutor, tutorial, teach, college, school, institute, teacher, instructor" />
 	<meta name="author" content="crenoveative">
@@ -25,13 +25,10 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
-	<link href="/css/video-js.css" rel="stylesheet">
+	<link href="/css/video-js.min.css" rel="stylesheet">
 	<link href="/css/animate.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/css/plugin.css" rel="stylesheet">
-
-	<!-- video.js -->
-	<link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
 
 	<!-- CSS Custom -->
 	<link href="/css/style.css" rel="stylesheet">
@@ -74,10 +71,6 @@
 								<li><a href="#">Courses list</a></li>
 								<li class="active">Learning</li>
 							</ol>
-						</div>
-						
-						<div class="col-xs-12 col-sm-4 hidden-xs">
-							<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
 						</div>
 						
 					</div>
@@ -333,14 +326,6 @@
 </div>
 <!-- end Back To Top -->
 
-<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-		
-<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
-</div>
-
-<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
-
-
 <!-- JS -->
 <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
@@ -369,11 +354,6 @@
 <script type="text/javascript" src="/js/customs.js"></script>
 
 <!-- Call the plugin -->
-<script>
-jQuery(function() {
-    jQuery('video, audio').acornMediaPlayer();
-});
-</script>
 
 </body>
 

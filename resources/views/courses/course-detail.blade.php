@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Title Of Site -->
-	<title>Edutute</title>
+	<title>هم یاد</title>
 	<meta name="description" content="HTML Responsive Landing Page Template for Course Online Based on Twitter Bootstrap 3.x.x" />
 	<meta name="keywords" content="study, learn, course, tutor, tutorial, teach, college, school, institute, teacher, instructor" />
 	<meta name="author" content="crenoveative">
@@ -25,6 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/bootstrap-rtl-3.3.4/dist/css/bootstrap-rtl.min.css" media="screen">
 
+	<link href="/css/video-js.min.css" rel="stylesheet">
 	<link href="/css/animate.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/css/plugin.css" rel="stylesheet">
@@ -70,10 +71,6 @@
 								<li><a href="#">Courses list</a></li>
 								<li class="active">Course Detail</li>
 							</ol>
-						</div>
-						
-						<div class="col-xs-12 col-sm-4 hidden-xs">
-							<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
 						</div>
 						
 					</div>
@@ -211,8 +208,18 @@
 												<h3>معرفی دوره</h3>
 											</div>
 											
-											<div class="flex-video vimeo mb-40"> 
-												<iframe src="http://player.vimeo.com/video/43499940" allowfullscreen></iframe> 
+											<div class="flex-video mb-40">
+												
+												{{--<img class="img-responsive" src="/images/blog/01.jpg">--}}
+
+												<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="/images/blog/01.jpg" data-setup='{"fluid": true}'>
+
+													{{--<source src="{{$section['link']}}" type="video/mp4">--}}
+													<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+
+
+												</video>
+
 											</div>
 											
 											<div class="course-intro">
@@ -608,6 +615,8 @@
 <script type="text/javascript" src="/js/bootstrap-rating.js"></script>
 <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="/js/creditly.js"></script>
+<script type="text/javascript" src="/js/video.min.js"></script>
+<script type="text/javascript" src="/js/videojs-ie8.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="/js/customs.js"></script>
