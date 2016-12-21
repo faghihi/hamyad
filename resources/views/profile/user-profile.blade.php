@@ -202,7 +202,7 @@
 													</div>
 												</div>
 											{{--</form>--}}
-											<div class="form-group row" hidden id="errorform">
+											<div class="form-group row"  id="errorform" hidden>
 												<div class="alert alert-danger">
 													<p>
 														عملیات خواسته شده مقدور نبود .
@@ -210,7 +210,7 @@
 													</p>
 												</div>
 											</div>
-											<div class="form-group row" hidden id="errorform">
+											<div class="form-group row" hidden id="successform">
 												<div class="alert alert-success">
 													<p>
 														انجام شد.
