@@ -414,7 +414,7 @@ $('#profile').ready(function () {
 	$('#changeNameClick').click(function () {
 		$('#changePass').parent().parent().parent().hide();
 		$('#changeAvatar').parent().parent().parent().hide();
-		$('#changeName').parent().parent().parent().show();
+		$('#changeName').parent().parent().show();
 	});
 
 	$('#changeAvatarClick').click(function () {

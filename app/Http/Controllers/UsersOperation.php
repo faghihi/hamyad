@@ -71,6 +71,8 @@ class UsersOperation extends Controller
 
     public function ChangeInfo()
     {
+        if(! \Auth::check())
+            return response()->json(array('msg'=> 1), 200);
         $user = \Auth::user();
         if (Input::has('Name')) {
             $user->name = Input::get('Name');
@@ -78,12 +80,12 @@ class UsersOperation extends Controller
                 $user->save();
             }
             catch ( \Illuminate\Database\QueryException $e){
-                return 0;
+                return response()->json(array('msg'=> 2), 200);
             }
-            return 1;
+            return response()->json(array('msg'=> 3), 200);
         }
         else
-            return 0;
+            return response()->json(array('msg'=> 2), 200);
     }
 
     public function RetriveCourseHelper(User $user)

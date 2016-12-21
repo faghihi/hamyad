@@ -187,21 +187,37 @@
 										</div>
 										<div class="course-intro">
 
-											<form hidden>
+											{{--<form hidden>--}}
 
-												<div class="form-group row">
+												<div class="form-group row" hidden>
 													<div class="col-sm-1">
 														<label>نام جدید</label>
 													</div>
 													<div class="col-sm-5">
-														<input type="text" class="form-control" placeholder="{{$user['name']}}">
+														<input type="text" name="name" id="NameInput" class="form-control" placeholder="{{$user['name']}}">
 													</div>
 
 													<div class="col-sm-2">
-														<button type="submit" id="changeName" class="btn btn-primary btn-block">تغییر</button>
+														<button type="submit" id="changeName"  data-link="{{ url('/ChangeInfo') }}"  data-token="{{ csrf_token() }}" class="btn btn-primary btn-block">تغییر</button>
 													</div>
 												</div>
-											</form>
+											{{--</form>--}}
+											<div class="form-group row" hidden id="errorform">
+												<div class="alert alert-danger">
+													<p>
+														عملیات خواسته شده مقدور نبود .
+
+													</p>
+												</div>
+											</div>
+											<div class="form-group row" hidden id="errorform">
+												<div class="alert alert-success">
+													<p>
+														انجام شد.
+
+													</p>
+												</div>
+											</div>
 
 											<form hidden>
 

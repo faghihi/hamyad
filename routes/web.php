@@ -172,6 +172,7 @@ Route::get('uploadimage',function (){
     return view('uploadform');
 });
 Route::post('/imageupload','UsersOperation@UploadPhoto');
+Route::post('/ChangeInfo','UsersOperation@ChangeInfo');
 Route::post('/SubmitInstructor','UsersOperation@Cooperate');
 Route::post('/SaveContact','SocialController@Contact');
 Route::post('/Subscribe','SocialController@Subscribe');
