@@ -407,8 +407,13 @@
 
 											<div class="GridLex-grid-noGutter-equalHeight">
 
+												<?php $count=1; ?>
 												@foreach($Courses as $course)
-												<div class="GridLex-col-4_mdd-6_xs-6_xss-12">
+													@if($count / 3 > 1 )
+												<div class="GridLex-col-4_mdd-6_xs-6_xss-12 more_course">
+													@else
+														<div class="GridLex-col-4_mdd-6_xs-6_xss-12">
+													@endif
 													<div class="course-item">
 														<a href="/courses/{{$course['id']}}">
 															<div class="course-item-image">
@@ -453,6 +458,7 @@
 														</a>
 													</div>
 												</div>
+													<?php $count++; ?>
 												@endforeach
 											</div>
 
@@ -461,7 +467,7 @@
 										@if(count($Courses) > 3)
 											<div class="mt-30 mb-10 text-left">
 
-												<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
+												<button onclick="showcourses()" id="coursebut" name="show" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</button>
 
 											</div>
 										@endif
@@ -481,7 +487,11 @@
 											<?php $count=0; ?>
 											@foreach($Packs as $pack)
 												@if($count % 3==0)
-													<div class="GridLex-grid-noGutter-equalHeight">
+													@if($count/3 > 1 )
+														<div class="GridLex-grid-noGutter-equalHeight more_packs">
+															@else
+																<div class="GridLex-grid-noGutter-equalHeight">
+															@endif
 												@endif
 														<div class="GridLex-col-4_sm-12_xs-4_xss-4">
 
@@ -510,7 +520,7 @@
 											@if(count($Packs)>3)
 											<div class="mt-30 mb-10 text-left">
 
-												<a href="#" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</a>
+												<button onclick="showpacks()" id="packbut" name="show" class="btn btn-danger btn-sm anchor">مشاهده ی تعداد بیشتر</button>
 
 											</div>
 											@endif
