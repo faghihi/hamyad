@@ -179,3 +179,5 @@ Route::post('/Subscribe','SocialController@Subscribe');
 Route::post('/CourseReview/{course}','ReviewsController@Store');
 Route::get('/Subscribe','SocialController@Subscribe');
 Route::get('/Courses/Search','CoursesController@Search');
+Route::get('/ChangePass','UsersOperation@ChangePass');
+

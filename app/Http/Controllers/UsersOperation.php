@@ -24,27 +24,52 @@ class UsersOperation extends Controller
 
     public function ChangePass()
     {
-        if(!Input::has('Password')|| !Input::has('NewPassword')){
-            return redirect('/Profile?error=noinfo');
+        $input=Input::all();
+        if(!Input::has('oldpass')|| !Input::has('newpass')){
+            return redirect('/profile?error=noinfo');
+//            return 0;
         }
         $user=\Auth::user();
-        if(!password_verify(Input::get('Password'),$user->password))
-            return 0;
-        $user->password=bcrypt(Input::get('NewPassword'));
-        if($user->save())
-            return 1;
-        else
-            return 0;
+        if(!password_verify(Input::get('oldpass'),$user->password))
+            return redirect('/profile?error=mismatch');
+        $rules = array(
+            'newpass' => 'required|min:6',
+        );
+        $messages=[
+            'newpass.required'=>'رمز عبور ضروری میباشد ',
+            'newpass.min'=>'حداقل طول پسورد ۶ است ',
+        ];
+        $validator = Validator::make($input, $rules,$messages);
+        if($validator->fails()){
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $user->password=bcrypt(Input::get('newpass'));
+        try{
+            $user->save();
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+            return redirect('/profile?error=error');
+        }
+        return redirect('/profile?success=1');
     }
 
     public function UploadPhoto()
     {
         if (Input::hasFile('image')) {
             $file = array('image' => Input::file('image'));
-            $rules = array('image' => 'required|max:1000000|mimes:jpeg,JPEG,PNG,png');
-            $validator = Validator::make($file, $rules);
+            $rules = array('image' => 'required|max:100000|mimes:jpeg,JPEG,PNG,png');
+            $messages=[
+                'image.required'=>'آپلود تصویر اجباری است ',
+                'image.max'=>'حجم فایل بسیار زیاد است ',
+                'image.mimes'=>'فرمت فایل شما ساپورت نمیشود.',
+            ];
+            $validator = Validator::make($file, $rules,$messages);
             if ($validator->fails()) {
-                return 0;
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
             }
             if (Input::file('image')->isValid()) {
                 $destinationPath = 'uploads/'.\Auth::id(); // upload path
@@ -57,12 +82,12 @@ class UsersOperation extends Controller
                     $user->save();
                 }
                 catch ( \Illuminate\Database\QueryException $e){
-                    return 0;
+                    return redirect('/profile?error=error');
                 }
-                return 1;
+                return redirect('/profile?success=1');
             }
             else {
-                return 0;
+                return redirect('/profile?error=error');
             }
         }
         else

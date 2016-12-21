@@ -68,10 +68,6 @@
 						</ol>
 					</div>
 
-					<div class="col-xs-12 col-sm-4 hidden-xs">
-						<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
-					</div>
-
 				</div>
 
 			</div>
@@ -219,14 +215,15 @@
 												</div>
 											</div>
 
-											<form hidden>
+											<form action="/imageupload" method="post" hidden enctype="multipart/form-data">
 
+												{{ csrf_field() }}
 												<div class="form-group row">
 													<div class="col-sm-2">
 														<label>عکس جدید</label>
 													</div>
 													<div class="col-sm-5">
-														<input type="file" class="form-control">
+														<input type="file" name="image" class="form-control">
 													</div>
 
 													<div class="col-sm-2">
@@ -235,15 +232,57 @@
 												</div>
 											</form>
 
-											<form hidden>
+											@if (count($errors) > 0)
+												<div class="alert alert-danger">
+													<ul>
+														@foreach ($errors->all() as $error)
+															<li>{{ $error }}</li>
+														@endforeach
+													</ul>
+												</div>
+											@endif
+											@if (isset($_GET['error']) && $_GET['error']=='mismatch')
+												<div class="alert alert-danger">
+													رمز فعلی را اشتباه وارد نموده اید .
+												</div>
+											@endif
+											@if (isset($_GET['error']) && $_GET['error']=='error')
+												<div class="alert alert-danger">
+													مشکلی رح داده است .
+												</div>
+											@endif
+											@if (isset($_GET['success']))
+												<div class="alert alert-success">
+													موفقیت آمیز بود
+												</div>
+											@endif
+											<form action="/ChangePass" method="get" onsubmit="return CheckNewPass()" hidden>
 
+												{{ csrf_field() }}
+												<div class="form-group row" hidden id="errorpsw">
+													<div class="alert alert-danger">
+														<p>
+															رمز و تکرار آن تطابق ندارند.
+														</p>
+													</div>
+												</div>
+												<div class="form-group row">
+
+													<div class="col-sm-2">
+														<label>پسورد پیشین</label>
+													</div>
+													<div class="col-sm-5">
+														<input class="form-control" id="oldpass" name="oldpass" type="password">
+													</div>
+
+												</div>
 												<div class="form-group row">
 
 													<div class="col-sm-2">
 														<label>پسورد جدید</label>
 													</div>
 													<div class="col-sm-5">
-														<input class="form-control" type="password">
+														<input class="form-control" id="NewPass" name="newpass" type="password">
 													</div>
 
 												</div>
@@ -254,7 +293,7 @@
 														<label>تکرار پسورد</label>
 													</div>
 													<div class="col-sm-5">
-														<input class="form-control" type="password">
+														<input class="form-control" id="RePass" name="renewpass" type="password">
 													</div>
 
 													<div class="col-sm-2">

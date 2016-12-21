@@ -404,7 +404,7 @@ jQuery(function() {
 			{
 				$(this).find("[type='submit']").prop('disabled',true);
 
-			});;
+			});
 		
 
 });
