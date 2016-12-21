@@ -63,14 +63,12 @@
 			
 				<div class="container">
 					
-					<h1 class="page-title">Contacts</h1>
-					
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="/">Home</a></li>
-								<li class="active">Contacts</li>
+								<li><a href="/">خانه</a></li>
+								<li class="active">ارتباط با ما</li>
 							</ol>
 						</div>
 						
@@ -195,20 +193,17 @@
 							
 								<ul class="address-list">
 									<li>
-											<h5>Address</h5>
-											<address> 545, Marina Rd., <br/>Mohammed Bin Rashid Boulevard, <br/>Dubai 123234 </address>
+											<h5>آدرس</h5>
+											<address>تهران، خیابان انقلاب، بعد از چچهارراه ولیعصر، کوچه ی سعید، دانشگاه صنعتی امیرکبیر، پ 2. </address>
 									</li>
 									<li>
-											<h5>Email</h5><a href="#">office@company.com</a>
+											<h5>ایمیل</h5><a href="#">support@hamyad.com</a>
 									</li>
 									<li>
-											<h5>Phone Number</h5><a href="#">1-866-599-6674</a>
+											<h5>تلفن</h5><a href="#">021 4455 4455</a>
 									</li>
 									<li>
-											<h5>Skype</h5><a href="#">your_skype_id</a>
-									</li>
-									<li>
-											<h5>Social Networks</h5>
+											<h5>شبکه های اجتماعی</h5>
 											<div class="contact-social">
 											
 												<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>

@@ -70,13 +70,9 @@
 					<div class="col-xs-12 col-sm-8">
 						<ol class="breadcrumb">
 							<li><a href="/">صفحه اصلی</a></li>
-							<li><a href="#">دروس</a></li>
+							<li><a href="/courses">دروس</a></li>
 							<li class="active">خرید</li>
 						</ol>
-					</div>
-
-					<div class="col-xs-12 col-sm-4 hidden-xs">
-						<p class="hot-line"> <i class="fa fa-phone"></i> Hot Line: 1-222-33658</p>
 					</div>
 
 				</div>

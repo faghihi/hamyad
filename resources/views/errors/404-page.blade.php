@@ -67,8 +67,8 @@
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li class="active">	Page not found</li>
+								<li><a href="#">خانه</a></li>
+								<li class="active">	صفحه یافت نشد</li>
 							</ol>
 						</div>
 						

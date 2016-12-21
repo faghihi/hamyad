@@ -68,16 +68,14 @@
 			<div class="breadcrumb-wrapper">
 			
 				<div class="container">
-				
-					<h1 class="page-title">Instructor Single</h1>
-					
+
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="/">Home</a></li>
-								<li><a href="/instructor">Instructors</a></li>
-								<li class="active">Instructor name</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/instructor">اساتید</a></li>
+								<li class="active">توضیحات</li>
 							</ol>
 						</div>
 						

@@ -63,14 +63,14 @@
 			
 				<div class="container">
 				
-					<h1 class="page-title">Feature Items</h1>
+					<h1 class="page-title">اساتید</h1>
 					
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="../">Home</a></li>
-								<li class="active">Instructors</li>
+								<li><a href="/">خانه</a></li>
+								<li class="active">لیست اساتید</li>
 							</ol>
 						</div>
 						

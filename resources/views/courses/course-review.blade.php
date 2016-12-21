@@ -62,15 +62,15 @@
 			
 				<div class="container">
 				
-					<h1 class="page-title">Review for Introduction to HTML: Build a Portfolio Website</h1>
+					<h1 class="page-title">نظرات و رتبه ی درس</h1>
 					
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Courses list</a></li>
-								<li class="active">Course Detail</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/courses">دروس</a></li>
+								<li class="active">نظرات</li>
 							</ol>
 						</div>
 						

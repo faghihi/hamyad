@@ -67,11 +67,10 @@
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Courses</a></li>
-								<li><a href="#">Course Result</a></li>
-								<li><a href="#">Course Detail</a></li>
-								<li class="active">Course Confirmation</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/courses">دروس</a></li>
+								<li><a href="/attend">خرید درس</a></li>
+								<li class="active">تایید در خرید</li>
 							</ol>
 						</div>
 						
@@ -97,9 +96,9 @@
 
 								</div>
 								
-								<h2>Payment Completed!</h2>
-								<h5 class="text-uppercase text-muted">Thank you</h5>
-								<p> Views abode law heard jokes too. Was are delightful solicitude discovered collecting man day. Resolving neglected sir tolerably but existence conveying for.</p>
+								<h2>خرید انجام شد!</h2>
+								<h5 class="text-uppercase text-muted">با تشکر از خرید شما.</h5>
+								<p>برای مشاهده ی دروس خود به بخش کاربری قسمت دروس مراجعه کنید.</p>
 								
 							</div>
 							
@@ -133,7 +132,7 @@
 									
 									<div class="text-center mt-30">
 									
-										<a href="#" class="btn btn-primary">Start learning</a>
+										<a href="#" class="btn btn-primary">شروع آموزش.</a>
 								
 									</div>
 									

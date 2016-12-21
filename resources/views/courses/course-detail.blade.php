@@ -67,9 +67,9 @@
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Courses list</a></li>
-								<li class="active">Course Detail</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/courses">دروس</a></li>
+								<li class="active">توضیحات</li>
 							</ol>
 						</div>
 						
@@ -315,7 +315,7 @@
 															
 															<div class="col-xs-12 col-sm-6 mb-15">
 																<div class="meta text-left text-right-xs">
-																	<i class="fa fa-video-camera"></i>  ویدپو <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> {{$section['time']}} دقیقه
+																	<i class="fa fa-video-camera"></i>  ویدئو <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> {{$section['time']}} دقیقه
 																</div>
 															</div>
 														

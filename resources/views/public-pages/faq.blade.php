@@ -63,13 +63,13 @@
 			
 				<div class="container">
 				
-					<h1 class="page-title">Frequency Asked Questions (FAQ)</h1>
+					<h1 class="page-title">سوالات متداول (FAQ)</h1>
 					
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="../">Home</a></li>
+								<li><a href="/">خانه</a></li>
 								<li class="active">Faq</li>
 							</ol>
 						</div>
@@ -87,8 +87,8 @@
 					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 						
 						<div class="section-title mb-30">
-							<h3 class="mb-10">Frequency Asked Questions (FAQ)</h3>
-							<p class="text-sm">Man particular insensible celebrated conviction stimulated principles day. Sure fail or in said west. Right my front it wound cause fully am sorry if. She jointure goodness interest debating did outweigh.</p>
+							<h3 class="mb-10">سوالات متدوال از همیاد (FAQ)</h3>
+							{{--<p class="text-sm">Man particular insensible celebrated conviction stimulated principles day. Sure fail or in said west. Right my front it wound cause fully am sorry if. She jointure goodness interest debating did outweigh.</p>--}}
 						</div>
 					
 						<div class="faq-wrapper">
@@ -432,11 +432,11 @@
 					
 							<div class="row">
 								<div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-									<h2>Do you a questions for us</h2>
+									<h2>هنوز گیج هستید؟</h2>
 							
-									<p>Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of.</p>
+									<p>سوالی ک ذهنتان را درگیر کرده است در سوالات بالا نبود؟</p>
 									
-									<a href="/contactUs" class="btn btn-primary mt-15">Contact Us</a>
+									<a href="/contactUs" class="btn btn-primary mt-15">ارتباط با ما</a>
 								</div>
 							</div>
 

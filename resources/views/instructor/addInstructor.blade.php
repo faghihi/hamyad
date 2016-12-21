@@ -63,15 +63,15 @@
 			
 				<div class="container">
 					
-					<h1 class="page-title">Coperation</h1>
+					<h1 class="page-title">فرم همکاری</h1>
 					
 					<div class="row">
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="/">Home</a></li>
-								<li><a href="/">instructor</a></li>
-								<li class="active">cooperation</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/instructor">اساتید</a></li>
+								<li class="active">فرم همکاری</li>
 							</ol>
 						</div>
 						
@@ -164,7 +164,7 @@
 										<div class="col-sm-12">
 										
 											<div class="form-group">
-												<label for="inputMessage">مشخصات <span class="font10 text-black">(اطلاعات مضاعف)</span></label>
+												<label for="inputMessage">مشخصات <span class="font10 text-black">(اجباری)</span></label>
 												<textarea id="inputMessage" name="Description" class="form-control" rows="8" data-minlength="20" data-error="حداقل پیامتان باید شامل 20 کلمه باشد" required></textarea>
 												<div class="help-block with-errors"></div>
 											</div>

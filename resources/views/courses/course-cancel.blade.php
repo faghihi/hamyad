@@ -67,11 +67,10 @@
 					
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Courses</a></li>
-								<li><a href="#">Course Result</a></li>
-								<li><a href="#">Course Detail</a></li>
-								<li class="active">Course Confirmation</li>
+								<li><a href="/">خانه</a></li>
+								<li><a href="/courses">دروس</a></li>
+								<li><a href="/attend">خرید درس</a></li>
+								<li class="active">خطا در خرید</li>
 							</ol>
 						</div>
 						
@@ -97,9 +96,9 @@
 								
 								</div>
 								
-								<h2>Payment Canceled!</h2>
-								<h5 class="text-uppercase text-muted">sorry</h5>
-								<p> Views abode law heard jokes too. Was are delightful solicitude discovered collecting man day. Resolving neglected sir tolerably but existence conveying for.</p>
+								<h2>پرداخت کنسل شد!</h2>
+								<h5 class="text-uppercase text-muted">متاسفیم</h5>
+								<p>به دلیل پاره ای از مشکلات خرید با مشکل رو به رو شد لطفا دوباره تلاش کنید.</p>
 								
 							</div>
 							
@@ -109,7 +108,7 @@
 									
 									<div class="text-center mt-30">
 									
-										<a href="#" class="btn btn-danger">Back to course</a>
+										<a href="#" class="btn btn-danger">بازگشت به درس</a>
 								
 									</div>
 									
