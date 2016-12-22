@@ -119,26 +119,20 @@ Route::get('/attend', function (){
     return view('courses.course-purchase');
 });
 
-
 Route::get('/FAQ', function (){
     return view('public-pages.faq');
 });
 
+Route::get('/credit', function (){
+    return view('profile.credit-plus');
+});
+
 Route::get('SectionReview/{section}','SectionsController@ShowReviews');
 
-
-Route::get('/ajax-register', function (){
-    return view('ajax-login-modal-register');
-});
 Route::get('/new-register', function (){
     return view('signin-signUp.register');
 });
-Route::get('/ajax-login', function (){
-    return view('ajax-login-modal-login');
-});
-Route::get('/ajax-forgot-password', function (){
-    return view('ajax-login-modal-forgot-password');
-});
+
 Route::get('/limited', function (){
     return view('public-pages.video-access-fail');
 });

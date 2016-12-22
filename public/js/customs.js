@@ -405,7 +405,6 @@ jQuery(function() {
 				$(this).find("[type='submit']").prop('disabled',true);
 
 			});
-		
 
 });
 
@@ -433,7 +432,7 @@ $('#profile').ready(function () {
 
 $('#attend').ready(function () {
 
-	$('#full-price:eq(0)').text($('input[name="featured_checkbox"]:checked').siblings().find('.price').eq(0).text());
+	// $('#full-price:eq(0)').text($('input[name="featured_checkbox"]:checked').siblings().find('.price').eq(0).text());
 
 	$('input[name="featured_checkbox"]').change(function(){
 
@@ -444,5 +443,26 @@ $('#attend').ready(function () {
 		$('#full-price:eq(0)').text(price);
 	});
 
+
+});
+
+$('#credit').ready(function () {
+
+	$('input[name="featured_checkbox"]').change(function(){
+
+		if($('#featured_checkbox-4').is(":checked"))
+			$('#otherCost').show();
+		else $('#otherCost').hide();
+
+		var price= $(this).siblings().find('.price').eq(0).text();
+		$('#current-charge:eq(0)').text(price);
+		$('#full-charge:eq(0)').text(price);
+	});
+
+	$('#otherCost input:eq(0)').keyup(function(){
+
+		$('#current-charge:eq(0)').text($('#otherCost input:eq(0)').val());
+		$('#full-charge:eq(0)').text($('#otherCost input:eq(0)').val());
+	});
 
 });

@@ -112,6 +112,27 @@
 
 								<div class="scrollspy-sidebar alt-style-01">
 
+									<div class="call-featiured">
+
+										<div class="icon">
+											<i class="fa fa-credit-card" aria-hidden="true"></i>
+										</div>
+
+										<div class="content">
+											<h5>اعتبار شما</h5>
+											<p class="phone-number">
+												50 هزار تومان
+											</p>
+										</div>
+
+										<div class="favor-link-wrapper mb-30">
+											<a href="/credit" class="favor-link"><i class="fa fa-plus-circle"></i> افزایش اعتبار </a>
+										</div>
+
+									</div>
+
+
+
 									<ul class="scrollspy-sidenav">
 
 										<li class="heading"><h5>منو</h5></li>
@@ -165,6 +186,13 @@
 														<div class="row gap-10">
 															<div class="col-xs-5 col-sm-3"><i class="fa fa-envelope"></i> ایمیل</div>
 															<div class="col-xs-7 col-sm-9 text-right font600">{{$user['email']}}</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="row gap-10">
+															<div class="col-xs-5 col-sm-3"><i class="fa fa-envelope"></i> اعتبار</div>
+															<div class="col-xs-7 col-sm-9 text-right font600">5 هزار تومان</div>
 														</div>
 													</li>
 
