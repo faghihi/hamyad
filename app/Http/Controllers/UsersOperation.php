@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cooperate;
 use App\Course;
 use App\User;
+use App\UserFinance;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -336,7 +337,90 @@ class UsersOperation extends Controller
             $course['rates_count']=$rate_count;
             $counter=$course->category->name;
         }
+        $finance=$this->Finance($user);
 //        return $courses;
-        return view('profile.user-profile')->with(['user'=>$user,'Packs'=>$packs,'Courses'=>$courses]);
+        return view('profile.user-profile')->with(['user'=>$user,'Packs'=>$packs,'Courses'=>$courses,'Finance'=>$finance]);
+    }
+
+    public function Finance(User $user)
+    {
+        $amount=$user->finance;
+//        echo $amount;
+        if(is_null($amount))
+        {
+            return -1;
+        }
+        else
+        {
+            return $amount->amount;
+        }
+    }
+
+    public function AddCourse(Course $course,$payment,$discount)
+    {
+        $user=\Auth::user();
+        try {
+            $user->courses_take()->attach($course->id,['paid'=>$payment,'discunt_used'=>$discount]);
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+
+            return 0;
+        }
+
+        return 1;
+
+    }
+
+    public function BuyWithCredit($payment)
+    {
+        $user=\Auth::user();
+        if($this->Finance($user) > $payment)
+        {
+            $finance = User::with('finance')->find($user->id);
+            $finance->finance->amount=$finance->finance->amount-$payment;
+            try{
+                $finance->push();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+
+    }
+
+    public function AdjustCredit($payment)
+    {
+        $user=\Auth::user();
+        if($this->Finance($user)!=-1)
+        {
+            $finance = User::with('finance')->find($user->id);
+            $finance->finance->amount=$finance->finance->amount+$payment;
+            try{
+                $finance->push();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
+        }
+        else
+        {
+            $finance=new UserFinance();
+            $finance->amount=$payment;
+            $finance->user_id=$user->id;
+            try{
+                $finance->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
+        }
+
     }
 }

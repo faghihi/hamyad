@@ -177,4 +177,3 @@ Route::get('/ChangePass','UsersOperation@ChangePass');
 Route::get('/home',function (){
    return redirect('/');
 });
-

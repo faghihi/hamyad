@@ -14,6 +14,7 @@ Route::group([
         Route::get('NotAuth','ApiLoginController@Fail');
         Route::resource('register', 'ApiRegisterController');
         Route::resource('courses', 'ApiCoursesController');
+        Route::resource('teachers', 'ApiTeachersController');
         Route::get('Courses/search', 'ApiCoursesController@search');
         Route::get('Courses/ShowReviews/{course}', 'ApiCoursesController@ShowReviews');
         Route::get('Subscribe', 'ApiSocialController@subscribe');

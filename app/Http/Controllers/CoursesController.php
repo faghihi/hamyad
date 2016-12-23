@@ -381,18 +381,4 @@ class CoursesController extends Controller
         return view('courses.course-review')->with(['Data'=>$Data,'course'=>$course,'able'=>$able]);
     }
 
-    public function AddCourse(Course $course,$payment,$discount)
-    {
-        $user=\Auth::user();
-        try {
-            $user->courses_take()->attach($course->id,['paid'=>$payment,'discunt_used'=>$discount]);
-        }
-        catch ( \Illuminate\Database\QueryException $e){
-
-            return 0;
-        }
-
-        return 1;
-
-    }
 }

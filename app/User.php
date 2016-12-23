@@ -140,13 +140,11 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    protected $casts = [
-        'is_admin' => 'boolean',
-    ];
-
-    public function isAdmin()
+    public function finance()
     {
-        return $this->admin; // this looks for an admin column in your users table
+        return $this->hasOne('App\UserFinance');
     }
+
+
 
 }

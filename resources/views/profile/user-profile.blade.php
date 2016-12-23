@@ -121,7 +121,12 @@
 										<div class="content">
 											<h5>اعتبار شما</h5>
 											<p class="phone-number">
-												50 هزار تومان
+												@if($Finance > 1000)
+													<?php $price=$Finance/1000 . ' هزار تومان'?>
+												@else
+													<?php $price=$Finance . ' تومان'?>
+												@endif
+												{{$price}}
 											</p>
 										</div>
 
