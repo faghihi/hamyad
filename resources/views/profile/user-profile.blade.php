@@ -217,8 +217,6 @@
 										<br>
 										<br>
 										<br>
-										<br>
-										
 										<div class="course-intro">
 
 											{{--<form hidden>--}}
