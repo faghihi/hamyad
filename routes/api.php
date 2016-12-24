@@ -45,4 +45,5 @@ Route::group([
         Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');
         Route::get('MyCourse', 'ApiUsersOperationController@RetrieveCourses');
         Route::get('MyFavorite', 'ApiUsersOperationController@RetrieveFavorite');
+        Route::get('profile','ApiUsersOperationController@Profile');
     });

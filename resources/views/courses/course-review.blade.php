@@ -159,15 +159,21 @@
 															<div class="review-overall">
 
 																<h5>رتبه ی درس</h5>
-																<p class="review-overall-point">5.0/ <span>4.6</span> </p>
+																@if($course['rates_count'] == 0)
+																	<?php $rate=0;?>
+																@else
+																	<?php $rate=$course['rates_value']/$course['rates_count']?>
+																@endif
+																<p class="review-overall-point">5.0/ <span>{{$rate}}</span> </p>
 
 																<div class="rating-wrapper">
 																	<div class="rating-item">
-																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="3.5"/>
+
+																		<input type="hidden" class="rating" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="2" data-readonly value="{{$rate}}"/>
 																	</div>
-																	<span> (7 نظر)</span>
+																	<span>{{'(' .$course['rates_count'].' نظر '.')'}}</span>
 																</div>
-																<p class="review-overall-recommend">90% از کاربران این درس را به شما پیشنهاد می کنند.</p>
+																{{--<p class="review-overall-recommend">90% از کاربران این درس را به شما پیشنهاد می کنند.</p>--}}
 
 															</div>
 
