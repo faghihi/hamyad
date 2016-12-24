@@ -47,6 +47,6 @@ return [
      |
      */
 
-    'activation'=> 'Activation Email',
+    'activation'=> 'ایمیل فعال سازی ',
 
 ];

@@ -5,6 +5,7 @@ namespace App;
 
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
+use App\Http\Controllers\EmailController;
 
 class ActivationService
 {
@@ -14,11 +15,13 @@ class ActivationService
     protected $activationRepo;
 
     protected $resendAfter = 0;
+    protected $Email;
 
-    public function __construct(Mailer $mailer, ActivationRepository $activationRepo)
+    public function __construct(Mailer $mailer, ActivationRepository $activationRepo,EmailController $Email1)
     {
         $this->mailer = $mailer;
         $this->activationRepo = $activationRepo;
+        $this->Email=$Email1;
     }
 
     public function sendActivationMail($user)
@@ -32,19 +35,17 @@ class ActivationService
 
         $link = route('user.activate', $token);
         $message ="Activate you Account : $link";
-        try{
-            $this->mailer->raw($message, function (Message $m) use ($user) {
-                $m->to($user->email)
-                    ->subject(\Config::get('email.activation'))
-                    ->from(\Config::get('email.email_send'),\Config::get('email.name'));
-            });
-        }
-        catch(\Swift_SwiftException $se){
-            return 0;
-        }
-
-
-
+//        try{
+//            $this->mailer->send($message, function (Message $m) use ($user) {
+//                $m->to($user->email)
+//                    ->subject(\Config::get('email.activation'))
+//                    ->from(\Config::get('email.email_send'),\Config::get('email.name'));
+//            });
+//        }
+//        catch(\Swift_SwiftException $se){
+//            return 0;
+//        }
+        $this->Email->send_email(array('link'=>$link),'Activation',\Config::get('email.activation'),$user->email);
     }
 
     public function activateUser($token)
