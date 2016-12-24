@@ -214,6 +214,11 @@
 											</div>
 
 										</div>
+										<br>
+										<br>
+										<br>
+										<br>
+										
 										<div class="course-intro">
 
 											{{--<form hidden>--}}
@@ -264,6 +269,9 @@
 													</div>
 												</div>
 											</form>
+											<br>
+											<br>
+											<br>
 
 											@if (count($errors) > 0)
 												<div class="alert alert-danger">
