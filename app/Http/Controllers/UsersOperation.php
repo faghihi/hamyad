@@ -342,13 +342,27 @@ class UsersOperation extends Controller
         return view('profile.user-profile')->with(['user'=>$user,'Packs'=>$packs,'Courses'=>$courses,'Finance'=>$finance]);
     }
 
-    public function Finance(User $user)
+    public function HasFinance(User $user)
     {
         $amount=$user->finance;
 //        echo $amount;
         if(is_null($amount))
         {
             return -1;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public function Finance(User $user)
+    {
+        $amount=$user->finance;
+//        echo $amount;
+        if(is_null($amount))
+        {
+            return 0;
         }
         else
         {
@@ -396,7 +410,7 @@ class UsersOperation extends Controller
     public function AdjustCredit($payment)
     {
         $user=\Auth::user();
-        if($this->Finance($user)!=-1)
+        if($this->HasFinance($user)!=-1)
         {
             $finance = User::with('finance')->find($user->id);
             $finance->finance->amount=$finance->finance->amount+$payment;

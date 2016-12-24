@@ -122,11 +122,11 @@
 											<h5>اعتبار شما</h5>
 											<p class="phone-number">
 												@if($Finance > 1000)
-													<?php $price=$Finance/1000 . ' هزار تومان'?>
+													<?php $finance=$Finance/1000 . ' هزار تومان'?>
 												@else
-													<?php $price=$Finance . ' تومان'?>
+													<?php $finance=$Finance . ' تومان'?>
 												@endif
-												{{$price}}
+												{{$finance}}
 											</p>
 										</div>
 
@@ -197,7 +197,7 @@
 													<li>
 														<div class="row gap-10">
 															<div class="col-xs-5 col-sm-3"><i class="fa fa-envelope"></i> اعتبار</div>
-															<div class="col-xs-7 col-sm-9 text-right font600">5 هزار تومان</div>
+															<div class="col-xs-7 col-sm-9 text-right font600">{{$finance}}</div>
 														</div>
 													</li>
 
