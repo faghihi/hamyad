@@ -267,11 +267,10 @@
 													</div>
 												</div>
 											</form>
-											<br>
-											<br>
-											<br>
-
 											@if (count($errors) > 0)
+												<br>
+												<br>
+												<br>
 												<div class="alert alert-danger">
 													<ul>
 														@foreach ($errors->all() as $error)
@@ -281,16 +280,25 @@
 												</div>
 											@endif
 											@if (isset($_GET['error']) && $_GET['error']=='mismatch')
+												<br>
+												<br>
+												<br>
 												<div class="alert alert-danger">
 													رمز فعلی را اشتباه وارد نموده اید .
 												</div>
 											@endif
 											@if (isset($_GET['error']) && $_GET['error']=='error')
+												<br>
+												<br>
+												<br>
 												<div class="alert alert-danger">
 													مشکلی رح داده است .
 												</div>
 											@endif
 											@if (isset($_GET['success']))
+												<br>
+												<br>
+												<br>
 												<div class="alert alert-success">
 													موفقیت آمیز بود
 												</div>
