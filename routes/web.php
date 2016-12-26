@@ -42,7 +42,14 @@ Route::resource('sections','SectionsController');
 
 Route::get('/instructor/Search','TeachersController@Search');
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/PackBuy/{pack}','PackController@Buy');
+
+
+    Route::get('/PackBuy/{pack}','BuyController@BuyPack');
+
+    Route::get('/CourseBuy/{course}','BuyController@BuyCourse');
+
+    Route::post('/CourseBuyStart/{course}','BuyController@CourseBuyStart');
+    Route::post('/PackBuyStart/{pack}','BuyController@PackBuyStart');
 
     Route::resource('roles', 'RolesController');
 
@@ -139,32 +146,13 @@ Route::get('/limited', function (){
 Route::get('/cooperate', function (){
     return view('instructor.addInstructor');
 });
-Route::get('/packages', function (){
-    return view('courses.packages');
-});
+
+
+
 Route::get('/profile', 'UsersOperation@Profile');
 
 Route::get('/Searching','IndexController@Search');
-Route::get('/Date',function(){
-    $date1 = new DateTime("2007-03-24");
-    $date2 = new DateTime("2007-03-30");
-    $interval = $date1->diff($date2);
-    if($interval->days < 2)
-        echo 1;
-    else
-        echo 0;
-});
-Route::get('/AlertUsers','PackController@ExtendAlertUsers');
 
-Route::get('testmail','EmailController@test');
-
-Route::get('testcon',function(){
-   echo Config::get('app.timezone');
-});
-
-Route::get('uploadimage',function (){
-    return view('uploadform');
-});
 Route::post('/imageupload','UsersOperation@UploadPhoto');
 Route::post('/ChangeInfo','UsersOperation@ChangeInfo');
 Route::post('/SubmitInstructor','UsersOperation@Cooperate');
@@ -175,8 +163,34 @@ Route::get('/Subscribe','SocialController@Subscribe');
 Route::get('/Courses/Search','CoursesController@Search');
 Route::get('/ChangePass','UsersOperation@ChangePass');
 Route::get('/home',function (){
-   return redirect('/');
+    return redirect('/');
 });
 Route::get('/logout',function (){
-   return redirect('/');
+    return redirect('/');
 });
+
+//Route::get('/packages', function (){
+//    return view('courses.packages');
+//});
+
+//Route::get('/Date',function(){
+//    $date1 = new DateTime("2007-03-24");
+//    $date2 = new DateTime("2007-03-30");
+//    $interval = $date1->diff($date2);
+//    if($interval->days < 2)
+//        echo 1;
+//    else
+//        echo 0;
+//});
+
+//Route::get('/AlertUsers','PackController@ExtendAlertUsers');
+
+//Route::get('testmail','EmailController@test');
+
+//Route::get('testcon',function(){
+//   echo Config::get('app.timezone');
+//});
+
+//Route::get('uploadimage',function (){
+//    return view('uploadform');
+//});

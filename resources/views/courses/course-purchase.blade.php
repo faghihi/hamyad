@@ -137,10 +137,16 @@
 							<div class="content-wrapper">
 
 								<div class="payment-content-wrapper mb-0">
+									@if(isset($Pack))
+									<form id="payment-form" method="post" action="/PackBuyStart/{{$Info['id']}}" class="creditly-card-form">
+										{{csrf_field()}}
+									</form>
+									@else
+										<form id="payment-form" method="post" action="/CourseBuyStart/{{$Info['id']}}" class="creditly-card-form">
+											{{csrf_field()}}
+										</form>
+									@endif
 
-									<form id="payment-form" class="creditly-card-form"></form>
-
-									<form id="coupon-form" ></form>
 
 									<div class="row">
 
@@ -195,17 +201,21 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-1" name="featured_checkbox" value="general" type="checkbox" class="checkbox" checked/>
+															<input id="featured_checkbox-1" name="featured_checkbox" value="general" type="checkbox" class="checkbox" checked form="payment-form"/>
 															<label class="clearfix" for="featured_checkbox-1">
 																<span class="h6">مبلغ اصلی</span>
 																<span class="p">مبلغ پرداختی شما به ازای دریافت داپمی این دوره </span>
 																<span class="price">
-																	@if($Info['price'] >= 1000)
+																		@if($Info['price'] < 1000)
+																			@if($Info['price']==0)
+																				<?php $price='رایگان' ?>
+																			@else
+																				<?php $price=$Info['price'] . ' تومان'?>
+																			@endif
+																		@else
 																		<?php $price=$Info['price']/1000 . ' هزار تومان'?>
-																	@else
-																		<?php $price=$Info['price'] . ' تومان'?>
-																	@endif
-																	{{$price}}
+																		@endif
+																		{{$price}}
 																</span>
 															</label>
 														</div>
@@ -219,7 +229,7 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-2" name="featured_checkbox" value="daily" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-2" name="featured_checkbox" value="daily" type="checkbox" class="checkbox" form="payment-form"/>
 															<label class="clearfix" for="featured_checkbox-2">
 																<span class="h6">قیمت روزانه</span>
 																<span class="p">این پک فقط به مدت 1 روز مهلت استفاده دارد.</span>
@@ -241,7 +251,7 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-3" name="featured_checkbox" value="month" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-3" name="featured_checkbox" value="month" type="checkbox" class="checkbox" checked form="payment-form"/>
 															<label class="clearfix" for="featured_checkbox-3">
 																<span class="h6">ماهانه</span>
 																<span class="p">این پک فقط به مدت 1 ماه مهلت استفاده دارد.</span>
@@ -263,7 +273,7 @@
 
 													<div class="featured-checkbox">
 														<div class="checkbox-block">
-															<input id="featured_checkbox-4" name="featured_checkbox" value="year" type="checkbox" class="checkbox"/>
+															<input id="featured_checkbox-4" name="featured_checkbox" value="year" type="checkbox" class="checkbox" form="payment-form"/>
 															<label class="clearfix" for="featured_checkbox-4">
 																<span class="h6">سالانه</span>
 																<span class="p">این پک فقط به مدت 1 سال مهلت استفاده دارد.</span>
@@ -286,51 +296,65 @@
 										</div>
 
 										<br><br>
+										@if(isset($Pack) || $Info['price']!=0)
+											<div class="row">
 
-										<div class="row">
+												<div class="form-group">
 
-											<div class="form-group">
+													<div class="col-xs-2 col-sm-12 col-md-2">
 
-												<div class="col-xs-2 col-sm-12 col-md-2">
+														<label class="text-primary">کد تخفیف: </label>
 
-													<label class="text-primary">کد تخفیف: </label>
+													</div>
 
-												</div>
+													<div class="col-xs-4 col-sm-12 col-md-4">
 
-												<div class="col-xs-4 col-sm-12 col-md-4">
+														<input name="Code" form="payment-form" type="text" class="form-control" placeholder="کد" />
 
-													<input form="payment-form" type="text" class="form-control" placeholder="کد" />
+													</div>
 
-												</div>
+													<div class="col-xs-2 col-sm-12 col-md-2">
 
-												<div class="col-xs-2 col-sm-12 col-md-2">
+														<button class="btn btn-danger btn-block btn-sm mt-5">بررسی</button>
 
-													<button class="btn btn-danger btn-block btn-sm mt-5">بررسی</button>
+													</div>
 
 												</div>
 
 											</div>
-
-										</div>
+										@endif
 
 										<br>
+										@if(isset($Pack) || $Info['price']!=0)
+											<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
 
-										<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
+												<div id="paymentPaypal" class="payment-option-form">
+													<div class="inner">
 
-											<div id="paymentPaypal" class="payment-option-form">
-												<div class="inner">
+														<h4 class="text-primary">مبلغ پرداختی: <span class="font700" id="full-price">100 هزار تومان </span></h4>
+														<p>به جای: <strong id="now-price">150 هزار تومان</strong>. </p>
+														<p><span class="text-warning">تذکر </span>ابتدا مبلغ را انتخاب کرده و سپس کد تخفیف را اعمال کنید، در غیر اینصورت مبلغ محاسبه نمی شود.</p>
+													</div>
 
-													<h4 class="text-primary">مبلغ پرداختی: <span class="font700" id="full-price">100 هزار تومان </span></h4>
-													<p>به جای: <strong id="now-price">150 هزار تومان</strong>. </p>
-													<p><span class="text-warning">تذکر </span>ابتدا مبلغ را انتخاب کرده و سپس کد تخفیف را اعمال کنید، در غیر اینصورت مبلغ محاصبه نمی شود.</p>
 												</div>
 
 											</div>
+										@else
+											<div class="GridLex-gap-30 no-mb featured-checkbox-wrapper no-bb-col-2">
 
-										</div>
+												<div id="paymentPaypal" class="payment-option-form">
+													<div class="inner">
+
+														<h4 class="text-primary">مبلغ پرداختی: <span class="font700" id="full-price">رایگان </span></h4>
+													</div>
+
+												</div>
+
+											</div>
+										@endif
 
 									</div>
-
+									@if(isset($Pack) || $Info['price']!=0)
 									<div class="row">
 
 										<div class="col-xs-12 col-md-8">
@@ -370,8 +394,9 @@
 										</div>
 
 									</div>
+									@endif
 
-									<button form="coupon-form" class="btn btn-primary mt-10">Proceed to payment</button>
+									<button form="payment-form" type="submit" class="btn btn-primary mt-10">انجام عملیات</button>
 
 								</div>
 

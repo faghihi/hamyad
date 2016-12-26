@@ -107,32 +107,28 @@
 								<div class="course-list-item-02">
 								
 									<div class="image">
-										<img src="images/course-item/01.jpg" alt="image" />
+										@if(isset($course['image']))
+											<?php $image=Config::get('store.storagepath').$course['image'];?>
+										@else
+											<?php $image='/images/course-item/01.jpg';?>
+										@endif
+										<img src="{{$image}}" alt="image" />
 									</div>
 									
 									<div class="content">
 											
-										<h4 class="text-center text-primary">Foundations of Enterprise Development for Windows</h4>
+										<h4 class="text-center text-primary">{{$course['name']}}</h4>
 										
 										<ul class="meta-list clearfix">
-											<li class="btn-box">
-												<div class="course-instructor">
-													<div class="image">
-														<img src="images/man/01.jpg" alt="Image" class="img-circle" />
-													</div>
-													<span>Mark Lassoff</span>
-												</div>
-											</li>
-											<li><i class="fa fa-folder-open-o"></i><span class="block"> Programming</span></li>
-											<li><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></li>
-											<li><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></li>
+											<li><i class="fa fa-folder-open-o"></i><span class="block">{{$course['category_name']}}</span></li>
+											<li><i class="fa fa-pencil-square-o"></i><span class="block">{{$course['sections_count']}} سرفصل</span></li>
+											<li><i class="fa fa-calendar-check-o"></i><span class="block">{{$course['sections_time']}} دقیقه</span></li>
 										</ul>
-										
 									</div>
 									
 									<div class="text-center mt-30">
 									
-										<a href="#" class="btn btn-primary">شروع آموزش.</a>
+										<a href="/courses/{{$course['id']}}" class="btn btn-primary">شروع آموزش.</a>
 								
 									</div>
 									

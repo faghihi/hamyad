@@ -90,7 +90,7 @@
                             <a href="javascript:void(0)">آموزش </a>
                             <ul>
                                 <li><a href="/courses">دوره ها</a></li>
-                                <li><a href="/packs">بسته ها</a></li>
+                                <li><a href="/packs">خرید اشتراک</a></li>
                             </ul>
                         </li>
                         <li>

@@ -157,10 +157,4 @@ class PackController extends Controller
         return $Data;
     }
 
-    public function Buy(Pack $pack)
-    {
-        $user=\Auth::user();
-        return view('courses.course-purchase')->with(['user'=>$user,'Pack'=>1,'Info'=>$pack]);
-//        return $pack;
-    }
 }

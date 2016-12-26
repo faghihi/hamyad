@@ -381,4 +381,6 @@ class CoursesController extends Controller
         return view('courses.course-review')->with(['Data'=>$Data,'course'=>$course,'able'=>$able]);
     }
 
+
+
 }

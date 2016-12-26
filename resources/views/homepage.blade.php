@@ -241,10 +241,14 @@
 												</div>
 												@endif
 												<div class="course-item-price bg-danger">
-													@if($course['price'] > 1000)
-														<?php $price=$course['price']/1000 . ' هزار تومان'?>
+													@if($course['price'] < 1000)
+														@if($course['price']== 0)
+															<?php $price='رایگان' ?>
+														@else
+															<?php $price=$course['price'] . ' تومان'?>
+														@endif
 													@else
-														<?php $price=$course['price'] . ' تومان'?>
+														<?php $price=$course['price']/1000 . ' هزار تومان'?>
 													@endif
 													{{$price}}
 												</div>

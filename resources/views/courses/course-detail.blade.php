@@ -138,10 +138,14 @@
 							
 							<li class="meta-price">
 								<div class="price bg-danger">
-									@if($course['price'] > 1000)
-										<?php $price=$course['price']/1000 . ' هزار تومان'?>
+									@if($course['price'] < 1000)
+										@if($course['price']==0)
+											<?php $price='رایگان' ?>
+										@else
+											<?php $price=$course['price'] . ' تومان'?>
+										@endif
 									@else
-										<?php $price=$course['price'] . ' تومان'?>
+										<?php $price=$course['price']/1000 . ' هزار تومان'?>
 									@endif
 									{{$price}}
 								</div>
@@ -185,17 +189,21 @@
 											</li>
 
 										</ul>
-										
-										<div class="clearfix mb-20 mt-30">
-											<a href="#" class="btn btn-primary btn-block btn-md" data-toggle="modal" data-target="#courseModal">همین حالا عضو شوید</a>
-										</div>
-										
+										@if(Auth::check() && Auth::user()->courses_take()->where('courses.id', $course->id)->exists())
+											<div class="clearfix mb-20 mt-30">
+												<a href="/profile" class="btn btn-primary btn-block btn-md">رجوع به پروفایل</a>
+											</div>
+										@else
+											<div class="clearfix mb-20 mt-30">
+												<a href="/CourseBuy/{{$course['id']}}" class="btn btn-primary btn-block btn-md">همین حالا عضو شوید</a>
+											</div>
+										@endif
 									</div>
 
 								</aside>
 								
 							</div>
-							
+
 							<div class="GridLex-col-9_sm-8_xs-12_xss-12">
 								
 								<div class="content-wrapper">
@@ -529,12 +537,16 @@
 																			</div>
 																			@endif
 																			<div class="course-item-price bg-danger">
-																				@if($course['relate'.$i]['price'] > 1000)
-																					<?php $price=$course['relate'.$i]['price']/1000 . ' هزار تومان'?>
-																				@else
-																					<?php $price=$course['relate'.$i]['price'] . ' تومان'?>
-																				@endif
-																				{{$price}}
+																					@if($course['relate'.$i]['price'] < 1000)
+																						@if($course['relate'.$i]['price']==0)
+																							<?php $price='رایگان' ?>
+																						@else
+																							<?php $price=$course['relate'.$i]['price'] . ' تومان'?>
+																						@endif
+																					@else
+																						<?php $price=$course['relate'.$i]['price']/1000 . ' هزار تومان'?>
+																					@endif
+																					{{$price}}
 																			</div>
 																		</div>
 																		<div class="course-item-content">

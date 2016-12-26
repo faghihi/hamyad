@@ -219,12 +219,16 @@
 											<h6>{{$course['name']}}</h6>
 											<br>
 											<span class="price">
-											@if($course['price'] > 1000)
-												<?php $price=$course['price']/1000 . ' هزار تومان'?>
-											@else
-												<?php $price=$course['price'] . ' تومان'?>
-											@endif
-											{{$price}}
+											@if($course['price'] < 1000)
+													@if($course['price']==0)
+														<?php $price='رایگان' ?>
+													@else
+														<?php $price=$course['price'] . ' تومان'?>
+													@endif
+												@else
+													<?php $price=$course['price']/1000 . ' هزار تومان'?>
+												@endif
+												{{$price}}
 											</span>
 										</div>
 									</a>
