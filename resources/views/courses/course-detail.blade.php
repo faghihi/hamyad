@@ -13,7 +13,7 @@
 	<meta name="keywords" content="study, learn, course, tutor, tutorial, teach, college, school, institute, teacher, instructor" />
 	<meta name="author" content="crenoveative">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+
 	<!-- Fav and Touch Icons -->
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
@@ -32,7 +32,7 @@
 
 	<!-- CSS Custom -->
 	<link href="/css/style.css" rel="stylesheet">
-	
+
 	<!-- For your own style -->
 	<link href="/css/your-style.css" rel="stylesheet">
 
@@ -41,7 +41,7 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	
+
 </head>
 
 <body>
@@ -51,7 +51,7 @@
 
 		<!-- start Header -->
 		<header id="header">
-	  
+
 			@include('header')
 
 		</header>
@@ -59,12 +59,12 @@
 
 		<!-- start Main Wrapper -->
 		<div class="main-wrapper scrollspy-container">
-		
+
 			<div class="breadcrumb-wrapper">
-			
+
 				<div class="container">
 					<div class="row">
-					
+
 						<div class="col-xs-12 col-sm-8">
 							<ol class="breadcrumb">
 								<li><a href="/">خانه</a></li>
@@ -72,19 +72,19 @@
 								<li class="active">توضیحات</li>
 							</ol>
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 
 			</div>
-			
+
 			<div class="course-detail-header">
-			
+
 				<div class="container">
-					
+
 					<div class="info clearfix">
-								
+
 						<div class="image">
 							@if(isset($course['image']))
 								<?php $image=Config::get('store.storagepath').$course['image'];?>
@@ -96,10 +96,10 @@
 						<div class="content">
 							<h2>{{$course['name']}}</h2>
 						</div>
-						
+
 						<ul class="meta-list">
 
-							
+
 							<li>
 								<div class="meta-category">
 									<div class="content">
@@ -109,7 +109,7 @@
 									</div>
 								</div>
 							</li>
-							
+
 							<li>
 								<div class="meta-category">
 									<div class="content">
@@ -118,7 +118,7 @@
 									</div>
 								</div>
 							</li>
-							
+
 							<li>
 								<div class="meta-rating">
 									<span class="text-muted mt-3 block">امتیاز</span>
@@ -135,7 +135,7 @@
 									</div>
 								</div>
 							</li>
-							
+
 							<li class="meta-price">
 								<div class="price bg-danger">
 									@if($course['price'] < 1000)
@@ -150,34 +150,34 @@
 									{{$price}}
 								</div>
 							</li>
-							
+
 						</ul>
-						
+
 					</div>
 
 				</div>
-				
+
 			</div>
-		
+
 			<div class="equal-content-sidebar-wrapper detail-page-wrapper">
-				
+
 				<div class="equal-content-sidebar-by-gridLex right-sidebar">
-	
+
 					<div class="container">
-					
+
 						<div class="GridLex-grid-noGutter-equalHeight">
-							
+
 							<div class="GridLex-col-3_sm-4_xs-12_xss-12 hidden-xs">
-							
+
 								<aside class="sidebar-wrapper">
-							
+
 									<div class="scrollspy-sidebar alt-style-01">
-									
+
 										<ul class="scrollspy-sidenav">
-										
+
 											<li class="heading"><h5>منوی دوره</h5></li>
 											<li>
-											
+
 												<ul class="nav faq-nav">
 													<li><a href="#course-detail-section-0" class="anchor">معرفی دوره</a></li>
 													<li><a href="#course-detail-section-1" class="anchor">دروس دوره</a></li>
@@ -185,13 +185,13 @@
 													<li><a href="#course-detail-section-3" class="anchor">نظرات</a></li>
 													<li><a href="#course-detail-section-4" class="anchor">دروس مرتبط</a></li>
 												</ul>
-												
+
 											</li>
 
 										</ul>
 										@if(Auth::check() && Auth::user()->courses_take()->where('courses.id', $course->id)->exists())
 											<div class="clearfix mb-20 mt-30">
-												<a href="/profile" class="btn btn-primary btn-block btn-md">رجوع به پروفایل</a>
+												<a href="/profile" class="btn btn-success btn-block btn-md">رجوع به پروفایل</a>
 											</div>
 										@else
 											<div class="clearfix mb-20 mt-30">
@@ -201,23 +201,23 @@
 									</div>
 
 								</aside>
-								
+
 							</div>
 
 							<div class="GridLex-col-9_sm-8_xs-12_xss-12">
-								
+
 								<div class="content-wrapper">
-							
+
 									<div class="detail-content-wrapper">
 
 										<div id="course-detail-section-0" class="course-detail-section">
-											
+
 											<div class="section-title mb-20">
 												<h3>معرفی دوره</h3>
 											</div>
-											
+
 											<div class="flex-video mb-40">
-												
+
 												{{--<img class="img-responsive" src="/images/blog/01.jpg">--}}
 												@if(isset($course['image']))
 													<?php $image=Config::get('store.storagepath').$course['image'];?>
@@ -246,13 +246,13 @@
 												</video>
 
 											</div>
-											
+
 											<div class="course-intro">
-											
+
 												<div class="listing-box clearfix">
-												
+
 													<h5>مشخصات اصلی دوره</h5>
-													
+
 													<ul class="listing-box-list">
 
 														<li>
@@ -261,25 +261,25 @@
 																<div class="col-xs-7 col-sm-6 text-left font600">{{$course['sections_time']}} دقیقه</div>
 															</div>
 														</li>
-														
+
 														<li>
 															<div class="row gap-10">
 																<div class="col-xs-5 col-sm-5"><i class="fa fa-pencil-square-o mr-5"></i>  تعداد دروس </div>
 																<div class="col-xs-7 col-sm-7 text-left font600">{{$course['sections_count']}} درس </div>
 															</div>
 														</li>
-														
+
 														<li>
 															<div class="row gap-10">
 																<div class="col-xs-5 col-sm-5"><i class="fa fa-users mr-5"></i> تعداد شرکت کنندگان</div>
 																<div class="col-xs-7 col-sm-7 text-left font600">{{$course['std_count']}} نفر</div>
 															</div>
 														</li>
-														
+
 													</ul>
-													
+
 												</div>
-											
+
 											</div>
 
 											<h5 class="text-uppercase font700">در مورد دوره </h5>
@@ -297,64 +297,64 @@
 											<br>
 											<br>
 										</div>
-										
+
 										<div id="course-detail-section-1" class="course-detail-section">
-										
+
 											<div class="section-title mb-20">
-											
+
 												<h3>مشحصات دروس دوره</h3>
-									
+
 											</div>
 
 											<div class="course-lession-wrapper-2 alt-item-bg">
 												@foreach($course['section'] as $section)
 												<a href="/sections/{{$section['id']}}" class="course-lession-item-2">
-												
+
 													<div class="content-top">
-													
+
 														<div class="row">
-														
+
 															<div class="col-xs-12 col-sm-6 mb-15">
-															
+
 																<span class="lebal-lesson"> قسمت {{$section['part']}} </span>
 																{{--<span class="label label-success">Free</span>--}}
-																
+
 															</div>
-															
+
 															<div class="col-xs-12 col-sm-6 mb-15">
 																<div class="meta text-left text-right-xs">
 																	<i class="fa fa-video-camera"></i>  ویدئو <span class="mh-5">|</span> <i class="fa fa-clock-o"></i> {{$section['time']}} دقیقه
 																</div>
 															</div>
-														
+
 														</div>
-														
+
 													</div>
-													
+
 													<div class="content">
-													
+
 														<h5>{{$section['name']}}</h5>
-														
+
 														<p>
 															{{$section['description']}}
 														</p>
 
 													</div>
-												
+
 												</a>
 												@endforeach
 											</div>
-											
+
 										</div>
-										
+
 										<div id="course-detail-section-2" class="course-detail-section">
-											
+
 											<div class="section-title mb-20">
 												<h3>About Teacher</h3>
 											</div>
-											
+
 											<div class="teacher-item-list-02-wrapper">
-												
+
 												<div class="teacher-item-list-02-sub hidden-after-sm">
 													<?php $count=0;?>
 													@foreach($course['teachers'] as $teacher)
@@ -411,23 +411,23 @@
 													@if($count%2==1)
 														</div>
 													@endif
-													
+
 												</div>
-												
+
 											</div>
-											
+
 											<div class="clear mb-10"></div>
 
 										</div>
-										
+
 										<div id="course-detail-section-3" class="course-detail-section">
-										
+
 											<div class="section-title mb-20">
 												<h3>نظرات</h3>
 											</div>
-											
+
 											<div class="review-wrapper">
-						
+
 												<div class="review-header">
 
 													<div class="row">
@@ -456,11 +456,11 @@
 														</div>
 
 													</div>
-													
+
 												</div>
-												
+
 												<div class="review-content">
-												
+
 													<ul class="review-list">
 
 														@foreach($course['Reviews'] as $item)
@@ -493,26 +493,26 @@
 															</li>
 														@endforeach
 													</ul>
-												
+
 												</div>
 
 											</div>
 
 											<div class="mt-30 mb-10 text-left">
-											
+
 												<a href="/CourseReview/{{$course['id']}}" class="btn btn-primary btn-sm">نظرات بیشتر</a>
 												<a href="/CourseReview/{{$course['id']}}#review-form" class="btn btn-danger btn-sm anchor">نظرتان را بگذارید</a>
-												
+
 											</div>
-											
+
 										</div>
-										
+
 										<div id="course-detail-section-4" class="course-detail-section">
-										
+
 											<div class="section-title mb-20">
 												<h3>دوره های مرتبط</h3>
 											</div>
-											
+
 											<div class="course-item-wrapper alt-bg-white course-item-wrapper-mmb-45 gap-20">
 
 												<div class="GridLex-grid-noGutter-equalHeight">
@@ -582,41 +582,41 @@
 														@endif
 													@endfor
 												</div>
-												
+
 											</div>
-											
+
 										</div>
-										
+
 									</div>
 
 								</div>
-								
+
 							</div>
 
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 
-				
+
 			</div>
-			
+
 		</div>
 		<!-- end Main Wrapper -->
-		
+
 		<!-- start Footer Wrapper -->
 		<div class="footer-wrapper scrollspy-footer">
-		
+
 			@include('footer')
 
 		</div>
 		<!-- end Footer Wrapper -->
-		
+
 	</div>
 	<!-- end Container Wrapper -->
- 
- 
+
+
 <!-- start Back To Top -->
 <div id="back-to-top">
    <a href="#"><i class="ion-ios-arrow-up"></i></a>
@@ -692,7 +692,7 @@
         }
       })
     }, 100)
-		
+
   })
 
 }(window.jQuery)

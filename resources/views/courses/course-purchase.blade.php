@@ -375,7 +375,7 @@
 
 													<div class="radio-block font-icon-radio">
 														<input id="payments1" name="payments" type="radio" class="radio" value="paymentsCreditCard" />
-														<label class="" for="payments1"><span>بانک ملی</span> <img src="images/payment-credit-cards.jpg" alt="Image"></label>
+														<label class="" for="payments1"><span>پرداخت درون برنامه ای </span> <img src="images/payment-credit-cards.jpg" alt="Image"></label>
 													</div>
 
 												</div>
