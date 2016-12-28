@@ -174,7 +174,7 @@
 
 										<a href="/categories/{{$item['id']}}" class="category-item">
 											<div class="icon">
-												@if(isset($item['icon']))
+												@if(!empty($item['icon']))
 													<?php $image=Config::get('store.storagepath').$item['icon'];?>
 												@else
 													<?php $image='images/category/computing.png';?>
@@ -226,7 +226,7 @@
 									<div class="course-item">
 										<a href="/courses/{{$course['id']}}">
 											<div class="course-item-image">
-												@if(isset($course['image']))
+												@if(!empty($course['image']))
 													<?php $image=Config::get('store.storagepath').$course['image'];?>
 												@else
 													<?php $image='images/course-item/01.jpg';?>
