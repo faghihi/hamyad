@@ -107,7 +107,7 @@
 								<div class="course-list-item-02">
 								
 									<div class="image">
-										@if(isset($course['image']))
+										@if(!empty($course['image']))
 											<?php $image=Config::get('store.storagepath').$course['image'];?>
 										@else
 											<?php $image='/images/course-item/01.jpg';?>

@@ -81,7 +81,7 @@
 				<div class="info clearfix">
 
 					<div class="image">
-						@if(isset($user['image']))
+						@if(!empty($user['image']))
 							<?php $image='/'.$user['image'];?>
 						@else
 							<?php $image='/images/man/01.jpg';?>
@@ -464,7 +464,7 @@
 													<div class="course-item">
 														<a href="/courses/{{$course['id']}}">
 															<div class="course-item-image">
-																@if(isset($course['image']))
+																@if(!empty($course['image']))
 																	<?php $image=Config::get('store.storagepath').$course['image'];?>
 																@else
 																	<?php $image='/images/course-item/01.jpg';?>

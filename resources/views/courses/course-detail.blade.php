@@ -86,7 +86,7 @@
 					<div class="info clearfix">
 
 						<div class="image">
-							@if(isset($course['image']))
+							@if(!empty($course['image']))
 								<?php $image=Config::get('store.storagepath').$course['image'];?>
 							@else
 								<?php $image='/images/course-item/01.jpg';?>
@@ -219,7 +219,7 @@
 											<div class="flex-video mb-40">
 
 												{{--<img class="img-responsive" src="/images/blog/01.jpg">--}}
-												@if(isset($course['image']))
+												@if(!empty($course['image']))
 													<?php $image=Config::get('store.storagepath').$course['image'];?>
 												@else
 													<?php $image='/images/course-item/01.jpg';?>
@@ -371,7 +371,7 @@
 																		<div class="col-xs-12 col-sm-3 col-md-4">
 
 																			<div class="image">
-																				@if(isset($teacher['image']))
+																				@if(!empty($teacher['image']))
 																					<?php $image=Config::get('store.storagepath').$teacher['image'];?>
 																				@else
 																					<?php $image='/images/man/02.jpg';?>
@@ -466,7 +466,7 @@
 														@foreach($course['Reviews'] as $item)
 															<li class="clearfix">
 																<div class="image img-circle">
-																	@if(isset($item['user_image']))
+																	@if(!empty($item['user_image']))
 																		<?php $image='/'.$item['user_image'];?>
 																	@else
 																		<?php $image='/images/course-item/01.jpg';?>
@@ -522,7 +522,7 @@
 																<div class="course-item">
 																	<a href="/courses/{{$course['relate'.$i]['id'] }}">
 																		<div class="course-item-image">
-																			@if(isset($course['relate'.$i]['image']))
+																			@if(!empty($course['relate'.$i]['image']))
 																				<?php $image='/Storage/'.$course['relate'.$i]['image'];?>
 																			@else
 																				<?php $image='/images/course-item/01.jpg';?>

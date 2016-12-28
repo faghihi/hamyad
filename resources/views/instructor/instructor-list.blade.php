@@ -171,7 +171,7 @@
 															<a href="/instructor/{{$teacher['id']}}">
 
 																<div class="image">
-																	@if(isset($teacher['image']))
+																	@if(!empty($teacher['image']))
 																		<?php $image=Config::get('store.storagepath').$teacher['image'];?>
 																	@else
 																		<?php $image='/images/course-item/01.jpg';?>

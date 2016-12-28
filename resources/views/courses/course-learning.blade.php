@@ -276,7 +276,7 @@
 										@for($i=0;$i<=$section['Teacher_count'];$i++)
 										<a href="/instructor/{{$section['Teacher'.$i]['id']}}" class="teacher-item-sm clearfix">
 											<div class="image">
-												@if(isset($section['Teacher'.$i]['image']))
+												@if(!empty($section['Teacher'.$i]['image']))
 													<?php $image=Config::get('store.storagepath').$section['Teacher'.$i]['image'];?>
 												@else
 													<?php $image='/images/course-item/01.jpg';?>

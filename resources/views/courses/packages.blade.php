@@ -208,7 +208,7 @@
 								<div class="GridLex-col-4_sm-12_xs-4_xss-4">
 									<a href="/courses/{{$course['id']}}" target="_blank">
 										<div class="image">
-											@if(isset($course['image']))
+											@if(!empty($course['image']))
 												<?php $image=Config::get('store.storagepath').$course['image'];?>
 											@else
 												<?php $image='/images/course-item/01.jpg';?>

@@ -102,7 +102,7 @@
 										<div class="user-profile-header clearfix">
 									
 											<div class="image">
-												@if(isset($Data['image']))
+												@if(!empty($Data['image']))
 													<?php $image=Config::get('store.storagepath').$Data['image'];?>
 												@else
 													<?php $image='/images/course-item/01.jpg';?>
@@ -240,7 +240,7 @@
 															<div class="course-item">
 																<a href="/courses/{{$course['id']}}">
 																	<div class="course-item-image">
-																		@if(isset($course['image']))
+																		@if(!empty($course['image']))
 																			<?php $image=Config::get('store.storagepath').$course['image'];?>
 																		@else
 																			<?php $image='../images/course-item/01.jpg';?>

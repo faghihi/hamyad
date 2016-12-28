@@ -101,7 +101,7 @@
 										<div class="course-item alt-no-bottom bg-light-02">
 
 											<div class="course-item-image">
-												@if(isset($course['image']))
+												@if(!empty($course['image']))
 													<?php $image=Config::get('store.storagepath').$course['image'];?>
 												@else
 													<?php $image='../images/course-item/01.jpg';?>
@@ -205,7 +205,7 @@
 														@foreach($Data as $item)
 															<li class="clearfix">
 																<div class="image img-circle">
-																	@if(isset($item['user_image']))
+																	@if(!empty($item['user_image']))
 																		<?php $image='/'.$item['user_image'];?>
 																	@else
 																		<?php $image='/images/course-item/01.jpg';?>
