@@ -287,9 +287,9 @@
 																		<p>{{$course['Teachers']}}</p>
 																	</div>
 																	<div class="course-item-bottom clearfix">
-																		<div><i class="fa fa-folder-open-o"></i><span class="block"> Photography </span></div>
-																		<div><i class="fa fa-pencil-square-o"></i><span class="block"> 15 Lessons</span></div>
-																		<div><i class="fa fa-calendar-check-o"></i><span class="block"> 4.5 Hours</span></div>
+																		<div><i class="fa fa-folder-open-o"></i><span class="block">{{$course['category']['name']}}</span></div>
+																		<div><i class="fa fa-pencil-square-o"></i><span class="block">{{$course['sections_count']}} سرفصل</span></div>
+																		<div><i class="fa fa-calendar-check-o"></i><span class="block">{{$course['sections_time']}} دقیقه</span></div>
 																	</div>
 																</a>
 															</div>
@@ -326,7 +326,7 @@
 															@if(empty($course['image']))
 																<?php $image='../images/course/course-item-sm-01.jpg'?>
 															@else
-																<?php $image='../'.$course['image']?>
+																<?php $image=Config::get('store.storagepath').$course['image']?>
 															@endif
 															<img src="{{$image}}" alt="Related Course" />
 														</div>

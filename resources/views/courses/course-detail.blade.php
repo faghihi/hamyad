@@ -523,7 +523,7 @@
 																	<a href="/courses/{{$course['relate'.$i]['id'] }}">
 																		<div class="course-item-image">
 																			@if(!empty($course['relate'.$i]['image']))
-																				<?php $image='/Storage/'.$course['relate'.$i]['image'];?>
+																				<?php $image=Config::get('store.storagepath').$course['relate'.$i]['image'];?>
 																			@else
 																				<?php $image='/images/course-item/01.jpg';?>
 																			@endif
