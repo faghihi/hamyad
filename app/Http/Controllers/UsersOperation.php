@@ -9,7 +9,7 @@ use App\UserFinance;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-
+use Morilog\Jalali\Facades\jDateTime;
 class UsersOperation extends Controller
 {
     // Checking the duplicate of Email on registering
@@ -303,8 +303,8 @@ class UsersOperation extends Controller
         $courses=$user->courses_take;
         $packs=$user->pack_take;
         foreach($packs as $pack){
-            $pack['end']=$pack->pivot->end;
-            $pack['start']=$pack->pivot->start;
+            $pack['end']=jDateTime::strftime('d-m-Y', strtotime($pack->pivot->end));
+            $pack['start']=jDateTime::strftime('d-m-Y', strtotime($pack->pivot->start));
         }
         foreach ($courses as $course){
             $counter11=$course->provider;
