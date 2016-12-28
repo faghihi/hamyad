@@ -350,7 +350,7 @@
 										<div id="course-detail-section-2" class="course-detail-section">
 
 											<div class="section-title mb-20">
-												<h3>About Teacher</h3>
+												<h3>اساتید درس</h3>
 											</div>
 
 											<div class="teacher-item-list-02-wrapper">
