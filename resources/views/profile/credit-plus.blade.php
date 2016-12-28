@@ -152,7 +152,7 @@
 																	<label class="clearfix" for="featured_checkbox-3">
 																		<span class="h6">افزایش ویژه</span>
 																		<span class="p">با 15% هدیه افزایش اعتبار</span>
-																		<span class="price">25 هزار تومان</span>
+																		<span class="price">10 هزار تومان</span>
 																	</label>
 																</div>
 															</div>
@@ -319,7 +319,21 @@
 <script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="js/customs.js"></script>
-
+	<script src="/js/persianumber.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('*').persiaNumber();
+		});
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			var creditly = Creditly.initialize(
+					'.creditly-wrapper .expiration-month-and-year',
+					'.creditly-wrapper .credit-card-number',
+					'.creditly-wrapper .security-code',
+					'.creditly-wrapper .card-type');
+		});
+	</script>
 <script>
 !function ($) {
 
@@ -369,16 +383,6 @@
 
 </script>
 
-
-<script type="text/javascript">
-$(function() {
-	var creditly = Creditly.initialize(
-		'.creditly-wrapper .expiration-month-and-year',
-		'.creditly-wrapper .credit-card-number',
-		'.creditly-wrapper .security-code',
-		'.creditly-wrapper .card-type');
-});
-</script>
 
 </body>
 

@@ -283,6 +283,12 @@
 <script type="text/javascript" src="/js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
 <script type="text/javascript" src="/js/customs.js"></script>
+	<script src="/js/persianumber.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('*').persiaNumber();
+		});
+	</script>
 
 
 </body>

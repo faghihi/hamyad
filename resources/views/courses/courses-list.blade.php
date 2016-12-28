@@ -344,7 +344,12 @@
 			window.location.assign("/Courses/Search?"+str+str1);
 		}
 	</script>
-
+	<script src="/js/persianumber.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('*').persiaNumber();
+		});
+	</script>
 
 </body>
 

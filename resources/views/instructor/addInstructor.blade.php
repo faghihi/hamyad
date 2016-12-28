@@ -349,6 +349,12 @@ google.maps.event.addDomListener(window, 'resize', function() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+	<script src="/js/persianumber.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('*').persiaNumber();
+		});
+	</script>
 
 </body>
 

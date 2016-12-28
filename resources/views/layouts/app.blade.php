@@ -83,5 +83,11 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/persianumber.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('*').persiaNumber();
+        });
+    </script>
 </body>
 </html>

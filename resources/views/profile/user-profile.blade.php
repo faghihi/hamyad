@@ -609,7 +609,6 @@
 	<a href="#"><i class="ion-ios-arrow-up"></i></a>
 </div>
 <!-- end Back To Top -->
-
 <!-- JS -->
 <script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
@@ -641,39 +640,39 @@
 
 		$(function(){
 
-			var $window = $(window)
-			var $body   = $(document.body)
+			var $window = $(window);
+			var $body   = $(document.body);
 
-			var navHeight = $('.navbar').outerHeight(true) + 50
+			var navHeight = $('.navbar').outerHeight(true) + 50;
 
 			$body.scrollspy({
 				target: '.scrollspy-sidebar',
 				offset: navHeight
-			})
+			});
 
 			$window.on('load', function () {
-				$body.scrollspy('refresh')
-			})
+				$body.scrollspy('refresh');
+			});
 
 			$('.scrollspy-container [href=#]').click(function (e) {
-				e.preventDefault()
-			})
+				e.preventDefault();
+			});
 
 			// back to top
 			setTimeout(function () {
-				var $sideBar = $('.scrollspy-sidebar')
+				var $sideBar = $('.scrollspy-sidebar');
 
 				$sideBar.affix({
 					offset: {
 						top: function () {
-							var offsetTop      = $sideBar.offset().top
-							var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
-							var navOuterHeight = $('.scrollspy-nav').height()
+							var offsetTop      = $sideBar.offset().top;
+							var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10);
+							var navOuterHeight = $('.scrollspy-nav').height();
 
-							return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+							return (this.top = offsetTop - navOuterHeight - sideBarMargin);
 						}
 						, bottom: function () {
-							return (this.bottom = $('.scrollspy-footer').outerHeight(true))
+							return (this.bottom = $('.scrollspy-footer').outerHeight(true));
 						}
 					}
 				})
@@ -684,6 +683,12 @@
 	}(window.jQuery)
 
 </script>
+		<script src="/js/persianumber.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('*').persiaNumber();
+			});
+		</script>
 
 </body>
 

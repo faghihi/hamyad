@@ -496,6 +496,12 @@
 }(window.jQuery)
 
 </script>
+	<script src="/js/persianumber.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('*').persiaNumber();
+		});
+	</script>
 
 </body>
 
