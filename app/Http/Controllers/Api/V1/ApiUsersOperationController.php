@@ -61,17 +61,22 @@ class ApiUsersOperationController extends Controller
 
         if (Input::hasFile('image')) {
             $file = array('image' => Input::file('image'));
-            $rules = array('image' => 'required|max:10000|mimes:jpeg,JPEG,PNG,png');
-            $validator = Validator::make($file, $rules);
+            $rules = array('image' => 'required|max:100000|mimes:jpeg,JPEG,PNG,png');
+            $messages=[
+                'image.required'=>'آپلود تصویر اجباری است ',
+                'image.max'=>'حجم فایل بسیار زیاد است ',
+                'image.mimes'=>'فرمت فایل شما ساپورت نمیشود.',
+            ];
+            $validator = Validator::make($file, $rules,$messages);
             if ($validator->fails()) {
                 return $response;
             }
             if (Input::file('image')->isValid()) {
-                $destinationPath = 'uploads/'.$user->id.'/'; // upload path
+                $destinationPath = 'uploads/'.\Auth::id(); // upload path
                 $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111,99999).'.'.$extension; // renameing image
                 Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
-
+                $user=\Auth::user();
                 $user->image=$destinationPath.'/'.$fileName;
                 try{
                     $user->save();

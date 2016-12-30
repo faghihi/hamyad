@@ -10,9 +10,9 @@ Route::group([
     # User cant request a url more than 30 times in 60 seconds.
     function () {
 
-        Route::resource('login', 'ApiLoginController');
+        Route::post('login', 'ApiLoginController@login');
         Route::get('NotAuth','ApiLoginController@Fail');
-        Route::resource('register', 'ApiRegisterController');
+        Route::post('register', 'ApiRegisterController@Register');
         Route::resource('courses', 'ApiCoursesController');
         Route::resource('teachers', 'ApiTeachersController');
         Route::get('Courses/search', 'ApiCoursesController@search');
@@ -37,13 +37,13 @@ Route::group([
         Route::post('Reviews', 'ApiReviewsController@store');
         Route::delete('DelReviews/{review}', 'ApiReviewsController@destroy');
         Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
-        Route::get('Courses/AddCourse/{course}', 'ApiCoursesController@AddCourse');
+        Route::post('Courses/AddCourse/{course}', 'ApiCoursesController@AddCourse');
         Route::post('Packs/AddPack/{pack}', 'ApiPacksController@take');
         Route::post('UserChangePass', 'ApiUsersOperationController@ChangePass');
-        Route::post('UsersUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
+        Route::post('UserUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
         Route::get('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
         Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');
-        Route::get('MyCourse', 'ApiUsersOperationController@RetrieveCourses');
+        Route::get('MyCourses', 'ApiUsersOperationController@RetrieveCourses');
         Route::get('MyFavorite', 'ApiUsersOperationController@RetrieveFavorite');
         Route::get('profile','ApiUsersOperationController@Profile');
     });

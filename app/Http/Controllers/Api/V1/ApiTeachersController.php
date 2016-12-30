@@ -54,9 +54,7 @@ class ApiTeachersController extends Controller
         if(!isset($input['name'])){
             return $response;
         }
-        $i=$input['name'];
-        $teachers=Teacher::where('name','like','%'.$i.'%')->get();
-//        $teachers=Teacher::all();
+        $teachers=Teacher::where('name','like','%'.$input['name'].'%')->get();
         foreach ($teachers as $teacher){
             $teacher['Course_count']=count($teacher->courses);
             $rate_count=0;
@@ -68,6 +66,7 @@ class ApiTeachersController extends Controller
             $teacher['rates_value']=$rate_value;
             $teacher['rates_count']=$rate_count;
         }
-        return $teachers;
+        $response['result']=$teachers;
+        return $response;
     }
 }

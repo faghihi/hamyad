@@ -26,7 +26,7 @@ class ApiRegisterController extends Controller
     {
         $response=['result'=>'0','message'=>''];
         $input=Input::all();
-        if(!$this->CheckEmail($input['Email'])){
+        if(!$this->CheckEmail($input['email'])){
             $response['message']='Repetetive Email';
             return $response;
         }

@@ -53,33 +53,74 @@ class ApiCoursesController extends Controller
             $input['tag'.$tagnumber]=ucfirst($input['tag'.$tagnumber]);
             $tagnumber++;
         }
-        if($tagnumber==0){
-
-            return $response;
-        }
-        else {
-            $response['valid'] = 'true';
-        }
-
         $result=array();
-
         $list=array();
         $list[]=0;
         for($i=0;$i<$tagnumber;$i++){
-
             $courses = Course::whereHas('tags', function ($query)use($input,$i) {
                 $query->where('tag_name', 'like', $input['tag'.$i]);
             })->get();
             foreach ($courses as $course){
 //                echo $course->name." ";
+                $course['Teachers']="";
+                $counter=0;
+                foreach ($course->teachers as $teacher){
+                    if($counter)
+                        $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                    else
+                        $course['Teachers']=$teacher->name;
+                    $counter++;
+                }
+                $rate_count=0;
+                $rate_value=0;
+                foreach ($course->rates as $rate){
+                    $rate_count++;
+                    $rate_value +=$rate->pivot->rate;
+                }
+                $count=0;
+                $time=0;
+                foreach ($course->section as $section){
+                    $count++;
+                    $time+=$section->time;
+                }
+                $course['sections_time']=$time;
+                $course['sections_count']=$count;
+                $course['rates_value']=$rate_value;
+                $course['rates_count']=$rate_count;
+                $counter=$course->category->name;
                 if(!in_array($course->id,$list)){
                     $result[]=$course;
                     $list[]=$course->id;
                 }
             }
         }
-        $response['result'] = $result;
-        return $response;
+        $category_list=array();
+        $catnumber = 0;
+        while (Input::has('cat' . $catnumber)) {
+            $category_list[]=$input['cat'.$catnumber];
+            $catnumber++;
+        }
+        if($tagnumber==0){
+            return $response;
+        }
+        else {
+            $response['valid'] = 'true';
+        }
+        if($catnumber==0)
+        {
+            $response['result'] = $result;
+            return $response;
+        }
+        else {
+            $Data = array();
+            foreach ($result as $item) {
+                if (in_array($item->category->name, $category_list)) {
+                    $Data[] = $item;
+                }
+            }
+            $response['result'] = $Data;
+            return $response;
+        }
     }
 
     public function ShowReviews(Course $course)
@@ -90,7 +131,7 @@ class ApiCoursesController extends Controller
     public function AddCourse(Course $course)
     {
 
-        $number = Input::get('number');
+        $number = Input::get('amount');
         $discount = Input::get('discount');
         $response = ['result' => '0'];
 

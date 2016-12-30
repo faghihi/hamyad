@@ -293,17 +293,11 @@ class CoursesController extends Controller
             $total=count($result);
             $col =$result;
             $perPage = 10;
-//            $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
             $offset = ($currentPage * $perPage) - $perPage;
             $entries = new LengthAwarePaginator(array_slice($result, $offset, $perPage, true), count($col), $perPage, $currentPage,['path' => $request->url(), 'query' => $request->query()]);
             $entries->setPath('/Courses/Search');
             return view('courses.courses-list')->with(['Data'=>$entries,'course_count'=>$total,'Search'=>'1','Tags'=>$tags,'Categories'=>$Categories]);
-//                echo 1;
-//            return $result;
-//            foreach ($result as $k){
-//                echo $k->name.'<br>';
-//            }
-//            print_r($category_list);
+
         }
         else{
             $Data=array();
