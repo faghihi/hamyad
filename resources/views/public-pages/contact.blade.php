@@ -273,8 +273,7 @@
 <script type="text/javascript" src="js/customs.js"></script>
 
 <script src="js/validator.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBffwXmS_tVAquyZs1eB0si8aWNW5CorYk&callback=initMap&sensor=false"
-			type="text/javascript"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBffwXmS_tVAquyZs1eB0si8aWNW5CorYk&sensor=false"></script>
 <script type="text/javascript" src="js/infobox.js"></script>
 
 <script>
