@@ -78,6 +78,7 @@ class TeachersController extends Controller
     public function ShowSpecific(Teacher $teacher)
     {
         $teacher['Course_count']=count($teacher->courses);
+        $teacher['id']=$teacher->id;
         $rate_count=0;
         $rate_value=0;
         foreach ($teacher->rates as $rate){
