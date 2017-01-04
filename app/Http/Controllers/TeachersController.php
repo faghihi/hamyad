@@ -86,7 +86,7 @@ class TeachersController extends Controller
         }
         $teacher['rates_value']=$rate_value;
         $teacher['rates_count']=$rate_count;
-        $key=['name','image','rates_value','rates_count','Course_count','description','background','education','awards','resume_link','phone','email','work_ex'];
+        $key=['id','name','image','rates_value','rates_count','Course_count','description','background','education','awards','resume_link','phone','email','work_ex'];
         foreach ($key as $k){
             $Data[$k]=$teacher[$k];
         }
