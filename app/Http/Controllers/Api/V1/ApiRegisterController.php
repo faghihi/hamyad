@@ -31,7 +31,7 @@ class ApiRegisterController extends Controller
             return $response;
         }
         $rules = array(
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|min:5',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
         );
