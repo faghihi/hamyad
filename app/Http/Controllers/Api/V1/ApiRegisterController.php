@@ -42,6 +42,7 @@ class ApiRegisterController extends Controller
         }
         else{
             if($this->StoreRegister($input)){
+                $response['result']=1;
                 $response['message']='User Created';
                 return $response;
             }

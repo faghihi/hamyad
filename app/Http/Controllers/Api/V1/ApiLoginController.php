@@ -18,13 +18,18 @@ class ApiLoginController extends Controller
         $response = ['result' => '0','message'=>''];
         $email = Input::get('Email');
         $password = Input::get('Password');
-        $condition=['email'=> $email, 'password'=>$password];
+        $condition=['email'=> $email];
         $user=User::where($condition)->first();
         if(is_null($user)){
-            $response['message']='user and pass mismatch';
+            $response['message']='user not exist';
             return $response;
         }
         else{
+            if(!password_verify(Input::get('Password'),$user->password))
+            {
+                $response['message']='username and password mistmatch';
+                return $response;
+            }
             $api_code=str_random(60);
             $user=User::find($user->id);
             $user->api_token=$api_code;
