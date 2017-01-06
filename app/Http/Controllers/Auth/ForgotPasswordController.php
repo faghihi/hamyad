@@ -35,7 +35,11 @@ class ForgotPasswordController extends Controller
 
     public function sendResetLinkEmail(Request $request)
     {
-        $this->validate($request, ['email' => 'required|email']);
+        $messages=[
+            'email.required'=>'ایمیل شما اجباری میباشد',
+            'email.email'=>'فرمت ایمیل صحیح نمیباشد'
+        ];
+        $this->validate($request, ['email' => 'required|email'],$messages);
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
