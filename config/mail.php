@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => 'info@hamyad.net',
-        'name' => 'Reset Password',
+        'name' => 'هم یاد',
     ],
 
     /*

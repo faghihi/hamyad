@@ -44,9 +44,10 @@ class customforgotnotif extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('این ایمیل به دلیل درخواست شما برای تغییر رمز فرستاده شده است . اگر شما این درخواست را نکرده اید به سادگی تنها این ایمیل را نادیده بگیرید.')
-                    ->action('تغییر رمز', url('password/reset', $this->token).'?email='.urlencode($notifiable->email))
-                    ->line('باتشکر از شما!');
+            ->subject('درخواست تغییر رمز')
+            ->line('این ایمیل به دلیل درخواست شما برای تغییر رمز فرستاده شده است . اگر شما این درخواست را نکرده اید به سادگی تنها این ایمیل را نادیده بگیرید.')
+            ->action('تغییر رمز', url('password/reset', $this->token).'?email='.urlencode($notifiable->email))
+            ->line('باتشکر از شما!');
     }
 
     /**
