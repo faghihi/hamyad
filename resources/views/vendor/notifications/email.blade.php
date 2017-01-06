@@ -88,9 +88,9 @@ $style = [
                                                 {{ $greeting }}
                                             @else
                                                 @if ($level == 'error')
-                                                    Whoops!
+                                                    اوه!
                                                 @else
-                                                    Hello!
+                                                   سلام !
                                                 @endif
                                             @endif
                                         </h1>
