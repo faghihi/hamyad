@@ -11,6 +11,10 @@
             .button {
                 width: 100% !important;
             }
+
+            *{
+                direction: rtl;
+            }
         }
     </style>
 </head>
