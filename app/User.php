@@ -4,6 +4,7 @@ namespace App;
 //use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\customforgotnotif as ResetPasswordNotification;
 use Hash;
 use Illuminate\Notifications\Notifiable;
 
@@ -143,6 +144,11 @@ class User extends Authenticatable
     public function finance()
     {
         return $this->hasOne('App\UserFinance');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
 
