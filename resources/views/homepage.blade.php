@@ -392,7 +392,7 @@
 										
 											<div class="image">
 												<div class="image-inner">
-													<img src="images/man/10.jpg" alt="Image" />
+													<img src="images/man/testinomal2.jpg" alt="Image" />
 												</div>
 											</div>
 											
@@ -418,12 +418,12 @@
 										
 											<div class="image">
 												<div class="image-inner">
-													<img src="images/man/10.jpg" alt="Image" />
+													<img src="images/man/testinomal1.jpg" alt="Image" />
 												</div>
 											</div>
 											
 											<div class="name">
-												<h5>اصغر بیچاره</h5>
+												<h5>اصغر حق پرست</h5>
 											</div>
 											
 										</div>
