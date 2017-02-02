@@ -59,7 +59,7 @@
 		<div class="main-wrapper scrollspy-container">
 		
 			<!-- start hero-header -->
-			<div class="hero" style="background-image:url('images/hero-header/01.jpg');">
+			<div class="hero" style="background-image:url('images/header.jpg');">
 			
 				<div class="container">
 				
@@ -298,7 +298,7 @@
 			
 				<div class="GridLex-grid-noGutter-equalHeight">
 				
-					<div class="GridLex-col-6_sm-12_xs-12 bg-img" style="background-image:url('images/hero-header-slider/02.jpg'); background-position: top right">
+					<div class="GridLex-col-6_sm-12_xs-12 bg-img" style="background-image:url('images/Student.jpg'); background-position: top right">
 					
 						<div class="promo-box-03 overlay-danger">
 						
@@ -315,7 +315,7 @@
 						
 					</div>
 
-					<div class="GridLex-col-6_sm-12_xs-12 bg-img" style="background-image:url('images/teacher-bg.jpg'); background-position: top right">
+					<div class="GridLex-col-6_sm-12_xs-12 bg-img" style="background-image:url('images/Prof.jpg'); background-position: top right">
 
 						<div class="promo-box-03 overlay-primary">
 
@@ -582,7 +582,7 @@
 			
 			<!-- start Promo -->
 			
-			<div class="promo-box-bg-img overlay-primary alt-pv" style="background-image:url('images/app-bg.jpg');">
+			<div class="promo-box-bg-img overlay-primary alt-pv" style="background-image:url('images/app.jpg');">
 				<div class="container">
 					<div class="row">
 					
