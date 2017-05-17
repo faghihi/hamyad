@@ -23,6 +23,7 @@ Route::group([
         Route::get('SearchTeacher', 'ApiTeachersController@search');
         Route::get('Index/', 'ApiIndexController@index');
         Route::resource('packs', 'ApiPacksController');
+
 });
 
 Route::group([
@@ -33,7 +34,7 @@ Route::group([
     # User cant request a url more than 30 times in 60 seconds.
     function () {
         Route::get('Sections/{section}', 'ApiSectionsController@show');
-        Route::get('favorite/{section}', 'ApiSectionsController@favorite');
+        Route::post('favorite/{section}', 'ApiSectionsController@favorite');
         Route::post('Reviews', 'ApiReviewsController@store');
         Route::delete('DelReviews/{review}', 'ApiReviewsController@destroy');
         Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
@@ -41,9 +42,10 @@ Route::group([
         Route::post('Packs/AddPack/{pack}', 'ApiPacksController@take');
         Route::post('UserChangePass', 'ApiUsersOperationController@ChangePass');
         Route::post('UserUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
-        Route::get('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
+        Route::post('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
         Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');
         Route::get('MyCourses', 'ApiUsersOperationController@RetrieveCourses');
-        Route::get('MyFavorite', 'ApiUsersOperationController@RetrieveFavorite');
+        Route::get('MyFavorite', 'ApiUsersOperationController@RetrieveBookmarks');
         Route::get('profile','ApiUsersOperationController@Profile');
+        Route::post('AdjustCredit','ApiUsersOperationController@AdjustCredit');
     });

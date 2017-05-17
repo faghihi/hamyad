@@ -164,27 +164,41 @@ class UsersOperation extends Controller
 
     public function RetrieveFaveHelper(User $user)
     {
-        $fav=$user->fav_sections;
-        foreach($fav as $item){
-            $course=$item->courses;
-            $count = 0;
-            foreach ($course->teachers as $teacher) {
-                $section['Teacher' . $count] = $teacher;
-                $count++;
+        $courses=$user->bookmarks;
+        foreach($courses as $course){
+            $counter11=$course->provider;
+            $course['Teachers']="";
+            $counter=0;
+            foreach ($course->teachers as $teacher){
+                if($counter)
+                    $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                else
+                    $course['Teachers']=$teacher->name;
+                $counter++;
             }
-            $item['Teacher_count'] = $count;
+            $counter1=0;
+
             $rate_count=0;
             $rate_value=0;
-            foreach ($item->rates as $rate){
+            foreach ($course->rates as $rate){
                 $rate_count++;
                 $rate_value +=$rate->pivot->rate;
             }
-            $item['rates_value']=$rate_value;
-            $item['rates_count']=$rate_count;
+            $count=0;
+            $time=0;
+            foreach ($course->section as $section){
+                $count++;
+                $time+=$section->time;
+            }
+            $course['sections_time']=$time;
+            $course['sections_count']=$count;
+            $course['rates_value']=$rate_value;
+            $course['rates_count']=$rate_count;
+            $counter=$course->category->name;
 
         }
 
-        return $fav;
+        return $courses;
     }
     public function RetrieveFave()
     {

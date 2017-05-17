@@ -133,4 +133,10 @@ class Course extends Model
         return $this->belongsToMany('App\Pack' ,'pack_courses')
             ->withTimestamps();
     }
+
+    public function bookmarkedby()
+    {
+        return $this->belongsToMany('App\User', 'bookmarks')
+            ->withTimestamps();
+    }
 }

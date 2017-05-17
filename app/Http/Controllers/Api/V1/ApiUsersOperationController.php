@@ -4,6 +4,7 @@ use App\Http\Controllers\UsersOperation;
 use App\Http\Requests\StoreSubscribesRequest;
 use App\Http\Requests\UpdateSubscribesRequest;
 use App\Subscribe;
+use App\UserFinance;
 use Validator;
 use App\User;
 use Illuminate\Http\Request;
@@ -147,7 +148,7 @@ class ApiUsersOperationController extends Controller
         return $user->pack_take;
     }
 
-    public function RetrieveFavorite()
+    public function RetrieveBookmarks()
     {
         $response = ['result' => '0'];
         $n = Input::get('api_token');
@@ -230,6 +231,61 @@ class ApiUsersOperationController extends Controller
         else
         {
             return $amount->amount;
+        }
+    }
+
+    public function HasFinance(User $user)
+    {
+        $amount=$user->finance;
+//        echo $amount;
+        if(is_null($amount))
+        {
+            return -1;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public function AdjustCredit()
+    {
+        $payment=Input::get('payment');
+        $response = ['result' => '0'];
+        $n = Input::get('api_token');
+
+        $user = User::where('api_token', $n)->first();
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
+
+        if($this->HasFinance($user)!=-1)
+        {
+            $finance = User::with('finance')->find($user->id);
+            $finance->finance->amount=$finance->finance->amount+$payment;
+            try{
+                $finance->push();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return $response;
+            }
+            $response['result']=1;
+            return $response;
+        }
+        else
+        {
+            $finance=new UserFinance();
+            $finance->amount=$payment;
+            $finance->user_id=$user->id;
+            try{
+                $finance->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return $response;
+            }
+            $response['result']=1;
+            return $response;
         }
     }
 

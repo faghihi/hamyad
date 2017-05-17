@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\LoginController;
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Input;
 class ApiLoginController extends Controller
 {
 
+    protected $EmailController;
+    public function _construct(EmailController $item)
+    {
+        $this->EmailController=$item;
+    }
     public function login()
     {
         $response = ['result' => '0','message'=>''];
@@ -52,4 +58,18 @@ class ApiLoginController extends Controller
         $response=['result'=>'0','message'=>'authentication Needed'];
         return $response;
     }
+
+    public function PassRenew(){
+        $response=['result'=>0,'message'=>'not a user'];
+        $Email=Input::get('Email');
+        $user=User::where('Email',$Email)->first();
+        if(!is_null($user)){
+            $this->EmailController->send_email(); #TODO fix this problem
+
+        }
+        else{
+            return $response;
+        }
+    }
+
 }

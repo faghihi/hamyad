@@ -76,6 +76,12 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
+    public function bookmarks()
+    {
+        return $this->belongsToMany('App\Course', 'bookmarks')
+            ->withTimestamps();
+    }
+
     /**
      * ManyToMany with Course Table
      * Pivot table is certificate table
