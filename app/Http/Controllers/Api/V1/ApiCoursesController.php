@@ -125,7 +125,21 @@ class ApiCoursesController extends Controller
 
     public function ShowReviews(Course $course)
     {
-        return $this->courses_controller->ShowReviews($course);
+        $reviews=$course->reviews()->where('enable',1)->paginate(5);
+        foreach ($reviews as $review){
+            $user=User::findorfail($review->user_id);
+            $review['user_name']=$user->name;
+            $review['user_image']=$user->image;
+            $varr= json_decode(json_encode($review), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Review'))){
+                    unset($review->$k);
+                }
+            }
+        }
+
+        return $reviews;
     }
 
     public function AddCourse(Course $course)

@@ -17,6 +17,73 @@ class IndexController extends Controller
 {
     //Controling the indexs View's
 
+    public function RetrieveApiData()
+    {
+        $Data=array();
+        $Data['Courses']=array();
+        $courses=Course::orderBy('created_at', 'desc')->get();
+        $counter=0;
+        foreach ($courses as $course){
+            $Data['Courses'][$counter]=$course;
+            $counter++;
+            if($counter==6){
+                break;
+            }
+        }
+
+        foreach ($Data['Courses'] as $course ){
+            $course['Teachers']="";
+            $counter=0;
+            foreach ($course->teachers as $teacher){
+                if($counter)
+                    $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                else
+                    $course['Teachers']=$teacher->name;
+                $counter++;
+            }
+            $rate_count=0;
+            $rate_value=0;
+            foreach ($course->rates as $rate){
+                $rate_count++;
+                $rate_value +=$rate->pivot->rate;
+            }
+            $count=0;
+            $time=0;
+            foreach ($course->section as $section){
+                $count++;
+                $time+=$section->time;
+            }
+            $course['sections_time']=$time;
+            $course['sections_count']=$count;
+            $course['rates_value']=$rate_value;
+            $course['rates_count']=$rate_count;
+            $counter=$course->category->name;
+            $counter=$course->provider;
+            $varr= json_decode(json_encode($course), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Course'))){
+                    unset($course->$k);
+                }
+            }
+        }
+        $Categories=Category::all();
+        $Data['category']=$Categories;
+        foreach ($Categories as $category)
+        {
+            $varr= json_decode(json_encode($category), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Category'))){
+                    unset($category->$k);
+                }
+            }
+        }
+        return $Data;
+
+    }
+
+
     public function RetrieveData()
     {
         $Data=array();
@@ -63,6 +130,24 @@ class IndexController extends Controller
         $Categories=Category::all();
         $Data['category']=$Categories;
         return $Data;
+
+    }
+
+    public function ApiTeachers()
+    {
+        $numberOfRows = 4;
+        $teachers=Teacher::all();
+        $teachers = $teachers->shuffle()->slice(0,$numberOfRows);
+        foreach ($teachers as $t){
+            $varr= json_decode(json_encode($t), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Teacher'))){
+                    unset($t->$k);
+                }
+            }
+        }
+        return $teachers;
 
     }
 

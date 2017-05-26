@@ -55,12 +55,6 @@ class PackController extends Controller
                     $course['Teachers']=$teacher->name;
                 $counter++;
             }
-            $rate_count=0;
-            $rate_value=0;
-            foreach ($course->rates as $rate){
-                $rate_count++;
-                $rate_value +=$rate->pivot->rate;
-            }
             $count=0;
             $time=0;
             foreach ($course->section as $section){
@@ -69,9 +63,31 @@ class PackController extends Controller
             }
             $course['sections_time']=$time;
             $course['sections_count']=$count;
-            $course['rates_value']=$rate_value;
-            $course['rates_count']=$rate_count;
+            $course->provider;
+            foreach ($course['provider'] as $pr)
+            {
+                $varr3= json_decode(json_encode($pr), true);
+                foreach ($varr3 as $k=>$v)
+                {
+                    if(!in_array($k,\Config::get('restrict.Provider'))){
+                        unset($pr->$k);
+                    }
+                }
+            }
             $counter=$course->category->name;
+            $varr= json_decode(json_encode($course), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Course'))){
+                    unset($course->$k);
+                }
+            }
+//            unset($course->category_id);
+//            unset($course->created_at);
+//            unset($course->updated_at);
+//            unset($course->deleted_at);
+//            unset($course->pivot);
+
 
         }
         return $courses;

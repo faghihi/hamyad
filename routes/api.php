@@ -23,6 +23,7 @@ Route::group([
         Route::get('SearchTeacher', 'ApiTeachersController@search');
         Route::get('Index/', 'ApiIndexController@index');
         Route::resource('packs', 'ApiPacksController');
+        Route::post('/configs','ApiConfigController@getconfigs');
 
 });
 

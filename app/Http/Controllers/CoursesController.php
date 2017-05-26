@@ -161,6 +161,190 @@ class CoursesController extends Controller
             $user=User::findorfail($review->user_id);
             $review['user_name']=$user->name;
             $review['user_image']=$user->image;
+            $varr= json_decode(json_encode($review), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Review'))){
+                    unset($review->$k);
+                }
+            }
+        }
+        $course['Reviews']=$reviews;
+
+        foreach ($course['rates'] as $rr)
+        {
+            $varr2= json_decode(json_encode($rr), true);
+            foreach ($varr2 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Rate'))){
+                    unset($rr->$k);
+                }
+            }
+        }
+
+        unset($course->reviews);
+        unset($course->created_at);
+        unset($course->updated_at);
+        unset($course->deleted_at);
+        unset($course->users_take);
+        unset($course->category);
+
+
+        $i=0;
+        $notvalid=["$course->id"];
+        foreach ($course->tags as $tag){
+            foreach ($tag->courses as $item){
+                if(in_array($item->id,$notvalid))
+                {
+                    continue;
+                }
+
+                $i++;
+                $counter11=$item->provider;
+                $item['Teachers']="";
+                $counter=0;
+                foreach ($item->teachers as $teacher){
+                    if($counter)
+                        $item['Teachers']=$item['Teachers'].",".$teacher->name;
+                    else
+                        $item['Teachers']=$teacher->name;
+                    $counter++;
+                }
+                $counter1=0;
+
+                $rate_count=0;
+                $rate_value=0;
+                foreach ($item->rates as $rate){
+                    $rate_count++;
+                    $rate_value +=$rate->pivot->rate;
+                }
+                $count=0;
+                $time=0;
+                foreach ($item->section as $section){
+                    $count++;
+                    $time+=$section->time;
+                }
+                $item['sections_time']=$time;
+                $item['sections_count']=$count;
+                $item['rates_value']=$rate_value;
+                $item['rates_count']=$rate_count;
+                $counter=$item->category->name;
+                $notvalid[]=$item->id;
+                $varr= json_decode(json_encode($item), true);
+                foreach ($varr as $k=>$v)
+                {
+                    if(!in_array($k,\Config::get('restrict.Course'))){
+                        unset($item->$k);
+                    }
+                }
+                $course["relate".$i]=$item;
+            }
+            if($i==3)
+                break;
+        }
+        foreach ($course['teachers'] as $tt){
+            $varr= json_decode(json_encode($tt), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Teacher'))){
+                    unset($tt->$k);
+                }
+            }
+        }
+
+        foreach ($course['section'] as $se)
+        {
+            $varr3= json_decode(json_encode($se), true);
+            foreach ($varr3 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Section'))){
+                    unset($se->$k);
+                }
+            }
+        }
+
+        $course->provider;
+
+        foreach ($course['provider'] as $pr)
+        {
+            $varr3= json_decode(json_encode($pr), true);
+            foreach ($varr3 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Provider'))){
+                    unset($pr->$k);
+                }
+            }
+        }
+
+        foreach ($course['tags'] as $ta)
+        {
+            $varr3= json_decode(json_encode($ta), true);
+            foreach ($varr3 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Tag'))){
+                    unset($ta->$k);
+                }
+            }
+        }
+
+        #testing the result
+//        print_r($course);
+        return $course;
+    }
+
+    public function show(Course $course)
+
+    {
+        $course['Teachers']="";
+        $counter=0;
+        foreach ($course->teachers as $teacher){
+            if($counter)
+                $course['Teachers']=$course['Teachers'].",".$teacher->name;
+            else
+                $course['Teachers']=$teacher->name;
+            $counter++;
+        }
+        $rate_count=0;
+        $rate_value=0;
+        foreach ($course->rates as $rate){
+            $rate_count++;
+            $rate_value +=$rate->pivot->rate;
+        }
+        $intro=$course->section()->where('part','0')->first();
+        if(is_null($intro)){
+            $course['intro']="nothing";
+        }
+        else {
+            $course['intro']=$intro;
+        }
+        $count=0;
+        $time=0;
+        foreach ($course->section as $section){
+            $count++;
+            $time+=$section->time;
+        }
+        $std_count=0;
+        foreach ($course->users_take as $user){
+            $std_count++;
+        }
+        $course['std_count']=$std_count;
+        $course['sections_time']=$time;
+        $course['sections_count']=$count;
+        $course['rates_value']=$rate_value;
+        $course['rates_count']=$rate_count;
+        $course['Category']=$course->category->name;
+        $reviewss=$course->reviews->where('enable',1);
+        $r_count=0;
+        $reviews=array();
+        while($r_count<5 && $r_count < count($reviewss))
+        {
+            $reviews[]=$reviewss[$r_count];
+            $r_count++;
+        }
+        foreach ($reviews as $review){
+            $user=User::findorfail($review->user_id);
+            $review['user_name']=$user->name;
+            $review['user_image']=$user->image;
         }
         $course['Reviews']=$reviews;
 
@@ -209,18 +393,7 @@ class CoursesController extends Controller
             if($i==3)
                 break;
         }
-
-        #testing the result
-//        print_r($course);
-        return $course;
-    }
-
-    public function show(Course $course)
-
-    {
-        $Data=$this->ShowSpecificCourse($course);
-//        return $Data;
-        return view('courses.course-detail')->with('course',$Data);
+        return view('courses.course-detail')->with('course',$course);
 
     }
 
