@@ -22,9 +22,17 @@ return [
     'Tag'=>[
         'id','tag_name'
     ],
-
     'Provider'=>[
         'id','name'
+    ],
+    'User'=>[
+        'id','name','email','image','activated','phone'
+        ],
+    'MyPack'=>[
+        'id','title','image','description','price_day','price_month','price_year','end','start'
+    ],
+    'Pack'=>[
+        'id','title','image','description','price_day','price_month','price_year'
     ],
 
 ];

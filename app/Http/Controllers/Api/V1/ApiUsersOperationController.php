@@ -207,12 +207,47 @@ class ApiUsersOperationController extends Controller
             $course['rates_value']=$rate_value;
             $course['rates_count']=$rate_count;
             $counter=$course->category->name;
+            $course->provider;
+            foreach ($course['provider'] as $pr)
+            {
+                $varr3= json_decode(json_encode($pr), true);
+                foreach ($varr3 as $k=>$v)
+                {
+                    if(!in_array($k,\Config::get('restrict.Provider'))){
+                        unset($pr->$k);
+                    }
+                }
+            }
+            $varr3= json_decode(json_encode($course), true);
+            foreach ($varr3 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Course'))){
+                    unset($course->$k);
+                }
+            }
         }
         $finance=$this->Finance($user);
 
         $response['result']=1;
         $response['Finance']=$finance;
+
+        $varr3= json_decode(json_encode($user), true);
+        foreach ($varr3 as $k=>$v)
+        {
+            if(!in_array($k,\Config::get('restrict.User'))){
+                unset($user->$k);
+            }
+        }
         $response['user']=$user;
+        foreach ($packs as $pack){
+            $varr3= json_decode(json_encode($pack), true);
+            foreach ($varr3 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.MyPack'))){
+                    unset($pack->$k);
+                }
+            }
+        }
         $response['Packs']=$packs;
         $response['Courses']=$courses;
 

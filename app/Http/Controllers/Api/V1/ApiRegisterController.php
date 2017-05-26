@@ -34,10 +34,11 @@ class ApiRegisterController extends Controller
             'name' => 'required|max:255|min:5',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
+            'phone'=>'required|min:12|max:12'
         );
         $validator = Validator::make($input, $rules);
         if($validator->fails()){
-            $response['message']='email or name or pass not sufficient';
+            $response['message']='email or name or phone or pass not sufficient';
             return $response;
         }
         else{
@@ -56,7 +57,7 @@ class ApiRegisterController extends Controller
     public function StoreRegister($input)
     {
         $user=new User();
-        $key=['name','email','password'];
+        $key=['name','email','password','phone'];
         foreach ($key as $k){
             $user->$k=$input[$k];
             $user->activated=1;

@@ -18,7 +18,15 @@ class PackController extends Controller
         foreach ($packs as $pack){
             $pack->count_courses=count($pack->courses);
         }
-
+        foreach ($packs as $pack){
+            $varr3= json_decode(json_encode($pack), true);
+            foreach ($varr3 as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.MyPack'))){
+                    unset($pack->$k);
+                }
+            }
+        }
         return $packs;
     }
     public function index()
