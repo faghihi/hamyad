@@ -11,7 +11,7 @@ return [
     |
     |
     */
-    'storagepath' =>'http://localhost:7000/storage',
-//     'storagepath' =>'http://admin.hamyad.net/storage',
+//    'storagepath' =>'http://localhost:7000/storage',
+     'storagepath' =>'http://admin.hamyad.net/storage',
 
     ];
