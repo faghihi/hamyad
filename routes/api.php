@@ -35,7 +35,7 @@ Route::group([
     # User cant request a url more than 30 times in 60 seconds.
     function () {
         Route::get('Sections/{section}', 'ApiSectionsController@show');
-        Route::post('favorite/{course}', 'ApiCoursesController@AddFave');
+        Route::post('addfavorite/{course}', 'ApiCoursesController@AddFave');
         Route::post('Reviews', 'ApiReviewsController@store');
         Route::delete('DelReviews/{review}', 'ApiReviewsController@destroy');
         Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
