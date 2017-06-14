@@ -182,6 +182,10 @@ return [
 
         Illuminate\Notifications\NotificationServiceProvider::class,
 
+        /* Generate auto Api Doc */
+//        Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
+        
+
     ],
 
     /*
