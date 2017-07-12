@@ -84,7 +84,6 @@ function CheckNewPass() {
     else {
         $('#errorpsw').show();
         // $("#changePass").removeAttribute('disabled');
-        alert('salam');
         $('#changePass').prop("disabled", false);
         return false;
     }

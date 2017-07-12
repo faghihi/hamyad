@@ -17,7 +17,7 @@ return [
         'id','name','email','pivot'
     ],
     'Section'=>[
-        'id','name','image','description','part','time'
+        'id','name','image','description','part','time','link'
     ],
     'Tag'=>[
         'id','tag_name'
