@@ -171,4 +171,23 @@ class ApiCoursesController extends Controller
         return $response;
     }
 
+    public function AddFave(Course $course)
+    {
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        $response = ['result' => '0'];
+
+        try {
+            $user->bookmarks()->attach($course->id);
+        }
+
+        catch ( \Illuminate\Database\QueryException $e){
+
+            return $response;
+        }
+        $response['result'] = 1;
+        return $response;
+    }
+
 }

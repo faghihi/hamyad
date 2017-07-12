@@ -43,24 +43,5 @@ class ApiSectionsController extends Controller
         }
     }
 
-    public function favorite(Section $favorite)
-    {
-        $n = Input::get('api_token');
-        $user = User::where('api_token', $n)->first();
 
-        $response = ['result' => '0'];
-
-        try {
-            $user->fav_sections()->attach($favorite->id);
-        }
-
-        catch ( \Illuminate\Database\QueryException $e){
-
-            return $response;
-        }
-        $response['result'] = 1;
-        return $response;
-    }
-
-    #TODO reviews catch
 }
