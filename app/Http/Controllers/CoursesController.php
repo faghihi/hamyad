@@ -128,7 +128,7 @@ class CoursesController extends Controller
         }
         $intro=$course->section()->where('part','0')->first();
         if(is_null($intro)){
-            $course['intro']="nothing";
+            $course['intro']=null;
         }
         else {
             $course['intro']=$intro;
