@@ -57,7 +57,7 @@ class ApiCoursesController extends Controller
         $list=array();
         $list[]=0;
         for($i=0;$i<$tagnumber;$i++){
-            $courses = Course::whereHas('tags', function ($query)use($input,$i) {
+            $courses = Course::where('condition','1')->whereHas('tags', function ($query)use($input,$i) {
                 $query->where('tag_name', 'like', $input['tag'.$i]);
             })->get();
             foreach ($courses as $course){
@@ -145,8 +145,10 @@ class ApiCoursesController extends Controller
     public function AddCourse(Course $course)
     {
 
-        $number = Input::get('amount');
-        $discount = Input::get('discount');
+//        $number = Input::get('amount');
+        $number = 0;
+//        $discount = Input::get('discount');
+        $discount = null;
         $response = ['result' => '0'];
 
         $n = Input::get('api_token');
@@ -155,16 +157,46 @@ class ApiCoursesController extends Controller
         if (is_null($user)){
             return $response;
         }
-
-
-
         try {
             $user->courses_take()->attach($course->id , ['paid' => $number, 'discount_used' => $discount]);
+            $user->courses_process()->attach($course->id , ['section_passed' =>0, 'closed' => false]);
+
+        }
+        catch ( \Illuminate\Database\QueryException $e){
+            return $response;
         }
 
-        catch ( \Illuminate\Database\QueryException $e){
+        $response['result'] = 1;
+        return $response;
+    }
 
+    public function UpdateProgressCourse(Course $course)
+    {
+        $response = ['result' => '0'];
+        $section = Input::get('section');
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        if (is_null($user)){
             return $response;
+        }
+
+        if(count($course->section)<=$section+1){
+            try {
+                $user->courses_process()->updateExistingPivot($course->id , ['section_passed' =>count($course->section)-1, 'closed' => true]);
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return $response;
+            }
+        }
+        else{
+            try {
+                $user->courses_process()->updateExistingPivot($course->id , ['section_passed' =>$section, 'closed' => false]);
+
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return $response;
+            }
         }
 
         $response['result'] = 1;
@@ -180,6 +212,24 @@ class ApiCoursesController extends Controller
 
         try {
             $user->bookmarks()->attach($course->id);
+        }
+
+        catch ( \Illuminate\Database\QueryException $e){
+
+            return $response;
+        }
+        $response['result'] = 1;
+        return $response;
+    }
+    public function Like(Course $course)
+    {
+        $n = Input::get('api_token');
+        $user = User::where('api_token', $n)->first();
+
+        $response = ['result' => '0'];
+
+        try {
+            $user->likes()->attach($course->id);
         }
 
         catch ( \Illuminate\Database\QueryException $e){

@@ -30,7 +30,7 @@ class CoursesController extends Controller
 
     public function RetrieveCourses()
     {
-        $courses = Course::all();
+        $courses = Course::where('condition',1)->get();
         foreach ($courses as $course){
             $counter11=$course->provider;
             $course['Teachers']="";

@@ -20,18 +20,10 @@ class IndexController extends Controller
     public function RetrieveApiData()
     {
         $Data=array();
-        $Data['Courses']=array();
-        $courses=Course::orderBy('created_at', 'desc')->get();
-        $counter=0;
-        foreach ($courses as $course){
-            $Data['Courses'][$counter]=$course;
-            $counter++;
-            if($counter==6){
-                break;
-            }
-        }
+        $Data['Latest']=array();
+        $Data['Latest']=Course::where('condition','=','1')->orderBy('created_at', 'desc')->get()->slice(0,6);
 
-        foreach ($Data['Courses'] as $course ){
+        foreach ($Data['Latest'] as $course ){
             $course['Teachers']="";
             $counter=0;
             foreach ($course->teachers as $teacher){
@@ -67,6 +59,87 @@ class IndexController extends Controller
                 }
             }
         }
+
+        $Data['Popular']=array();
+        $courses_p=Course::where('condition','=','1')->get()->sortByDesc('likes_number')->slice(0,6);
+        $Data['Popular']=$courses_p->values()->all();
+        foreach ($Data['Popular'] as $course ){
+            $course['Teachers']="";
+            $counter=0;
+            foreach ($course->teachers as $teacher){
+                if($counter)
+                    $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                else
+                    $course['Teachers']=$teacher->name;
+                $counter++;
+            }
+            $rate_count=0;
+            $rate_value=0;
+            foreach ($course->rates as $rate){
+                $rate_count++;
+                $rate_value +=$rate->pivot->rate;
+            }
+            $count=0;
+            $time=0;
+            foreach ($course->section as $section){
+                $count++;
+                $time+=$section->time;
+            }
+            $course['sections_time']=$time;
+            $course['sections_count']=$count;
+            $course['rates_value']=$rate_value;
+            $course['rates_count']=$rate_count;
+            $counter=$course->category->name;
+            $counter=$course->provider;
+            $varr= json_decode(json_encode($course), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Course'))){
+                    unset($course->$k);
+                }
+            }
+        }
+
+        $Data['Soon']=array();
+        $courses_s=Course::where('condition',2)->get()->slice(0.6);
+        $Data['Soon']=$courses_s;
+        foreach ($Data['Soon'] as $course ){
+            $course['Teachers']="";
+            $counter=0;
+            foreach ($course->teachers as $teacher){
+                if($counter)
+                    $course['Teachers']=$course['Teachers'].",".$teacher->name;
+                else
+                    $course['Teachers']=$teacher->name;
+                $counter++;
+            }
+            $rate_count=0;
+            $rate_value=0;
+            foreach ($course->rates as $rate){
+                $rate_count++;
+                $rate_value +=$rate->pivot->rate;
+            }
+            $count=0;
+            $time=0;
+            foreach ($course->section as $section){
+                $count++;
+                $time+=$section->time;
+            }
+            $course['sections_time']=$time;
+            $course['sections_count']=$count;
+            $course['rates_value']=$rate_value;
+            $course['rates_count']=$rate_count;
+            $counter=$course->category->name;
+            $counter=$course->provider;
+            $varr= json_decode(json_encode($course), true);
+            foreach ($varr as $k=>$v)
+            {
+                if(!in_array($k,\Config::get('restrict.Course'))){
+                    unset($course->$k);
+                }
+            }
+        }
+
         $Categories=Category::all();
         $Data['category']=$Categories;
         foreach ($Categories as $category)

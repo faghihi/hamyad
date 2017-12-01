@@ -157,6 +157,19 @@ class User extends Authenticatable
         $this->notify(new ResetPasswordNotification($token));
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany('App\Course', 'courses_likes','user_id','course_id')
+            ->withTimestamps();
+    }
+
+    public function courses_process()
+    {
+        return $this->belongsToMany('App\Course', 'courses_pass')
+            ->withPivot('section_passed','closed')
+            ->withTimestamps();
+    }
+
 
 
 }

@@ -122,9 +122,9 @@ class ApiUsersOperationController extends Controller
             return $response;
     }
 
-    public function RetrieveCourses()
+    public function RetrieveOpenCourses()
     {
-        $response = ['result' => '0'];
+        $response = ['result' => '0','courses'=>null];
         $n = Input::get('api_token');
 
         $user = User::where('api_token', $n)->first();
@@ -132,7 +132,23 @@ class ApiUsersOperationController extends Controller
             $user=User::find($user->id);
         else
             return $response;
-        return $this->usersOperation_controller->RetriveCourseHelper($user);
+        $response['result']=1;
+        $response['courses']= $this->usersOperation_controller->RetriveCourseHelper($user);
+        return $response;
+    }
+    public function RetrieveClosedCourses()
+    {
+        $response = ['result' => '0','courses'=>null];
+        $n = Input::get('api_token');
+
+        $user = User::where('api_token', $n)->first();
+        if(!is_null($user))
+            $user=User::find($user->id);
+        else
+            return $response;
+        $response['result']=1;
+        $response['courses']= $this->usersOperation_controller->RetriveClosedCourseHelper($user);
+        return $response;
     }
 
     public function RetrieveMyPack()

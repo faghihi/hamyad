@@ -8,7 +8,7 @@ Route::group([
     'middleware' => ['throttle:30,1'],
     'as' => 'api.'],
     # User cant request a url more than 30 times in 60 seconds.
-    function () {
+    function () {//
 
         Route::post('login', 'ApiLoginController@login');
         Route::get('NotAuth','ApiLoginController@Fail');
@@ -36,16 +36,19 @@ Route::group([
     function () {
         Route::get('Sections/{section}', 'ApiSectionsController@show');
         Route::post('addfavorite/{course}', 'ApiCoursesController@AddFave');
+        Route::post('like/{course}', 'ApiCoursesController@Like');
         Route::post('Reviews', 'ApiReviewsController@store');
         Route::delete('DelReviews/{review}', 'ApiReviewsController@destroy');
         Route::get('TeachersRate/{teacher}', 'ApiTeachersController@rate');
         Route::post('Courses/AddCourse/{course}', 'ApiCoursesController@AddCourse');
+        Route::post('Courses/UpdateCourse/{course}', 'ApiCoursesController@UpdateProgressCourse');
         Route::post('Packs/AddPack/{pack}', 'ApiPacksController@take');
         Route::post('UserChangePass', 'ApiUsersOperationController@ChangePass');
         Route::post('UserUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
         Route::post('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
         Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');
-        Route::get('MyCourses', 'ApiUsersOperationController@RetrieveCourses');
+        Route::get('MyOpenCourses', 'ApiUsersOperationController@RetrieveOpenCourses');
+        Route::get('MyClosedCourses', 'ApiUsersOperationController@RetrieveClosedCourses');
         Route::get('MyFavorite', 'ApiUsersOperationController@RetrieveBookmarks');
         Route::get('profile','ApiUsersOperationController@Profile');
         Route::post('AdjustCredit','ApiUsersOperationController@AdjustCredit');

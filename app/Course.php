@@ -139,4 +139,24 @@ class Course extends Model
         return $this->belongsToMany('App\User', 'bookmarks')
             ->withTimestamps();
     }
+    public function likes()
+    {
+        return $this->belongsToMany('App\User', 'courses_likes','course_id','user_id')
+            ->withTimestamps();
+    }
+
+    public function getLikesNumberAttribute()
+    {
+        return $this->likes()->count();
+    }
+
+    public function courses_process()
+    {
+        return $this->belongsToMany('App\User', 'courses_pass')
+            ->withPivot('section_passed','closed')
+            ->withTimestamps();
+    }
+
+
+    protected $appends=['likes_number'];
 }

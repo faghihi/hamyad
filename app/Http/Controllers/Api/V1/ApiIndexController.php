@@ -27,6 +27,6 @@ class ApiIndexController extends Controller
 
         $restore['teacher'] = $this->index_controller->ApiTeachers();
 
-        return $restore;
+        return json_encode($restore,true);
     }
 }

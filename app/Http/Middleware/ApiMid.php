@@ -10,13 +10,12 @@ class ApiMid
 {
     public function handle($request, Closure $next)
     {
-
         $n = Input::get('api_token');
         $user = User::where('api_token', $n)->first();
+        #TODO:check access from Vas operator
         if(!is_null($user))
             return $next($request);
         else
             return redirect('/api/v1/NotAuth');
-
     }
 }

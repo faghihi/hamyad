@@ -30,12 +30,19 @@ return [
         'relate3',
         'category',
         'section',
-        'sections'
+        'sections',
+        'likes_number',
+        'condition'
     ],
     'section_key_private'=>[
         'id',
         'name',
         ''
     ],
+    'conditions_status'=>[
+        0=>'not active',
+        1=>'active',
+        2=>'coming soon',
+    ]
 
 ];

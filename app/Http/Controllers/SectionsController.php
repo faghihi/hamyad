@@ -96,15 +96,15 @@ class SectionsController extends Controller
     public function CheckAccess(User $user,Section $section)
     {
         $hasCourse = $user->courses_take()->where('courses.id', $section->course_id)->exists();
-        $packs=$user->pack_take;
-        foreach ($packs as $pack){
-            $courses=$pack->courses;
-            foreach ($courses as $course){
-                if($course->id==$section->course_id){
-                    return 1;
-                }
-            }
-        }
+//        $packs=$user->pack_take;
+//        foreach ($packs as $pack){
+//            $courses=$pack->courses;
+//            foreach ($courses as $course){
+//                if($course->id==$section->course_id){
+//                    return 1;
+//                }
+//            }
+//        }
         return $hasCourse;
     }
 }
