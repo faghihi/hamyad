@@ -53,6 +53,40 @@ class ApiLoginController extends Controller
         return $response;
     }
 
+    public function Vaslogin()
+    {
+        $response = ['result' => '0','message'=>''];
+        $phone = Input::get('Phone');
+        $password = Input::get('Password');
+        $condition=['phone'=> $phone];
+        $user=User::where($condition)->first();
+        if(is_null($user)){
+            $response['message']='user not exist';
+            return $response;
+        }
+        else{
+            if(!password_verify(Input::get('Password'),$user->password))
+            {
+                $response['message']='username and password mistmatch';
+                return $response;
+            }
+            $api_code=str_random(60);
+            $user=User::find($user->id);
+            $user->api_token=$api_code;
+            try{
+                $user->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                $response['message']='Token Not Created';
+                return $response;
+            }
+            $response['Token']=$api_code;
+            $response['message']='successful Login';
+            $response['result']='1';
+        }
+        return $response;
+    }
+
     public function Fail()
     {
         $response=['result'=>'0','message'=>'authentication Needed'];
@@ -65,7 +99,6 @@ class ApiLoginController extends Controller
         $user=User::where('Email',$Email)->first();
         if(!is_null($user)){
             $this->EmailController->send_email(); #TODO fix this problem
-
         }
         else{
             return $response;

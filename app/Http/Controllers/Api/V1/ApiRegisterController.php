@@ -13,9 +13,9 @@ use App\ActivationService;
 
 class ApiRegisterController extends Controller
 {
-    public function CheckEmail($email)
+    public function CheckEmail($phone)
     {
-        $user=User::where('email',$email)->first();
+        $user=User::where('phone',$phone)->first();
         if(!is_null($user))
         {
             return 0;
@@ -54,10 +54,39 @@ class ApiRegisterController extends Controller
         }
     }
 
+    public function VasRegister()
+    {
+        $response=['result'=>'0','message'=>''];
+        $input=Input::all();
+        if(!$this->CheckEmail($input['Phone'])){
+            $response['message']='Repetetive Phone';
+            return $response;
+        }
+        $rules = array(
+            'phone'=>'required|min:12|max:12'
+        );
+        $validator = Validator::make($input, $rules);
+        if($validator->fails()){
+            $response['message']=' phone not sufficient';
+            return $response;
+        }
+        else{
+            if($this->StoreRegister($input)){
+                $response['result']=1;
+                $response['message']='User Created';
+                return $response;
+            }
+            else{
+                $response['message']='unable to create user';
+                return $response;
+            }
+        }
+    }
+
     public function StoreRegister($input)
     {
         $user=new User();
-        $key=['name','email','password','phone'];
+        $key=['phone'];
         foreach ($key as $k){
             $user->$k=$input[$k];
             $user->activated=1;
@@ -69,5 +98,23 @@ class ApiRegisterController extends Controller
             return 0;
         }
         return 1;
+    }
+
+    public function setpassword()
+    {
+        $phone=Input::get('phone');
+        $user=User::where('phone',$phone)->first();
+        if($user){
+            $user->password=bcrypt(Input::get('password'));
+            try{
+                $user->save();
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                return 0;
+            }
+            return 1;
+        }
+        return 0;
+
     }
 }
