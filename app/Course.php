@@ -157,6 +157,18 @@ class Course extends Model
             ->withTimestamps();
     }
 
+    public function files()
+    {
+        return $this->hasMany('App\CourseFile');
+    }
 
-    protected $appends=['likes_number'];
+    public function getDataFilesAttribute()
+    {
+        return $this->files();
+    }
+
+
+    protected $appends=['likes_number','data_files'];
+
+    protected $hidden=['files'];
 }
