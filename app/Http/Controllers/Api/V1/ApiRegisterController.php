@@ -13,7 +13,7 @@ use App\ActivationService;
 
 class ApiRegisterController extends Controller
 {
-    public function CheckEmail($phone)
+    public function CheckPhone($phone)
     {
         $user=User::where('phone',$phone)->first();
         if(!is_null($user))
@@ -58,12 +58,12 @@ class ApiRegisterController extends Controller
     {
         $response=['result'=>'0','message'=>''];
         $input=Input::all();
-        if(!$this->CheckEmail($input['Phone'])){
+        if(!$this->CheckPhone($input['phone'])){
             $response['message']='Repetetive Phone';
             return $response;
         }
         $rules = array(
-            'phone'=>'required|min:12|max:12'
+            'phone'=>'required|min:11|max:11'
         );
         $validator = Validator::make($input, $rules);
         if($validator->fails()){
@@ -74,6 +74,17 @@ class ApiRegisterController extends Controller
             if($this->StoreRegister($input)){
                 $response['result']=1;
                 $response['message']='User Created';
+                $api_code=str_random(60);
+                $user=User::where('phone',$input['phone'])->first();
+                $user->api_token=$api_code;
+                try{
+                    $user->save();
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    $response['error_message']='Token Not Created';
+                    return $response;
+                }
+                $response['Token']=$api_code;
                 return $response;
             }
             else{
@@ -95,26 +106,37 @@ class ApiRegisterController extends Controller
             $user->save();
         }
         catch ( \Illuminate\Database\QueryException $e){
+            \Log::error('database problem has happend : '. $e );
             return 0;
         }
         return 1;
     }
 
-    public function setpassword()
+    public function setpassword(Request $request)
     {
+        $response=['result'=>'0','message'=>'not successful'];
         $phone=Input::get('phone');
         $user=User::where('phone',$phone)->first();
-        if($user){
-            $user->password=bcrypt(Input::get('password'));
-            try{
-                $user->save();
+        if($user && $request->has('api_token') && $request->has('password')){
+            if($user->api_token == $request->get('api_token')){
+                $user->password=bcrypt($request->get('password'));
+                try{
+                    $user->save();
+                }
+                catch ( \Illuminate\Database\QueryException $e){
+                    $response['error']='database error for password change';
+                    return $response;
+                }
+                $response['result']=1;
+                $response['message']='successfully Done';
+                return $response;
             }
-            catch ( \Illuminate\Database\QueryException $e){
-                return 0;
-            }
-            return 1;
+            \Log::error('api token sent : ' . $request->get('api_token'));
+            \Log::error('api token existed : ' . $user->api_token);
+            $response['error']='api token not valid';
+            return $response;
         }
-        return 0;
-
+        $response['error']='user or api token not correctly provided';
+        return $response;
     }
 }

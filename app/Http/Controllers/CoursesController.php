@@ -56,6 +56,11 @@ class CoursesController extends Controller
                 $count++;
                 $time+=$section->time;
             }
+            $std_count=0;
+            foreach ($course->users_take as $user){
+                $std_count++;
+            }
+            $course['std_count']=$std_count;
             $course['sections_time']=$time;
             $course['sections_count']=$count;
             $course['rates_value']=$rate_value;

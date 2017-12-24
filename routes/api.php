@@ -10,9 +10,9 @@ Route::group([
     # User cant request a url more than 30 times in 60 seconds.
     function () {//
 
-        Route::post('login', 'ApiLoginController@login');
+        Route::post('login', 'ApiLoginController@Vaslogin');
         Route::get('NotAuth','ApiLoginController@Fail');
-        Route::post('register', 'ApiRegisterController@Register');
+        Route::post('register', 'ApiRegisterController@VasRegister');
         Route::resource('courses', 'ApiCoursesController');
         Route::resource('teachers', 'ApiTeachersController');
         Route::get('Courses/search', 'ApiCoursesController@search');
@@ -44,6 +44,7 @@ Route::group([
         Route::post('Courses/UpdateCourse/{course}', 'ApiCoursesController@UpdateProgressCourse');
         Route::post('Packs/AddPack/{pack}', 'ApiPacksController@take');
         Route::post('UserChangePass', 'ApiUsersOperationController@ChangePass');
+        Route::post('UserSetPass', 'ApiRegisterController@setpassword');
         Route::post('UserUploadPhoto', 'ApiUsersOperationController@UploadPhoto');
         Route::post('UsersChangeInfo', 'ApiUsersOperationController@ChangeInfo');
         Route::get('MyPack', 'ApiUsersOperationController@RetrieveMyPack');

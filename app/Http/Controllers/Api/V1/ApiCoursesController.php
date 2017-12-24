@@ -36,9 +36,41 @@ class ApiCoursesController extends Controller
 
     }
 
-    public function show(Course $course)
+    public function show(Course $course,Request $request)
     {
-        return $this->courses_controller->ShowSpecificCourse($course);
+        $response['result']=1;
+        $course = $this->courses_controller->ShowSpecificCourse($course);
+        if($request->has('api_token')){
+            $n = Input::get('api_token');
+            $user = User::where('api_token', $n)->first();
+            if (is_null($user)){
+                $response['result']=0;
+                $response['message']='user not found';
+                return $response;
+            }
+            if($user->courses_process()->where('courses.id',$course->id)->first()){
+                $course['section_passed']=$user->courses_process()->where('courses.id',$course->id)->first()->pivot->section_passed;
+                $course['closed']=$user->courses_process()->where('courses.id',$course->id)->first()->pivot->closed;
+            }
+            else{
+                $course['section_passed']=-1;
+                $course['closed']=0;
+            }
+            if($user->likes()->where('course_id',$course->id)->first()){
+                $course['liked']=1;
+            }
+            else{
+                $course['liked']=0;
+            }
+            if($user->bookmarks()->where('course_id',$course->id)->first()){
+                $course['bookmarked']=1;
+            }
+            else{
+                $course['bookmarked']=0;
+            }
+        }
+        $response['data']=$course;
+        return $response;
     }
 
     public function search()
@@ -233,7 +265,7 @@ class ApiCoursesController extends Controller
         }
 
         catch ( \Illuminate\Database\QueryException $e){
-
+            \Log::error('like error : '. $e);
             return $response;
         }
         $response['result'] = 1;
