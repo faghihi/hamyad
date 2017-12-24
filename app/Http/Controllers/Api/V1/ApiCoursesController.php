@@ -110,6 +110,11 @@ class ApiCoursesController extends Controller
                     $rate_value +=$rate->pivot->rate;
                 }
                 $count=0;
+                $std_count=0;
+                foreach ($course->users_take as $user){
+                    $std_count++;
+                }
+                $course['std_count']=$std_count;
                 $time=0;
                 foreach ($course->section as $section){
                     $count++;
