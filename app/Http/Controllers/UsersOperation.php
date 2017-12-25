@@ -116,7 +116,7 @@ class UsersOperation extends Controller
 
     public function RetriveCourseHelper(User $user)
     {
-        $courses=$user->courses_process()->wherePivot('closed','=','0');
+        $courses=$user->courses_process()->wherePivot('closed','=','0')->get();
         foreach ($courses as $course){
             $course_condition=$user->courses_process()->where('courses.id',$course->id)->first();
             $counter11=$course->provider;
@@ -159,7 +159,7 @@ class UsersOperation extends Controller
 
     public function RetriveClosedCourseHelper(User $user)
     {
-        $courses=$user->courses_process()->wherePivot('closed','=','1');
+        $courses=$user->courses_process()->wherePivot('closed','=','1')->get();
         foreach ($courses as $course){
             $counter11=$course->provider;
             $course['Teachers']="";
