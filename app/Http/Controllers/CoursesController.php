@@ -154,14 +154,7 @@ class CoursesController extends Controller
         $course['rates_value']=$rate_value;
         $course['rates_count']=$rate_count;
         $course['Category']=$course->category->name;
-        $reviewss=$course->reviews->where('enable',1);
-        $r_count=0;
-        $reviews=array();
-        while($r_count<5 && $r_count < count($reviewss))
-        {
-            $reviews[]=$reviewss[$r_count];
-            $r_count++;
-        }
+        $reviews=$course->reviews->where('enable',1);
         foreach ($reviews as $review){
             $user=User::findorfail($review->user_id);
             $review['user_name']=$user->name;
