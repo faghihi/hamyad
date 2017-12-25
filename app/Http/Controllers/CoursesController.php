@@ -122,7 +122,7 @@ class CoursesController extends Controller
             if($counter)
                 $course['Teachers']=$course['Teachers'].",".$teacher->name;
             else
-                $course['Teachers']=$teacher->name;
+                $course['Teachers']=$teacher;
             $counter++;
         }
         $rate_count=0;
