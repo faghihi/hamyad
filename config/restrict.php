@@ -5,7 +5,7 @@ return [
         'id','image','name','price','Teachers','sections_time','provider'
     ],
     'Teacher'=>[
-        'id','image','name'
+        'id','image','name','description'
     ],
     'Category'=>[
         'id','name','icon','description'
