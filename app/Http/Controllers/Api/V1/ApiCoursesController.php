@@ -246,15 +246,28 @@ class ApiCoursesController extends Controller
         $user = User::where('api_token', $n)->first();
 
         $response = ['result' => '0'];
+        if($user->bookmarks()->where('courses.id',$course->id)->first()){
+            try {
+                $user->bookmarks()->detach($course->id);
+            }
 
-        try {
-            $user->bookmarks()->attach($course->id);
+            catch ( \Illuminate\Database\QueryException $e){
+                return $response;
+            }
+            $response['message']='detached';
+        }
+        else{
+            try {
+                $user->bookmarks()->attach($course->id);
+            }
+
+            catch ( \Illuminate\Database\QueryException $e){
+
+                return $response;
+            }
+            $response['message']='attached';
         }
 
-        catch ( \Illuminate\Database\QueryException $e){
-
-            return $response;
-        }
         $response['result'] = 1;
         return $response;
     }
@@ -264,14 +277,26 @@ class ApiCoursesController extends Controller
         $user = User::where('api_token', $n)->first();
 
         $response = ['result' => '0'];
-
-        try {
-            $user->likes()->attach($course->id);
+        if($user->likes()->where('courses.id',$course->id)->first()){
+            try {
+                $user->likes()->detach($course->id);
+            }
+            catch ( \Illuminate\Database\QueryException $e){
+                \Log::error('like error : '. $e);
+                return $response;
+            }
+            $response['message']='detached';
         }
+        else{
+            try {
+                $user->likes()->attach($course->id);
+            }
 
-        catch ( \Illuminate\Database\QueryException $e){
-            \Log::error('like error : '. $e);
-            return $response;
+            catch ( \Illuminate\Database\QueryException $e){
+                \Log::error('like error : '. $e);
+                return $response;
+            }
+            $response['message']='attached';
         }
         $response['result'] = 1;
         return $response;
