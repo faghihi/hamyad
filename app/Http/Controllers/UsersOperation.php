@@ -152,7 +152,7 @@ class UsersOperation extends Controller
             $course['rates_count']=$rate_count;
             $counter=$course->category->name;
             $course['section_passed']=$course_condition->pivot->section_passed;
-            $course['percentage_passed']=($course['section_passed']+1/count($course->section))*100;
+            $course['percentage_passed']=($course['section_passed']+1/$course['sections_count'])*100;
         }
         return $courses;
     }

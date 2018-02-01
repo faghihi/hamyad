@@ -188,11 +188,7 @@ class ApiUsersOperationController extends Controller
         else
             return $response;
         $courses=$user->courses_take;
-        $packs=$user->pack_take;
-        foreach($packs as $pack){
-            $pack['end']=$pack->pivot->end;
-            $pack['start']=$pack->pivot->start;
-        }
+
         foreach ($courses as $course){
             $counter11=$course->provider;
             $course['Teachers']="";
@@ -255,16 +251,6 @@ class ApiUsersOperationController extends Controller
             }
         }
         $response['user']=$user;
-        foreach ($packs as $pack){
-            $varr3= json_decode(json_encode($pack), true);
-            foreach ($varr3 as $k=>$v)
-            {
-                if(!in_array($k,\Config::get('restrict.MyPack'))){
-                    unset($pack->$k);
-                }
-            }
-        }
-        $response['Packs']=$packs;
         $response['Courses']=$courses;
 
         return $response;
