@@ -11,8 +11,10 @@ Route::group([
     function () {//
 
         Route::post('login', 'ApiLoginController@Vaslogin');
+        Route::post('login/notvas', 'ApiLoginController@login');
         Route::get('NotAuth','ApiLoginController@Fail');
         Route::post('register', 'ApiRegisterController@VasRegister');
+        Route::post('register/notvas', 'ApiRegisterController@Register');
         Route::resource('courses', 'ApiCoursesController');
         Route::resource('teachers', 'ApiTeachersController');
         Route::get('Courses/search', 'ApiCoursesController@search');
